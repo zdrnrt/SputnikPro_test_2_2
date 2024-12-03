@@ -1,0 +1,38 @@
+<div class="summaryPlan_container">
+     
+    <label for="summaryPlan_forecast">Итого прогноз</label>
+    <select id="summaryPlan_forecast">
+        <option value="option1">регулярный ассортимент</option>
+        <option value="option2">промо</option>
+        <option value="option3">новинки</option>
+    </select>
+
+    <div class="summaryPlan_cannibalization" >
+    <label for="summaryPlan_cannibalization">Учёт каннибализации</label>
+    <input type="checkbox" id="summaryPlan_cannibalization">
+</div>
+
+    <div class="summaryPlan_calculate">
+        <button id="summaryPlan_calculateForecastButton">Рассчитать прогноз</button>
+        <select id="summaryPlan_scenario">
+            <option value="option1">сценарий 1</option>
+            <option value="option2">сценарий 2</option>
+            <option value="option3">сценарий 3</option>
+        </select>
+    </div>
+    <button id="summaryPlan_optimizeButton">Оптимизировать</button>
+</div>
+
+ 
+<section class="summaryPlan__preview">
+    <div class="summaryPlan__results">
+        <button onclick="tb_summaryPlan__results()"  id="summaryPlan_resultsButton">Итоги</button>
+        <iframe  id="tb_summaryPlan_results" src=""></iframe>
+    </div>
+    <div class="summaryPlan__chart">
+        <button onclick="tb_summaryPlan__chart()"  id="summaryPlan_chartButton">Chart</button>
+        <iframe  id="tb_summaryPlan_chart" src=""></iframe>
+        </section>
+    </div>
+    
+        <button  id="summaryPlan_exportButton">Экспорт данных</button>
