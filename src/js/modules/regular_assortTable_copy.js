@@ -1,4 +1,8 @@
 
+// import regular_ra_moving_average from 'src/assets/test_forecast_csv.csv';
+// import regular_ra_weighted_average from '/src/assets/test_forecast_csv.csv';
+// import regular_ra_linear_regression from '/src/assets/test_forecast_csv.csv';
+
 export default window.tbRegAssortButton = function() {
        // Получаем выбранный метод прогнозирования
        const methodSelect = document.getElementById('regular_assort_method');
@@ -7,11 +11,11 @@ export default window.tbRegAssortButton = function() {
        // Определяем путь к CSV-файлу в зависимости от выбранного метода
        let csvFilePath;
        if (selectedMethod === 'ra_moving_average') {
-           csvFilePath = './public/images/demo_file/test_forecast_csv.csv';
+           csvFilePath = 'src/assets/test_forecast_csv.csv';
        } else if (selectedMethod === 'ra_weighted_average') {
-           csvFilePath = './public/images/demo_file/test_forecast_csv2.csv';
+           csvFilePath = 'src/assets/test_forecast_csv2.csv';
        } else if (selectedMethod === 'ra_linear_regression') {
-        csvFilePath = './public/images/demo_file/test_forecast_csv3.csv';
+        csvFilePath = 'src/assets/test_forecast_csv3.csv';
     }
        else {
            // Можно добавить дополнительные условия для других методов
