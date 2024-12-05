@@ -1,21 +1,15 @@
 
-
-
-// import regular_ra_moving_average from 'src/assets/test_forecast_csv.csv';
-// import regular_ra_weighted_average from './src/docs/test_forecast_csv.csv';
-// import regular_ra_multiple_regression from '/data/test_forecast_csv2.csv';
-
 export default window.tbRegAssortButton = function() {
     const methodSelect = document.getElementById('regular_assort_method');
     const selectedMethod = methodSelect.value;
 
     let csvFilePath;
     if (selectedMethod === 'ra_moving_average') {
-        csvFilePath = './public/images/demo_file/test_forecast_csv.csv'; 
+        csvFilePath = './images/demo_file/test_forecast_csv.csv'; 
     } else if (selectedMethod === 'ra_weighted_average') {
-        csvFilePath = '/public/images/demo_file/test_forecast_csv.csv'; 
+        csvFilePath = './images/demo_file/test_forecast_csv2.csv'; 
     } else if (selectedMethod === 'ra_linear_regression') {
-        csvFilePath = '/data/test_forecast_csv2.csv'; 
+        csvFilePath = './images/demo_file/test_forecast_csv3.csv'; 
     } else if (selectedMethod === 'ra_multiple_regression') {
         csvFilePath = './images/demo_file/test_forecast_csv.csv';
     } else {
