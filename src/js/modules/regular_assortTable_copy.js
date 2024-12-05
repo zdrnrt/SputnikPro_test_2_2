@@ -1,28 +1,44 @@
 
+
+
 // import regular_ra_moving_average from 'src/assets/test_forecast_csv.csv';
-// import regular_ra_weighted_average from '/src/assets/test_forecast_csv.csv';
-// import regular_ra_linear_regression from '/src/assets/test_forecast_csv.csv';
+// import regular_ra_weighted_average from './src/docs/test_forecast_csv.csv';
+// import regular_ra_multiple_regression from '/data/test_forecast_csv2.csv';
 
 export default window.tbRegAssortButton = function() {
-       // Получаем выбранный метод прогнозирования
-       const methodSelect = document.getElementById('regular_assort_method');
-       const selectedMethod = methodSelect.value;
-   
-       // Определяем путь к CSV-файлу в зависимости от выбранного метода
-       let csvFilePath;
-       if (selectedMethod === 'ra_moving_average') {
-           csvFilePath = 'src/assets/test_forecast_csv.csv';
-       } else if (selectedMethod === 'ra_weighted_average') {
-           csvFilePath = 'src/assets/test_forecast_csv2.csv';
-       } else if (selectedMethod === 'ra_linear_regression') {
-        csvFilePath = 'src/assets/test_forecast_csv3.csv';
+    const methodSelect = document.getElementById('regular_assort_method');
+    const selectedMethod = methodSelect.value;
+
+    let csvFilePath;
+    if (selectedMethod === 'ra_moving_average') {
+        csvFilePath = './public/images/demo_file/test_forecast_csv.csv'; 
+    } else if (selectedMethod === 'ra_weighted_average') {
+        csvFilePath = '/public/images/demo_file/test_forecast_csv.csv'; 
+    } else if (selectedMethod === 'ra_linear_regression') {
+        csvFilePath = '/data/test_forecast_csv2.csv'; 
+    } else if (selectedMethod === 'ra_multiple_regression') {
+        csvFilePath = './images/demo_file/test_forecast_csv.csv';
+    } else {
+        console.warn('Неизвестный метод прогнозирования:', selectedMethod);
+        return; // Выход из функции, если метод не распознан
     }
-       else {
-           // Можно добавить дополнительные условия для других методов
-           console.warn('Неизвестный метод прогнозирования:', selectedMethod);
-           return; // Выход из функции, если метод не распознан
-       }
-   
+
+    // Загружаем CSV-файл
+    // fetch(csvFilePath)
+    //     .then(response => {
+    //         if (!response.ok) {
+    //             throw new Error('Сетевой ответ не OK');
+    //         }
+    //         return response.text();
+    //     })
+    //     .then(data => {
+    //         console.log('Данные CSV:');
+    //         // Здесь  обработать данные  console.log('Данные CSV:', data);
+    //     })
+    //     .catch(error => {
+    //         console.error('Ошибка при загрузке CSV:', error);
+    //     });
+
 
     Papa.parse(csvFilePath, {
         download: true,

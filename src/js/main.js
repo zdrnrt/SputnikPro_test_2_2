@@ -1,3 +1,5 @@
+
+
 import check_mark from "./modules/check_mark.js";
 import showContent_listing from "./modules/listing.js";
 import showContent_newProducts from "./modules/new_products.js";
@@ -10,6 +12,7 @@ import tb_regular_assort__results from "./modules/regular_assortTable.js";
 import tb_regular_assort__chart from "./modules/regular_assortChart.js";
 import howContent_summaryPlan from "./modules/summary_plan.js";
 import tbRegAssortButton from "./modules/regular_assortTable_copy.js";
+// import regular_ra_multiple_regression from '/data/test_forecast_csv2.csv';
 // новый сайд бар
 var floatSubMenuTimeout, targetFloatMenu, handleSlimScroll = function() {
     "use strict";
