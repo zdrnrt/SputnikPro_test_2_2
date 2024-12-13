@@ -1,19 +1,13 @@
 
-export default window.tbRegAssortButton = function() {
-    const methodSelect = document.getElementById('regular_assort_method');
+export default window.tbSeasonalityPreview = function() {
+    const methodSelect = document.getElementById('seasonality_method');
     const selectedMethod = methodSelect.value;
 
     let csvFilePath;
-    if (selectedMethod === 'ra_moving_average') {
+    if (selectedMethod === 'fluctuation_trend') {
         csvFilePath = './images/demo_file/test_forecast_csv.csv'; 
-    } else if (selectedMethod === 'ra_not_selected') {
-        csvFilePath = './images/demo_file/test_forecast_csv_nf.csv'; 
-    } else if (selectedMethod === 'ra_weighted_average') {
+    } else if (selectedMethod === 'fluctuation_average') {
         csvFilePath = './images/demo_file/test_forecast_csv2.csv'; 
-    } else if (selectedMethod === 'ra_linear_regression') {
-        csvFilePath = './images/demo_file/test_forecast_csv3.csv'; 
-    } else if (selectedMethod === 'ra_multiple_regression') {
-        csvFilePath = './images/demo_file/test_forecast_csv.csv';
     } else {
         console.warn('Неизвестный метод прогнозирования:', selectedMethod);
         return; // Выход из функции, если метод не распознан
@@ -40,7 +34,7 @@ export default window.tbRegAssortButton = function() {
         download: true,
         header: true,
         complete: function(results) {
-            const iframe = document.getElementById('tb_regular_assort_results');
+            const iframe = document.getElementById('tb_seasonality');
             const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
 
             // Очищаем содержимое iframe
@@ -61,7 +55,7 @@ export default window.tbRegAssortButton = function() {
                             font-size: 12px;
                         }
                         th {
-                            background-color: #4CAF50; /* Цвет фона заголовков */
+                            background-color:  rgb(163, 210, 242); /* Цвет фона заголовков */
                             font-size: 14px;
                             color: white; /* Цвет текста заголовков */
                             padding: 10px;

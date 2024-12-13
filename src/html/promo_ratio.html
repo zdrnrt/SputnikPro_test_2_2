@@ -1,56 +1,77 @@
-<div class="promoRatio_container">
-     
-    <label for="promoRatio_section">Разрез коэффициентов</label>
-    <select id="promoRatio_section">
-        <option value="option1">механика акции</option>
-        <option value="option2">scu</option>
-        <option value="option3">группы</option>
-        <option value="option4">ABC</option>
-        <option value="option5">XYZ</option>
-        <option value="option5">ценовой сегмент</option>
+<div class="promoRatio_contaier">
+    
+    <section class="promoRatio_aggregate">
+    <label for="promoRatio_time">Агрегат по времени</label>
+    <select id="promoRatio_time">
+        <option value="option2">День</option>
+        <option value="option1">Неделя</option>
+        <option value="option2">Месяц</option>
+        <option value="option2">Квартал</option>
     </select>
 
-    <div class="promoRatio_smoothing" >
-    <label for="promoRatio_smoothing">Сглаживание</label>
-    <input type="checkbox" id="promoRatio_smoothing">
-</div>
+    <label for="promoRatio_geography">Агрегат по географии</label>
+    <select id="promoRatio_geography">
+        <option value="option2">Все</option>
+        <option value="option1">Страна</option>
+        <option value="option2">Регион/option>
+        <option value="option2">Город</option>
+        <option value="option2">Магазин</option>
+    </select>
 
+    <label for="promoRatio_groupSCU">По группе SCU</label>
+    <select id="promoRatio_groupSCU">
+        <option value="option2">Группа1</option>
+        <option value="option1">Группа2</option>
+        <option value="option2">Группа3</option>
+        <option value="option2">Группа4</option>
+        <option value="option2">Группа5</option>
+    </select>
 
-<!-- ползунок
- <form>
-    <div class="slider-container">
-        <input type="range" id="numberRange" min="0" max="100" value="50" step="1" oninput="this.nextElementSibling.value = this.value">
-        <output>50</output>
-    </div>
-    <button type="submit">Отправить</button>
-</form> -->
+    <label for="promoRatio_other-indicators">Дополнительные показатели</label>
+    <select id="promoRatio_other-indicators">
+        <option value="option1">ABC</option>
+        <option value="option2">XYZ</option>
+        <option value="option3">Ценовой сегмент</option>
+        <option value="option4">Механика акции</option>
+    </select>
+</section>
 
-    <div class="promoRatio_calculate">
-        <button id="promoRatio_calculateButton">Рассчитать</button>
-        <select id="promoRatio_scenario">
-            <option value="option1">сценарий 1</option>
-            <option value="option2">сценарий 2</option>
-            <option value="option3">сценарий 3</option>
-        </select>
-    </div>
+<section class = "promoRatio_calculation">
+    <label for="promoRatio_method">Метод агрегации</label>
+    <select id="promoRatio_method">
+        <option value="promoRatio_method_average">средняя</option>
+        <option value="promoRatio_method_mediana">медиана</option>
+    </select>
 
-    <div class="promoRatio_exportImportButton">
-    <button id="promoRatio_exportButton">Экспорт</button>
-    <button id="promoRatio_importButton">Импорт</button>
-</div>
+    <label for="promoRatio_season-smooth">Сглаживание</label>
+    <input type="checkbox" id="promoRatio_season-smooth">
 
-</div>
+    <button id="promoRatio__calculateForecastButton">Рассчитать прогноз</button>
+    <select id="promoRatio_scenario">
+        <option value="option0">сохранить прежние настройки</option>
+        <option value="option1">сценарий 1</option>
+        <option value="option2">сценарий 2</option>
+        <option value="option3">сценарий 3</option>
+    </select>
 
- 
-<section class="promoRatio__preview">
-    <div class="promoRatio__results">
-        <button onclick="tb_promoRatio__results()"  id="promoRatio_resultsButton">Итоги</button>
-        <iframe  id="tb_promoRatio_results" src=""></iframe>
-    </div>
-    <div class="promoRatio__chart">
-        <button onclick="tb_promoRatio__chart()"  id="promoRatio_chartButton">Chart</button>
-        <iframe  id="tb_promoRatio_chart" src=""></iframe>
-        </section>
-    </div>
     
-        <button  id="promoRatio_exportButton">Экспорт данных</button>
+    <button  id="promoRatio_exportButton">Экспорт данных</button>
+
+    <button  id="promoRatio_importButton">Импорт данных</button>
+</section><!-- <label for="promoRatio_date-creation">Дата создания</label>
+    <input type="date" id="action_date-creation" name="action_date-creation" required min="2024-11-14"> -->
+
+    <!-- кнопка сохранить -->
+
+    <button id="promoRatio_saveButton">Сохранить изменения</button>
+
+      <!-- кнопка скачать шаблон
+    <button id="promoRatio_action_templateButton">Скачать шаблон</button> -->
+
+     <!-- кнопка загрузить-->
+    <button onclick="tbPromoRatioPerviewButton()" id="promoRatio_previewButton">Preview</button>
+</div>
+
+<iframe  id="tb_promoRatio" src="" width="1300" height="400"></iframe>
+ 
+

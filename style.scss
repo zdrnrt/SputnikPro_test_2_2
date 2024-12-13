@@ -11,6 +11,7 @@
 @import "./src/scss/blocks/new_products.scss";
 @import "./src/scss/blocks/summary_plan.scss";
 @import "./src/scss/blocks/promo_ratio.scss";
+@import "./src/scss/blocks/regular_assort_OptimizModal.scss";
 
 @import url("https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css");
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.1/css/all.min.css");
@@ -19,7 +20,8 @@ body {
   
   margin-top: 20px;
 //   padding: 0;
-  background: #d9e0e7;
+//   background: #d9e0e7;
+background: white;
   font-size: 14px;
   font-family: 'Open Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #707478;
@@ -79,31 +81,29 @@ button{
     border-radius: 50px;
   }
 }
-
 .main {
-  // margin-left: 220px;
-  // padding: 20px;
-  height: 100vh;
-  width: 90vw;
+    // background: #d9e0e7;
+  height: fit-content;
+  width: fit-content;
   border-radius: 15px;
   margin-left:1%;
   margin-bottom: 20px;
 }
 
 .content {
-  border: 1px solid #ccc;
-  background-color: white;
+//   border: 1px solid #0e0b0b;
+background: #ffffff;
   height: 100vh;
   margin-top: 20px;
   margin-left: 220px;
   padding: 20px 30px;
-  width: 88%;
-  @media (min-width: 1920px) {
-   width: 1670px;
-  }
-  @media (min-width: 2130px) {
-    width: 1860px;
-   }
+  width: 100%;
+//   @media (min-width: 1920px) {
+//    width: 1425px;
+//   }
+//   @media (min-width: 2560px) {
+//     width: 1625px;
+//    }
 }
 
 
@@ -585,6 +585,7 @@ table.dataTable thead .sorting_desc_disabled:after {
 .sidebar,
 .sidebar-bg {
     background: #2d353c;
+    // background: $primary-color;
     width: 220px;
     left: 0;
     top: 125px; /*отступ всей боковой панели*/
@@ -1669,5 +1670,6 @@ table.dataTable thead .sorting_desc_disabled:after {
     // text-decoration: underline;
     // text-decoration-color: #ffffff;
     border: 1px white solid;
+    border-right: 0;
     // color: #62180b;
 }

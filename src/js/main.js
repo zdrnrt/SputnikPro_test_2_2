@@ -8,10 +8,15 @@ import showContent_outputAssort from "./modules/output_assort.js";
 import showContent_tender from "./modules/tender.js";
 import showContent_priceChange from "./modules/price_change.js";
 import showContent_promoRatio from "./modules/promo_ratio.js";
-import tb_regular_assort__results from "./modules/regular_assortTable.js";
+// import tb_regular_assort__results from "./modules/regular_assortTable.js";
 import tb_regular_assort__chart from "./modules/regular_assortChart.js";
 import howContent_summaryPlan from "./modules/summary_plan.js";
 import tbRegAssortButton from "./modules/regular_assortTable_copy.js";
+import tbSeasonalityPreview from "./modules/seasonality_previewTable.js";
+import tbPromoRatioPerviewButton from "./modules/promoRatio_previewButton.js";
+import {tbRegAssortOptimizationButton} from "./modules/regular_assortOptimizationForm.js";
+import { ra_closeModalButton, ra_saveButton} from "./modules/regular_assortOptimizationForm.js";
+
 // import regular_ra_multiple_regression from '/data/test_forecast_csv2.csv';
 // новый сайд бар
 var floatSubMenuTimeout, targetFloatMenu, handleSlimScroll = function() {
@@ -393,10 +398,10 @@ window.showContent_promo = function() {
 
 
 /*вставка картинки*/
-window.tb_seasonality = function(){
-  const imageUrl = 'https://avatars.dzeninfra.ru/get-zen_doc/3445317/pub_615a8e1687bd902369c1e59c_615a99021c6451628b2b5664/scale_1200';
-  document.getElementById('tb_seasonality').src = imageUrl;
-}
+// window.tb_seasonality = function(){
+//   const imageUrl = 'https://avatars.dzeninfra.ru/get-zen_doc/3445317/pub_615a8e1687bd902369c1e59c_615a99021c6451628b2b5664/scale_1200';
+//   document.getElementById('tb_seasonality').src = imageUrl;
+// }
 /*вставка картинки*/
 
 

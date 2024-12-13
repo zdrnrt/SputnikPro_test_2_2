@@ -1,6 +1,45 @@
 
     <div class="regular_assort_container">
-        
+
+        <section class="regular_assort__aggregation-wrapper">
+            <p class = "regular_assort__aggregation-title">Агрегация выходных данных</p>
+    
+            <div class="regular_assort__aggregation"> 
+            <label for="regular_assort__aggregation-time">Агрегат по времени</label>
+            <select id="regular_assort__aggregation-time">
+                <option value="option1">день</option>
+                <option value="option2">неделя</option>
+                <option value="option3">квартал</option>
+                <option value="option4">месяц</option>
+            </select>
+    
+            <label for="regular_assort__aggregation-geo">Агрегат по географии</label>
+            <select id="regular_assort__aggregation-geo">
+                <option value="option1">не установлено</option>
+                <option value="option2">страна</option>
+                <option value="option3">регион</option>
+                <option value="option4">город</option>
+                <option value="option5">магазин</option>
+            </select>
+    
+            <label for="regular_assort__aggregation-group">Агрегат по группам</label>
+            <select id="regular_assort__aggregation-group">
+                <option value="option1">не установлено</option>
+                <option value="option2">группа1</option>
+                <option value="option3">группа2</option>
+                <option value="option4">группа3</option>
+                <option value="option5">группа4</option>
+            </select>
+    
+            <label for="regular_assort__aggregation-scu">Агрегат по SCU</label>
+            <select id="regular_assort__aggregation-scu">
+                <option value="option1">не установлено</option>
+                <option value="option2">SCU</option>
+            </select>
+        </div>
+        </section>
+
+        <section class="regular_assort__forecast-wrapper">
         <label for="regular_assort_method">Метод прогнозирования</label>
         <select id="regular_assort_method">
             <option value="ra_not_selected">не выбрано</option>
@@ -29,25 +68,40 @@
         <div class="regular_assort_calculate">
         <button id="regular_assort__calculateForecastButton">Рассчитать прогноз</button>
         <select id="regular_assort_scenario">
+            <option value="option0">сохранить текущие настройки</option>
             <option value="option1">сценарий 1</option>
             <option value="option2">сценарий 2</option>
             <option value="option3">сценарий 3</option>
         </select>
+        </div>
+
+        <button onclick="tbRegAssortOptimizationButton()" id="regular_assort__optimizeButton">Оптимизировать</button>
+        <button id="regular_assort__exportButton">Экспорт</button>
     </div>
-        <button id="regular_assort_optimizeButton">Оптимизировать</button>
-    </div>
-    
+</section>
     
     <section class="regular_assort__preview">
-<div class="regular_assort__results">
-    <button onclick="tbRegAssortButton()"  id="regular_assort_resultsButton">Preview</button>
-    <iframe  id="tb_regular_assort_results" src=""></iframe>
-</div>
+        <div class="regular_assort__results">
+            <button onclick="tbRegAssortButton()"  id="regular_assort_resultsButton">Preview</button>
+            <iframe  id="tb_regular_assort_results" src=""></iframe>
+        </div>
+    </section>
 
 <!-- <div class="regular_assort__chart">
     <button onclick="tb_regular_assort__chart()"  id="regular_assort_chartButton">Chart</button>
     <iframe  id="tb_regular_assort_chart" src="" width="80%" height="200"></iframe>
-    </section>
+    
 </div> -->
-
-    <button  id="regular_assort_exportButton">Экспорт данных</button>
+<div id="modal">
+    <div id="modalContent">
+        <h5 class="modal_title">Выберите параметры оптимизации:</h5>
+        <label><input type="checkbox" name="option1"> Метод прогнозирования</label><br>
+        <label><input type="checkbox" name="option2"> Очистка от OOS</label><br>
+        <label><input type="checkbox" name="option3"> Очистка от промо</label><br>
+        <label><input type="checkbox" name="option4"> Очистка от сезонности</label><br>
+        <label><input type="checkbox" name="option5"> Очистка от всплесков</label><br>
+        <label><input type="checkbox" name="option6"> Восстановление</label><br>
+        <button onclick="ra_saveButton()" id="ra_saveButton">Сохранить</button>
+        <button onclick="ra_closeModalButton()" id="ra_closeModalButton">Закрыть</button>
+    </div>
+</div>

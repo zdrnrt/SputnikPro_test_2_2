@@ -1,48 +1,72 @@
 .regular_assort_container{
     display: grid;
-    grid-template-columns: repeat(2, 300px);
-    grid-template-rows: repeat(7, auto);
-    gap: 10px;
-    padding-left: 40px; 
+    grid-template-columns: repeat(2, 400px);
+    column-gap: 50px;
+    // padding-left: 40px; 
     padding-top: 20px;
     // width: 800px;
-}
-
-#regular_assort__calculateForecastButton{
-width: 200px;
-background-color: coral;
-border-radius: 5px;
-height: 40px;
-grid-column: span 2;
-margin-left: 10%;
-margin-top: 15px;
-}
-.regular_assort_calculate{
-    grid-column: span 2;
-    display: flex;
-    align-items: center;
-    #regular_assort_scenario{
-        margin-left: 20px;
-        height: 30px;
+    .regular_assort__forecast-wrapper{
+        display: grid;
+        grid-template-columns: repeat(2, auto); /* 2 столбца */
+        grid-template-rows: repeat(5, auto);
+        gap: 12px;
+        .regular_assort_calculate{
+            grid-column: span 2;
+            #regular_assort_scenario{
+                margin-left: 10px;
+                width: 240px;
+                height: 30px;
+            }
+        }
+        #regular_assort__calculateForecastButton, #regular_assort__optimizeButton, #regular_assort__exportButton{
+            width: 200px;
+            height: 40px;
+            &:hover{
+                background-color: $hover-button;
+            }
+        }
+       
     }
 }
 
-#regular_assort_exportButton,#regular_assort_resultsButton,#regular_assort_chartButton, #regular_assort_optimizeButton{
-    width: 150px;
-    grid-column: span 2;
-    margin: 5px;
-    margin-top: 20px;
-    border-radius: 5px;
-    height: 30px;
+.regular_assort__aggregation-wrapper{
+   
+    border: 1px $frame_color2 solid;
+    width: 400px;
+    padding: 8px;
+    // border-radius: 5px;
+    .regular_assort__aggregation-title{
+        margin-left: 23%;
+        font-weight: 700;
+    }
+    .regular_assort__aggregation{
+        display: grid;
+        grid-template-columns: repeat(2, auto); /* 2 столбца */
+        grid-template-rows: repeat(4, auto);
+        gap: 12px;
+    }
 }
+  
+
+
 
 .regular_assort__preview{
-    display:flex;
+    display: flex;
     flex-direction: column;
     margin-top: 20px;
     .regular_assort__results{
         display: flex;
         flex-direction: column;
+        #regular_assort_resultsButton{
+            width: 200px;
+            height: 40px;
+            margin: 10px;
+            background-color: $button_preview_color;
+            margin-left: 70%;
+            &:hover{
+                background-color: $hover-button;
+            }
+        }
         #tb_regular_assort_results{
             width: 1300px;
             height: 350px;

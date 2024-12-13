@@ -1,5 +1,35 @@
+<p>************НА ДОРАБОТКЕ***************</p>
 <div class="promo_container">
-     
+    <section class="promo_aggregate">
+        <label for="promo_time">Агрегат по времени</label>
+        <select id="promo_time">
+            <option value="option2">День</option>
+            <option value="option1">Неделя</option>
+            <option value="option2">Месяц</option>
+            <option value="option2">Квартал</option>
+        </select>
+    
+        <label for="promo_geography">Агрегат по географии</label>
+        <select id="promo_geography">
+            <option value="option2">Все</option>
+            <option value="option1">Страна</option>
+            <option value="option2">Регион/option>
+            <option value="option2">Город</option>
+            <option value="option2">Магазин</option>
+        </select>
+    
+        <label for="promo_groupSCU">По группе SCU</label>
+        <select id="promo_groupSCU">
+            <option value="option2">Группа1</option>
+            <option value="option1">Группа2</option>
+            <option value="option2">Группа3</option>
+            <option value="option2">Группа4</option>
+            <option value="option2">Группа5</option>
+        </select>
+    </section>
+
+
+
     <label for="promo_ratio">Выбор коэффициента</label>
     <select id="promo_method">
         <option value="option2">Рассчитанные</option>
@@ -23,11 +53,11 @@
         <button onclick="tb_promo__results()"  id="promo_resultsButton">Preview</button>
         <iframe  id="tb_promo_results" src=""></iframe>
     </div>
-    <div class="promo__chart">
+    <!-- <div class="promo__chart">
         <button onclick="tb_promo__chart()"  id="promo_chartButton">Chart</button>
         <iframe  id="tb_promo_chart" src="" ></iframe>
         </section>
-    </div>
+    </div> -->
     
         <button  id="promo_exportButton">Экспорт данных</button>
 

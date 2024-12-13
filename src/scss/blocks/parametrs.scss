@@ -1,19 +1,19 @@
-.title-blocks{
-    margin-top: 10px;
-    font-size: 14px;
-    font-style: italic;
-}
+// .title-blocks{
+//     margin-top: 10px;
+//     font-size: 14px;
+//     font-style: italic;
+// }
 
 .parameters_container{
     display: grid;
     grid-template-columns: repeat(1, 450px);
     grid-template-rows: repeat(7, auto); /* 7 строк с автоматической высотой */
-    gap: 30px;
+    gap: 20px;
     padding-left: 40px; 
-    padding-top: 20px;
+    padding-top: 0px;
 }
 
-.parameters_season,.parameters_oos{
+.parameters_season{
     grid-column: span 1;
 
 }
@@ -36,20 +36,18 @@
     grid-column: span 1;
     display: flex;
     justify-content: center;
+    font-weight: 600;
 }
 
-.parameters_season, .container_parameters_sales_recovery, .parameters_oos, .parameters_promo, .parameters_sales_spikes{
+.parameters_aggregation-wrapper,.parameters_oos-wrapper, .parameters_promo-wrapper, .parameters_season-wrapper,.parameters_spikes, .container_parameters_sales_recovery, .parameters_sales_spikes{
     border: 1px $frame_color solid;
     width: 400px;
     padding: 8px;
     border-radius: 5px;
 }
 
-#parameters_oos{
-margin-left: 16.5%;
-}
 
- #parameters_recovery-method, #parameters_promo,#parameters_oos{
+ #parameters_promo{
     width: 150px;
  }
  #parameters_promo{
@@ -58,6 +56,32 @@ margin-left: 16.5%;
 
  #parameters_saveButton{
 width: 200px;
-margin-left: 100px;
+height: 30px;
+&:hover{
+    background-color: $hover-button;
+ }
  }
 
+.parameters_aggregation {
+    display: grid;
+    grid-template-columns: repeat(2, 180px);
+    grid-template-rows: repeat(4, auto);
+    gap: 12px;
+}
+.parameters_oos, .parameters_promo, .parameters_season, .parameters_spikes {
+    display: grid;
+    grid-template-columns: repeat(2, 180px);
+    grid-template-rows: repeat(2, auto);
+    gap: 12px;
+}
+
+
+.parameters_aggregation-title, .parameters_oos-title, .parameters_promo-title, .parameters_season-title{
+    margin-left: 30%;
+    font-weight: 600;
+}
+
+#parameters_oos-chek,#parameters_promo-chek, #parameters_season-chek, #parameters_season-smooth, #parameters_spikes-chek{
+    width: 20px;
+    height: 20px;
+}

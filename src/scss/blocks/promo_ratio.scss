@@ -1,71 +1,167 @@
-.promoRatio_container{
+.promoRatio_contaier {
     display: grid;
-    grid-template-columns: repeat(2, 300px);
-    grid-template-rows: repeat(5, auto);
-    gap: 10px;
-    padding-left: 40px; 
+    grid-template-columns: repeat(2, 400px);
+    // grid-template-rows: repeat(2, auto);
+    column-gap: 50px;
     padding-top: 20px;
-    // width: 800px;
-    .promoRatio_exportImportButton{
-        grid-column: span 2;
-        display: flex;
-        margin-left: 10%;
+    // padding-left: 40px; 
+    // padding-top: 15px;
+    .promoRatio_aggregate{
+        display: grid;
+        grid-template-columns: repeat(2, 150px);
+        grid-template-rows: repeat(3, 30px);
+        align-items: center;
+        gap: 5px;
+        border: 1px $frame_color solid;
+        // border-radius: 15px;
+        padding: 8px;
     }
 }
 
-#promoRatio_calculateButton, #promoRatio_exportButton, #promoRatio_importButton{
-    width: 200px;
-    background-color:azure;
-    border-radius: 5px;
-    height: 40px;
-    grid-column: span 2;
-    margin-left: 10%;
-    margin-top: 15px;
-    }
+.promoRatio_calculation{
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    grid-template-rows: repeat(4, auto);
+    gap: 10px;
+    align-items: center;
+}
 
-    .promoRatio_calculate{
-        grid-column: span 2;
-        display: flex;
-        align-items: center;
-        #promoRatio_scenario{
-            margin-left: 20px;
-            height: 30px;
-        }
+#promoRatio_time, #promoRatio_groupSCU, #promoRatio_geography, #promoRatio_other-indicators, #promoRatio_method,#action_discount, #promoRatio_scenario{
+    width: 200px;
+    height: 25px;
+    margin-top: 2%;
+}
+
+#promoRatio_season-smooth{
+    margin-left: 2%;
+    width: 15px;
+    height: 15px;
+}
+
+#promoRatio__calculateForecastButton, #promoRatio_exportButton, #promoRatio_importButton{
+    width: 200px;
+    height: 40px;
+    margin-top: 10px;
+    &:hover{
+        background-color: $hover-button;
     }
+}
+#promoRatio_saveButton{
+    grid-column: span 4;
+    width: 180px;
+    height: 35px;
+    margin-left: 580px;
+    margin-top: 50px;
+    &:hover{
+        background-color: $hover-button;
+    }
+}
+
+#promoRatio_previewButton{
+    grid-column: span 2;
+    margin-top: 30px;
+    width: 200px;
+    height: 40px;
+    background-color:$button_preview_color;
+    border: 1px $second-color solid;
+    margin-left: 980px;
+    &:hover{
+        background-color: $hover-button;
+    }
+}
+
+#tb_promoRatio{
+    margin-top: 20px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// .promoRatio_container{
+//     display: grid;
+//     grid-template-columns: repeat(2, 300px);
+//     grid-template-rows: repeat(5, auto);
+//     gap: 10px;
+//     padding-left: 40px; 
+//     padding-top: 20px;
+//     // width: 800px;
+//     .promoRatio_exportImportButton{
+//         grid-column: span 2;
+//         display: flex;
+//         margin-left: 10%;
+//     }
+// }
+
+// #promoRatio_calculateButton, #promoRatio_exportButton, #promoRatio_importButton{
+//     width: 200px;
+//     background-color:azure;
+//     border-radius: 5px;
+//     height: 40px;
+//     grid-column: span 2;
+//     margin-left: 10%;
+//     margin-top: 15px;
+//     }
+
+//     .promoRatio_calculate{
+//         grid-column: span 2;
+//         display: flex;
+//         align-items: center;
+//         #promoRatio_scenario{
+//             margin-left: 20px;
+//             height: 30px;
+//         }
+//     }
 
   
     
-    #promoRatio_resultsButton,#promoRatio_chartButton{
-        width: 150px;
-        grid-column: span 2;
-        margin: 5px;
-        margin-top: 20px;
-        border-radius: 5px;
-        height: 30px;
-    }
+//     #promoRatio_resultsButton,#promoRatio_chartButton{
+//         width: 150px;
+//         grid-column: span 2;
+//         margin: 5px;
+//         margin-top: 20px;
+//         border-radius: 5px;
+//         height: 30px;
+//     }
     
-    .promoRatio__preview{
-        display:flex;
-        flex-direction: row;
-        margin-top: 20px;
-        .promoRatio__results{
-            display: flex;
-            flex-direction: column;
-            #tb_promoRatio_results{
-                width: 900px;
-                height: 350px;
-            }
-        }
-        .promoRatio__chart{
-            margin-left: 20px;
-            border: 1px lightblue solid;
-            border-radius: 15px;
-            display: flex;
-            flex-direction: column;
-          justify-content: center;
-            #tb_promoRatio_chart{
-                width: 450px;
-            }
-        }
-    }
+//     .promoRatio__preview{
+//         display:flex;
+//         flex-direction: row;
+//         margin-top: 20px;
+//         .promoRatio__results{
+//             display: flex;
+//             flex-direction: column;
+//             #tb_promoRatio_results{
+//                 width: 900px;
+//                 height: 350px;
+//             }
+//         }
+//         .promoRatio__chart{
+//             margin-left: 20px;
+//             border: 1px lightblue solid;
+//             border-radius: 15px;
+//             display: flex;
+//             flex-direction: column;
+//           justify-content: center;
+//             #tb_promoRatio_chart{
+//                 width: 450px;
+//             }
+//         }
+//     }
 

@@ -53,7 +53,6 @@
             <option value="option4">Ткачёв Олег</option>
             <option value="option6">Толок Галина</option>
             <option value="option5">Шварёв Данила</option>
-            <option value="f"><a href="./index.html"></a></option>
         </select>
          </li>
 
@@ -81,22 +80,7 @@
  <!-- begin sidebar nav -->
 
  <ul class="nav">
-   <li class="has-sub">
-     <a href="javascript:;">
-       <b class="caret"></b>
-       <i class="fa fa-th-large"></i>
-       <span>Доп. сведения</span>
-     </a>
-     <ul class="sub-menu active">
-       <li><a class="visible" href="#" value="action" onclick="showContent_action()">Акции</a></li>
-       <li><a  class="visible" onclick="showContent_locks()" href="#">Блокировки</a></li>
-       <li class="visible"><a onclick="showContent_outputAssort()" href="#">Вывод</a></li>
-       <!-- <li><a onclick="showContent_newProducts()" href="#">Новинки</a></li> -->
-       <li class="visible"><a onclick="showContent_listing()" href="#">Листинги</a></li>
-       <li class="visible"><a onclick="showContent_tender()" href="#">Тендеры</a></li>
-       <li class="visible"><a onclick="showContent_priceChange()" href="#">Изменение цен</a></li>
-     </ul>
-   </li>
+
 
    <!-- /Параметры/ -->
    <!-- <li><a href="#"  value="action" onclick="showContent_parameters()"><i class="fa fa-calendar"></i> <span  class="visible">Параметры прогнозирования</span></a></li> -->
@@ -113,6 +97,23 @@
   </li>
    <!-- /Параметры/ -->
 
+   <li class="has-sub">
+    <a href="javascript:;">
+      <b class="caret"></b>
+      <i class="fa fa-th-large"></i>
+      <span>Доп. сведения</span>
+    </a>
+    <ul class="sub-menu active">
+      <li><a class="visible" href="#" value="action" onclick="showContent_action()">Акции</a></li>
+      <li><a  class="visible" onclick="showContent_locks()" href="#">Блокировки</a></li>
+      <li class="visible"><a onclick="showContent_outputAssort()" href="#">Вывод</a></li>
+      <!-- <li><a onclick="showContent_newProducts()" href="#">Новинки</a></li> -->
+      <li class="visible"><a onclick="showContent_listing()" href="#">Листинги</a></li>
+      <li class="visible"><a onclick="showContent_tender()" href="#">Тендеры</a></li>
+      <li class="visible"><a onclick="showContent_priceChange()" href="#">Изменение цен</a></li>
+    </ul>
+  </li>
+  
    <!-- Прогнозирование -->
    <li class="has-sub">
      <a href="javascript:;">
@@ -122,12 +123,13 @@
      </a>
      <ul class="sub-menu">
        <!-- <li><a href="#">Промо <i class="fa fa-paper-plane text-theme m-l-5"></i></a></li> -->
-       <li class="visible"><a onclick="showContent_seasonality()" href="#">Сезонность</a></li>
        <li class="visible"><a onclick="showContent_regular_assort()" href="#">Регулярный ассортимент</a></li>
+       <li class="visible"><a onclick="showContent_seasonality()" href="#">Сезонность</a></li>
+       <li class="visible"><a onclick="showContent_promoRatio()" href="#">Промо-коэффициенты</a></li>
        <li class="visible"><a onclick="showContent_promo()" href="#">Промо</a></li>
        <li class="visible"><a onclick="showContent_newProducts()" href="#">Новинки</a></li>
        <li class="visible"><a href="#">Вывод</a></li>
-       <li class="visible"><a onclick="showContent_promoRatio()" href="#">Промо-коэффициенты</a></li>
+       
 
        
    <!-- Прогнозирование -->
@@ -172,7 +174,7 @@
      <a href="javascript:;">
        <b class="caret"></b>
        <i class="fa fa-envelope"></i>
-       <span class="visible">Справочники</span>
+       <span>Справочники</span>
      </a>
      <ul class="sub-menu">
        <li class="visible"><a href="#">Сезонность</a></li>
@@ -193,12 +195,27 @@
        <li class="visible"><a href="#">d3 Chart</a></li>
      </ul>
    </li>
-   <li><a href="#"><i class="fa fa-calendar"></i> <span class="visible">Calendar</span></a></li>
+   <!-- <li><a href="#"><i class="fa fa-calendar"></i> <span class="visible">Calendar</span></a></li> -->
+
+   <li class="has-sub">
+    <a href="javascript:;">
+      <b class="caret"></b>
+      <i class="fa fa-calendar"></i>
+      <span>Планировщик</span>
+    </a>
+    <ul class="sub-menu">
+      <li class="visible"><a href="#">Настроить</a></li>
+      <!-- <li class="visible"><a href="#">Компании</a></li>
+      <li class="visible"><a href="#">Категории</a></li> -->
+    </ul>
+  </li>
+
+
    <li class="has-sub">
      <a href="javascript:;">
        <b class="caret"></b>
        <i class="fa fa-map"></i>
-       <span class="visible">Управление доступом</span>
+       <span>Управление доступом</span>
      </a>
      <ul class="sub-menu">
        <li class="visible"><a href="#">Vector</a></li>
@@ -210,7 +227,7 @@
      <a href="javascript:;">
        <b class="caret"></b>
        <i class="fa fa-cogs"></i>
-       <span class="visible">Настройки</span>
+       <span>Настройки</span>
      </a>
      <ul class="sub-menu">
        <li class="visible"><a href="#">Пользовательские</a></li>
@@ -238,7 +255,7 @@
      <a href="javascript:;">
        <b class="caret"></b>
        <i class="fa fa-medkit"></i>
-       <span class="visible">Help</span>
+       <span>Help</span>
      </a>
      <ul class="sub-menu">
        <li class="visible"><a href="#">Поддержка</a></li>
