@@ -1,0 +1,59 @@
+#modal, #promo_modal, #new_product__modal, #new_product__modal, #summaryPlan_modal, .planner_modal{
+    display: none; /* Скрываем модальное окно по умолчанию */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Полупрозрачный фон */
+    justify-content: center;
+    align-items: center;
+}
+
+/* Стили для содержимого модального окна */
+#modalContent, #promo_modalContent, #new_product__modalContent, #summaryPlan__modalContent, #summaryPlan_modalContent, .planner_modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    text-align: start;
+}
+
+#ra_saveButton, #ra_closeModalButton, #promo_modalSaveButton, #promo_ModalCloseButton, #newProductCloseModalButton, #newProductSaveModalButton, #summaryPlan_saveModalButton, #summaryPlan_closeModalButton, #summaryPlan_saveModalButton, #summaryPlan_closeModalButton{
+    width: 100px;
+    height: 30px;
+    margin: 10px;
+}
+.modal_title, .promo_modal-title, .new_product__modal-title, .summaryPlan_modal-title {
+    margin-bottom: 20px;
+} 
+
+
+
+.planner_modal-content {
+   width: 400px;
+   margin: 10% auto;
+   display: grid;
+   grid-template-columns:repeat(2, auto);
+   gap: 12px;
+   align-items: center;
+//    place-items: center;
+//    justify-content: center;
+ 
+   .planner_weeklyModal-title{
+    grid-column: span 2;
+    // margin-left: 30%;
+    font-size: 800;
+    place-items: center;
+   }
+}
+
+#planner_settingModalSave{
+    grid-column: span 2;
+    width: 200px;
+    height: 30px;
+    margin: 10px;
+    margin-left: 20%;
+    &:hover{
+        background-color: $hover-button;
+}
+}

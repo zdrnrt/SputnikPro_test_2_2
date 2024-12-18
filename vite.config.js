@@ -16,6 +16,11 @@ export default defineConfig({
 				new_products: resolve(__dirname, "src/html/new_products.html"),
 				promo_ratio: resolve(__dirname, "src/html/promo_ratio.html"),
 				summary_plan: resolve(__dirname, "src/html/summary_plan.html"),
+				planner: resolve(__dirname, "src/html/planner.html"),
+				locks: resolve(__dirname, "src/html/locks.html"),
+				listing: resolve(__dirname, "src/html/listing.html"),
+				price_change: resolve(__dirname, "src/html/price_change.html"),
+				tender: resolve(__dirname, "src/html/tender.html"),
 			}
 		}
 	}

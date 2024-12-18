@@ -1,64 +1,78 @@
-.newProduct_container{
+.new_product_container{
     display: grid;
-    grid-template-columns: repeat(2, 300px);
-    grid-template-rows: repeat(7, auto);
-    gap: 10px;
-    padding-left: 40px; 
+    grid-template-columns: repeat(2, 400px);
+    grid-template-rows: repeat(3, auto);
     padding-top: 20px;
-    // width: 800px;
-}
-
-#newProduct_calculate_forecastButton, #newProduct_optimizeButton{
-    width: 250px;
-    background-color: coral;
-    border-radius: 5px;
-    height: 40px;
-    grid-column: span 2;
-    margin-left: 10%;
-    margin-top: 15px;
-    }
-
-    .newProduct_calculate{
-        grid-column: span 2;
-        display: flex;
-        align-items: center;
-        #newProduct_scenario{
-            margin-left: 20px;
+    column-gap: 30px;
+    .new_product__forecast-wrapper{
+        display: grid;
+        grid-template-columns: repeat(2, 220px);
+        grid-template-rows: repeat(4, auto);
+        column-gap: 10px;
+        place-items: start;
+        #new_product_method{
+            width: 240px;
             height: 30px;
         }
-    }
-    
-    #newProduct_exportButton,#newProduct_resultsButton,#newProduct_chartButton{
-        width: 150px;
-        grid-column: span 2;
-        margin: 5px;
-        margin-top: 20px;
-        border-radius: 5px;
-        height: 30px;
-    }
-    
-    .newProduct__preview{
-        display:flex;
-        flex-direction: row;
-        margin-top: 20px;
-        .newProduct__results{
-            display: flex;
-            flex-direction: column;
-            #tb_newProduct_results{
-                width: 900px;
-                height: 350px;
+        .new_product_calculate{
+            grid-column: span 2;
+            place-items: start;
+            #new_product_scenario{
+                margin-left: 20px;
+                width: 200px;
+                height: 30px;
             }
         }
-        .newProduct__chart{
-            margin-left: 20px;
-            border: 1px lightblue solid;
-            border-radius: 15px;
-            display: flex;
-            flex-direction: column;
-          justify-content: center;
-            #tb_newProduct_chart{
-                width: 450px;
+        #new_product__calculateForecastButton, #new_product__optimizeButton, #new_product__exportButton{
+            width: 200px;
+            height: 40px;
+            &:hover{
+                background-color: $hover-button;
             }
         }
+       
     }
+}
 
+.new_product__aggregation-wrapper{
+   
+    border: 1px $frame_color2 solid;
+    width: 400px;
+    padding: 8px;
+    // border-radius: 5px;
+    .new_product__aggregation-title{
+        margin-left: 23%;
+        font-weight: 700;
+    }
+    .new_product__aggregation{
+        display: grid;
+        grid-template-columns: repeat(2, auto); /* 2 столбца */
+        grid-template-rows: repeat(4, auto);
+        gap: 12px;
+    }
+}
+  
+
+.new_product__preview{
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    .new_product__results{
+        display: flex;
+        flex-direction: column;
+        #new_product_resultsButton{
+            width: 200px;
+            height: 40px;
+            margin: 10px;
+            background-color: $button_preview_color;
+            margin-left: 70%;
+            &:hover{
+                background-color: $hover-button;
+            }
+        }
+        #new_product_PreviewIframe{
+            width: 1300px;
+            height: 350px;
+        }
+    }
+}

@@ -1,8 +1,10 @@
 <div class="seasonality_contaier">
     
     <section class="seasonality_aggregate">
+        <p class = "seasonality__aggregation-title">Агрегация данных</p>
     <label for="seasonality_time">Агрегат по времени</label>
     <select id="seasonality_time">
+        <option value="not_selected">не выбрано</option>
         <option value="option2">День</option>
         <option value="option1">Неделя</option>
         <option value="option2">Месяц</option>
@@ -11,6 +13,7 @@
 
     <label for="seasonality_geography">Агрегат по географии</label>
     <select id="seasonality_geography">
+        <option value="not_selected">не выбрано</option>
         <option value="option2">Все</option>
         <option value="option1">Страна</option>
         <option value="option2">Регион</option>
@@ -20,6 +23,7 @@
 
     <label for="seasonality_groupSCU">По группе SCU</label>
     <select id="seasonality_groupSCU">
+        <option value="not_selected">не выбрано</option>
         <option value="option2">Группа1</option>
         <option value="option1">Группа2</option>
         <option value="option2">Группа3</option>
@@ -31,6 +35,7 @@
 <section class = "seasonality_calculation">
     <label for="seasonality_method">Метод расчета сезонности</label>
     <select id="seasonality_method">
+        <option value="not_selected">не выбрано</option>
         <option value="fluctuation_trend">колебание от тренда</option>
         <option value="fluctuation_average">колебание от средней</option>
     </select>
@@ -55,7 +60,7 @@
 
     <!-- кнопка сохранить -->
 
-    <button id="seasonality_saveButton">Сохранить изменения</button>
+    <!-- <button id="seasonality_saveButton">Сохранить изменения</button> -->
 
       <!-- кнопка скачать шаблон
     <button id="seasonality_action_templateButton">Скачать шаблон</button> -->

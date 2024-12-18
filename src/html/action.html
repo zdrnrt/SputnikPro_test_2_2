@@ -1,25 +1,26 @@
-<p>************НА ДОРАБОТКЕ стилей***************</p>
-<div class="action_container-wrapper">
-<!-- <p class="title-blocks"> Дополнительные сведения => Акции</p> -->
+
 <div class="action_container">
+
+    <section class="action_container__scu">
+        <label for="action_scu">Позиция</label>
+        <select id="action_scu">
+            <option value="option1">SCU1</option>
+            <option value="option2">SCU2</option>
+            <option value="option3">SCU3</option>
+            <option value="option4">...</option>
+        </select>
+        <label for="action_date-creation">Дата создания</label>
+        <input type="date" id="action_date-creation" name="action_date-creation" required>
+    </section>
     
-    <label for="action_date-creation">Дата создания</label>
-    <input type="date" id="action_date-creation" name="action_date-creation" required>
-    
-    <label for="action_scu">Позиция</label>
-    <select id="action_scu">
-        <option value="option1">SCU1</option>
-        <option value="option2">SCU2</option>
-        <option value="option3">SCU3</option>
-        <option value="option4">...</option>
-    </select>
+    <section class="action_container__date">
+        <label for="action_date-start">Дата начала акции</label>
+        <input type="date" id="action_date-start" name="action_date-start" required min="2023-01-01">
+        <label for="action_date-finish">Дата окончания акции</label>
+        <input type="date" id="action_date-finish" name="action_date-finish" required min="2023-01-01">
+    </section>
 
-    <label for="action_date-start">Дата начала акции</label>
-    <input type="date" id="action_date-start" name="action_date-start" required min="2023-01-01">
-
-    <label for="action_date-finish">Дата окончания акции</label>
-    <input type="date" id="action_date-finish" name="action_date-finish" required min="2023-01-01">
-
+    <section class="action_container__conditions">
     <label for="action_region">Территория</label>
     <select id="action_region">
         <option value="option1">Регион1</option>
@@ -43,12 +44,15 @@
         <option value="option4">40%</option>
         <option value="option4">50%</option>
     </select>
+</section>
 
+<section class="action_container__comment">
     <label for="action_addition" class="action_addition">Дополнительное описание</label>
     <input type="text" id="action_addition" name="action_addition">
 
     <label for="action_user-comment">Комментарий ответственного</label>
     <input type="text" id="action_user-comment" name="action_user-comment">
+</section>
 
     <!--  сохранить -->
 <section class="action_saveButton">
@@ -66,6 +70,4 @@
 
     <button id="action_downloadButton">Загрузить файл</button>
 
-    <button id="action_export">Экспорт данных</button>
-</div>
 </div>

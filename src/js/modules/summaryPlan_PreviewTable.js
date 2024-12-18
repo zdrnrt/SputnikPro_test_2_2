@@ -1,50 +1,58 @@
 
-export default window.tbSeasonalityPreview = function() {
-    const methodSelect = document.getElementById('seasonality_method');
-    const selectedMethod = methodSelect.value;
+export default window.summaryPlan_PreviewButton = function() {
+    const aggregationTime = document.getElementById('summary_plan_time');
+    const selectedAggregationTime = aggregationTime.value;
 
-    const time = document.getElementById('seasonality_time');
-    const selectedAggregationTime = time.value;
+    const aggregationGeo = document.getElementById('summary_plan_geography');
+    const selectedAggregationGeo = aggregationGeo.value;
 
-    const geo = document.getElementById('seasonality_geography');
-    const selectedAggregationGeo = geo.value;
+    const aggregationGroup = document.getElementById('summary_plan_groupSCU');
+    const selectedAggregationGroup = aggregationGroup.value;
 
-    const group = document.getElementById('seasonality_groupSCU');
-    const selectedAggregationGroup = group.value;
+    const aggregationParameter = document.getElementById('summary_plan_scu');
+    const selectedAggregationParameter = aggregationParameter.value;
+
+    const forecastParameter = document.getElementById('summary_plan_method');
+    const selectedforecastParameter = forecastParameter.value;
+
 
 
     let csvFilePath;
-    if (selectedMethod === 'not_selected' || selectedAggregationTime === 'not_selected' || selectedAggregationGeo === 'not_selected' || selectedAggregationGroup === 'not_selected') {
-        const iframe = document.getElementById('tb_seasonality');
+    if (selectedAggregationTime !== 'not_selected' && selectedAggregationGeo !== 'not_selected' && selectedAggregationGroup !== 'not_selected' && selectedAggregationParameter !== 'not_selected' &&selectedforecastParameter !== 'not_selected') {
+        csvFilePath = './images/demo_file/test_forecast_csv.csv'; 
+    } else if (selectedAggregationTime === 'not_selected' || selectedAggregationGeo === 'not_selected' || selectedAggregationGroup === 'not_selected' || selectedAggregationParameter === 'not_selected' || selectedforecastParameter === 'not_selected' ) {
+        const iframe = document.getElementById('summaryPlan_PreviewIframe');
         const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
-
+          // Очищаем содержимое iframe и добавляем сообщение
         iframeDoc.open();
         iframeDoc.write(
             `<html>
-            <head>
-                <title>Сообщение</title>
-                <style>
-                    body {
-                        font-family: Arial, sans-serif;
-                        background-color:rgb(255, 255, 255);
-                        text-align: start;
-                        padding: 20px;
-                    }
-                    h1 {
-                        color: #ff0000;/* Цвет текста сообщения */
-                    }
-                </style>
-            </head>
-            <body>
-                <h5>Заполните все поля</h5>
-            </body>
-            </html>`
-        );
-        iframeDoc.close(); 
-    } else if (selectedMethod === 'fluctuation_trend') {
-        csvFilePath = './images/demo_file/test_forecast_csv.csv'; 
-    } else if (selectedMethod === 'fluctuation_average') {
-        csvFilePath = './images/demo_file/test_forecast_csv2.csv'; 
+              <head>
+                  <title>Сообщение</title>
+                  <style>
+                      body {
+                          font-family: Arial, sans-serif;
+                          background-color: #f4f4f4;
+                          text-align: start;
+                          padding: 20px;
+                      }
+                      h1 {
+                          color: #ff0000;/* Цвет текста сообщения */
+                      }
+                  </style>
+              </head>
+              <body>
+                  <h5>Расчёт не произведен. Выберите все параметры</h5>
+              </body>
+              </html>`
+          );
+          iframeDoc.close();
+          return; // Завершаем выполнение функции
+        
+
+
+    // } else if (selectedMethod === 'promo_weighted__custom') {
+    //     csvFilePath = './images/demo_file/test_forecast_csv2.csv'; 
     } else {
         console.warn('Неизвестный метод прогнозирования:', selectedMethod);
         return; 
@@ -54,7 +62,7 @@ export default window.tbSeasonalityPreview = function() {
         download: true,
         header: true,
         complete: function(results) {
-            const iframe = document.getElementById('tb_seasonality');
+            const iframe = document.getElementById('summaryPlan_PreviewIframe');
             const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
 
             // Очищаем содержимое iframe
@@ -75,7 +83,7 @@ export default window.tbSeasonalityPreview = function() {
                             font-size: 12px;
                         }
                         th {
-                            background-color:  rgb(163, 210, 242); /* Цвет фона заголовков */
+                            background-color: #4CAF50; /* Цвет фона заголовков */
                             font-size: 14px;
                             color: white; /* Цвет текста заголовков */
                             padding: 10px;

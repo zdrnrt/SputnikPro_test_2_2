@@ -1,63 +1,76 @@
-.summaryPlan_container{
+.summary_plan_contaier {
     display: grid;
-    grid-template-columns: repeat(2, 300px);
-    grid-template-rows: repeat(7, auto);
-    gap: 10px;
-    padding-left: 40px; 
+    grid-template-columns: repeat(2, 400px);
+    column-gap: 50px;
     padding-top: 20px;
-    // width: 800px;
+    .summary_plan_aggregate{
+        display: grid;
+        grid-template-columns: repeat(2, 150px);
+        grid-template-rows: repeat(5, 30px);
+        align-items: center;
+        gap: 5px;
+        border: 1px $frame_color2 solid;
+        padding: 8px;
+        .summary_plan__aggregation-title{
+            grid-column: span 2;
+            margin-left: 23%;
+            font-weight: 700;
+        }
+    }
 }
 
-#summaryPlan_calculateForecastButton, #summaryPlan_optimizeButton{
-    width: 250px;
-    background-color: coral;
-    border-radius: 5px;
-    height: 40px;
-    grid-column: span 2;
-    margin-left: 10%;
-    margin-top: 15px;
-    }
+.summary_plan_calculation{
+    display: grid;
+    grid-template-columns: repeat(2, 230px);
+    grid-template-rows: repeat(4, auto);
+    gap: 10px;
+    align-items: center;
+}
 
-    .summaryPlan_calculate{
-        grid-column: span 2;
-        display: flex;
-        align-items: center;
-        #summaryPlan_scenario{
-            margin-left: 20px;
-            height: 30px;
-        }
+#summary_plan_time, #summary_plan_groupSCU, #summary_plan_geography, #summary_plan_scu, #summary_plan_method,#action_discount, #summary_plan_scenario{
+    width: 200px;
+    height: 25px;
+    margin-top: 2%;
+}
+
+#summary_plan__cannibalization{
+    margin-left: 2%;
+    width: 15px;
+    height: 15px;
+}
+
+#summary_plan__calculateForecastButton, #summary_plan_exportButton, #summary_plan_importButton, #summaryPlan__optimizButton{
+    width: 200px;
+    height: 40px;
+    margin-top: 10px;
+    &:hover{
+        background-color: $hover-button;
     }
-    
-    #summaryPlan_exportButton,#summaryPlan_resultsButton,#summaryPlan_chartButton{
-        width: 150px;
-        grid-column: span 2;
-        margin: 5px;
-        margin-top: 20px;
-        border-radius: 5px;
-        height: 30px;
+}
+#summary_plan_saveButton{
+    grid-column: span 4;
+    width: 180px;
+    height: 35px;
+    margin-left: 580px;
+    margin-top: 50px;
+    &:hover{
+        background-color: $hover-button;
     }
-    
-    .summaryPlan__preview{
-        display:flex;
-        flex-direction: row;
-        margin-top: 20px;
-        .summaryPlan__results{
-            display: flex;
-            flex-direction: column;
-            #tb_summaryPlan_results{
-                width: 900px;
-                height: 350px;
-            }
-        }
-        .summaryPlan__chart{
-            margin-left: 20px;
-            border: 1px lightblue solid;
-            border-radius: 15px;
-            display: flex;
-            flex-direction: column;
-          justify-content: center;
-            #tb_summaryPlan_chart{
-                width: 450px;
-            }
-        }
+}
+
+#summary_plan_previewButton{
+    grid-column: span 2;
+    margin-top: 30px;
+    width: 200px;
+    height: 40px;
+    background-color:$button_preview_color;
+    border: 1px $second-color solid;
+    margin-left: 980px;
+    &:hover{
+        background-color: $hover-button;
     }
+}
+
+#summaryPlan_PreviewIframe{
+    margin-top: 20px;
+}

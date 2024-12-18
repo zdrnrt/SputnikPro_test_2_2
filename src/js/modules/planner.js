@@ -1,6 +1,6 @@
-// функция для Доп.сведения - Тендер
-export default window.showContent_priceChange = function() {
-    fetch('./src/html/price_change.html')
+// функция для Доп.сведения - Новинки
+export default window.showContent_planner = function() {
+    fetch('./src/html/planner.html')
         .then(response => {
             if (!response.ok) {
                 throw new Error('Network response was not ok ' + response.statusText);
@@ -14,3 +14,4 @@ export default window.showContent_priceChange = function() {
             console.error('There has been a problem with your fetch operation:', error);
         });
   }
+  

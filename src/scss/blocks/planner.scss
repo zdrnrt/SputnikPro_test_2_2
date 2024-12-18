@@ -1,0 +1,32 @@
+.planner_container{
+    display: grid;
+    grid-template-columns: repeat(2, 250px);
+    grid-template-rows: repeat(5, auto);
+    gap: 10px;
+}
+
+#planner_saveButton{
+    width: 200px;
+    height: 30px;
+    margin: 10px;
+    margin-left: 50%;
+    &:hover{
+        background-color: $hover-button;
+}
+}
+
+#planner_Iframe{
+    margin-top: 3%;
+    width: 1300px;
+    height: 200px;
+}
+
+#planner_settingRepeat{
+    width: 200px;
+    height: 30px;
+    margin: 10px;
+    margin-left: 10%;
+    &:hover{
+        background-color: $hover-button;
+}
+}

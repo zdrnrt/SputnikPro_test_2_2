@@ -8,22 +8,30 @@
     .seasonality_aggregate{
         display: grid;
         grid-template-columns: repeat(2, 150px);
-        grid-template-rows: repeat(3, 30px);
+        grid-template-rows: repeat(4, 30px);
         align-items: center;
-        gap: 5px;
-        // border: 1px $frame_color solid;
+        gap: 10px;
+        border: 1px $frame_color2 solid;
         // border-radius: 15px;
         padding: 8px;
         // margin-bottom: 5%;
+        .seasonality__aggregation-title{
+            grid-column: span 2;
+            margin-left: 40%;
+        font-weight: 700;
+        margin-top: 15px;
+        margin-bottom: 15px;
+        }
     }
 }
 
 .seasonality_calculation{
     display: grid;
-    grid-template-columns: repeat(2, 200px);
+    grid-template-columns: repeat(2, 250px);
     grid-template-rows: repeat(4, auto);
-    gap: 10px;
+    gap: 5px;
     align-items: center;
+    column-gap: 10px;
 }
 
 
@@ -49,10 +57,11 @@
 }
 #seasonality_saveButton{
     grid-column: span 4;
-    width: 200px;
+    width: 400px;
     height: 40px;
-    margin-left: 580px;
+    margin-left: 20%;
     margin-top: 50px;
+    border-radius: 0px;
     &:hover{
         background-color: $hover-button;
     }

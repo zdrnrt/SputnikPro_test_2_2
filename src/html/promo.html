@@ -1,63 +1,100 @@
-<p>************НА ДОРАБОТКЕ***************</p>
 <div class="promo_container">
-    <section class="promo_aggregate">
-        <label for="promo_time">Агрегат по времени</label>
-        <select id="promo_time">
-            <option value="option2">День</option>
-            <option value="option1">Неделя</option>
-            <option value="option2">Месяц</option>
-            <option value="option2">Квартал</option>
+
+    <section class="promo__aggregation-wrapper">
+        <p class = "promo__aggregation-title">Агрегация выходных данных</p>
+
+        <div class="promo__aggregation"> 
+        <label for="promo__aggregation-time">Агрегат по времени</label>
+        <select id="promo__aggregation-time">
+            <option value="option1">день</option>
+            <option value="option2">неделя</option>
+            <option value="option3">квартал</option>
+            <option value="option4">месяц</option>
         </select>
-    
-        <label for="promo_geography">Агрегат по географии</label>
-        <select id="promo_geography">
-            <option value="option2">Все</option>
-            <option value="option1">Страна</option>
-            <option value="option2">Регион/option>
-            <option value="option2">Город</option>
-            <option value="option2">Магазин</option>
+
+        <label for="promo__aggregation-geo">Агрегат по географии</label>
+        <select id="promo__aggregation-geo">
+            <option value="option1">не установлено</option>
+            <option value="option2">страна</option>
+            <option value="option3">регион</option>
+            <option value="option4">город</option>
+            <option value="option5">магазин</option>
         </select>
-    
-        <label for="promo_groupSCU">По группе SCU</label>
-        <select id="promo_groupSCU">
-            <option value="option2">Группа1</option>
-            <option value="option1">Группа2</option>
-            <option value="option2">Группа3</option>
-            <option value="option2">Группа4</option>
-            <option value="option2">Группа5</option>
+
+        <label for="promo__aggregation-group">Агрегат по группам</label>
+        <select id="promo__aggregation-group">
+            <option value="option1">не установлено</option>
+            <option value="option2">группа1</option>
+            <option value="option3">группа2</option>
+            <option value="option4">группа3</option>
+            <option value="option5">группа4</option>
         </select>
+
+        <label for="promo__aggregation-scu">Агрегат по SCU</label>
+        <select id="promo__aggregation-scu">
+            <option value="option1">не установлено</option>
+            <option value="option2">SCU</option>
+        </select>
+    </div>
     </section>
 
-
-
-    <label for="promo_ratio">Выбор коэффициента</label>
+    <section class="promo__forecast-wrapper">
+        <p></p>
+        <p></p>
+    <label for="promo_method">Выбор коэффициентов</label>
     <select id="promo_method">
-        <option value="option2">Рассчитанные</option>
-        <option value="option1">Пользовательские</option>
+        <option value="promo_not_selected">не выбрано</option>
+        <option value="promo_moving__сalculated">Рассчитанные</option>
+        <option value="promo_weighted__custom">Пользовательские</option>
     </select>
+
+    <!-- <label for="promo_period">Период</label>
+    <select id="promo_period">
+        <option value="option1">1</option>
+        <option value="option2">2</option>
+        <option value="option3">3</option>
+        <option value="option4">4</option>
+        <option value="option5">5</option>
+        <option value="option6">6</option>
+        <option value="option7">7</option>
+        <option value="option8">8</option>
+    </select> -->
 
     <div class="promo_calculate">
-    <button id="promo_calculate_forecastButton">Рассчитать прогноз</button>
+    <button id="promo__calculateForecastButton">Рассчитать прогноз</button>
     <select id="promo_scenario">
-        <option value="option2">сценарий 1</option>
-        <option value="option1">сценарий 2</option>
-        <option value="option2">сценарий 3</option>
+        <option value="option0">сохранить текущие настройки</option>
+        <option value="option1">сценарий 1</option>
+        <option value="option2">сценарий 2</option>
+        <option value="option3">сценарий 3</option>
     </select>
-</div>
-    <button id="promo_optimizeButton">Оптимизировать</button>
-</div>
+    </div>
 
- 
+    <button onclick="promo_OptimizationButton()" id="promo__optimizeButton">Оптимизировать</button>
+    <button id="promo__exportButton">Экспорт</button>
+</div>
+</section>
+
 <section class="promo__preview">
     <div class="promo__results">
-        <button onclick="tb_promo__results()"  id="promo_resultsButton">Preview</button>
-        <iframe  id="tb_promo_results" src=""></iframe>
+        <button onclick="promo_PreviewButton()"  id="promo_resultsButton">Preview</button>
+        <iframe  id="promo_PreviewIframe" src=""></iframe>
     </div>
-    <!-- <div class="promo__chart">
-        <button onclick="tb_promo__chart()"  id="promo_chartButton">Chart</button>
-        <iframe  id="tb_promo_chart" src="" ></iframe>
-        </section>
-    </div> -->
-    
-        <button  id="promo_exportButton">Экспорт данных</button>
+</section>
+
+<!-- <div class="regular_assort__chart">
+<button onclick="tb_regular_assort__chart()"  id="regular_assort_chartButton">Chart</button>
+<iframe  id="tb_regular_assort_chart" src="" width="80%" height="200"></iframe>
+
+</div> -->
+<div id="promo_modal">
+<div id="promo_modalContent">
+    <h5 class="promo_modal-title">Выберите параметры оптимизации:</h5>
+    <label><input type="checkbox" name="option1"> Выбор коэффициента</label><br>
+    <button onclick="promo_saveModalButton()" id="promo_modalSaveButton">Сохранить</button>
+    <button onclick="promo_closeModalButton()" id="promo_ModalCloseButton">Закрыть</button>
+</div>
+</div>
+
+
 

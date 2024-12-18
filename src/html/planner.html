@@ -1,0 +1,86 @@
+<div class="planner_container">
+    
+    <p> Наименование </p>
+    <input id="planner__scenarioName" type="text" value="Расчёт для плана 1" checked> 
+    
+    <p>Блок</p>
+    <select id="planner__block">
+        <!-- <option value="not_selected">не выбрано</option> -->
+        <option value="option0" checked>регулярный ассортимент</option>
+        <option value="option1">промо</option>
+        <option value="option2">новинки 2</option>
+        <option value="option3">итого план</option>
+    </select>
+
+    <p>Сценарий настройки</p>
+    <select id="planner__scenarioCustom">
+        <!-- <option value="not_selected">не выбрано</option> -->
+        <option value="option0">сценарий 1</option>
+        <option value="option1">сценарий 2</option>
+    </select>
+
+    <button id="planner_settingRepeat" onclick="planner_selectScenarioRepeat()">Настройка повторения</button>
+
+</div>
+
+
+<iframe  id="planner_Iframe" src=""></iframe>
+
+<section>
+    <button onclick="check_mark()" id="planner_saveButton">Сохранить настройки</button>
+    <span id="check-mark_button">✔️ сохранено</span>
+</section>
+
+
+    <div id="planner_weeklyModal" class="planner_modal modal">
+        <div class="planner_modal-content">
+            <span onclick="closeModal('planner_weeklyModal')" style="cursor:pointer;">&times;</span>
+            <h5 class="planner_weeklyModal-title">Параметры</h5>
+
+            <p>Интервал повторений, дней</p>
+            <input type="number" value="7" min="1" step="1" max="30" id="planner_interval">
+
+            <!-- <p>Выберите день недели</p>
+            <select id="planner_dayOfWeekRepeat">
+                <option value="monday">Понедельник</option>
+                <option value="tuesday">Вторник</option>
+                <option value="wednesday">Среда</option>
+                <option value="thursday">Четверг</option>
+                <option value="friday">Пятница</option>
+                <option value="saturday">Суббота</option>
+                <option value="sunday">Воскресенье</option>
+            </select> -->
+
+            <p>Выберите время</p>
+            <input type="time" id="planner_selectedTime">
+            
+            <p>Выберите дату начала</p>
+            <input type="date" id="planner_selectedStartDate">
+
+            <p>Выберите дату окончания</p>
+            <input type="date" id="planner_selectedEndDate">
+
+            <button id="planner_settingModalSave" onclick="saveSettings()">Сохранить</button> 
+        </div>
+        
+    </div>
+
+
+<div id="timeModal" class="modal">
+    <div class="modal-content">
+        <span onclick="closeModal('timeModal')" style="cursor:pointer;">&times;</span>
+        <h2>Выберите время</h2>
+        <input type="time" id="selectedTime">
+        <button onclick="closeModal('timeModal')">Сохранить</button>
+    </div>
+</div>
+
+<div id="checkboxModal" class="modal">
+    <div class="modal-content">
+        <span onclick="closeModal('checkboxModal')" style="cursor:pointer;">&times;</span>
+        <h2>Выберите опции</h2>
+        <label><input type="checkbox"> Опция 1</label><br>
+        <label><input type="checkbox"> Опция 2</label><br>
+        <button onclick="closeModal('checkboxModal')">Сохранить</button>
+    </div>
+</div>

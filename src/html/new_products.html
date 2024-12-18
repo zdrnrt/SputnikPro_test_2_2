@@ -1,52 +1,90 @@
-<p>************НА ДОРАБОТКЕ***************</p>
-<div class="newProduct_container">
-     
-    <label for="newProduct_geography">Агрегат по географии</label>
-    <select id="newProduct_geography">
-        <option value="option1">Все</option>
-        <option value="option2">Страна</option>
-        <option value="option3">Регион</option>
-        <option value="option4">Город</option>
-        <option value="option5">Магазин</option>
-    </select>
+<div class="new_product_container">
 
-    <label for="newProduct_groupScu">По группе SCU</label>
-    <select id="newProduct_groupScu">
-        <option value="option1">группа 1</option>
-        <option value="option2">группа 2</option>
-        <option value="option3">группа 3</option>
-        <option value="option4">...</option>
-    </select>
+    <section class="new_product__aggregation-wrapper">
+        <p class = "new_product__aggregation-title">Агрегация выходных данных</p>
 
-    <label for="newProduct_groupAnother">Другие классификации</label>
-    <select id="newProduct_groupAnother">
-        <option value="option1">ABC</option>
-        <option value="option2">XYZ</option>
-        <option value="option3">Ценовой сегмент</option>
-    </select>
+        <div class="new_product__aggregation"> 
+        <label for="new_product__aggregation-time">Агрегат по времени</label>
+        <select id="new_product__aggregation-time">
+            <option value="not_selected">не выбрано</option>
+            <option value="option1">день</option>
+            <option value="option2">неделя</option>
+            <option value="option3">квартал</option>
+            <option value="option4">месяц</option>
+        </select>
 
-    <div class="newProduct_calculate">
-        <button id="newProduct_calculate_forecastButton">Рассчитать прогноз</button>
-        <select id="newProduct_scenario">
-            <option value="option1">сценарий 1</option>
-            <option value="option2">сценарий 2</option>
-            <option value="option3">сценарий 3</option>
+        <label for="new_product__aggregation-geo">Агрегат по географии</label>
+        <select id="new_product__aggregation-geo">
+            <option value="not_selected">не установлено</option>
+            <option value="option2">страна</option>
+            <option value="option3">регион</option>
+            <option value="option4">город</option>
+            <option value="option5">магазин</option>
+        </select>
+
+        <label for="new_product__aggregation-group">Агрегат по группам</label>
+        <select id="new_product__aggregation-group">
+            <option value="not_selected">не установлено</option>
+            <option value="option2">группа1</option>
+            <option value="option3">группа2</option>
+            <option value="option4">группа3</option>
+            <option value="option5">группа4</option>
+        </select>
+
+        <label for="new_product__aggregation-parameter">Дополнительные показатели</label>
+        <select id="new_product__aggregation-parameter">
+            <option value="not_selected">не выбрано</option>
+            <option value="option1">ABC</option>
+            <option value="option2">XYZ</option>
+            <option value="option3">Ценовой сегмент</option>
+            <option value="option4">Механика акции</option>
         </select>
     </div>
-    <button id="newProduct_optimizeButton">Оптимизировать</button>
+    </section>
+
+    <section class="new_product__forecast-wrapper">
+        <p></p>
+        <p></p>
+        <p></p>
+    <!-- <label for="new_product_method">Выбор коэффициентов</label>
+    <select id="new_product_method">
+        <option value="new_product_not_selected">не выбрано</option>
+        <option value="new_product_moving__сalculated">Рассчитанные</option>
+        <option value="new_product_weighted__custom">Пользовательские</option>
+    </select>  -->
+
+    <div class="new_product_calculate">
+    <button id="new_product__calculateForecastButton">Рассчитать прогноз</button>
+    <select id="new_product_scenario">
+        <option value="option0">сохранить текущие настройки</option>
+        <option value="option1">сценарий 1</option>
+        <option value="option2">сценарий 2</option>
+        <option value="option3">сценарий 3</option>
+    </select>
+    </div>
+
+    <button onclick="newProductOptimizationButton()" id="new_product__optimizeButton">Оптимизировать</button>
+    <button id="new_product__exportButton">Экспорт</button>
 </div>
+</section>
 
- 
-<section class="newProduct__preview">
-    <div class="newProduct__results">
-        <button onclick="tb_newProduct__results()"  id="newProduct_resultsButton">Итоги</button>
-        <iframe  id="tb_newProduct_results" src=""></iframe>
+<section class="new_product__preview">
+    <div class="new_product__results">
+        <button onclick="newProduct_PreviewButton()"  id="new_product_resultsButton">Preview</button>
+        <iframe  id="new_product_PreviewIframe" src=""></iframe>
     </div>
-    <div class="newProduct__chart">
-        <button onclick="tb_newProduct__chart()"  id="newProduct_chartButton">Chart</button>
-        <iframe  id="tb_newProduct_chart" src=""></iframe>
-        </section>
-    </div>
-    
-        <button  id="newProduct_exportButton">Экспорт данных</button>
+</section>
 
+<!-- <div class="regular_assort__chart">
+<button onclick="tb_regular_assort__chart()"  id="regular_assort_chartButton">Chart</button>
+<iframe  id="tb_regular_assort_chart" src="" width="80%" height="200"></iframe>
+
+</div> -->
+<div id="new_product__modal">
+<div id="new_product__modalContent">
+    <h5 class="new_product__modal-title">Выберите параметры оптимизации:</h5>
+    <label><input type="checkbox" name="option1"> Выбор агрегата</label><br>
+    <button onclick="newProductSaveModalButton()" id="newProductSaveModalButton">Сохранить</button>
+    <button onclick="newProductCloseModalButton()" id="newProductCloseModalButton">Закрыть</button>
+</div>
+</div>

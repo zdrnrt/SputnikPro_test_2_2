@@ -1,60 +1,56 @@
 
-export default window.tbRegAssortButton = function() {
-    const methodSelect = document.getElementById('regular_assort_method');
-    const selectedMethod = methodSelect.value;
+export default window.newProduct_PreviewButton = function() {
+    const aggregationTime = document.getElementById('new_product__aggregation-time');
+    const selectedAggregationTime = aggregationTime.value;
 
-    const time = document.getElementById('regular_assort__aggregation-time');
-    const selectedAggregationTime = time.value;
+    const aggregationGeo = document.getElementById('new_product__aggregation-geo');
+    const selectedAggregationGeo = aggregationGeo.value;
 
-    const geo = document.getElementById('regular_assort__aggregation-geo');
-    const selectedAggregationGeo = geo.value;
+    const aggregationGroup = document.getElementById('new_product__aggregation-group');
+    const selectedAggregationGroup = aggregationGroup.value;
 
-    const group = document.getElementById('regular_assort__aggregation-group');
-    const selectedAggregationGroup = group.value;
+    const aggregationParameter = document.getElementById('new_product__aggregation-parameter');
+    const selectedAggregationParameter = aggregationParameter.value;
 
-    const scu = document.getElementById('regular_assort__aggregation-scu');
-    const selectedAggregationScu = scu.value;
 
-    const period = document.getElementById('regular_assort_period');
-    const selectedAggregationPeriod = period.value;
 
     let csvFilePath;
-    if (selectedMethod === 'ra_not_selected' || selectedAggregationTime === 'not_selected' || selectedAggregationGeo === 'not_selected' || selectedAggregationGroup === 'not_selected' || selectedAggregationScu=== 'not_selected' || selectedAggregationPeriod === 'not_selected') {
-        const iframe = document.getElementById('tb_regular_assort_results');
+    if (selectedAggregationTime !== 'not_selected' && selectedAggregationGeo !== 'not_selected' && selectedAggregationGroup !== 'not_selected' && selectedAggregationParameter !== 'not_selected') {
+        csvFilePath = './images/demo_file/test_forecast_csv.csv'; 
+    } else if (selectedAggregationTime === 'not_selected' || selectedAggregationGeo === 'not_selected' || selectedAggregationGroup === 'not_selected' || selectedAggregationParameter === 'not_selected') {
+        const iframe = document.getElementById('new_product_PreviewIframe');
         const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+          // Очищаем содержимое iframe и добавляем сообщение
         iframeDoc.open();
         iframeDoc.write(
             `<html>
-            <head>
-                <title>Сообщение</title>
-                <style>
-                    body {
-                        font-family: Arial, sans-serif;
-                        background-color:rgb(255, 255, 255);
-                        text-align: start;
-                        padding: 20px;
-                    }
-                    h1 {
-                        color: #ff0000;/* Цвет текста сообщения */
-                    }
-                </style>
-            </head>
-            <body>
-                <h5>Заполните все поля</h5>
-            </body>
-            </html>`
-        );
-        iframeDoc.close();
-    } 
-    else if (selectedMethod === 'ra_moving_average') {
-        csvFilePath = './images/demo_file/test_forecast_csv.csv'; 
-    } else if (selectedMethod === 'ra_weighted_average') {
+              <head>
+                  <title>Сообщение</title>
+                  <style>
+                      body {
+                          font-family: Arial, sans-serif;
+                          background-color: #f4f4f4;
+                          text-align: start;
+                          padding: 20px;
+                      }
+                      h1 {
+                          color: #ff0000;/* Цвет текста сообщения */
+                      }
+                  </style>
+              </head>
+              <body>
+                  <h5>Расчёт не произведен. Выберите все параметры</h5>
+              </body>
+              </html>`
+          );
+          iframeDoc.close();
+          return; // Завершаем выполнение функции
+        
+
+
+    } else if (selectedMethod === 'promo_weighted__custom') {
         csvFilePath = './images/demo_file/test_forecast_csv2.csv'; 
-    } else if (selectedMethod === 'ra_linear_regression') {
-        csvFilePath = './images/demo_file/test_forecast_csv3.csv'; 
-    } else if (selectedMethod === 'ra_multiple_regression') {
-        csvFilePath = './images/demo_file/test_forecast_csv.csv';
-    }  else {
+    } else {
         console.warn('Неизвестный метод прогнозирования:', selectedMethod);
         return; // Выход из функции, если метод не распознан
     }
@@ -80,7 +76,7 @@ export default window.tbRegAssortButton = function() {
         download: true,
         header: true,
         complete: function(results) {
-            const iframe = document.getElementById('tb_regular_assort_results');
+            const iframe = document.getElementById('new_product_PreviewIframe');
             const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
 
             // Очищаем содержимое iframe
