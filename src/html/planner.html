@@ -34,12 +34,22 @@
 
     <div id="planner_weeklyModal" class="planner_modal modal">
         <div class="planner_modal-content">
-            <span onclick="closeModal('planner_weeklyModal')" style="cursor:pointer;">&times;</span>
-            <h5 class="planner_weeklyModal-title">Параметры</h5>
+            
+            <span onclick="closeModal('planner_weeklyModal')" style="cursor:pointer; font-size: 24px; font-weight: bold">&times;</span>
+            <h5 class="planner_weeklyModal-title">Параметры запуска повторений</h5>
 
-            <p>Интервал повторений, дней</p>
-            <input type="number" value="7" min="1" step="1" max="30" id="planner_interval">
+            <p>Выберите дату начала</p>
+            <input type="date" id="planner_selectedStartDate">
 
+            <p>Интервал повторений</p>
+            <div>
+            <input type="number" value="7" min="1" step="1" max="30" id="planner_interval_num">
+            <select id="planner_interval_str">
+                <option value="option0">день</option>
+                <option value="option1">неделя</option>
+                <option value="option1">месяц</option>
+            </select>
+        </div>
             <!-- <p>Выберите день недели</p>
             <select id="planner_dayOfWeekRepeat">
                 <option value="monday">Понедельник</option>
@@ -54,13 +64,12 @@
             <p>Выберите время</p>
             <input type="time" id="planner_selectedTime">
             
-            <p>Выберите дату начала</p>
-            <input type="date" id="planner_selectedStartDate">
+            
 
             <p>Выберите дату окончания</p>
             <input type="date" id="planner_selectedEndDate">
 
-            <button id="planner_settingModalSave" onclick="saveSettings()">Сохранить</button> 
+            <button id="planner_settingModalSave" onclick="saveSettings()">Добавить</button> 
         </div>
         
     </div>

@@ -1,14 +1,6 @@
 <div class="promoRatio_contaier">
-    
-    <section class="promoRatio_aggregate">
+<section class="promoRatio_aggregate">
         <p class = "promoRatio__aggregation-title">Агрегация выходных данных</p>
-        <label for="promoRatio_time">Агрегат по времени</label>
-    <select id="promoRatio_time">
-        <option value="option2">День</option>
-        <option value="option1">Неделя</option>
-        <option value="option2">Месяц</option>
-        <option value="option2">Квартал</option>
-    </select>
 
     <label for="promoRatio_geography">Агрегат по географии</label>
     <select id="promoRatio_geography">
@@ -19,7 +11,7 @@
         <option value="option2">Магазин</option>
     </select>
 
-    <label for="promoRatio_groupSCU">По группе SCU</label>
+    <label for="promoRatio_groupSCU">По группам</label>
     <select id="promoRatio_groupSCU">
         <option value="option2">Группа1</option>
         <option value="option1">Группа2</option>
@@ -27,6 +19,23 @@
         <option value="option2">Группа4</option>
         <option value="option2">Группа5</option>
     </select>
+
+    <label for="promoRatio_groupSCU">По SCU</label>
+    <select id="promoRatio_groupSCU">
+        <option value="option1">не установлено</option>
+        <option value="option2">SCU</option>
+       
+    </select>
+    
+    <!-- <section class="promoRatio_aggregate">
+        <p class = "promoRatio__aggregation-title">Агрегация выходных данных</p>
+        <label for="promoRatio_time">Агрегат по времени</label>
+    <select id="promoRatio_time">
+        <option value="option2">День</option>
+        <option value="option1">Неделя</option>
+        <option value="option2">Месяц</option>
+        <option value="option2">Квартал</option>
+    </select> -->
 
     <label for="promoRatio_other-indicators">Дополнительные показатели</label>
     <select id="promoRatio_other-indicators">
@@ -44,10 +53,21 @@
         <option value="promoRatio_method_mediana">медиана</option>
     </select>
 
+    
+            <!-- <select id="promoRatio_method">
+        <option value="promoRatio_method_average">средняя</option>
+        <option value="promoRatio_method_mediana">медиана</option>
+    </select> -->
+
     <label for="promoRatio_season-smooth">Сглаживание</label>
     <input type="checkbox" id="promoRatio_season-smooth">
+    <label for="promoRatio_method">Ограничения коэффициентов</label>
+    <div>
+        <label id="label_promoRatio_min" for="promoRatio_min"> MIN <input type="number" value="1" min="1" step="1" max="30" id="promoRatio_min"></label>
+        <label id="label_promoRatio_max" for="promoRatio_max"> MAX <input type="number" value="2" min="1" step="1" max="30" id="promoRatio_max"></label>
+    </div>
 
-    <button id="promoRatio__calculateForecastButton">Рассчитать прогноз</button>
+    <button id="promoRatio__calculateForecastButton">Рассчитать</button>
     <select id="promoRatio_scenario">
         <option value="option0">сохранить прежние настройки</option>
         <option value="option1">сценарий 1</option>

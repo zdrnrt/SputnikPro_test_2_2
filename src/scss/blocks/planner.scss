@@ -3,6 +3,7 @@
     grid-template-columns: repeat(2, 250px);
     grid-template-rows: repeat(5, auto);
     gap: 10px;
+    font-family: 'Open Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 #planner_saveButton{
@@ -29,4 +30,13 @@
     &:hover{
         background-color: $hover-button;
 }
+}
+
+#planner_interval_num{
+    width: 50px;
+    height: 25px;
+}
+#planner_interval_str{
+    width: 125px;
+    height: 25px;
 }

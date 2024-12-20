@@ -1,5 +1,5 @@
 #modal, #promo_modal, #new_product__modal, #new_product__modal, #summaryPlan_modal, .planner_modal{
-    display: none; /* Скрываем модальное окно по умолчанию */
+    display: none;
     position: fixed;
     top: 0;
     left: 0;
@@ -36,12 +36,8 @@
    grid-template-columns:repeat(2, auto);
    gap: 12px;
    align-items: center;
-//    place-items: center;
-//    justify-content: center;
- 
    .planner_weeklyModal-title{
     grid-column: span 2;
-    // margin-left: 30%;
     font-size: 800;
     place-items: center;
    }
