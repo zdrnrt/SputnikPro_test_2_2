@@ -5,7 +5,7 @@
     
     <p>Блок</p>
     <select id="planner__block">
-        <option value="regular_assortiment" checked>регулярный ассортимент</option>
+        <option value="regular_assortment" checked>регулярный ассортимент</option>
         <option value="promo">промо</option>
         <option value="news_product">новинки</option>
         <option value="summary_plan">итого план</option>
@@ -18,7 +18,7 @@
     </select>
 
     <button id="planner_settingRepeat" onclick="planner_selectScenarioRepeat()">Настройка повторения</button>
-    <button id="planner_buttonAddIframe" onclick="addData()">Добавить</button>
+    <button id="planner_buttonAddIframe" onclick="planner_addData()">Добавить</button>
 
     <iframe  id="planner_Iframe" src=""></iframe>
 </div>
@@ -37,10 +37,10 @@
         <h5 class="planner_ModalRepetition-title">Настройки повторения</h5>
         
         <div class="planner_intervalRepetition__header">
-        <select id="planner_intervalRepetition__header">
-            <option value="option0">Повторять ежедневно</option>
-            <option value="option1">Повторять  еженедельно</option>
-            <option value="option1">Повторять  ежемесячно</option>
+        <select id="planner_intervalRepetition__header" onclick="planner_formRepeatSelect()">
+            <option value="repeat_monthly">Повторять  ежемесячно</option>
+            <option value="repeat_weekly">Повторять  еженедельно</option>
+            <option value="repeat_daily">Повторять ежедневно</option>
         </select>
     </div>
 
@@ -50,7 +50,7 @@
     <p class="planner_intervalWrapperDay">день</p>
 </div>
 
-<p class="planner_visionParagraph">Дни повторения</p>
+<p class="planner_visionParagraph planner_visionParagraphDayOfWeek">Дни повторения</p>
 <select id="planner_dayOfWeekRepeat">
     <option value="not_">нет</option>
     <option value="monday">Понедельник</option>

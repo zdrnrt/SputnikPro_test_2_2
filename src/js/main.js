@@ -26,7 +26,8 @@ import {summaryPlan_OptimizationButton, summaryPlan_closeModalButton, summaryPla
 import summaryPlan_PreviewButton from "./modules/summaryPlan_PreviewTable.js";
 import {saveSettings, planner_selectScenarioRepeat, closeModal, closeAllModals } from "./modules/planner_formRepeat.js";
 // import planner_saveButton from "./modules/planner_iframeSavedParam.js";
-import {saveModalData, addData} from "./modules/planner_saveModalRepetition.js";
+import {saveModalData, planner_addData} from "./modules/planner_saveModalRepetition.js";
+import planner_formRepeatSelect from "./modules/planner_formRepeatSelect.js";
 
 
 // import regular_ra_multiple_regression from '/data/test_forecast_csv2.csv';
@@ -434,7 +435,9 @@ window.updateUserImage = function() {
       option3: imageU1, // Путь к изображению Исахановой Малики
       option4: imageTO , 
       option5: imageU1, // Путь к изображению Шварёва Данила
-      option6: imageTG // Путь к изображению Толок Галина
+      option6: imageTG,
+      option7: imageU1 // Путь к изображению Толок Галина
+
   };
 
   const selectedValue = userSelect.value;
@@ -450,6 +453,8 @@ window.updateUserImage = function() {
       img.style.borderRadius = '50px';
       userImageDiv.appendChild(img);
   }
+
+  
 }
 /*вставка юзера*/
 
