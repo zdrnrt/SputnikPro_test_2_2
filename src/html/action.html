@@ -4,9 +4,9 @@
     <section class="action_container__scu">
         <label for="action_scu">Позиция</label>
         <select id="action_scu">
-            <option value="option1">SCU1</option>
-            <option value="option2">SCU2</option>
-            <option value="option3">SCU3</option>
+            <option value="option1">SKU1</option>
+            <option value="option2">SKU2</option>
+            <option value="option3">SKU3</option>
             <option value="option4">...</option>
         </select>
         <label for="action_date-creation">Дата создания</label>
@@ -59,15 +59,13 @@
     <button onclick="check_mark()" id="action_saveButton">Сохранить изменения</button>
     <span id="check-mark_button">✔️ сохранено</span>
 </section>
-      <!--  скачать шаблон -->
     <button id="action_templateButton">Скачать шаблон</button>
-
-       <!-- выбрать файл-->
-    <label class="action_selectFileButton">
-        Загрузить данные, используя .xslx
-        <input type="file" id="action_selectFileButton" name="action_selectFileButton" accept="*/*">
+    
+<div class="action_selectFile">
+    <label for="action_selectFile"> Загрузить данные, используя .xslx
+        <input type="file" id="action_selectFile" name="action_selectFile" accept=".xlsx, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet">
     </label>
-
     <button id="action_downloadButton">Загрузить файл</button>
+</div>
 
 </div>

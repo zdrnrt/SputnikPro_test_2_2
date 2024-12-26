@@ -21,7 +21,7 @@
         <option value="option2">Магазин</option>
     </select>
 
-    <label for="summary_plan_groupSCU">По группе SCU</label>
+    <!-- <label for="summary_plan_groupSCU">По группе SKU</label>
     <select id="summary_plan_groupSCU">
         <option value="not_selected">не установлено</option>
         <option value="option2">Группа1</option>
@@ -29,14 +29,16 @@
         <option value="option2">Группа3</option>
         <option value="option2">Группа4</option>
         <option value="option2">Группа5</option>
-    </select>
+    </select> -->
 
-    <label for="summary_plan_scu">По SCU</label>
+    <label for="summary_plan_scu">Агрегат по SKU</label>
     <select id="summary_plan_scu">
         <option value="not_selected">не установлено</option>
-        <option value="option2">scu1</option>
-        <option value="option3">scu2</option>
-        <option value="option4">scu3</option>
+        <option value="option2">Группа1</option>
+        <option value="option1">Группа2</option>
+        <option value="option2">Группа3</option>
+        <option value="option2">Группа4</option>
+        <option value="option2">SCU</option>
     </select>
 </section>
 
@@ -52,7 +54,7 @@
     <label for="summary_plan_cannibalization">Учёт каннибализации</label>
     <input type="checkbox" id="summary_plan__cannibalization">
 
-    <button id="summary_plan__calculateForecastButton">Рассчитать прогноз</button>
+    <button onclick="summaryPlan_PreviewButton()" id="summary_plan__calculateForecastButton">Рассчитать прогноз</button>
     <select id="summary_plan_scenario">
         <option value="option0">сохранить прежние настройки</option>
         <option value="option1">сценарий 1</option>
@@ -65,10 +67,11 @@
     <button  id="summary_plan_exportButton">Экспорт данных</button>
     <!-- <button  id="summary_plan_importButton">Импорт данных</button> -->
 </section>
+<iframe  id="summaryPlan_PreviewIframe" src=""></iframe>
 
-    <button onclick="summaryPlan_PreviewButton()" id="summary_plan_previewButton">Preview</button>
+    <!-- <button onclick="summaryPlan_PreviewButton()" id="summary_plan_previewButton">Preview</button> -->
 </div>
-<iframe  id="summaryPlan_PreviewIframe" src="" width="1300" height="400"></iframe>
+
 
 
 <div id="summaryPlan_modal">

@@ -1,12 +1,11 @@
 <div class="seasonality_contaier">
-    
     <section class="seasonality_aggregate">
         <p class = "seasonality__aggregation-title">Агрегация данных</p>
     <label for="seasonality_time">Агрегат по времени</label>
     <select id="seasonality_time">
         <option value="not_selected">не выбрано</option>
         <option value="option2">День</option>
-        <option value="option1">Неделя</option>
+        <option value="week">Неделя</option>
         <option value="option2">Месяц</option>
         <option value="option2">Квартал</option>
     </select>
@@ -14,21 +13,22 @@
     <label for="seasonality_geography">Агрегат по географии</label>
     <select id="seasonality_geography">
         <option value="not_selected">не выбрано</option>
-        <option value="option2">Все</option>
+        <option value="all">Все</option>
         <option value="option1">Страна</option>
         <option value="option2">Регион</option>
         <option value="option2">Город</option>
         <option value="option2">Магазин</option>
     </select>
 
-    <label for="seasonality_groupSCU">По группе SCU</label>
+    <label for="seasonality_groupSCU">Агрегат по позиции</label>
     <select id="seasonality_groupSCU">
         <option value="not_selected">не выбрано</option>
-        <option value="option2">Группа1</option>
+        <option value="groupe1">Группа1</option>
         <option value="option1">Группа2</option>
         <option value="option2">Группа3</option>
         <option value="option2">Группа4</option>
         <option value="option2">Группа5</option>
+        <option value="option2">SKU</option>
     </select>
 </section>
 
@@ -43,7 +43,9 @@
     <label for="seasonality_season-smooth">Предварительное сглаживание</label>
     <input type="checkbox" id="seasonality_season-smooth">
 
-    <button id="seasonality__calculateForecastButton">Рассчитать</button>
+    <!-- <button onclick="tbSeasonalityPreview()" id="seasonality__calculateForecastButton">Рассчитать</button> -->
+    <button onclick="loadData()" id="seasonality__calculateForecastButton">Рассчитать</button>
+
     <select id="seasonality_scenario">
         <option value="option0">сохранить прежние настройки</option>
         <option value="option1">сценарий 1</option>
@@ -57,17 +59,18 @@
     <button  id="seasonality_importButton">Импорт данных</button>
 </section><!-- <label for="seasonality_date-creation">Дата создания</label>
     <input type="date" id="action_date-creation" name="action_date-creation" required min="2024-11-14"> -->
-
     <!-- кнопка сохранить -->
-
     <!-- <button id="seasonality_saveButton">Сохранить изменения</button> -->
-
       <!-- кнопка скачать шаблон
     <button id="seasonality_action_templateButton">Скачать шаблон</button> -->
-
      <!-- кнопка загрузить-->
-    <button onclick="tbSeasonalityPreview()" id="seasonality_previewButton">Preview</button>
+    <!-- <button onclick="tbSeasonalityPreview()" id="seasonality_previewButton">Preview</button> -->
+    <!-- <iframe  id="tb_seasonality" src=""></iframe> -->
+    
+    <div id="seasonality_chart"></div>
 </div>
 
-<iframe  id="tb_seasonality" src="" width="1300" height="400"></iframe>
+
+
+
  

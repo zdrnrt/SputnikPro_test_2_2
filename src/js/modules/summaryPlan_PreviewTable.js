@@ -6,8 +6,8 @@ export default window.summaryPlan_PreviewButton = function() {
     const aggregationGeo = document.getElementById('summary_plan_geography');
     const selectedAggregationGeo = aggregationGeo.value;
 
-    const aggregationGroup = document.getElementById('summary_plan_groupSCU');
-    const selectedAggregationGroup = aggregationGroup.value;
+    // const aggregationGroup = document.getElementById('summary_plan_groupSCU');
+    // const selectedAggregationGroup = aggregationGroup.value;
 
     const aggregationParameter = document.getElementById('summary_plan_scu');
     const selectedAggregationParameter = aggregationParameter.value;
@@ -18,9 +18,9 @@ export default window.summaryPlan_PreviewButton = function() {
 
 
     let csvFilePath;
-    if (selectedAggregationTime !== 'not_selected' && selectedAggregationGeo !== 'not_selected' && selectedAggregationGroup !== 'not_selected' && selectedAggregationParameter !== 'not_selected' &&selectedforecastParameter !== 'not_selected') {
+    if (selectedAggregationTime !== 'not_selected' && selectedAggregationGeo !== 'not_selected' && selectedAggregationParameter !== 'not_selected' &&selectedforecastParameter !== 'not_selected') {
         csvFilePath = './images/demo_file/test_forecast_csv.csv'; 
-    } else if (selectedAggregationTime === 'not_selected' || selectedAggregationGeo === 'not_selected' || selectedAggregationGroup === 'not_selected' || selectedAggregationParameter === 'not_selected' || selectedforecastParameter === 'not_selected' ) {
+    } else if (selectedAggregationTime === 'not_selected' || selectedAggregationGeo === 'not_selected' || selectedAggregationParameter === 'not_selected' || selectedforecastParameter === 'not_selected' ) {
         const iframe = document.getElementById('summaryPlan_PreviewIframe');
         const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
           // Очищаем содержимое iframe и добавляем сообщение
@@ -32,7 +32,7 @@ export default window.summaryPlan_PreviewButton = function() {
                   <style>
                       body {
                           font-family: Arial, sans-serif;
-                          background-color: #f4f4f4;
+                          background-color:rgb(255, 255, 255);
                           text-align: start;
                           padding: 20px;
                       }
@@ -42,7 +42,7 @@ export default window.summaryPlan_PreviewButton = function() {
                   </style>
               </head>
               <body>
-                  <h5>Расчёт не произведен. Выберите все параметры</h5>
+                  <h5>Выберите все параметры</h5>
               </body>
               </html>`
           );

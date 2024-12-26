@@ -6,11 +6,11 @@
   //  background: linear-gradient(to top right, $second-color, #00008B);
   height: 105px;
   padding: 0 10px;
-  border-start-end-radius: 30px;
-  border-top-left-radius: 30px; 
+  border-start-end-radius: 15px;
+  border-top-left-radius: 15px; 
   color: $white;
   font-size: 0.8rem;
-  width: 100vw;
+  width: 99vw;
   // width: 100%;
   // @media (min-width: 1920px) {
   //   width: 1665px;
@@ -31,7 +31,7 @@
     
   
     &__nav {
-      margin-right: 5vw;
+      margin-right: 10vw;
       &-list {
         display: flex;
         align-items: center;
@@ -39,7 +39,7 @@
         // justify-content: start;
       }
       &-item {
-        margin-left: 40px;
+        margin-left: 5%;
       }
       &-link {
         color: $white;
@@ -47,7 +47,7 @@
         display: inline-block; /*делаем чтобы наша ссылка из строчного элемента превратилась в строчно-блочный*/
         line-height: 1; /*Задаём высоту строки в пикселях)*/
         // font-weight: bold;
-        font-size: 15px;
+        font-size: 1rem;
         font-family: $main-font;
       }
       &-link:hover {
@@ -72,9 +72,9 @@
 a:hover{ text-decoration-color: $primary-color;} /*перебила подчеркивание из установок*/
 
 #header_top__logo-img {
-    max-width: 60px; /*  макс ширина изображения */
-    height: auto; /*  пропорции  */
-    margin-right: 10px; /* Отступ между изображением и текстом */
+    max-width: 60px; 
+    height: auto; 
+    margin-right: 10px; 
     border-radius: 10px;
 }
 

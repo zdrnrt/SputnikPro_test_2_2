@@ -27,7 +27,7 @@
     align-items: center;
 }
 
-#summary_plan_time, #summary_plan_groupSCU, #summary_plan_geography, #summary_plan_scu, #summary_plan_method,#action_discount, #summary_plan_scenario{
+#summary_plan_time, #summary_plan_groupSCU, #summary_plan_geography, #summary_plan_scu, #summary_plan_method, #summary_plan_scenario{
     width: 200px;
     height: 25px;
     margin-top: 2%;
@@ -65,12 +65,16 @@
     height: 40px;
     background-color:$button_preview_color;
     border: 1px $second-color solid;
-    margin-left: 980px;
+    margin-left: 90%;
     &:hover{
         background-color: $hover-button;
     }
 }
 
 #summaryPlan_PreviewIframe{
-    margin-top: 20px;
+    grid-column: span 2;
+    margin-top: 10%;
+    width: 95%;
+    height: 100%;
+
 }

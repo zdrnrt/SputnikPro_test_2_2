@@ -2,7 +2,7 @@
     display: grid;
     grid-template-columns: repeat(2, 400px);
     grid-template-rows: repeat(3, auto);
-    padding-top: 20px;
+    padding-top: 0px;
     column-gap: 30px;
     .new_product__forecast-wrapper{
         display: grid;
@@ -71,7 +71,7 @@
             }
         }
         #new_product_PreviewIframe{
-            width: 1300px;
+            width: 90%;
             height: 350px;
         }
     }

@@ -1,31 +1,30 @@
 <div class="promoRatio_contaier">
 <section class="promoRatio_aggregate">
-        <p class = "promoRatio__aggregation-title">Агрегация выходных данных</p>
-
+    <p class = "promoRatio__aggregation-title">Агрегация выходных данных</p>
     <label for="promoRatio_geography">Агрегат по географии</label>
     <select id="promoRatio_geography">
         <option value="option2">Все</option>
         <option value="option1">Страна</option>
-        <option value="option2">Регион/option>
+        <option value="option2">Регион</option>
         <option value="option2">Город</option>
         <option value="option2">Магазин</option>
     </select>
 
-    <label for="promoRatio_groupSCU">По группам</label>
+    <label for="promoRatio_groupSCU">По позиции</label>
     <select id="promoRatio_groupSCU">
         <option value="option2">Группа1</option>
         <option value="option1">Группа2</option>
         <option value="option2">Группа3</option>
         <option value="option2">Группа4</option>
         <option value="option2">Группа5</option>
+        <option value="option2">SKU</option>
     </select>
 
-    <label for="promoRatio_groupSCU">По SCU</label>
+    <!-- <label for="promoRatio_groupSCU">По SCU</label>
     <select id="promoRatio_groupSCU">
         <option value="option1">не установлено</option>
-        <option value="option2">SCU</option>
-       
-    </select>
+        <option value="option2">SKU</option>
+    </select> -->
     
     <!-- <section class="promoRatio_aggregate">
         <p class = "promoRatio__aggregation-title">Агрегация выходных данных</p>
@@ -46,19 +45,17 @@
     </select>
 </section>
 
+
 <section class = "promoRatio_calculation">
     <label for="promoRatio_method">Метод агрегации</label>
     <select id="promoRatio_method">
         <option value="promoRatio_method_average">средняя</option>
         <option value="promoRatio_method_mediana">медиана</option>
     </select>
-
-    
             <!-- <select id="promoRatio_method">
         <option value="promoRatio_method_average">средняя</option>
         <option value="promoRatio_method_mediana">медиана</option>
     </select> -->
-
     <label for="promoRatio_season-smooth">Сглаживание</label>
     <input type="checkbox" id="promoRatio_season-smooth">
     <label for="promoRatio_method">Ограничения коэффициентов</label>
@@ -67,32 +64,19 @@
         <label id="label_promoRatio_max" for="promoRatio_max"> MAX <input type="number" value="2" min="1" step="1" max="30" id="promoRatio_max"></label>
     </div>
 
-    <button id="promoRatio__calculateForecastButton">Рассчитать</button>
+    <button onclick="tbPromoRatioPerviewButton()" id="promoRatio__calculateForecastButton">Рассчитать</button>
     <select id="promoRatio_scenario">
         <option value="option0">сохранить прежние настройки</option>
         <option value="option1">сценарий 1</option>
         <option value="option2">сценарий 2</option>
         <option value="option3">сценарий 3</option>
     </select>
-
-    
-    <button  id="promoRatio_exportButton">Экспорт данных</button>
-
-    <button  id="promoRatio_importButton">Импорт данных</button>
-</section><!-- <label for="promoRatio_date-creation">Дата создания</label>
-    <input type="date" id="action_date-creation" name="action_date-creation" required min="2024-11-14"> -->
-
-    <!-- кнопка сохранить -->
-
-    <!-- <button id="promoRatio_saveButton">Сохранить изменения</button> -->
-
-      <!-- кнопка скачать шаблон
-    <button id="promoRatio_action_templateButton">Скачать шаблон</button> -->
-
-     <!-- кнопка загрузить-->
-    <button onclick="tbPromoRatioPerviewButton()" id="promoRatio_previewButton">Preview</button>
-</div>
-
-<iframe  id="tb_promoRatio" src="" width="1300" height="400"></iframe>
  
+        <button  id="promoRatio_exportButton">Экспорт данных</button>
+        <button  id="promoRatio_importButton">Импорт данных</button>
+      
 
+</section>
+     <!-- <button onclick="tbPromoRatioPerviewButton()" id="promoRatio_previewButton">Preview</button> -->
+     <iframe  id="tb_promoRatio" src="" height="400"></iframe>
+</div>

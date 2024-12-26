@@ -9,8 +9,8 @@ export default window.tbRegAssortButton = function() {
     const geo = document.getElementById('regular_assort__aggregation-geo');
     const selectedAggregationGeo = geo.value;
 
-    const group = document.getElementById('regular_assort__aggregation-group');
-    const selectedAggregationGroup = group.value;
+    // const group = document.getElementById('regular_assort__aggregation-group');
+    // const selectedAggregationGroup = group.value;
 
     const scu = document.getElementById('regular_assort__aggregation-scu');
     const selectedAggregationScu = scu.value;
@@ -19,7 +19,7 @@ export default window.tbRegAssortButton = function() {
     const selectedAggregationPeriod = period.value;
 
     let csvFilePath;
-    if (selectedMethod === 'ra_not_selected' || selectedAggregationTime === 'not_selected' || selectedAggregationGeo === 'not_selected' || selectedAggregationGroup === 'not_selected' || selectedAggregationScu=== 'not_selected' || selectedAggregationPeriod === 'not_selected') {
+    if (selectedMethod === 'ra_not_selected' || selectedAggregationTime === 'not_selected' || selectedAggregationGeo === 'not_selected' || selectedAggregationScu=== 'not_selected' || selectedAggregationPeriod === 'not_selected') {
         const iframe = document.getElementById('tb_regular_assort_results');
         const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
         iframeDoc.open();

@@ -51,33 +51,12 @@
         gap: 12px;
     }
 }
-  
-
-
-.promo__preview{
-    display: flex;
-    flex-direction: column;
-    margin-top: 20px;
-    .promo__results{
-        display: flex;
-        flex-direction: column;
-        #promo_resultsButton{
-            width: 200px;
-            height: 40px;
-            margin: 10px;
-            background-color: $button_preview_color;
-            margin-left: 70%;
-            &:hover{
-                background-color: $hover-button;
-            }
-        }
-        #promo_PreviewIframe{
-            width: 1300px;
-            height: 350px;
-        }
-    }
+#promo_PreviewIframe{
+    grid-column: span 2;
+    margin-top: 10%;
+    width: 95%;
+    height: 100%;
 }
-
 
 
 // .promo_container{
@@ -145,4 +124,23 @@
 //         }
 //     }
     
-    
+// .promo__preview{
+//     display: flex;
+//     flex-direction: column;
+//     margin-top: 20px;
+//     .promo__results{
+//         display: flex;
+//         flex-direction: column;
+//         #promo_resultsButton{
+//             width: 200px;
+//             height: 40px;
+//             margin: 10px;
+//             background-color: $button_preview_color;
+//             margin-left: 70%;
+//             &:hover{
+//                 background-color: $hover-button;
+//             }
+//         }
+     
+//     }
+// }

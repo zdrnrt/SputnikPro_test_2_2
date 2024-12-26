@@ -18,7 +18,7 @@ export default window.promo_PreviewButton = function() {
                   <style>
                       body {
                           font-family: Arial, sans-serif;
-                          background-color: #f4f4f4;
+                          background-color:rgb(255, 255, 255);
                           text-align: start;
                           padding: 20px;
                       }
@@ -41,25 +41,8 @@ export default window.promo_PreviewButton = function() {
         csvFilePath = './images/demo_file/test_forecast_csv2.csv'; 
     } else {
         console.warn('Неизвестный метод прогнозирования:', selectedMethod);
-        return; // Выход из функции, если метод не распознан
+        return; 
     }
-
-    // Загружаем CSV-файл
-    // fetch(csvFilePath)
-    //     .then(response => {
-    //         if (!response.ok) {
-    //             throw new Error('Сетевой ответ не OK');
-    //         }
-    //         return response.text();
-    //     })
-    //     .then(data => {
-    //         console.log('Данные CSV:');
-    //         // Здесь  обработать данные  console.log('Данные CSV:', data);
-    //     })
-    //     .catch(error => {
-    //         console.error('Ошибка при загрузке CSV:', error);
-    //     });
-
 
     Papa.parse(csvFilePath, {
         download: true,
@@ -77,7 +60,7 @@ export default window.promo_PreviewButton = function() {
                     <style>
                         body {
                             font-family: Arial, sans-serif;
-                            background-color: #f4f4f4;
+                            background-color:rgb(255, 255, 255);
                         }
                         table {
                             width: 100%;

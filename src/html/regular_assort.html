@@ -23,19 +23,23 @@
                 <option value="option5">магазин</option>
             </select>
     
-            <label for="regular_assort__aggregation-group">Агрегат по группам</label>
+            <!-- <label for="regular_assort__aggregation-group">Агрегат по группам</label>
             <select id="regular_assort__aggregation-group">
                 <option value="not_selected">не установлено</option>
                 <option value="option2">группа1</option>
                 <option value="option3">группа2</option>
                 <option value="option4">группа3</option>
                 <option value="option5">группа4</option>
-            </select>
+            </select> -->
     
-            <label for="regular_assort__aggregation-scu">Агрегат по SCU</label>
+            <label for="regular_assort__aggregation-scu">Агрегат по позиции</label>
             <select id="regular_assort__aggregation-scu">
                 <option value="not_selected">не установлено</option>
-                <option value="option2">SCU</option>
+                <option value="option2">группа1</option>
+                <option value="option3">группа2</option>
+                <option value="option4">группа3</option>
+                <option value="option5">группа4</option>
+                <option value="option2">SKU</option>
             </select>
         </div>
         </section>
@@ -68,7 +72,7 @@
         </select>
 
         <div class="regular_assort_calculate">
-        <button id="regular_assort__calculateForecastButton">Рассчитать прогноз</button>
+        <button onclick="tbRegAssortButton()" id="regular_assort__calculateForecastButton">Рассчитать прогноз</button>
         <select id="regular_assort_scenario">
             <option value="option0">сохранить текущие настройки</option>
             <option value="option1">сценарий 1</option>
@@ -79,15 +83,17 @@
 
         <button onclick="tbRegAssortOptimizationButton()" id="regular_assort__optimizeButton">Оптимизировать</button>
         <button id="regular_assort__exportButton">Экспорт</button>
+    </section>
+    <iframe  id="tb_regular_assort_results"></iframe>
     </div>
-</section>
+
     
-    <section class="regular_assort__preview">
+    <!-- <section class="regular_assort__preview">
         <div class="regular_assort__results">
             <button onclick="tbRegAssortButton()"  id="regular_assort_resultsButton">Preview</button>
             <iframe  id="tb_regular_assort_results" src=""></iframe>
         </div>
-    </section>
+    </section> -->
 
 <!-- <div class="regular_assort__chart">
     <button onclick="tb_regular_assort__chart()"  id="regular_assort_chartButton">Chart</button>

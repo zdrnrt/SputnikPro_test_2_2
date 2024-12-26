@@ -9,11 +9,11 @@ import showContent_tender from "./modules/tender.js";
 import showContent_priceChange from "./modules/price_change.js";
 import showContent_promoRatio from "./modules/promo_ratio.js";
 import showContent_planner from "./modules/planner.js";
-// import tb_regular_assort__results from "./modules/regular_assortTable.js";
 import tb_regular_assort__chart from "./modules/regular_assortChart.js";
 import howContent_summaryPlan from "./modules/summary_plan.js";
 import tbRegAssortButton from "./modules/regular_assortTable_copy.js";
-import tbSeasonalityPreview from "./modules/seasonality_previewTable.js";
+// import tbSeasonalityPreview from "./modules/seasonality_previewTable.js";
+import loadData from "./modules/seasonality_visualLines.js";
 import tbPromoRatioPerviewButton from "./modules/promoRatio_previewButton.js";
 import {tbRegAssortOptimizationButton} from "./modules/regular_assortOptimizationForm.js";
 import { ra_closeModalButton, ra_saveButton} from "./modules/regular_assortOptimizationForm.js";
@@ -25,11 +25,13 @@ import newProduct_PreviewButton from "./modules/newProduct_PreviewTable.js";
 import {summaryPlan_OptimizationButton, summaryPlan_closeModalButton, summaryPlan_saveModalButton} from "./modules/summaryPlan_OptimizationForm.js";
 import summaryPlan_PreviewButton from "./modules/summaryPlan_PreviewTable.js";
 import {saveSettings, planner_selectScenarioRepeat, closeModal, closeAllModals } from "./modules/planner_formRepeat.js";
-import planner_saveButton from "./modules/planner_iframeSavedParam.js";
+// import planner_saveButton from "./modules/planner_iframeSavedParam.js";
+import {saveModalData, addData} from "./modules/planner_saveModalRepetition.js";
 
 
 // import regular_ra_multiple_regression from '/data/test_forecast_csv2.csv';
 // новый сайд бар
+
 var floatSubMenuTimeout, targetFloatMenu, handleSlimScroll = function() {
     "use strict";
     $.when($("[data-scrollbar=true]").each(function() {

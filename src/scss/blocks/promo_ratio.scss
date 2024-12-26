@@ -1,11 +1,11 @@
 .promoRatio_contaier {
     display: grid;
-    grid-template-columns: repeat(2, 400px);
-    column-gap: 50px;
-    padding-top: 20px;
+    grid-template-columns: repeat(2, 60%);
+    column-gap: 5%;
+    padding-top: 0px;
     .promoRatio_aggregate{
         display: grid;
-        grid-template-columns: repeat(2, 150px);
+        grid-template-columns: repeat(2, auto);
         grid-template-rows: repeat(5, 30px);
         align-items: center;
         gap: 5px;
@@ -23,11 +23,11 @@
     display: grid;
     grid-template-columns: repeat(2, 230px);
     grid-template-rows: repeat(4, auto);
-    gap: 10px;
+    gap: 2%;
     align-items: center;
 }
 
-#promoRatio_time, #promoRatio_groupSCU, #promoRatio_geography, #promoRatio_other-indicators, #promoRatio_method,#action_discount, #promoRatio_scenario{
+#promoRatio_time, #promoRatio_groupSCU, #promoRatio_geography, #promoRatio_other-indicators, #promoRatio_method, #promoRatio_scenario{
     width: 200px;
     height: 25px;
     margin-top: 2%;
@@ -65,14 +65,17 @@
     height: 40px;
     background-color:$button_preview_color;
     border: 1px $second-color solid;
-    margin-left: 980px;
+    margin-left: 80%;
     &:hover{
         background-color: $hover-button;
     }
 }
 
 #tb_promoRatio{
-    margin-top: 20px;
+    grid-column: span 2;
+    margin-top: 10%;
+    width: 95%;
+    height: 100%;
 }
 
 #label_promoRatio_max{

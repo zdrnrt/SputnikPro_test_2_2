@@ -6,25 +6,24 @@
     <link rel="stylesheet" href="./style.scss">
     <link rel="icon" href="./public/images/logo_sputnik.jpg" type="image/png">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
     <title>SputnikPro</title>
   </head>
   <body>
-
     <div class="container">
-
-    <header class="header_top">
+      <header class="header_top">
       <div class="header_top__logo">
         <div><img id="header_top__logo-img" src="./public/images/logo_sputnik.jpg" alt="логотип компании Спутник"></div>
         <div class="header_top__logo-text">SputnikPro</div>
       </div>
-
       <nav class="header_top__nav">
         <ul class="header_top__nav-list">
-          <li class="header_top__nav-item">
+          <!-- <li class="header_top__nav-item">
             <a href="#" class="header_top__nav-link forecast">
               Цифровой ассистент</a
             >
-          </li>
+          </li> -->
           <li class="header_top__nav-item">
             <a href="#" class="header_top__nav-link forecast">
               Прогнозирование</a
@@ -39,9 +38,6 @@
             <a href="#" class="header_top__nav-link"> Главная</a>
           </li>
           <li class="header_top__nav-item" id="userImage"></li>
-          <!-- <li class="header_top__nav-item">
-            <a href="#" class="header_top__nav-link">Сменить пользователя</a>
-          </li> -->
 
          </li>
          <li>
@@ -53,6 +49,7 @@
             <option value="option4">Ткачёв Олег</option>
             <option value="option6">Толок Галина</option>
             <option value="option5">Шварёв Данила</option>
+            <option value="option6">Писаренко Павел</option>
         </select>
          </li>
 
@@ -60,31 +57,12 @@
       </nav>
     </header>
 
-
-
-
-
-
-
-
-
-
-
- <!-- МОООЕ BIG side bar-->
  <div id="app">
- <!-- begin #sidebar -->
+
 <div id="page-container" class="page-header-fixed page-sidebar-fixed">
 <div id="sidebar" class="sidebar">
-<!-- begin sidebar scrollbar -->
 <div data-scrollbar="true" data-height="100%">
- <!-- begin sidebar nav -->
-
  <ul class="nav">
-
-
-   <!-- /Параметры/ -->
-   <!-- <li><a href="#"  value="action" onclick="showContent_parameters()"><i class="fa fa-calendar"></i> <span  class="visible">Параметры прогнозирования</span></a></li> -->
-   
    <li class="has-sub">
     <a href="javascript:;">
       <b class="caret"></b>
@@ -113,8 +91,7 @@
       <li class="visible"><a onclick="showContent_priceChange()" href="#">Изменение цен</a></li>
     </ul>
   </li>
-  
-   <!-- Прогнозирование -->
+
    <li class="has-sub">
      <a href="javascript:;">
        <b class="caret"></b>
@@ -129,12 +106,6 @@
        <li class="visible"><a onclick="showContent_promo()" href="#">Промо</a></li>
        <li class="visible"><a onclick="showContent_newProducts()" href="#">Новинки</a></li>
        <li class="visible"><a href="#">Вывод</a></li>
-       
-
-       
-   <!-- Прогнозирование -->
-
-
      </ul>
    </li>
    <li class="has-sub">
@@ -170,7 +141,6 @@
       <li class="visible"><a href="#">Категории</a></li> -->
     </ul>
   </li>
-
 
    <li class="has-sub">
      <a href="javascript:;">
@@ -211,10 +181,6 @@
      </ul>
    </li>
    <!-- <li><a href="#"><i class="fa fa-calendar"></i> <span class="visible">Calendar</span></a></li> -->
-
-   
-
-
    <li class="has-sub">
      <a href="javascript:;">
        <b class="caret"></b>
@@ -291,10 +257,6 @@
 </div>
   <!-- МОООЕ BIG side bar-->
 
- 
-
- 
-
 
   <main class="main">
       <div class="content" id="mainContent">
@@ -321,6 +283,7 @@
     </nav>
     <!-- <div class="footer__rights">Все права защищены © 2024</div> -->
   </footer>
+
 </div>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="module" src="/src/js/main.js"></script>

@@ -1,20 +1,17 @@
 .seasonality_contaier {
     display: grid;
-    grid-template-columns: repeat(2, 400px);
-    grid-template-rows: repeat(2, auto);
-    column-gap: 50px;
-    // padding-left: 40px; 
+    grid-template-columns: repeat(2, 70%);
+    grid-template-rows: repeat(3, auto);
+    column-gap: 15px;
     padding-top: 20px;
     .seasonality_aggregate{
         display: grid;
-        grid-template-columns: repeat(2, 150px);
+        grid-template-columns: repeat(2, 50%);
         grid-template-rows: repeat(4, 30px);
         align-items: center;
-        gap: 10px;
+        gap: 5%;
         border: 1px $frame_color2 solid;
-        // border-radius: 15px;
         padding: 8px;
-        // margin-bottom: 5%;
         .seasonality__aggregation-title{
             grid-column: span 2;
             margin-left: 40%;
@@ -27,7 +24,7 @@
 
 .seasonality_calculation{
     display: grid;
-    grid-template-columns: repeat(2, 250px);
+    grid-template-columns: repeat(2, 50%);
     grid-template-rows: repeat(4, auto);
     gap: 5px;
     align-items: center;
@@ -35,8 +32,8 @@
 }
 
 
-#seasonality_time, #seasonality_groupSCU, #seasonality_geography, #seasonality_groupSCU, #seasonality_method,#action_discount, #seasonality_scenario{
-    width: 200px;
+#seasonality_time, #seasonality_groupSCU, #seasonality_geography, #seasonality_groupSCU, #seasonality_method,#seasonality_scenario{
+    width: 80%;
     height: 25px;
     margin-top: 2%;
 }
@@ -48,38 +45,40 @@
 }
 
 #seasonality__calculateForecastButton, #seasonality_exportButton, #seasonality_importButton{
-    width: 200px;
+    width: 80%;
     height: 40px;
     margin-top: 10px;
+    transition: background-color 0.3s, transform 0.1s;
     &:hover{
-        background-color: $hover-button;
+        background-color:$hover-button;
+        transform: scale(1.05);
     }
-}
-#seasonality_saveButton{
-    grid-column: span 4;
-    width: 400px;
-    height: 40px;
-    margin-left: 20%;
-    margin-top: 50px;
-    border-radius: 0px;
-    &:hover{
-        background-color: $hover-button;
+    &:focus {
+        outline: none;
+        background-color: $focus-button;
+    }
+    &:active{
+        // background-color: red;
+        transform: scale(0.95);
+        // box-shadow: 0 0 5px  rgb(167, 67, 167);
     }
 }
 
-#seasonality_previewButton{
+// #tb_seasonality{
+//     grid-column: span 2;
+//     margin-top: 10%;
+//     width: 100px;
+//     height: 100px;
+// }
+
+#seasonality_chart {
     grid-column: span 2;
-    margin-top: 30px;
-    width: 200px;
-    height: 40px;
-    background-color:$button_preview_color;
-    border: 1px $second-color solid;
-    margin-left: 980px;
-    &:hover{
-        background-color: $hover-button;
-    }
+    margin-top: 70px;
+    width: 800px;
+    height: 400px;
 }
-
-#tb_seasonality{
-    margin-top: 20px;
-}
+// .svg-container{
+//     border: 1px red solid;
+//     width: 200px;
+//     height: 200px;
+// }

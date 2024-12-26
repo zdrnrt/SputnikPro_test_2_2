@@ -21,19 +21,23 @@
             <option value="option5">магазин</option>
         </select>
 
-        <label for="promo__aggregation-group">Агрегат по группам</label>
+        <!-- <label for="promo__aggregation-group">Агрегат по группам</label>
         <select id="promo__aggregation-group">
             <option value="option1">не установлено</option>
             <option value="option2">группа1</option>
             <option value="option3">группа2</option>
             <option value="option4">группа3</option>
             <option value="option5">группа4</option>
-        </select>
+        </select> -->
 
-        <label for="promo__aggregation-scu">Агрегат по SCU</label>
+        <label for="promo__aggregation-scu">Агрегат по позиции</label>
         <select id="promo__aggregation-scu">
             <option value="option1">не установлено</option>
-            <option value="option2">SCU</option>
+            <option value="option2">группа1</option>
+            <option value="option3">группа2</option>
+            <option value="option4">группа3</option>
+            <option value="option5">группа4</option>
+            <option value="option2">SKU</option>
         </select>
     </div>
     </section>
@@ -61,7 +65,7 @@
     </select> -->
 
     <div class="promo_calculate">
-    <button id="promo__calculateForecastButton">Рассчитать прогноз</button>
+    <button onclick="promo_PreviewButton()"  id="promo__calculateForecastButton">Рассчитать прогноз</button>
     <select id="promo_scenario">
         <option value="option0">сохранить текущие настройки</option>
         <option value="option1">сценарий 1</option>
@@ -72,15 +76,16 @@
 
     <button onclick="promo_OptimizationButton()" id="promo__optimizeButton">Оптимизировать</button>
     <button id="promo__exportButton">Экспорт</button>
-</div>
 </section>
+<iframe  id="promo_PreviewIframe" src=""></iframe>
+</div>
 
-<section class="promo__preview">
+<!-- <section class="promo__preview">
     <div class="promo__results">
         <button onclick="promo_PreviewButton()"  id="promo_resultsButton">Preview</button>
         <iframe  id="promo_PreviewIframe" src=""></iframe>
     </div>
-</section>
+</section> -->
 
 <!-- <div class="regular_assort__chart">
 <button onclick="tb_regular_assort__chart()"  id="regular_assort_chartButton">Chart</button>
