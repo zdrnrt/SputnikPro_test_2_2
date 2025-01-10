@@ -9,7 +9,7 @@ import showContent_tender from "./modules/tender.js";
 import showContent_priceChange from "./modules/price_change.js";
 import showContent_promoRatio from "./modules/promo_ratio.js";
 import showContent_planner from "./modules/planner.js";
-import tb_regular_assort__chart from "./modules/regular_assortChart.js";
+// import tb_regular_assort__chart from "./modules/regular_assortChart.js";
 import howContent_summaryPlan from "./modules/summary_plan.js";
 import tbRegAssortButton from "./modules/regular_assortTable_copy.js";
 // import tbSeasonalityPreview from "./modules/seasonality_previewTable.js";
