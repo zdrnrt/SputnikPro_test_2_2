@@ -545,26 +545,14 @@ $(document).ready(function() {
         }`
     ;
     iframeDocument.head.appendChild(style);
-
               const table = iframeDocument.createElement('table');
               table.innerHTML = ''; // Очистка предыдущего содержимого
-
               if (data.length === 0) {
                   table.innerHTML = '<tr><td colspan="100%">Нет данных для отображения</td></tr>';
                   iframeDocument.body.appendChild(table);
                   return;
               }
   
-              // // Создание заголовков
-              // const headers = Object.keys(data[0]);
-              // const headerRow = document.createElement('tr');
-              // headers.forEach(header => {
-              //     const th = document.createElement('th');
-              //     th.textContent = header;
-              //     headerRow.appendChild(th);
-              // });
-              // table.appendChild(headerRow);
-
 // Создание заголовков, начиная с 7-го столбца
     const headers = Object.keys(data[0]);
     const headerRow = document.createElement('tr');
@@ -599,8 +587,10 @@ data.forEach(row => {
 iframeDocument.body.appendChild(table);
 };
 
-          const url = "./public/images/demo_file/regAssort2.xlsx";
-          fetch("./public/images/demo_file/regAssort2.xlsx")
+          // const url = './public/images/users/regAssort2.xlsx';// ссылки для локального компа
+          // fetch('./public/images/users/regAssort2.xlsx')// ссылки для локального компа
+          const url = '   https://raw.githubusercontent.com/Kujavia/SputnikPro_test_2_2/master/public/images/demo_file/regAssort2.xlsx';
+          fetch('   https://raw.githubusercontent.com/Kujavia/SputnikPro_test_2_2/master/public/images/demo_file/regAssort2.xlsx')
               .then(response => {
                   if (!response.ok) {
                       throw new Error('Сеть не отвечает');
