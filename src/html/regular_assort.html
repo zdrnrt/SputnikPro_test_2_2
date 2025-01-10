@@ -7,15 +7,17 @@
             <div class="regular_assort__aggregation"> 
             <label for="regular_assort__aggregation-time">Агрегат по времени</label>
             <select id="regular_assort__aggregation-time">
+                <option value="option2">неделя</option>
                 <option value="not_selected">не установлено</option>
                 <option value="option1">день</option>
-                <option value="option2">неделя</option>
+              
                 <option value="option3">квартал</option>
                 <option value="option4">месяц</option>
             </select>
     
             <label for="regular_assort__aggregation-geo">Агрегат по географии</label>
             <select id="regular_assort__aggregation-geo">
+                <option value="chain">сеть</option>
                 <option value="not_selected">не установлено</option>
                 <option value="option2">страна</option>
                 <option value="option3">регион</option>
@@ -34,11 +36,8 @@
     
             <label for="regular_assort__aggregation-scu">Агрегат по позиции</label>
             <select id="regular_assort__aggregation-scu">
+                <option value="option2">тип продукции</option>
                 <option value="not_selected">не установлено</option>
-                <option value="option2">группа1</option>
-                <option value="option3">группа2</option>
-                <option value="option4">группа3</option>
-                <option value="option5">группа4</option>
                 <option value="option2">SKU</option>
             </select>
         </div>
@@ -47,7 +46,6 @@
         <section class="regular_assort__forecast-wrapper">
         <label for="regular_assort_method">Метод прогнозирования</label>
         <select id="regular_assort_method">
-            <option value="ra_not_selected">не выбрано</option>
             <option value="ra_moving_average">Скользящая средняя</option>
             <option value="ra_weighted_average">Средневзвешенная</option>
             <option value="ra_linear_regression">Линейная регрессия</option>
@@ -56,9 +54,10 @@
             <option value="ra_holt_winters">Хольта - Винтерса</option>
             <option value="ra_exponential_smoothing">Экспоненциальное сглаживание</option>
             <option value="ra_probabilistic_model">Вероятностная модель</option>
+            <option value="ra_not_selected">не выбрано</option>
         </select>
 
-        <label for="regular_assort_period">Период</label>
+        <!-- <label for="regular_assort_period">Период</label>
         <select id="regular_assort_period">
             <option value="not_selected">не выбрано</option>
             <option value="option1">1</option>
@@ -69,10 +68,10 @@
             <option value="option6">6</option>
             <option value="option7">7</option>
             <option value="option8">8</option>
-        </select>
+        </select> -->
 
         <div class="regular_assort_calculate">
-        <button onclick="tbRegAssortButton()" id="regular_assort__calculateForecastButton">Рассчитать прогноз</button>
+        <button onclick="loadAndFilterData()" id="regular_assort__calculateForecastButton">Рассчитать прогноз</button>
         <select id="regular_assort_scenario">
             <option value="option0">сохранить текущие настройки</option>
             <option value="option1">сценарий 1</option>
