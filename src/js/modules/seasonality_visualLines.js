@@ -17,14 +17,14 @@ export default window.loadData = function() {
     let filePath = '';
     if (selectedOption === 'fluctuation_average' && 
         seasonality_selectedTime === 'week' && 
-        seasonality_selectedGeo === 'all' && 
+        seasonality_selectedGeo === 'seasonality_geographyСhain' && 
         seasonality_selectedGroupSCU === 'groupe1') {
         filePath = './images/demo_file/test3.xlsx';
     } else if (selectedOption === 'fluctuation_trend' && 
                seasonality_selectedTime === 'week' && 
-               seasonality_selectedGeo === 'all' && 
+               seasonality_selectedGeo === 'seasonality_geographyСhain' && 
                (seasonality_selectedGroupSCU === 'groupe1')) {
-        filePath = './images/demo_file/test4.xlsx';
+        filePath = './images/demo_file/test3.xlsx';
     } else {
         document.getElementById('seasonality_chart').innerHTML = 'Выберите корректные параметры';
         return;

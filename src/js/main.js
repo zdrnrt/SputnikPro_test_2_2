@@ -486,8 +486,7 @@ $(document).ready(function() {
 
 
 
-
-
+//REG ASSORT***************************************************************************************************************************************************
         // document.getElementById('regular_assort__calculateForecastButton').addEventListener('click', loadAndFilterData);
     
         window.loadAndFilterData = function() {
@@ -526,16 +525,18 @@ $(document).ready(function() {
         `table {
             width: 100%;
             border-collapse: collapse;
-            margin-top: 20px;
+            margin-top: 0px;
+            font-size: 12px;
         }
         th, td {
             border: 1px solid #ddd;
-            padding: 8px;
+            padding: 5px;
             text-align: left;
+            width: 5px;
         }
         th {
-            background-color: #4CAF50;
-            color: white;
+            background-color:rgb(36, 76, 223);
+            color: white; 
         }
         tr:nth-child(even) {
             background-color: #f2f2f2;

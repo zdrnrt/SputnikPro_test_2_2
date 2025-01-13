@@ -1,4 +1,12 @@
 export default window. saveSelectedGlobalParameters = function() {
+    window.check_mark = function() {
+        const statusElement = document.getElementById('check-mark_button');
+        statusElement.style.display = 'inline';
+        setTimeout(function() {
+            statusElement.style.display = 'none';
+        }, 5000);
+    }
+    window.check_mark()
     // Создаем объект для хранения значений
     const parameters = {};
 
