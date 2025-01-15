@@ -19,8 +19,8 @@ export default window. saveSelectedGlobalParameters = function() {
     const salesRecoveryMethod = document.getElementById("parameters_sales_recovery-method");
 
     // Сохраняем текстовые значения в объект
-    parameters.timeAggregation = timeAggregation.options[timeAggregation.selectedIndex].text;
-    parameters.skuAggregation = skuAggregation.options[skuAggregation.selectedIndex].text;
+    parameters['агрегат по времени'] = timeAggregation.options[timeAggregation.selectedIndex].text;
+    parameters['агрегат по позиции'] = skuAggregation.options[skuAggregation.selectedIndex].text;
     parameters['очистка oos'] = oosMethod.options[oosMethod.selectedIndex].text;
     parameters['очистка от промо']  = promoMethod.options[promoMethod.selectedIndex].text;
     parameters['очистка от выбросов'] = spikesMethod.options[spikesMethod.selectedIndex].text;
@@ -35,8 +35,9 @@ export default window. saveSelectedGlobalParameters = function() {
 
     // Сохраняем объект в localStorage как строку JSON
     localStorage.setItem('globalParameters', JSON.stringify(parameters));
+    localStorage.setItem('globalParametersNewProducts', JSON.stringify(parameters));
 
     // Выводим сообщение о сохранении
-    console.log('Параметры сохранены:', parameters);
+    console.log('Параметры сохранены в двух словарях:', parameters);
 }
 

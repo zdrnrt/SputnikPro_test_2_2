@@ -590,8 +590,9 @@ iframeDocument.body.appendChild(table);
 
           // const url = './public/images/users/regAssort2.xlsx';// ссылки для локального компа
           // fetch('./public/images/users/regAssort2.xlsx')// ссылки для локального компа
-          const url = '   https://raw.githubusercontent.com/Kujavia/SputnikPro_test_2_2/master/public/images/demo_file/regAssort2.xlsx';
-          fetch('   https://raw.githubusercontent.com/Kujavia/SputnikPro_test_2_2/master/public/images/demo_file/regAssort2.xlsx')
+          const url = '   https://raw.githubusercontent.com/Kujavia/SputnikPro_test_2_2/master/public/images/demo_file/regAssort3.xlsx';
+          // fetch('   https://raw.githubusercontent.com/Kujavia/SputnikPro_test_2_2/master/public/images/demo_file/regAssort2.xlsx')
+          fetch('./public/images/demo_file/regAssort3.xlsx')// ссылки для локального компа
               .then(response => {
                   if (!response.ok) {
                       throw new Error('Сеть не отвечает');
@@ -614,193 +615,141 @@ iframeDocument.body.appendChild(table);
               });
       };
   
-      // document.getElementById('load-button').addEventListener('click', loadAndFilterData);
-    // window.loadAndFilterData()
-
-
-
+//NEWS PRODUCTS global**********************************************************************************~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+       // document.getElementById('regular_assort__calculateForecastButton').addEventListener('click', loadAndFilterData);
     
+       window.loadAndFilterDataNewProducts = function() {
+        window.saveGlobalParametersRegularNewProducts = function() {
+            let currentData = JSON.parse(localStorage.getItem('globalParametersNewProducts'));
+            if (!currentData) {
+                currentData = {};
+            }
+            const newProductAggregationGeo = document.getElementById('new_product__aggregation-geo'); //забираю
+            const newProductAggregationGroup = document.getElementById('new_product__aggregation-group'); //забираю
+            const newProductAggregationAddParameter = document.getElementById('new_product__aggregation-parameter'); //забираю
 
-  // сбор параметров для регулар ассортимент********************************************************************************
 
-//   window.filterAndDisplayData = async function() {
-//     window.saveGlobalParametersRegular = function() {
-//         let currentData = JSON.parse(localStorage.getItem('globalParameters'));
-//         if (!currentData) {
-//             currentData = {};
-//         }
-//         const regularAssortMethodForecast = document.getElementById('regular_assort_method');
-//         const regular_method = regularAssortMethodForecast.options[regularAssortMethodForecast.selectedIndex].text;
-//         currentData['методы прогноза'] = regular_method;
-//         localStorage.setItem('globalParameters', JSON.stringify(currentData));
-//     }
-//     window.saveGlobalParametersRegular();
+            const AggregationGeo = newProductAggregationGeo.options[newProductAggregationGeo.selectedIndex].text;//присваиваю
+            const AggregationGroup = newProductAggregationGroup.options[newProductAggregationGroup.selectedIndex].text;//присваиваю
+            const AggregationAddParameter = newProductAggregationAddParameter.options[newProductAggregationAddParameter.selectedIndex].text;//присваиваю
 
-//     const filters = JSON.parse(localStorage.getItem('globalParameters'));
-//     const response = await fetch('./public/images/demo_file/reg_assort2.xlsx');
-//     const data = await response.arrayBuffer();
-//     const workbook = XLSX.read(data, { type: 'array' });
-//     const sheetName = workbook.SheetNames[0];
-//     const worksheet = workbook.Sheets[sheetName];
-//     const jsonData = XLSX.utils.sheet_to_json(worksheet);
 
-//     // Отладка
-//     // console.log('Filters:', filters);
-//     // console.log('JSON Data:', jsonData);
+            currentData['агрегат по географии'] = AggregationGeo; // добавляю в словарь
+            currentData['агрегат по позиции'] = AggregationGroup; // добавляю в словарь
+            currentData['дополнительные показатели'] = AggregationAddParameter; // добавляю в словарь
+            localStorage.setItem('globalParametersNewProducts', JSON.stringify(currentData));
+        }
+        window.saveGlobalParametersRegularNewProducts();
 
-//     // Проверка наличия данных
-//     if (jsonData.length === 0) {
-//         console.error('No data found in the Excel file.');
-//         return;
-//     }
+        window.filterDataNewProducts = function(data) {
+            const parameters = JSON.parse(localStorage.getItem('globalParametersNewProducts'));
+            return data.filter(row => {
+                return Object.keys(parameters).every(key => {
+                    if (row[key] !== undefined) {
+                        return row[key] === parameters[key];
+                    }
+                    return true;
+                });
+            });
+        };
 
-//     // Фильтрация данных
-//     const filteredData = jsonData.filter(row => {
-//         return Object.keys(filters).every(key => {
-//             return String(row[key]) === String(filters[key]); // Приводим оба значения к строкам
-//         });
-//     });
+        window.displayTableNewProducts = function(data) {
+            const iframe = document.getElementById('new_product_PreviewIframe');
+            const iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
+            iframeDocument.body.innerHTML = '';
 
-//     let html = '<table border="1"><tr>';
-//     Object.keys(jsonData[0]).forEach(header => {
-//         html += `<th>${header}</th>`;
-//     });
-//     html += '</tr>';
+            // Добавление стилей
+  const style = document.createElement('style');
+  style.textContent = 
+      `table {
+          width: 100%;
+          border-collapse: collapse;
+          margin-top: 0px;
+          font-size: 12px;
+      }
+      th, td {
+          border: 1px solid #ddd;
+          padding: 5px;
+          text-align: left;
+          width: 5px;
+      }
+      th {
+          background-color:rgb(36, 76, 223);
+          color: white; 
+      }
+      tr:nth-child(even) {
+          background-color: #f2f2f2;
+      }
+      tr:hover {
+          background-color: #ddd;
+      }`
+  ;
+  iframeDocument.head.appendChild(style);
+            const table = iframeDocument.createElement('table');
+            table.innerHTML = ''; // Очистка предыдущего содержимого
+            if (data.length === 0) {
+                table.innerHTML = '<tr><td colspan="100%">Нет данных для отображения</td></tr>';
+                iframeDocument.body.appendChild(table);
+                return;
+            }
 
-//     // Проверяем наличие отфильтрованных данных
-//     if (filteredData.length === 0) {
-//         console.error('No data matched the filters.');
-//     }
+// Создание заголовков, начиная с 7-го столбца
+  const headers = Object.keys(data[0]);
+  const headerRow = document.createElement('tr');
+  for (let i = 3; i < headers.length; i++) { // Начинаем с 4-го столбца (индекс 6)
+      const th = document.createElement('th');
+      th.textContent = headers[i];
+      headerRow.appendChild(th);
+  }
+  table.appendChild(headerRow);
+  const percentColumns = ['WAPE, %', 'BIAS, %', 'Доля, %', 'Доля, %2', 'недопрогноз, %', 'перепрогноз, %'];
 
-//     filteredData.forEach(row => {
-//         html += '<tr>';
-//         Object.values(row).forEach(value => {
-//           html += `<td>${value}</td>`;
-//         });
-//         html += '</tr>';
-//     });
-
-//     html += '</table>';
-
-//     const resultFrame = document.getElementById('tb_regular_assort_results');
-//     if (resultFrame) {
-//         const doc = resultFrame.contentDocument || resultFrame.contentWindow.document;
-//         doc.open();
-//         doc.write(html);
-//         doc.close();
-//     } else {
-//         console.error('Iframe not found');
-//     }
-
-//   //   console.log('Filters:', filters);
-//   //  console.log('JSON Data:', jsonData);
-//   //  console.log('Sample JSON Data:', jsonData[0]);
-//    jsonData.forEach(row => {
-//     console.log('Row data:', row);
-//     console.log('очистка oos:', row['очистка oos'], 'Filter:', filters['очистка oos']);
-// });
-
-// }
-
-// filterAndDisplayData().catch(err => console.error(err));
-
+// Заполнение таблицы данными, начиная с 7-го столбца
+data.forEach(row => {
+const tr = document.createElement('tr');
+for (let i = 3; i < headers.length; i++) { // Начинаем с 4-го столбца (индекс 3)
+    const td = document.createElement('td');
+    let cellValue = row[headers[i]];
   
+        if (typeof cellValue === 'number') {
+         // Проверяем, есть ли соответствующее название в столбце "МЕРЫ"
+         if (row['МЕРЫ'] && percentColumns.includes(row['МЕРЫ'])) {
+          cellValue = (cellValue * 100).toFixed(2) + '%'; // Преобразование в процент
+        } else {
+            cellValue = cellValue.toFixed(2);// Округление до двух знаков после запятой для остальных чисел
+        }
+      }
+        td.textContent = cellValue;
+        tr.appendChild(td);
+    }
+    table.appendChild(tr);
+});
+iframeDocument.body.appendChild(table);
+};
 
-//*************************************************************************************************************************
-    
-//   window.calculateForecastRegularAssort = async function() {
-//     console.log("начали1");
-//     console.log("начали2");
-//     // Функция для загрузки и обработки данных из Excel
-//     async function loadExcelData() {
-//       console.log("начали");
-//         const response = await fetch('./public/images/demo_file/reg_assort.xlsx');
-//         const data = await response.arrayBuffer();
-        
-//         // console.log(data); // Выводим содержимое data
-//         // Чтение файла с указанием типа
-//         const workbook = XLSX.read(data, { type: 'array' });
-//         const firstSheetName = workbook.SheetNames[0];
-//         const worksheet = workbook.Sheets[firstSheetName];
-        
-//         // Преобразуем данные в массив объектов
-//         const jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1 });
-        
-//         // Преобразуем данные в удобный формат
-//         const headers = jsonData[0];
-//         const rows = jsonData.slice(1);
-        
-//         const formattedData = rows.map(row => {
-//             return headers.reduce((obj, header, index) => {
-//                 obj[header] = row[index];
-//                 return obj;
-//             }, {});
-//         });
-        
-//         return formattedData;
-//     }
+        // const url = './public/images/users/regAssort2.xlsx';// ссылки для локального компа
+        // fetch('./public/images/users/regAssort2.xlsx')// ссылки для локального компа
+        const url = '   https://raw.githubusercontent.com/Kujavia/SputnikPro_test_2_2/master/public/images/demo_file/regAssort3.xlsx';
+        fetch('   https://raw.githubusercontent.com/Kujavia/SputnikPro_test_2_2/master/public/images/demo_file/newProducts1.xlsx')
+        // fetch('./public/images/demo_file/newProducts1.xlsx')// ссылки для локального компа
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Сеть не отвечает');
+                }
+                return response.arrayBuffer();
+            })
+            .then(data => {
+                const workbook = XLSX.read(data, { type: 'array' });
+                const firstSheetName = workbook.SheetNames[0];
+                const worksheet = workbook.Sheets[firstSheetName];
+                const jsonData = XLSX.utils.sheet_to_json(worksheet);
 
-//     // Функция для фильтрации и отображения данных
-//     async function saveSelectedGlobalParameters2() {
-//         // Получаем данные из localStorage
-//         const globalParameters = JSON.parse(localStorage.getItem('globalParameters'));
-        
-//         // Загружаем данные из Excel
-//         const xlsxData = await loadExcelData();
-//         console.log("вот"+ xlsxData)
+                // console.log(jsonData); // Проверка загруженных данных
 
-//         // Фильтруем данные на основе параметров из localStorage
-//         const filteredData = xlsxData.filter(row => {
-//             return row['сезонность'] === globalParameters['сезонность'] &&
-//                    row['очистка oos'] === globalParameters['очистка oos'] &&
-//                    row['очистка от промо'] === globalParameters['очистка от промо'] &&
-//                    row['очистка от выбросов'] === globalParameters['очистка от выбросов'] &&
-//                    row['восстановление'] === globalParameters['восстановление']&&
-//                    row['методы прогноза'] === globalParameters['методы прогноза'];
-//         });
-
-//         // Генерация таблицы для отображения в iframe
-//         let html = '<table border="1"><tr><th>МЕРЫ</th>';
-        
-//         // Собираем уникальные атрибуты (недели)
-//         const weeks = [...new Set(filteredData.map(row => row['Атрибут']))];
-        
-//         // Добавляем заголовки недель
-//         weeks.forEach(week => {
-//             html += '<th>${week}</th>';
-//         });
-//         html += '</tr>';
-
-//         // Группируем данные по "МЕРЫ"
-//         const measures = {};
-//         filteredData.forEach(row => {
-//           if (!measures[row['МЕРЫ']]) {
-//               measures[row['МЕРЫ']] = {};
-//           }
-//           measures[row['МЕРЫ']][row['Атрибут']] = row['Значение'];
-//       });
-
-//       // Заполняем таблицу значениями
-//       for (const measure in measures) {
-//           html += '<tr><td>${measure}</td>';
-//           weeks.forEach(week => {
-//               const value = measures[measure][week] || ''; // Если значения нет, оставляем пустым
-//               html += '<td>${value}</td>';
-//           });
-//           html += '</tr>';
-//       }
-      
-//       html += '</table>';
-
-//       // Находим iframe и записываем в него сгенерированный HTML
-//       const iframe = document.getElementById('tb_regular_assort_results');
-//       const doc = iframe.contentDocument || iframe.contentWindow.document;
-//       doc.open();
-//       doc.write(html);
-//       doc.close();
-//   }
-
-//   // Вызов функции для загрузки и отображения данных
-//   await saveSelectedGlobalParameters2();
-//   console.log("Обработка завершена.");
-// }
+                const filteredData = window.filterDataNewProducts(jsonData);
+                window.displayTableNewProducts(filteredData);
+            })
+            .catch(error => {
+                console.error('Ошибка загрузки файла:', error);
+            });
+    };

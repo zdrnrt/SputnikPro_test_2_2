@@ -4,41 +4,32 @@
         <!-- <p class = "new_product__aggregation-title">Агрегация выходных данных</p> -->
 
         <div class="new_product__aggregation"> 
-        <!-- <label for="new_product__aggregation-time">Агрегат по времени</label>
-        <select id="new_product__aggregation-time">
-            <option value="not_selected">не выбрано</option>
-            <option value="option1">день</option>
-            <option value="option2">неделя</option>
-            <option value="option3">квартал</option>
-            <option value="option4">месяц</option>
-        </select> -->
 
         <label for="new_product__aggregation-geo">Агрегат по географии</label>
         <select id="new_product__aggregation-geo">
-            <option value="not_selected">не установлено</option>
-            <option value="option2">страна</option>
-            <option value="option3">регион</option>
-            <option value="option4">город</option>
-            <option value="option5">магазин</option>
+            <option value="newProductParamGeoNot">не установлено</option>
+            <option value="newProductParamGeoCountry">Страна</option>
+            <option value="newProductParamGeoRegion">Регион</option>
+            <option value="newProductParamGeoCity">Город</option>
+            <option value="newProductParamGeoStore">Магазин</option>
+            <option value="newProductParamGeoChain">Сеть</option>
         </select>
 
         <label for="new_product__aggregation-group">Агрегат по позиции</label>
         <select id="new_product__aggregation-group">
-            <option value="not_selected">не установлено</option>
-            <option value="option2">группа1</option>
-            <option value="option3">группа2</option>
-            <option value="option4">группа3</option>
-            <option value="option5">группа4</option>
-            <option value="option5">SKU</option>
+            <option value="newProductParamGroupNot">не установлено</option>
+            <option value="newProductParamTypeProduct">Тип продукции</option>
+            <option value="newProductParamSku">SKU</option>
         </select>
 
         <label for="new_product__aggregation-parameter">Дополнительные показатели</label>
         <select id="new_product__aggregation-parameter">
-            <option value="not_selected">не выбрано</option>
-            <option value="option1">ABC</option>
-            <option value="option2">XYZ</option>
-            <option value="option3">Ценовой сегмент</option>
-            <option value="option4">Механика акции</option>
+            <option value="newProductAddParamNot">не установлено</option>
+            <option value="newProductAddParamAbc">ABC</option>
+            <option value="newProductAddParamXyz">XYZ</option>
+            <option value="newProductAddParamPrice">Ценовой сегмент</option>
+            <option value="newProductAddParamMechanicAction">Механика акции</option>
+            <option value="newProductAddParamBrand">Бренд</option>
         </select>
     </div>
     </section>
@@ -55,7 +46,7 @@
     </select>  -->
 
     <div class="new_product_calculate">
-    <button id="new_product__calculateForecastButton">Рассчитать прогноз</button>
+    <button onclick="loadAndFilterDataNewProducts()" id="new_product__calculateForecastButton">Рассчитать прогноз</button>
     <select id="new_product_scenario">
         <option value="option0">сохранить текущие настройки</option>
         <option value="option1">сценарий 1</option>

@@ -34,8 +34,8 @@
     <p class="parameters_oos-title">Очистка от OOS</p>
 
     <div class="parameters_oos">
-      <label for="parameters_oos-chek">Очистка от OOS</label>
-      <input type="checkbox" id="parameters_oos-chek" checked="checked"/>
+      <!-- <label for="parameters_oos-chek">Очистка от OOS</label>
+      <input type="checkbox" id="parameters_oos-chek" checked="checked"/> -->
 
       <label for="parameters_oos-method">Метод очистки</label>
       <select id="parameters_oos-method">
@@ -52,8 +52,8 @@
     <p class="parameters_promo-title">Очистка от промо</p>
 
     <div class="parameters_promo">
-      <label for="parameters_promo-chek">Очистка от промо</label>
-      <input type="checkbox" id="parameters_promo-chek" checked="checked"/>
+      <!-- <label for="parameters_promo-chek">Очистка от промо</label>
+      <input type="checkbox" id="parameters_promo-chek" checked="checked"/> -->
 
       <label for="parameters_promo-method">Метод очистки</label>
       <select id="parameters_promo-method">
@@ -66,18 +66,18 @@
     </div>
   </section>
 
-  <section class="parameters_season-wrapper">
+  <!-- <section class="parameters_season-wrapper">
     <p class="parameters_season-title">Сезонность</p>
     <div class="parameters_season">
       <label for="parameters_season-chek">Сезонность</label>
       <input type="checkbox" id="parameters_season-chek" checked="checked"/>
     </div>
-  </section>
+  </section> -->
 
   <section class="parameters_spikes">
     <p class="parameters_spikes-title">Очистка от всплесков продаж</p>
-    <label for="parameters_spikes-chek">Очистка от всплесков продаж</label>
-    <input type="checkbox" id="parameters_spikes-chek" checked="checked"/>
+    <!-- <label for="parameters_spikes-chek">Очистка от всплесков продаж</label>
+    <input type="checkbox" id="parameters_spikes-chek" checked="checked"/> -->
     <label for="parameters_spikes-method">Метод очистки</label>
     <select id="parameters_spikes-method">
       <option value="globalParamSpikesMethodInterquartile">интерквартиль</option>
@@ -90,8 +90,8 @@
     <p class="parameters_oos-title">Восстановление продаж</p>
 
     <div class="parameters_oos">
-      <label for="parameters_oos-chek">Выбор</label>
-      <input type="checkbox" id="parameters_sales_recovery-chek" checked="checked" />
+      <!-- <label for="parameters_oos-chek">Выбор</label>
+      <input type="checkbox" id="parameters_sales_recovery-chek" checked="checked" /> -->
 
       <label for="parameters_oos-method">Метод очистки</label>
       <select id="parameters_sales_recovery-method">
@@ -102,12 +102,16 @@
     </div>
   </section>
   <section>
+  </section>
+  
+  <section>
     <button onclick="saveSelectedGlobalParameters()" id="parameters_saveButton">
       Сохранить
     </button>
     <span id="check-mark_button">✔️ сохранено</span>
   </section>
 </div>
+
 <!-- onclick="check_mark()" -->
 <!-- <div class="parameters_sales_recovery_radio">
 <label> 
