@@ -13,13 +13,13 @@ import showContent_planner from "./modules/planner.js";
 import howContent_summaryPlan from "./modules/summary_plan.js";
 import tbRegAssortButton from "./modules/regular_assortTable_copy.js";
 // import tbSeasonalityPreview from "./modules/seasonality_previewTable.js";
-import loadData from "./modules/seasonality_visualLines.js";
+import loadDataSeasonality from "./modules/seasonality_visualLines.js";
 import tbPromoRatioPerviewButton from "./modules/promoRatio_previewButton.js";
 import {tbRegAssortOptimizationButton} from "./modules/regular_assortOptimizationForm.js";
 import { ra_closeModalButton, ra_saveButton} from "./modules/regular_assortOptimizationForm.js";
 import {promo_OptimizationButton} from "./modules/promo_OptimizationForm.js";
 import {promo_closeModalButton, promo_saveModalButton} from "./modules/promo_OptimizationForm.js";
-import promo_PreviewButton from "./modules/promo_PreviewTable.js";
+// import promo_PreviewButton from "./modules/promo_PreviewTable.js";
 import {newProductOptimizationButton, newProductCloseModalButton, newProductSaveModalButton } from "./modules/newProduct_OptimizationForm.js";
 import newProduct_PreviewButton from "./modules/newProduct_PreviewTable.js";
 import {summaryPlan_OptimizationButton, summaryPlan_closeModalButton, summaryPlan_saveModalButton} from "./modules/summaryPlan_OptimizationForm.js";
@@ -309,10 +309,6 @@ handleSidebarMinifyFloatMenu = function() {
 
 // новый сайд бар
 
-
-
-
-
 // мое
 // Функция для отображения параметров
 window.showContent_parameters = function() {
@@ -435,7 +431,7 @@ window.updateUserImage = function() {
   const images = {
       option1: imageNP, //  для нового пользователя
       option2: imageZE , // Зилевич Елизаветы
-      option3: imageU1, // Путь к изображению Исахановой Малики
+      option3: imageU1, 
       option4: imageTO , 
       option5: imageU1, // Путь к изображению Шварёва Данила
       option6: imageTG,
@@ -460,8 +456,6 @@ window.updateUserImage = function() {
   
 }
 /*вставка юзера*/
-
-
 
 $(document).ready(function() {
     App.init();
@@ -543,7 +537,9 @@ $(document).ready(function() {
         }
         tr:hover {
             background-color: #ddd;
-        }`
+        }
+            td:first-child {
+        font-weight: bold;`
     ;
     iframeDocument.head.appendChild(style);
               const table = iframeDocument.createElement('table');
@@ -553,6 +549,28 @@ $(document).ready(function() {
                   iframeDocument.body.appendChild(table);
                   return;
               }
+
+              // Определяем желаемый порядок
+    const desiredOrder = [
+      'WAPE, %',
+      'BIAS, %',
+      'Кол-во позиций с прогнозом',
+      'Всего позиций с продажами',
+      'Доля, %',
+      'недопрогноз, %',
+      'перепрогноз, %',
+      'Объем прогноза, шт',
+      'Объем продаж, шт',
+      'Доля, %2'
+  ];
+  // Сортируем данные по желаемому порядку
+  data.sort((a, b) => {
+    const indexA = desiredOrder.indexOf(a['МЕРЫ']);
+    const indexB = desiredOrder.indexOf(b['МЕРЫ']);
+    
+    // Сравниваем индексы
+    return indexA - indexB;
+});
   
 // Создание заголовков, начиная с 7-го столбца
     const headers = Object.keys(data[0]);
@@ -575,9 +593,9 @@ data.forEach(row => {
           if (typeof cellValue === 'number') {
            // Проверяем, есть ли соответствующее название в столбце "МЕРЫ"
            if (row['МЕРЫ'] && percentColumns.includes(row['МЕРЫ'])) {
-            cellValue = (cellValue * 100).toFixed(2) + '%'; // Преобразование в процент
+            cellValue = (cellValue * 100).toFixed(0) + '%'; // Преобразование в процент
           } else {
-              cellValue = cellValue.toFixed(2);// Округление до двух знаков после запятой для остальных чисел
+              cellValue = cellValue.toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 });// Округл, разделение на локали до без знаков после запятой для остальных чисел
           }
         }
           td.textContent = cellValue;
@@ -682,7 +700,9 @@ iframeDocument.body.appendChild(table);
       }
       tr:hover {
           background-color: #ddd;
-      }`
+      }
+           td:first-child {
+        font-weight: bold;`
   ;
   iframeDocument.head.appendChild(style);
             const table = iframeDocument.createElement('table');
@@ -693,10 +713,32 @@ iframeDocument.body.appendChild(table);
                 return;
             }
 
-// Создание заголовков, начиная с 7-го столбца
+             // Определяем желаемый порядок
+    const desiredOrder = [
+      'WAPE, %',
+      'BIAS, %',
+      'Кол-во позиций с прогнозом',
+      'Всего позиций с продажами',
+      'Доля, %',
+      'недопрогноз, %',
+      'перепрогноз, %',
+      'Объем прогноза, шт',
+      'Объем продаж, шт',
+      'Доля, %2'
+  ];
+  // Сортируем данные по желаемому порядку
+  data.sort((a, b) => {
+    const indexA = desiredOrder.indexOf(a['МЕРЫ']);
+    const indexB = desiredOrder.indexOf(b['МЕРЫ']);
+    
+    // Сравниваем индексы
+    return indexA - indexB;
+});
+
+// Создание заголовков, начиная с 4-го столбца
   const headers = Object.keys(data[0]);
   const headerRow = document.createElement('tr');
-  for (let i = 3; i < headers.length; i++) { // Начинаем с 4-го столбца (индекс 6)
+  for (let i = 3; i < headers.length; i++) { // Начинаем с 4-го столбца (индекс 3)
       const th = document.createElement('th');
       th.textContent = headers[i];
       headerRow.appendChild(th);
@@ -714,9 +756,9 @@ for (let i = 3; i < headers.length; i++) { // Начинаем с 4-го сто�
         if (typeof cellValue === 'number') {
          // Проверяем, есть ли соответствующее название в столбце "МЕРЫ"
          if (row['МЕРЫ'] && percentColumns.includes(row['МЕРЫ'])) {
-          cellValue = (cellValue * 100).toFixed(2) + '%'; // Преобразование в процент
+          cellValue = (cellValue * 100).toFixed(0) + '%'; // Преобразование в процент
         } else {
-            cellValue = cellValue.toFixed(2);// Округление до двух знаков после запятой для остальных чисел
+            cellValue = cellValue.toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 });// Округление до двух знаков после запятой для остальных чисел
         }
       }
         td.textContent = cellValue;
@@ -748,6 +790,327 @@ iframeDocument.body.appendChild(table);
 
                 const filteredData = window.filterDataNewProducts(jsonData);
                 window.displayTableNewProducts(filteredData);
+            })
+            .catch(error => {
+                console.error('Ошибка загрузки файла:', error);
+            });
+    };
+
+
+    //PROMO global-------------+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+       window.loadAndFilterDataPromo = function() {
+        window.saveGlobalParametersPromo = function() {
+            let currentData = JSON.parse(localStorage.getItem('globalParametersPromo'));
+            if (!currentData) {
+                currentData = {};
+            }
+            const promoСoefficients = document.getElementById('promo_method'); //забираю
+
+            const promoCoefficient = promoСoefficients.options[promoСoefficients.selectedIndex].text;//присваиваю
+
+            currentData['выбор коэффициентов'] = promoCoefficient; // добавляю в словарь
+
+            localStorage.setItem('globalParametersPromo', JSON.stringify(currentData));
+        }
+        window.saveGlobalParametersPromo();
+
+        window.filterDataPromo = function(data) {
+            const parameters = JSON.parse(localStorage.getItem('globalParametersPromo'));
+            return data.filter(row => {
+                return Object.keys(parameters).every(key => {
+                    if (row[key] !== undefined) {
+                        return row[key] === parameters[key];
+                    }
+                    return true;
+                });
+            });
+        };
+
+        window.displayTablePromo = function(data) {
+            const iframe = document.getElementById('promo_PreviewIframe');
+            const iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
+            iframeDocument.body.innerHTML = '';
+
+            // Добавление стилей
+  const style = document.createElement('style');
+  style.textContent = 
+      `table {
+          width: 100%;
+          border-collapse: collapse;
+          margin-top: 0px;
+          font-size: 12px;
+      }
+      th, td {
+          border: 1px solid #ddd;
+          padding: 5px;
+          text-align: left;
+          width: 5px;
+      }
+      th {
+          background-color:rgb(36, 76, 223);
+          color: white; 
+      }
+      tr:nth-child(even) {
+          background-color: #f2f2f2;
+      }
+      tr:hover {
+          background-color: #ddd;
+      }
+           td:first-child {
+        font-weight: bold;`
+  ;
+  iframeDocument.head.appendChild(style);
+            const table = iframeDocument.createElement('table');
+            table.innerHTML = ''; // Очистка предыдущего содержимого
+            if (data.length === 0) {
+                table.innerHTML = '<tr><td colspan="100%">Нет данных для отображения</td></tr>';
+                iframeDocument.body.appendChild(table);
+                return;
+            }
+
+             // Определяем желаемый порядок
+    const desiredOrder = [
+      'WAPE, %',
+      'BIAS, %',
+      'Кол-во позиций с прогнозом',
+      'Всего позиций с продажами',
+      'Доля, %',
+      'недопрогноз, %',
+      'перепрогноз, %',
+      'Объем прогноза, шт',
+      'Объем продаж, шт',
+      'Доля, %2'
+  ];
+  // Сортируем данные по желаемому порядку
+  data.sort((a, b) => {
+    const indexA = desiredOrder.indexOf(a['МЕРЫ']);
+    const indexB = desiredOrder.indexOf(b['МЕРЫ']);
+    
+    // Сравниваем индексы
+    return indexA - indexB;
+});
+
+// Создание заголовков, начиная с 4-го столбца
+  const headers = Object.keys(data[0]);
+  const headerRow = document.createElement('tr');
+  for (let i = 2; i < headers.length; i++) { // Начинаем с 4-го столбца (индекс 3)
+      const th = document.createElement('th');
+      th.textContent = headers[i];
+      headerRow.appendChild(th);
+  }
+  table.appendChild(headerRow);
+  const percentColumns = ['WAPE, %', 'BIAS, %', 'Доля, %', 'Доля, %2', 'недопрогноз, %', 'перепрогноз, %'];
+
+// Заполнение таблицы данными, начиная с 7-го столбца
+data.forEach(row => {
+const tr = document.createElement('tr');
+for (let i = 2; i < headers.length; i++) { // Начинаем с 4-го столбца (индекс 3)
+    const td = document.createElement('td');
+    let cellValue = row[headers[i]];
+  
+        if (typeof cellValue === 'number') {
+         // Проверяем, есть ли соответствующее название в столбце "МЕРЫ"
+         if (row['МЕРЫ'] && percentColumns.includes(row['МЕРЫ'])) {
+          cellValue = (cellValue * 100).toFixed(0) + '%'; // Преобразование в процент
+        } else {
+            cellValue = cellValue.toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 });// Округление до двух знаков после запятой для остальных чисел
+        }
+      }
+        td.textContent = cellValue;
+        tr.appendChild(td);
+    }
+    table.appendChild(tr);
+});
+iframeDocument.body.appendChild(table);
+};
+
+        // const url = './public/images/users/regAssort2.xlsx';// ссылки для локального компа
+        // fetch('./public/images/users/regAssort2.xlsx')// ссылки для локального компа
+        const url = '   https://raw.githubusercontent.com/Kujavia/SputnikPro_test_2_2/master/public/images/demo_file/promo.xlsx';
+        fetch('   https://raw.githubusercontent.com/Kujavia/SputnikPro_test_2_2/master/public/images/demo_file/promo.xlsx')
+        // fetch('./public/images/demo_file/promo.xlsx')// ссылки для локального компа
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Сеть не отвечает');
+                }
+                return response.arrayBuffer();
+            })
+            .then(data => {
+                const workbook = XLSX.read(data, { type: 'array' });
+                const firstSheetName = workbook.SheetNames[0];
+                const worksheet = workbook.Sheets[firstSheetName];
+                const jsonData = XLSX.utils.sheet_to_json(worksheet);
+
+                // console.log(jsonData); // Проверка загруженных данных
+
+                const filteredData = window.filterDataPromo(jsonData);
+                window.displayTablePromo(filteredData);
+            })
+            .catch(error => {
+                console.error('Ошибка загрузки файла:', error);
+            });
+    };
+
+    //summaryPlanGlobalMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+       // document.getElementById('regular_assort__calculateForecastButton').addEventListener('click', loadAndFilterData);
+    
+       window.loadAndFilterDataSummaryPlan = function() {
+        window.saveGlobalParametersSummaryPlan = function() {
+            let currentData = JSON.parse(localStorage.getItem('globalParametersSummaryPlan'));
+            if (!currentData) {
+                currentData = {};
+            }
+            // const newProductAggregationGeo = document.getElementById('new_product__aggregation-geo'); //забираю
+            // const newProductAggregationGroup = document.getElementById('new_product__aggregation-group'); //забираю
+            // const newProductAggregationAddParameter = document.getElementById('new_product__aggregation-parameter'); //забираю
+                //Получаем значения чекбоксов
+    currentData['регулярный ассортимент'] = document.getElementById("summary_plan__regAssort").checked ? "true" : "false";;//забираю
+    currentData['промо'] = document.getElementById("summary_plan__promo").checked ? "true" : "false";;
+    currentData['новинки'] = document.getElementById("summary_plan__newsProducts").checked ? "true" : "false";;
+    currentData['учёт каннибализации'] = document.getElementById("summary_plan__cannibalization").checked ? "true" : "false";
+
+            // const AggregationGeo = newProductAggregationGeo.options[newProductAggregationGeo.selectedIndex].text;//присваиваю
+            // const AggregationGroup = newProductAggregationGroup.options[newProductAggregationGroup.selectedIndex].text;//присваиваю
+            // const AggregationAddParameter = newProductAggregationAddParameter.options[newProductAggregationAddParameter.selectedIndex].text;//присваиваю
+
+            // currentData['агрегат по географии'] = AggregationGeo; // добавляю в словарь
+            // currentData['агрегат по позиции'] = AggregationGroup; // добавляю в словарь
+            // currentData['дополнительные показатели'] = AggregationAddParameter; // добавляю в словарь
+            localStorage.setItem('globalParametersSummaryPlan', JSON.stringify(currentData));
+        }
+        window.saveGlobalParametersSummaryPlan();
+
+        window.filterDataSummaryPlan = function(data) {
+            const parameters = JSON.parse(localStorage.getItem('globalParametersSummaryPlan'));
+            return data.filter(row => {
+                return Object.keys(parameters).every(key => {
+                    if (row[key] !== undefined) {
+                        return row[key] === parameters[key];
+                    }
+                    return true;
+                });
+            });
+        };
+
+        window.displayTableSummaryPlan = function(data) {
+            const iframe = document.getElementById('summaryPlan_PreviewIframe');
+            const iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
+            iframeDocument.body.innerHTML = '';
+
+            // Добавление стилей
+  const style = document.createElement('style');
+  style.textContent = 
+      `table {
+          width: 100%;
+          border-collapse: collapse;
+          margin-top: 0px;
+          font-size: 12px;
+      }
+      th, td {
+          border: 1px solid #ddd;
+          padding: 5px;
+          text-align: left;
+          width: 5px;
+      }
+      th {
+          background-color:rgb(36, 76, 223);
+          color: white; 
+      }
+      tr:nth-child(even) {
+          background-color: #f2f2f2;
+      }
+      tr:hover {
+          background-color: #ddd;
+      }
+           td:first-child {
+        font-weight: bold;`
+  ;
+  iframeDocument.head.appendChild(style);
+            const table = iframeDocument.createElement('table');
+            table.innerHTML = ''; // Очистка предыдущего содержимого
+            if (data.length === 0) {
+                table.innerHTML = '<tr><td colspan="100%">Нет данных для отображения</td></tr>';
+                iframeDocument.body.appendChild(table);
+                return;
+            }
+
+             // Определяем желаемый порядок
+    const desiredOrder = [
+      'WAPE, %',
+      'BIAS, %',
+      'Кол-во позиций с прогнозом',
+      'Всего позиций с продажами',
+      'Доля, %',
+      'недопрогноз, %',
+      'перепрогноз, %',
+      'Объем прогноза, шт',
+      'Объем продаж, шт',
+      'Доля, %2'
+  ];
+  // Сортируем данные по желаемому порядку
+  data.sort((a, b) => {
+    const indexA = desiredOrder.indexOf(a['МЕРЫ']);
+    const indexB = desiredOrder.indexOf(b['МЕРЫ']);
+    
+    // Сравниваем индексы
+    return indexA - indexB;
+});
+
+// Создание заголовков, начиная с 4-го столбца
+  const headers = Object.keys(data[0]);
+  const headerRow = document.createElement('tr');
+  for (let i = 4; i < headers.length; i++) { // Начинаем с 4-го столбца (индекс 3)
+      const th = document.createElement('th');
+      th.textContent = headers[i];
+      headerRow.appendChild(th);
+  }
+  table.appendChild(headerRow);
+  const percentColumns = ['WAPE, %', 'BIAS, %', 'Доля, %', 'Доля, %2', 'недопрогноз, %', 'перепрогноз, %'];
+
+// Заполнение таблицы данными, начиная с 7-го столбца
+data.forEach(row => {
+const tr = document.createElement('tr');
+for (let i = 4; i < headers.length; i++) { // Начинаем с 4-го столбца (индекс 3)
+    const td = document.createElement('td');
+    let cellValue = row[headers[i]];
+  
+        if (typeof cellValue === 'number') {
+         // Проверяем, есть ли соответствующее название в столбце "МЕРЫ"
+         if (row['МЕРЫ'] && percentColumns.includes(row['МЕРЫ'])) {
+          cellValue = (cellValue * 100).toFixed(0) + '%'; // Преобразование в процент
+        } else {
+            cellValue = cellValue.toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 });// Округление до двух знаков после запятой для остальных чисел
+        }
+      }
+        td.textContent = cellValue;
+        tr.appendChild(td);
+    }
+    table.appendChild(tr);
+});
+iframeDocument.body.appendChild(table);
+};
+
+        // const url = './public/images/users/regAssort2.xlsx';// ссылки для локального компа
+        // fetch('./public/images/users/regAssort2.xlsx')// ссылки для локального компа
+        const url = '   https://raw.githubusercontent.com/Kujavia/SputnikPro_test_2_2/master/public/images/demo_file/summaryPlan.xlsx';
+        fetch('   https://raw.githubusercontent.com/Kujavia/SputnikPro_test_2_2/master/public/images/demo_file/summaryPlan.xlsx')
+        // fetch('./public/images/demo_file/summaryPlan.xlsx')// ссылки для локального компа
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Сеть не отвечает');
+                }
+                return response.arrayBuffer();
+            })
+            .then(data => {
+                const workbook = XLSX.read(data, { type: 'array' });
+                const firstSheetName = workbook.SheetNames[0];
+                const worksheet = workbook.Sheets[firstSheetName];
+                const jsonData = XLSX.utils.sheet_to_json(worksheet);
+
+                // console.log(jsonData); // Проверка загруженных данных
+
+                const filteredData = window.filterDataSummaryPlan(jsonData);
+                window.displayTableSummaryPlan(filteredData);
             })
             .catch(error => {
                 console.error('Ошибка загрузки файла:', error);

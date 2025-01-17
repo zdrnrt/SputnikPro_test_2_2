@@ -36,6 +36,8 @@ export default window. saveSelectedGlobalParameters = function() {
     // Сохраняем объект в localStorage как строку JSON
     localStorage.setItem('globalParameters', JSON.stringify(parameters));
     localStorage.setItem('globalParametersNewProducts', JSON.stringify(parameters));
+    localStorage.setItem('globalParametersPromo', JSON.stringify(parameters));
+    localStorage.setItem('globalParametersSummaryPlan', JSON.stringify(parameters));
 
     // Выводим сообщение о сохранении
     console.log('Параметры сохранены в двух словарях:', parameters);

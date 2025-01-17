@@ -9,3 +9,4 @@ const seasonality_method = seasonalityMethodElement.options[seasonalityMethodEle
 currentData['сезонность'] = seasonality_method;
 localStorage.setItem('globalParameters', JSON.stringify(currentData));
 }
+ 

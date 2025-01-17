@@ -6,6 +6,7 @@
         <div class="promo__aggregation"> 
         <label for="promo__aggregation-time">Агрегат по времени</label>
         <select id="promo__aggregation-time">
+            <option value="option1">не установлено</option>
             <option value="option1">день</option>
             <option value="option2">неделя</option>
             <option value="option3">квартал</option>
@@ -47,7 +48,6 @@
         <p></p>
     <label for="promo_method">Выбор коэффициентов</label>
     <select id="promo_method">
-        <option value="promo_not_selected">не выбрано</option>
         <option value="promo_moving__сalculated">Рассчитанные</option>
         <option value="promo_weighted__custom">Пользовательские</option>
     </select>
@@ -65,7 +65,7 @@
     </select> -->
 
     <div class="promo_calculate">
-    <button onclick="promo_PreviewButton()"  id="promo__calculateForecastButton">Рассчитать прогноз</button>
+    <button onclick="loadAndFilterDataPromo()"  id="promo__calculateForecastButton">Рассчитать прогноз</button>
     <select id="promo_scenario">
         <option value="option0">сохранить текущие настройки</option>
         <option value="option1">сценарий 1</option>

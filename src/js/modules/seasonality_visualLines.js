@@ -1,4 +1,18 @@
-export default window.loadData = function() {
+export default window.loadDataSeasonality = function() {
+    window. saveSelectedGlobalParametersSeasonality = function() {
+        let currentData = JSON.parse(localStorage.getItem('globalParameters'));
+        if (!currentData) {
+            currentData = {}; // Если нет, создаем новый объект
+        }
+        const seasonalityMethodElement = document.getElementById('seasonality_method');
+        // const seasonality_method = document.getElementById('seasonality_method').value;
+        const seasonality_method = seasonalityMethodElement.options[seasonalityMethodElement.selectedIndex].text;
+        currentData['сезонность'] = seasonality_method;
+        localStorage.setItem('globalParameters', JSON.stringify(currentData));
+        }
+        window. saveSelectedGlobalParametersSeasonality()
+
+
     const selectedOption = document.getElementById('seasonality_method').value;
     const seasonality_selectedTime = document.getElementById('seasonality_time').value;
     const seasonality_selectedGeo = document.getElementById('seasonality_geography').value;
@@ -11,7 +25,6 @@ export default window.loadData = function() {
         document.getElementById('seasonality_chart').innerHTML = 'Заполните все поля';
         return;
     }
-
     document.getElementById('seasonality_chart').innerHTML = '';
 
     let filePath = '';
@@ -19,12 +32,12 @@ export default window.loadData = function() {
         seasonality_selectedTime === 'week' && 
         seasonality_selectedGeo === 'seasonality_geographyСhain' && 
         seasonality_selectedGroupSCU === 'groupe1') {
-        filePath = './images/demo_file/test3.xlsx';
+        filePath = './images/demo_file/seasonalityAvg.xlsx';
     } else if (selectedOption === 'fluctuation_trend' && 
                seasonality_selectedTime === 'week' && 
                seasonality_selectedGeo === 'seasonality_geographyСhain' && 
                (seasonality_selectedGroupSCU === 'groupe1')) {
-        filePath = './images/demo_file/test3.xlsx';
+        filePath = './images/demo_file/seasonalityTrend.xlsx';
     } else {
         document.getElementById('seasonality_chart').innerHTML = 'Выберите корректные параметры';
         return;

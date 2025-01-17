@@ -43,18 +43,27 @@
 </section>
 
 <section class = "summary_plan_calculation">
-    <label for="summary_plan_method">Итого прогноз</label>
+    <label for="summary_plan__regAssort">Регулярный ассортимент</label>
+    <input type="checkbox" id="summary_plan__regAssort">
+
+    <label for="summary_plan__promo">Промо</label>
+    <input type="checkbox" id="summary_plan__promo">
+
+    <label for="summary_plan__newsProducts">Новинки</label>
+    <input type="checkbox" id="summary_plan__newsProducts">
+
+    <!-- <label for="summary_plan_method">Итого прогноз</label>
     <select id="summary_plan_method">
         <option value="not_selected">не установлено</option>
         <option value="summary_plan__regular_assortment">регулярный ассортимент</option>
         <option value="summary_plan__promo">промо</option>
         <option value="summary_plan__new_product">новинки</option>
-    </select>
+    </select> -->
 
     <label for="summary_plan_cannibalization">Учёт каннибализации</label>
     <input type="checkbox" id="summary_plan__cannibalization">
 
-    <button onclick="summaryPlan_PreviewButton()" id="summary_plan__calculateForecastButton">Рассчитать прогноз</button>
+    <button onclick="loadAndFilterDataSummaryPlan()" id="summary_plan__calculateForecastButton">Рассчитать прогноз</button>
     <select id="summary_plan_scenario">
         <option value="option0">сохранить прежние настройки</option>
         <option value="option1">сценарий 1</option>
@@ -77,7 +86,7 @@
 <div id="summaryPlan_modal">
     <div id="summaryPlan_modalContent">
         <h5 class="summaryPlan_modal-title">Оптимизация:</h5>
-        <label><input type="checkbox" name="option1"> Учёт каннибализации</label><br>
+        <label><input type="checkbox" name="option1"> Каннибализация</label><br>
         <button onclick="summaryPlan_saveModalButton()" id="summaryPlan_saveModalButton">Сохранить</button>
         <button onclick="summaryPlan_closeModalButton()" id="summaryPlan_closeModalButton">Закрыть</button>
     </div>

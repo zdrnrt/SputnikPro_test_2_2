@@ -33,7 +33,7 @@
     margin-top: 2%;
 }
 
-#summary_plan__cannibalization{
+#summary_plan__cannibalization, #summary_plan__regAssort, #summary_plan__promo, #summary_plan__newsProducts {
     margin-left: 2%;
     width: 15px;
     height: 15px;
@@ -74,7 +74,7 @@
 #summaryPlan_PreviewIframe{
     grid-column: span 2;
     margin-top: 10%;
-    width: 95%;
-    height: 100%;
+    width: 1000px;
+    height: 360px;
 
 }

@@ -23,8 +23,8 @@
 
       <label for="parameters_aggregation-scu">Агрегат по позиции</label>
       <select id="parameters_aggregation-scu">
-        <option value="globalParamTypeProduct">тип продукции</option>
         <option value="globalParamSkuNot">не установлено</option>
+        <option value="globalParamTypeProduct">тип продукции</option>
         <option value="globalParamSku">SKU</option>
       </select>
     </div>
@@ -39,6 +39,7 @@
 
       <label for="parameters_oos-method">Метод очистки</label>
       <select id="parameters_oos-method">
+        <option value="globalParamOosNot">выкл</option>
         <option value="globalParamOosAverageBalance">по среднему остатку</option>
         <option value="globalParamOosAmountBalance">по сумме остатка</option>
         <option value="globalParamOosShareStore">по доле ТТ</option>
@@ -57,8 +58,8 @@
 
       <label for="parameters_promo-method">Метод очистки</label>
       <select id="parameters_promo-method">
-        <option value="globalParamPromoMethodEmptyValue">пустое значение</option>
         <option value="globalParamPromoNot">выкл</option>
+        <option value="globalParamPromoMethodEmptyValue">пустое значение</option>
         <!-- <option value="globalParamPromoMethodDevisionCoeff">
           деление на коэффициенты
         </option> -->
@@ -80,9 +81,9 @@
     <input type="checkbox" id="parameters_spikes-chek" checked="checked"/> -->
     <label for="parameters_spikes-method">Метод очистки</label>
     <select id="parameters_spikes-method">
+      <option value="globalParamSpikesMethodNot">выкл</option>
       <option value="globalParamSpikesMethodInterquartile">интерквартиль</option>
       <option value="globalParamSpikesMethodStandardDeviation">стандартное отклонение</option>
-      <option value="globalParamSpikesMethodNot">выкл</option>
     </select>
   </section>
 
@@ -95,9 +96,10 @@
 
       <label for="parameters_oos-method">Метод очистки</label>
       <select id="parameters_sales_recovery-method">
-        <option value="globalParamSpikesMethodStandardDeviation">как среднее</option>
-        <option value="option2">как тренд</option>
         <option value="globalParamSpikesMethodNot">выкл</option>
+        <option value="option2">как тренд</option>
+        <option value="globalParamSpikesMethodStandardDeviation">как среднее</option>
+        
       </select>
     </div>
   </section>
