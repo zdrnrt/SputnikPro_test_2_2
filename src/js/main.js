@@ -32,8 +32,6 @@ import saveSelectedGlobalParameters from "./modules/parametersGlobalChecked.js";
 import saveSelectedGlobalParametersSeasonality from "./modules/seasonalityGlobalChecked.js";
 import saveSelectedGlobalParametersRegular from "./modules/regularGlobalChecked.js";
 
-
-// import regular_ra_multiple_regression from '/data/test_forecast_csv2.csv';
 // новый сайд бар
 
 
