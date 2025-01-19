@@ -1,6 +1,16 @@
 function planner_selectScenarioRepeat() {
     closeAllModals(); // Закрыть все мокна 
         document.getElementById('planner_weeklyModal').style.display = 'block';
+        const intervalSelect = document.getElementById('planner_intervalRepetition__header');
+        const dayOfWeekParagraph = document.querySelector('.planner_visionParagraphDayOfWeek');
+        const dayOfWeekSelect = document.getElementById('planner_dayOfWeekRepeat');
+        const intervalWrapperDay = document.querySelector('.planner_intervalWrapperDay');
+        const dayAndWeekMonth = document.getElementById('dayAndWeekMonth');  
+        const planner_dayNumber = document.getElementById('planner_dayNumber'); 
+        planner_dayNumber.style.display = 'none';
+        dayAndWeekMonth.style.display = 'none';
+        dayOfWeekParagraph.style.display = 'none';
+        dayOfWeekSelect.style.display = 'none';
  
 }
 // function planner_selectScenarioRepeat() {
@@ -34,7 +44,6 @@ window.onclick = function(event) {
     }
 }
 
-
 function saveSettings() {
     const nameProject = document.getElementById('planner__scenarioName').value;
     const plannerBlock= document.getElementById('planner__block');
@@ -49,6 +58,11 @@ function saveSettings() {
     const time = document.getElementById('planner_selectedTime').value;
     const startDate = document.getElementById('planner_selectedStartDate').value;
     const endDate = document.getElementById('planner_selectedEndDate').value;
+    const planner_intervalRepetition__header = document.getElementById('planner_intervalRepetition__header').value;
+    const monthlyRepeatSelect = document.getElementById('planner_dayNumber').value;
+    
+    console.log()
+    
     const resultFrame = document.getElementById('planner_Iframe');
     const frameDocument = resultFrame.contentDocument || resultFrame.contentWindow.document;
 
@@ -78,6 +92,7 @@ function saveSettings() {
                 <th>Наименование</th>
                 <th>Блок</th>
                 <th>Сценарий</th>
+                <th>Период повторений</th>
                 <th>Интервал повторений</th>
                 <th>Дата начала</th>
                 <th>Дата окончания</th>
@@ -87,6 +102,7 @@ function saveSettings() {
                 <td>${nameProject}</td>
                 <td>${selectedplannerBlock}</td>
                 <td>${selectedplannerScenarioCustom}</td>
+                <td>${planner_intervalRepetition__header}</td>
                 <td>${plannerInterval} дней</td>
                 <td>${startDate}</td>
                 <td>${endDate}</td>

@@ -5,6 +5,8 @@ function saveModalData() {
     modalData.dayOfWeekRepeat = document.getElementById('planner_dayOfWeekRepeat').value;
     modalData.selectedTime = document.getElementById('planner_selectedTime').value;
     modalData.selectedStartDate = document.getElementById('planner_selectedStartDate').value;
+    modalData.dayOfWeekMonthRepeat = document.getElementById('planner_dayNumber').value;
+    modalData.dayOfWeekMonthRepeatAttribute = document.getElementById('dayAndWeekMonth').value;
 
     const endingOptions = document.querySelectorAll('input[name="options"]:checked');
     let endingInfo = '';
@@ -87,14 +89,24 @@ function planner_addData() {
     const scenarioName = document.getElementById('planner__scenarioName').value;
     const block = document.getElementById('planner__block').value;
     const scenarioCustom = document.getElementById('planner__scenarioCustom').value;
+    const planner_intervalRepetition__header = document.getElementById('planner_intervalRepetition__header').value;
+
+    let repetitionValueMonth = modalData.dayOfWeekRepeat;
+    let repetitionValueMonthAttribute = modalData.dayOfWeekMonthRepeatAttribute
+    if (planner_intervalRepetition__header === 'monthly') {
+        repetitionValueMonth = `${modalData.dayOfWeekMonthRepeat} ${modalData.dayOfWeekMonthRepeatAttribute}`; 
+        console.log(modalData.dayOfWeekMonthRepeat)
+    }
+
 
     const newRowHTML = 
         `<tr>
             <td>${scenarioName}</td>
             <td>${block}</td>
             <td>${scenarioCustom}</td>
-            <td>${modalData.intervalNum} дней</td>
-            <td>${modalData.dayOfWeekRepeat}</td>
+            <td>${planner_intervalRepetition__header}</td>
+            <td>${modalData.intervalNum}</td>
+            <td>${repetitionValueMonth}</td>
             <td>${modalData.selectedTime}</td>
             <td>${modalData.selectedStartDate}</td>
             <td>${modalData.endingInfo}</td>
@@ -130,17 +142,17 @@ function planner_addData() {
                     background-color: #f5f5f5;
                 }
             </style>
-            <h5>Выбранные значения:</h5>
             <table>
                 <tr>
                     <th>Наименование</th>
                     <th>Блок</th>
                     <th>Сценарий</th>
-                    <th>Интервал повторений</th>
-                    <th>Дни повторения</th>
-                    <th>Время запуска</th>
-                    <th>Дата начала</th>
-                    <th>Дата окончания</th>
+                    <th>Период повторений</th>
+                    <th>Интервал</th>
+                    <th>Повторение</th>
+                    <th>Время</th>
+                    <th>Начало</th>
+                    <th>Окончание</th>
                 </tr>
                 ${newRowHTML}
             </table>`

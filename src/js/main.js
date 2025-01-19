@@ -36,6 +36,7 @@ import saveSelectedGlobalParametersRegular from "./modules/regularGlobalChecked.
 // import regular_ra_multiple_regression from '/data/test_forecast_csv2.csv';
 // новый сайд бар
 
+
 var floatSubMenuTimeout, targetFloatMenu, handleSlimScroll = function() {
     "use strict";
     $.when($("[data-scrollbar=true]").each(function() {

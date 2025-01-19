@@ -42,3 +42,17 @@
     width: 125px;
     height: 25px;
 }
+
+.select_ModalPlannerMonthlyDay{
+    display: flex;
+    #planner_dayNumber{
+        width: 70px;
+        height: 25px;
+        // margin: 2px;
+    }
+    #dayAndWeekMonth{
+        width: 70px;
+        height: 25px;
+        margin-left: 5px;// 
+    }
+}
