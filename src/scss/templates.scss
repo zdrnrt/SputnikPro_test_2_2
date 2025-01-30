@@ -7,6 +7,24 @@
 @import url("https://fonts.googleapis.com/css2?family=PT+Root+UI:wght@400;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
 
+* {
+    box-sizing: border-box; 
+}
+
+html {
+    font-size:100%;
+    // border: 1px red solid;
+}
+
+body {
+    margin: 0; 
+    padding: 0; 
+    line-height: 1.5; 
+}
+
+h1,h2,h3,h4,h5,h6,p {
+    margin: 0; 
+}
 
 a{
     text-decoration: none;
@@ -15,7 +33,7 @@ a{
 #check-mark_button{ /*галочка для всех кнопок*/
     display: none;
     color: green;
-    font-size: 10px;
+    font-size: 15px;
     margin-left: 5px;
  }
 

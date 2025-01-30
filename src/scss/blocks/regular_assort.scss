@@ -1,26 +1,25 @@
 .regular_assort_container{
     display: grid;
-    grid-template-columns: repeat(2, 400px);
-    column-gap: 50px;
+    grid-template-columns: repeat(2, 30vw);
+    column-gap: 4%;
     // padding-left: 40px; 
     padding-top: 20px;
-    // width: 800px;
     .regular_assort__forecast-wrapper{
         margin-top: 5%;
         display: grid;
-        grid-template-columns: repeat(2, auto);
+        grid-template-columns: repeat(2, 1fr);
         grid-template-rows: repeat(5, auto);
-        gap: 10%;
+        row-gap: 10%;
         .regular_assort_calculate{
             grid-column: span 2;
             #regular_assort_scenario{
-                margin-left: 7%;
-                width: 50%;
+                // margin-left: 7%;
+                // width: 50%;
                 height: 30px;
             }
         }
         #regular_assort__calculateForecastButton, #regular_assort__optimizeButton, #regular_assort__exportButton{
-            width: 200px;
+            width: 80%;
             height: 40px;
             &:hover{
                 background-color: $hover-button;
@@ -31,13 +30,15 @@
 }
 
 .regular_assort__aggregation-wrapper{
-   
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     border: 1px $frame_color2 solid;
-    width: 400px;
+    width: 100%;
     padding: 8px;
     // border-radius: 5px;
     .regular_assort__aggregation-title{
-        margin-left: 23%;
+       
+        margin-bottom: 15px;
+        text-align: center;
         font-weight: 700;
     }
     .regular_assort__aggregation{
@@ -49,9 +50,6 @@
     }
 }
   
-
-
-
 // .regular_assort__preview{
 //     display: flex;
 //     flex-direction: column;
@@ -72,6 +70,10 @@
         #tb_regular_assort_results{
             grid-column: span 2;
             margin-top: 10%;
-            width: 1000px;
-            height: 360px;
+            width: calc(100vw - 350px);
+            height: 460px;
+        }
+
+        #regular_assort_method, #regular_assort__aggregation-time, #regular_assort__aggregation-geo, #regular_assort__aggregation-scu{
+            height: 30px;
         }

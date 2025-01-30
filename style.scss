@@ -21,26 +21,25 @@
 @import "./src/scss/templates.scss";
 
 body {
-  
-  margin-top: 20px;
-//   padding: 0;
-//   background: #d9e0e7;
+    width: 99vw;
+    height: 100vh;
+//   margin-top: 20px;
 background: white;
   font-size: 14px;
   font-family: $main-font;
   color: #707478;
   line-height: 1.42857143;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  // background-color: #505050;
-  // background: linear-gradient(to bottom right, rgb(225, 225, 225), rgb(255, 255, 255))
+//   -webkit-font-smoothing: antialiased;
+//   -moz-osx-font-smoothing: grayscale;
 }
 
 .container{
-  max-width: 1920px;
-  margin: 0 auto;
+//   max-width: 1920px;
+//   margin: 0 auto;
   height: 100vh;
   padding-left: 0px;
+  padding: 0px;
+  margin: 0px;
   margin-left: 0px;
 }
 button{
@@ -86,28 +85,18 @@ button{
   }
 }
 .main {
-    // background: #d9e0e7;
-  height: fit-content;
-  width: fit-content;
+width: calc(99vw - 220px);
+// width: 1000px;
   border-radius: 15px;
-  margin-left: 210px;
+  margin-left: 220px;
   margin-bottom: 20px;
 }
 
 .content {
-//   border: 1px solid #0e0b0b;
 background: #ffffff;
-  height: 100vh;
-  margin-top: 20px;
-//   margin-left: 25%;
-  padding: 4% 6%;
+//   height: 100vh;
+  padding: 3% 4%;
   width: 100%;
-//   @media (min-width: 1920px) {
-//    width: 1425px;
-//   }
-//   @media (min-width: 2560px) {
-//     width: 1625px;
-//    }
 }
 
 
@@ -592,7 +581,7 @@ table.dataTable thead .sorting_desc_disabled:after {
     // background: $primary-color;
     width: 220px;
     left: 0;
-    top: 125px; /*отступ всей боковой панели*/
+    top: 105px; /*отступ всей боковой панели*/
     bottom: 0;
 }
 
@@ -626,7 +615,7 @@ table.dataTable thead .sorting_desc_disabled:after {
 }
 
 .sidebar .nav>li>a {
-    padding: 7px 20px;
+    padding: 10px 25px;
     line-height: 20px;
     color: #a8acb1;
     display: block;

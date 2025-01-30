@@ -5,26 +5,26 @@
     <div class="parameters_aggregation">
       <label for="parameters_aggregation-time">Агрегат по времени</label>
       <select id="parameters_aggregation-time">
-        <option value="globalParamTimeWeek">неделя</option>
-        <option value="globalParamTimeDay">день</option>
-        <option value="globalParamTimeQuarter">квартал</option>
-        <option value="globalParamTimeMonth">месяц</option>
+        <option value="globalParamTimeDay">День</option>
+        <option value="globalParamTimeWeek">Неделя</option>
+        <option value="globalParamTimeQuarter">Квартал</option>
+        <option value="globalParamTimeMonth">Месяц</option>
       </select>
 
       <label for="parameters_aggregation-geo">Агрегат по географии</label>
       <select id="parameters_aggregation-geo">
-        <option value="globalParamGeoChain">сеть</option>
-        <option value="globalParamGeoNot">не установлено</option>
-        <option value="globalParamGeoCountry">страна</option>
-        <option value="globalParamGeoRegion">регион</option>
-        <option value="globalParamGeoCity">город</option>
-        <option value="globalParamGeoStore">магазин</option>
+        <option value="globalParamGeoNot">Не установлено</option>
+        <option value="globalParamGeoChain">Сеть</option>
+        <option value="globalParamGeoCountry">Страна</option>
+        <option value="globalParamGeoRegion">Регион</option>
+        <option value="globalParamGeoCity">Город</option>
+        <option value="globalParamGeoStore">Магазин</option>
       </select>
 
       <label for="parameters_aggregation-scu">Агрегат по позиции</label>
       <select id="parameters_aggregation-scu">
-        <option value="globalParamSkuNot">не установлено</option>
-        <option value="globalParamTypeProduct">тип продукции</option>
+        <option value="globalParamSkuNot">Не установлено</option>
+        <option value="globalParamTypeProduct">Тип продукции</option>
         <option value="globalParamSku">SKU</option>
       </select>
     </div>
@@ -39,12 +39,11 @@
 
       <label for="parameters_oos-method">Метод очистки</label>
       <select id="parameters_oos-method">
-        <option value="globalParamOosNot">выкл</option>
-        <option value="globalParamOosAverageBalance">по среднему остатку</option>
-        <option value="globalParamOosAmountBalance">по сумме остатка</option>
-        <option value="globalParamOosShareStore">по доле ТТ</option>
-        <option value="globalParamOosDaysRemaining">по кол-ву дней с остатком</option>
-        <option value="globalParamOosNot">выкл</option>
+        <option value="globalParamOosNot">Выкл</option>
+        <option value="globalParamOosAverageBalance">По среднему остатку</option>
+        <option value="globalParamOosAmountBalance">По сумме остатка</option>
+        <option value="globalParamOosShareStore">По доле ТТ</option>
+        <option value="globalParamOosDaysRemaining">По кол-ву дней с остатком</option>
       </select>
     </div>
   </section>
@@ -58,8 +57,8 @@
 
       <label for="parameters_promo-method">Метод очистки</label>
       <select id="parameters_promo-method">
-        <option value="globalParamPromoNot">выкл</option>
-        <option value="globalParamPromoMethodEmptyValue">пустое значение</option>
+        <option value="globalParamPromoNot">Выкл</option>
+        <option value="globalParamPromoMethodEmptyValue">Пустое значение</option>
         <!-- <option value="globalParamPromoMethodDevisionCoeff">
           деление на коэффициенты
         </option> -->
@@ -67,24 +66,18 @@
     </div>
   </section>
 
-  <!-- <section class="parameters_season-wrapper">
-    <p class="parameters_season-title">Сезонность</p>
-    <div class="parameters_season">
-      <label for="parameters_season-chek">Сезонность</label>
-      <input type="checkbox" id="parameters_season-chek" checked="checked"/>
-    </div>
-  </section> -->
-
   <section class="parameters_spikes">
     <p class="parameters_spikes-title">Очистка от всплесков продаж</p>
     <!-- <label for="parameters_spikes-chek">Очистка от всплесков продаж</label>
     <input type="checkbox" id="parameters_spikes-chek" checked="checked"/> -->
+    <div class = "parameters_spikes--wrap">
     <label for="parameters_spikes-method">Метод очистки</label>
     <select id="parameters_spikes-method">
-      <option value="globalParamSpikesMethodNot">выкл</option>
-      <option value="globalParamSpikesMethodInterquartile">интерквартиль</option>
-      <option value="globalParamSpikesMethodStandardDeviation">стандартное отклонение</option>
+      <option value="globalParamSpikesMethodNot">Выкл</option>
+      <option value="globalParamSpikesMethodInterquartile">Интерквартиль</option>
+      <option value="globalParamSpikesMethodStandardDeviation">Стандартное отклонение</option>
     </select>
+  </div>
   </section>
 
   <section class="container_parameters_sales_recovery">
@@ -96,17 +89,16 @@
 
       <label for="parameters_oos-method">Метод очистки</label>
       <select id="parameters_sales_recovery-method">
-        <option value="globalParamSpikesMethodNot">выкл</option>
-        <option value="option2">как тренд</option>
-        <option value="globalParamSpikesMethodStandardDeviation">как среднее</option>
+        <option value="globalParamSpikesMethodNot">Выкл</option>
+        <option value="option2">Как тренд</option>
+        <option value="globalParamSpikesMethodStandardDeviation">Как среднее</option>
         
       </select>
     </div>
   </section>
-  <section>
-  </section>
+
   
-  <section>
+  <section class="container_parameters_buttonSave">
     <button onclick="saveSelectedGlobalParameters()" id="parameters_saveButton">
       Сохранить
     </button>
@@ -138,3 +130,12 @@
     </select>
 
 </div> -->
+
+
+  <!-- <section class="parameters_season-wrapper">
+    <p class="parameters_season-title">Сезонность</p>
+    <div class="parameters_season">
+      <label for="parameters_season-chek">Сезонность</label>
+      <input type="checkbox" id="parameters_season-chek" checked="checked"/>
+    </div>
+  </section> -->

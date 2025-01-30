@@ -4,7 +4,7 @@
         <p class = "summary_plan__aggregation-title">Агрегация выходных данных</p>
         <label for="summary_plan_time">Агрегат по времени</label>
     <select id="summary_plan_time">
-        <option value="not_selected">не установлено</option>
+        <option value="not_selected">Не установлено</option>
         <option value="option2">День</option>
         <option value="option1">Неделя</option>
         <option value="option2">Месяц</option>
@@ -13,7 +13,7 @@
 
     <label for="summary_plan_geography">Агрегат по географии</label>
     <select id="summary_plan_geography">
-        <option value="not_selected">не установлено</option>
+        <option value="not_selected">Не установлено</option>
         <option value="option2">Сеть</option>
         <!-- <option value="option2">Все</option> -->
         <option value="option1">Страна</option>
@@ -34,21 +34,22 @@
 
     <label for="summary_plan_scu">Агрегат по SKU</label>
     <select id="summary_plan_scu">
-        <option value="not_selected">не установлено</option>
+        <option value="not_selected">Не установлено</option>
         <option value="option2">Тип продукции</option>
         <option value="option2">SKU</option>
     </select>
 </section>
 
 <section class = "summary_plan_calculation">
-    <label for="summary_plan__regAssort">Регулярный ассортимент</label>
-    <input type="checkbox" id="summary_plan__regAssort">
+    
 
-    <label for="summary_plan__promo">Промо</label>
-    <input type="checkbox" id="summary_plan__promo">
+    <label class = "labelSummary" class = "labelSummary" for="summary_plan__promo">Промо
+    <input type="checkbox" id="summary_plan__promo"></label>
+    <label class = "labelSummary" for="summary_plan__regAssort">Регулярный ассортимент
+        <input type="checkbox" id="summary_plan__regAssort"></label>
 
-    <label for="summary_plan__newsProducts">Новинки</label>
-    <input type="checkbox" id="summary_plan__newsProducts">
+    <label class = "labelSummary" for="summary_plan__newsProducts">Новинки
+    <input type="checkbox" id="summary_plan__newsProducts"></label>
 
     <!-- <label for="summary_plan_method">Итого прогноз</label>
     <select id="summary_plan_method">
@@ -57,16 +58,17 @@
         <option value="summary_plan__promo">промо</option>
         <option value="summary_plan__new_product">новинки</option>
     </select> -->
+    
 
-    <label for="summary_plan_cannibalization">Учёт каннибализации</label>
-    <input type="checkbox" id="summary_plan__cannibalization">
+    <label class = "labelSummary" for="summary_plan_cannibalization">Учёт каннибализации
+    <input type="checkbox" id="summary_plan__cannibalization"></label>
 
     <button onclick="loadAndFilterDataSummaryPlan()" id="summary_plan__calculateForecastButton">Рассчитать прогноз</button>
     <select id="summary_plan_scenario">
-        <option value="option0">сохранить прежние настройки</option>
-        <option value="option1">сценарий 1</option>
-        <option value="option2">сценарий 2</option>
-        <option value="option3">сценарий 3</option>
+        <option value="option0">Сохранить прежние настройки</option>
+        <option value="option1">Сценарий 1</option>
+        <option value="option2">Сценарий 2</option>
+        <option value="option3">Сценарий 3</option>
     </select>
 
     <button onclick="summaryPlan_OptimizationButton()" id="summaryPlan__optimizButton">Оптимизировать</button>

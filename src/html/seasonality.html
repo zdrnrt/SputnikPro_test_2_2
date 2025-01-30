@@ -3,8 +3,8 @@
         <p class = "seasonality__aggregation-title">Агрегация данных</p>
     <label for="seasonality_time">Агрегат по времени</label>
     <select id="seasonality_time">
-        <option value="week">Неделя</option>
         <option value="not_selected">не выбрано</option>
+        <option value="week">Неделя</option>
         <option value="option2">День</option>
         <option value="option2">Месяц</option>
         <option value="option2">Квартал</option>
@@ -12,9 +12,9 @@
 
     <label for="seasonality_geography">Агрегат по географии</label>
     <select id="seasonality_geography">
-        <option value="seasonality_geographyСhain">Сеть</option>
         <option value="not_selected">не выбрано</option>
-        <option value="all">Все</option>
+        <option value="seasonality_geographyСhain">Сеть</option>
+        <!-- <option value="all">Все</option> -->
         <option value="option1">Страна</option>
         <option value="option2">Регион</option>
         <option value="option2">Город</option>
@@ -23,8 +23,8 @@
 
     <label for="seasonality_groupSCU">Агрегат по позиции</label>
     <select id="seasonality_groupSCU">
-        <option value="groupe1">тип продукции</option>
-        <option value="not_selected">не выбрано</option>
+        <option value="not_selected">Не выбрано</option>
+        <option value="groupe1">Тип продукции</option>
         <option value="option2">SKU</option>
     </select>
 </section>
@@ -32,9 +32,9 @@
 <section class = "seasonality_calculation">
     <label for="seasonality_method">Метод расчета сезонности</label>
     <select id="seasonality_method">
-        <option value="fluctuation_average">колебания от средней</option>
-        <option value="not_selected">выкл</option>
-        <option value="fluctuation_trend">колебания от тренда</option>
+        <option value="fluctuation_average">Колебания от средней</option>
+        <option value="not_selected">Выкл</option>
+        <option value="fluctuation_trend">Колебания от тренда</option>
     </select>
 
     <label for="seasonality_season-smooth">Предварительное сглаживание</label>
@@ -45,17 +45,18 @@
     <button onclick="loadDataSeasonality()" id="seasonality__calculateForecastButton">Рассчитать</button>
 
     <select id="seasonality_scenario">
-        <option value="option0">сохранить прежние настройки</option>
-        <option value="option1">сценарий 1</option>
-        <option value="option2">сценарий 2</option>
-        <option value="option3">сценарий 3</option>
+        <option value="option0">Сохранить прежние настройки</option>
+        <option value="option1">Сценарий 1</option>
+        <option value="option2">Сценарий 2</option>
+        <option value="option3">Сценарий 3</option>
     </select>
-
-    
-    <button  id="seasonality_exportButton">Экспорт данных</button>
-
-    <button  id="seasonality_importButton">Импорт данных</button>
-</section><!-- <label for="seasonality_date-creation">Дата создания</label>
+    <section></section>
+    <section class="seasonality_Buttons">
+        <button  id="seasonality_exportButton">Экспорт</button>
+        <button  id="seasonality_importButton">Импорт</button>
+    </section>
+</section>
+<!-- <label for="seasonality_date-creation">Дата создания</label>
     <input type="date" id="action_date-creation" name="action_date-creation" required min="2024-11-14"> -->
     <!-- кнопка сохранить -->
     <!-- <button id="seasonality_saveButton">Сохранить изменения</button> -->
@@ -66,6 +67,9 @@
     <!-- <iframe  id="tb_seasonality" src=""></iframe> -->
     
     <div id="seasonality_chart"></div>
+ 
+
+
 </div>
 
 

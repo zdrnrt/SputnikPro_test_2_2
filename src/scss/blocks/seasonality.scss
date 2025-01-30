@@ -1,20 +1,25 @@
 .seasonality_contaier {
+    // width: 80vw;
+    // width: 50vw;
     display: grid;
-    grid-template-columns: repeat(2, 70%);
-    grid-template-rows: repeat(3, auto);
-    column-gap: 15px;
-    padding-top: 20px;
+    grid-template-columns: repeat(2, 35vw);
+    grid-template-rows: repeat(4, 240px);
+    column-gap: 4%;
+    // padding-top: 20px;
     .seasonality_aggregate{
         display: grid;
-        grid-template-columns: repeat(2, 50%);
+        grid-template-columns: repeat(2, 46%);
         grid-template-rows: repeat(4, 30px);
         align-items: center;
-        gap: 5%;
+        gap: 4%;
+        row-gap: 8%;
         border: 1px $frame_color2 solid;
-        padding: 8px;
+        padding: 2%;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         .seasonality__aggregation-title{
+            text-align: center;
             grid-column: span 2;
-            margin-left: 40%;
+            // margin-left: 30%;
         font-weight: 700;
         margin-top: 15px;
         margin-bottom: 15px;
@@ -22,32 +27,49 @@
     }
 }
 
+.seasonality_aggregate:hover,
+.seasonality_calculation:hover
+ {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Тень при наведении */
+}
+
 .seasonality_calculation{
+    padding: 2%;
+    border: 1px $frame_color2 solid;
     display: grid;
-    grid-template-columns: repeat(2, 50%);
+    grid-template-columns: 50% 45%;
     grid-template-rows: repeat(4, auto);
-    gap: 5px;
+    gap: 4%;
     align-items: center;
-    column-gap: 10px;
+    column-gap: 4%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 
 #seasonality_time, #seasonality_groupSCU, #seasonality_geography, #seasonality_groupSCU, #seasonality_method,#seasonality_scenario{
     width: 80%;
-    height: 25px;
+    height: 30px;
+    margin-top: 2%;
+}
+#seasonality_method,#seasonality_scenario{
+    width: 100%;
+    height: 30px;
     margin-top: 2%;
 }
 
 #seasonality_season-smooth{
     margin-left: 2%;
-    width: 15px;
-    height: 15px;
+    width: 25px;
+    height: 25px;
 }
-
-#seasonality__calculateForecastButton, #seasonality_exportButton, #seasonality_importButton, #seasonality__saveForecastButton{
+#seasonality__calculateForecastButton{
     width: 80%;
     height: 40px;
     margin-top: 10px;
+}
+
+
+#seasonality__calculateForecastButton, #seasonality_exportButton, #seasonality_importButton, #seasonality__saveForecastButton{
     transition: background-color 0.3s, transform 0.1s;
     &:hover{
         background-color:$hover-button;
@@ -63,6 +85,11 @@
         // box-shadow: 0 0 5px  rgb(167, 67, 167);
     }
 }
+#seasonality_exportButton, #seasonality_importButton{
+    width: 150px;
+    height: 40px;
+    margin: 5px;
+}
 
 // #tb_seasonality{
 //     grid-column: span 2;
@@ -74,17 +101,26 @@
 #seasonality_chart {
     grid-column: span 2;
     margin-top: 70px;
-    width: 900px;
-    height: 400px;
+    width: 70vw;
+    height: 500px;
 }
 // .svg-container{
 //     border: 1px red solid;
 //     width: 200px;
 //     height: 200px;
 // }
-#seasonality__saveForecastButton{
-    grid-column: span 2;
-    width: 220px;
-    height: 40px;
-    // margin-left: 30%;
+// #seasonality__saveForecastButton{
+//     grid-column: span 2;
+//     width: 80%;
+//     height: 40px;
+//     // margin-left: 30%;
+// }
+
+.seasonality_Buttons{
+    display: flex;
+    flex-direction: row;
+    column-gap: span 2;
+    margin-top: 10px;
+    height: 100px;
+
 }

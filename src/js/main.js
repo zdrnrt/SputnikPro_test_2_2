@@ -500,7 +500,7 @@ $(document).ready(function() {
               return data.filter(row => {
                   return Object.keys(parameters).every(key => {
                       if (row[key] !== undefined) {
-                          return row[key] === parameters[key];
+                        return row[key].toString().toLowerCase() === parameters[key].toString().toLowerCase();   // Приведение к нижнему регистру для независимости от регистра
                       }
                       return true;
                   });
@@ -515,31 +515,35 @@ $(document).ready(function() {
               // Добавление стилей
     const style = document.createElement('style');
     style.textContent = 
-        `table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 0px;
-            font-size: 12px;
-        }
-        th, td {
-            border: 1px solid #ddd;
-            padding: 5px;
-            text-align: left;
-            width: 5px;
-        }
-        th {
-            background-color:rgb(36, 76, 223);
-            color: white; 
-        }
-        tr:nth-child(even) {
-            background-color: #f2f2f2;
-        }
-        tr:hover {
-            background-color: #ddd;
-        }
-            td:first-child {
-        font-weight: bold;`
-    ;
+    `table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 0px;
+      font-size: 12px;
+      font-size: 16px;
+      font-family: 'Arial', sans-serif; 
+  }
+  th, td {
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: left;
+      width: auto;
+  }
+  th {
+      background-color:rgb(36, 76, 223);
+      color: white; 
+      font-family: 'Arial', sans-serif;
+  }
+  tr:nth-child(even) {
+      background-color: #f2f2f2;
+  }
+  tr:hover {
+      background-color: #ddd;
+  }
+       td:first-child {
+    font-weight: bold;
+    font-family: 'Arial', sans-serif;`
+;
     iframeDocument.head.appendChild(style);
               const table = iframeDocument.createElement('table');
               table.innerHTML = ''; // Очистка предыдущего содержимого
@@ -564,7 +568,7 @@ $(document).ready(function() {
   ];
   // Сортируем данные по желаемому порядку
   data.sort((a, b) => {
-    const indexA = desiredOrder.indexOf(a['МЕРЫ']);
+    const indexA = desiredOrder.indexOf(a['МЕРЫ']); // Приводим к нижнему регистру
     const indexB = desiredOrder.indexOf(b['МЕРЫ']);
     
     // Сравниваем индексы
@@ -663,7 +667,7 @@ iframeDocument.body.appendChild(table);
             return data.filter(row => {
                 return Object.keys(parameters).every(key => {
                     if (row[key] !== undefined) {
-                        return row[key] === parameters[key];
+                      return row[key].toString().toLowerCase() === parameters[key].toString().toLowerCase();
                     }
                     return true;
                 });
@@ -678,31 +682,35 @@ iframeDocument.body.appendChild(table);
             // Добавление стилей
   const style = document.createElement('style');
   style.textContent = 
-      `table {
-          width: 100%;
-          border-collapse: collapse;
-          margin-top: 0px;
-          font-size: 12px;
-      }
-      th, td {
-          border: 1px solid #ddd;
-          padding: 5px;
-          text-align: left;
-          width: 5px;
-      }
-      th {
-          background-color:rgb(36, 76, 223);
-          color: white; 
-      }
-      tr:nth-child(even) {
-          background-color: #f2f2f2;
-      }
-      tr:hover {
-          background-color: #ddd;
-      }
-           td:first-child {
-        font-weight: bold;`
-  ;
+  `table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 0px;
+    font-size: 12px;
+    font-size: 16px;
+    font-family: 'Arial', sans-serif; 
+}
+th, td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+    width: auto;
+}
+th {
+    background-color:rgb(36, 76, 223);
+    color: white; 
+    font-family: 'Arial', sans-serif;
+}
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+tr:hover {
+    background-color: #ddd;
+}
+     td:first-child {
+  font-weight: bold;
+  font-family: 'Arial', sans-serif;`
+;
   iframeDocument.head.appendChild(style);
             const table = iframeDocument.createElement('table');
             table.innerHTML = ''; // Очистка предыдущего содержимого
@@ -727,7 +735,7 @@ iframeDocument.body.appendChild(table);
   ];
   // Сортируем данные по желаемому порядку
   data.sort((a, b) => {
-    const indexA = desiredOrder.indexOf(a['МЕРЫ']);
+    const indexA = desiredOrder.indexOf(a['МЕРЫ']); // Приводим к нижнему регистру
     const indexB = desiredOrder.indexOf(b['МЕРЫ']);
     
     // Сравниваем индексы
@@ -818,7 +826,7 @@ iframeDocument.body.appendChild(table);
             return data.filter(row => {
                 return Object.keys(parameters).every(key => {
                     if (row[key] !== undefined) {
-                        return row[key] === parameters[key];
+                      return row[key].toString().toLowerCase() === parameters[key].toString().toLowerCase();
                     }
                     return true;
                 });
@@ -833,31 +841,35 @@ iframeDocument.body.appendChild(table);
             // Добавление стилей
   const style = document.createElement('style');
   style.textContent = 
-      `table {
-          width: 100%;
-          border-collapse: collapse;
-          margin-top: 0px;
-          font-size: 12px;
-      }
-      th, td {
-          border: 1px solid #ddd;
-          padding: 5px;
-          text-align: left;
-          width: 5px;
-      }
-      th {
-          background-color:rgb(36, 76, 223);
-          color: white; 
-      }
-      tr:nth-child(even) {
-          background-color: #f2f2f2;
-      }
-      tr:hover {
-          background-color: #ddd;
-      }
-           td:first-child {
-        font-weight: bold;`
-  ;
+  `table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 0px;
+    font-size: 12px;
+    font-size: 16px;
+    font-family: 'Arial', sans-serif; 
+}
+th, td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+    width: auto;
+}
+th {
+    background-color:rgb(36, 76, 223);
+    color: white; 
+    font-family: 'Arial', sans-serif;
+}
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+tr:hover {
+    background-color: #ddd;
+}
+     td:first-child {
+  font-weight: bold;
+  font-family: 'Arial', sans-serif;`
+;
   iframeDocument.head.appendChild(style);
             const table = iframeDocument.createElement('table');
             table.innerHTML = ''; // Очистка предыдущего содержимого
@@ -882,7 +894,7 @@ iframeDocument.body.appendChild(table);
   ];
   // Сортируем данные по желаемому порядку
   data.sort((a, b) => {
-    const indexA = desiredOrder.indexOf(a['МЕРЫ']);
+    const indexA = desiredOrder.indexOf(a['МЕРЫ']); // Приводим к нижнему регистру
     const indexB = desiredOrder.indexOf(b['МЕРЫ']);
     
     // Сравниваем индексы
@@ -984,7 +996,7 @@ iframeDocument.body.appendChild(table);
             return data.filter(row => {
                 return Object.keys(parameters).every(key => {
                     if (row[key] !== undefined) {
-                        return row[key] === parameters[key];
+                      return row[key].toString().toLowerCase() === parameters[key].toString().toLowerCase();
                     }
                     return true;
                 });
@@ -1004,16 +1016,19 @@ iframeDocument.body.appendChild(table);
           border-collapse: collapse;
           margin-top: 0px;
           font-size: 12px;
+          font-size: 16px;
+          font-family: 'Arial', sans-serif; 
       }
       th, td {
           border: 1px solid #ddd;
-          padding: 5px;
+          padding: 10px;
           text-align: left;
-          width: 5px;
+          width: auto;
       }
       th {
           background-color:rgb(36, 76, 223);
           color: white; 
+          font-family: 'Arial', sans-serif;
       }
       tr:nth-child(even) {
           background-color: #f2f2f2;
@@ -1022,7 +1037,8 @@ iframeDocument.body.appendChild(table);
           background-color: #ddd;
       }
            td:first-child {
-        font-weight: bold;`
+        font-weight: bold;
+        font-family: 'Arial', sans-serif;`
   ;
   iframeDocument.head.appendChild(style);
             const table = iframeDocument.createElement('table');
@@ -1048,7 +1064,7 @@ iframeDocument.body.appendChild(table);
   ];
   // Сортируем данные по желаемому порядку
   data.sort((a, b) => {
-    const indexA = desiredOrder.indexOf(a['МЕРЫ']);
+    const indexA = desiredOrder.indexOf(a['МЕРЫ']); // Приводим к нижнему регистру
     const indexB = desiredOrder.indexOf(b['МЕРЫ']);
     
     // Сравниваем индексы

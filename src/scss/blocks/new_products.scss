@@ -1,16 +1,16 @@
 .new_product_container{
     display: grid;
-    grid-template-columns: repeat(2, 400px);
+    grid-template-columns: repeat(2, 30vw);
     grid-template-rows: repeat(3, auto);
     padding-top: 0px;
-    column-gap: 30px;
+    column-gap: 5%;
     .new_product__forecast-wrapper{
         display: grid;
-        grid-template-columns: repeat(2, 220px);
+        grid-template-columns: 50% 50%;
         grid-template-rows: repeat(4, auto);
         column-gap: 10px;
         place-items: start;
-        #new_product_method{
+        #new_product_method, #new_product_scenario{
             width: 240px;
             height: 30px;
         }
@@ -23,6 +23,7 @@
                 height: 30px;
             }
         }
+
         #new_product__calculateForecastButton, #new_product__optimizeButton, #new_product__exportButton{
             width: 200px;
             height: 40px;
@@ -35,14 +36,15 @@
 }
 
 .new_product__aggregation-wrapper{
-   
+   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     border: 1px $frame_color2 solid;
-    width: 400px;
+    width: 100%;
     padding: 8px;
     // border-radius: 5px;
     .new_product__aggregation-title{
-        margin-left: 33%;
+        text-align: center;
         font-weight: 700;
+        margin-bottom: 10px;
     }
     .new_product__aggregation{
         display: grid;
@@ -72,8 +74,9 @@
         }
         #new_product_PreviewIframe{
             margin-top: 50px;
-            width: 1000px;
-            height: 360px;
+            grid-column: span 2;
+            width: calc(100vw - 350px);
+            height: 460px;
         }
     }
 }

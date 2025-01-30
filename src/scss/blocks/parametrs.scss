@@ -1,29 +1,72 @@
 .parameters_container{
     display: grid;
-    grid-template-columns: repeat(2, 70%);
-    grid-template-rows: repeat(5, auto);
-    gap: 4%;
-    column-gap: 4%;
-    padding-left: 15px; 
+    width: 75vw;
+    grid-template-columns: repeat(3, 300);
+    grid-template-rows: repeat(3, 200px);
+    gap: 2%;
+    column-gap: 2%;
     padding-top: 0px;
 }
 
-.parameters_season{
-    grid-column: span 1;
-
+.parameters_aggregation-wrapper{
+    border: 1px $frame_color2 solid;
+    width:100%;
+    padding: 2%;
+    // min-width: 300px;
+    .parameters_aggregation {
+        display: grid;
+        grid-template-columns: 50% 50%;
+        grid-template-rows: repeat(4, auto);
+        gap: 0.3rem;
+        // min-width: 300px;
+    }
 }
-#parameters_season,#parameters_oos,#parameters_recovery-method, #parameters_promo, #parameters_sales_spikes{
+
+.parameters_aggregation-wrapper,
+.parameters_oos-wrapper, 
+.parameters_promo-wrapper,
+.parameters_spikes, 
+.parameters_season-wrapper, 
+.container_parameters_sales_recovery, 
+.parameters_sales_spikes{
+    border: 1px $frame_color2 solid;
+    // border: 1px red solid;
+    width:100%;
+    padding: 10px;
+    transition: box-shadow 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Эффект при наведении */
+.parameters_aggregation-wrapper:hover,
+.parameters_oos-wrapper:hover,
+.parameters_promo-wrapper:hover,
+.parameters_spikes:hover,
+.parameters_season-wrapper:hover,
+.container_parameters_sales_recovery:hover,
+.parameters_sales_spikes:hover {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Тень при наведении */
+}
+
+// .parameters_season{
+//     grid-column: span 1;
+// }
+#parameters_season,
+#parameters_oos,
+#parameters_recovery-method, 
+#parameters_promo, 
+#parameters_sales_spikes{
     margin-left: 20px;
 }
-.parameters_sales_recovery_radio{
+// .parameters_sales_recovery_radio{
+//     display: grid;
+//     grid-template-columns: repeat(2, 50%);
+//     grid-template-rows: repeat(3, auto);
+//     gap: 1%;
+// }
+.parameters_oos{
     display: grid;
-    grid-template-columns: repeat(2, 50%);
-    grid-template-rows: repeat(3, auto);
-    gap: 1%;
-}
-.container_parameters_sales_recovery{
-    display: grid;
-    grid-template-columns: repeat(1, auto);
+    grid-template-columns: 50% 50%;
     grid-template-rows: repeat(3, auto);
 }
 
@@ -34,21 +77,10 @@
     font-weight: 600;
 }
 
-.parameters_aggregation-wrapper,.parameters_oos-wrapper, .parameters_promo-wrapper, .parameters_season-wrapper,.parameters_spikes, .container_parameters_sales_recovery, .parameters_sales_spikes{
-    border: 1px $frame_color2 solid;
-    width:100%;
-    padding: 2%;
-    // border-radius: 5px;
-    align-items: center;
+#parameters_promo {
+    width: calc(100% - 33%);
+    margin-left: 0;
 }
-
-
- #parameters_promo{
-    width: 100%;
- }
- #parameters_promo{
-    margin-left: 33%;
- }
 
  #parameters_saveButton{
 width: 200px;
@@ -59,33 +91,44 @@ margin-top: 5%;
  }
  }
 
-.parameters_aggregation {
+
+.parameters_promo, .parameters_season, .parameters_spikes--wrap {
     display: grid;
-    grid-template-columns: repeat(2, 45%);
-    grid-template-rows: repeat(4, auto);
-    gap: 0.3rem;
-}
-.parameters_oos, .parameters_promo, .parameters_season, .parameters_spikes {
-    display: grid;
-    grid-template-columns: repeat(2, 45%);
-    grid-template-rows: repeat(2, auto);
-    gap:  0.3rem;
+    grid-template-columns: 50% 50%;
 }
 
 
-.parameters_aggregation-title, .parameters_spikes-title, .parameters_oos-title, .parameters_promo-title, .parameters_season-title{
-    margin-left: 35%;
-    font-weight: 600;
+.parameters_aggregation-title, 
+.parameters_spikes-title, 
+.parameters_oos-title, 
+.parameters_promo-title, 
+.parameters_season-title{
+    // margin-left: 5%;
+    font-weight: 700;
+    padding: 10px;
+    margin-bottom: 5px;
+    text-align: center;
 }
 .parameters_spikes-title{
     grid-column: span 2;
 }
 
-#parameters_oos-chek,#parameters_promo-chek, #parameters_season-chek, #parameters_season-smooth, #parameters_spikes-chek, #parameters_sales_recovery-chek{
-    width: 20px;
-    height: 20px;
-}
+// #parameters_oos-chek,#parameters_promo-chek, #parameters_season-chek, #parameters_season-smooth, #parameters_spikes-chek, #parameters_sales_recovery-chek{
+//     width: 20px;
+//     height: 20px;
+// }
+
 #parameters_aggregation-time, #parameters_aggregation-geo, #parameters_aggregation-group, #parameters_aggregation-scu, #parameters_oos-method, #parameters_promo-method, #parameters_spikes-method, #parameters_sales_recovery-method{
-    width: 100%;
-    height: 90%;
+    width: 90%;
+    height: 30px;
+    margin-left: 5%;
+}
+// .parameters_spikes--wrap{
+//     display: flex;
+//     grid-column: span 2;
+//     padding-left: 5px;
+// }
+
+.container_parameters_buttonSave{
+    grid-column: span 4;
 }

@@ -1,10 +1,10 @@
 .planner_container{
     display: grid;
-    grid-template-columns: repeat(2, 100%);
+    grid-template-columns: repeat(2, 20vw);
     grid-template-rows: repeat(5, auto);
-    gap: 5%;
+    gap: 2%;
     font-family: 'Open Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
-    margin-left: 10%;
+    // margin-left: 10%;
 }
 
 #planner_saveButton{
@@ -19,14 +19,14 @@
 
 #planner_Iframe{
     grid-column: span 2;
-    margin-top: 10%;
+    margin-top: 50px;
     width: 120%;
     height: 100%;
 }
 
 #planner_settingRepeat{
     width: 200px;
-    height: 30px;
+    height: 40px;
     margin: 10px;
     margin-left: 10%;
     &:hover{
@@ -55,4 +55,8 @@
         height: 25px;
         margin-left: 5px;// 
     }
+}
+
+#planner__scenarioName, #planner__block, #planner__scenarioCustom{
+    height: 30px;
 }

@@ -1,7 +1,7 @@
 
 .promo_container{
     display: grid;
-    grid-template-columns: repeat(2, 400px);
+    grid-template-columns: repeat(2, 30vw);
     column-gap: 50px;
     // padding-left: 40px; 
     padding-top: 20px;
@@ -11,10 +11,6 @@
         grid-template-columns: repeat(2, auto);
         grid-template-rows: repeat(5, auto);
         column-gap: 20px;
-        #promo_method{
-            width: 240px;
-            height: 30px;
-        }
         .promo_calculate{
             grid-column: span 2;
             #promo_scenario{
@@ -35,14 +31,18 @@
 }
 
 .promo__aggregation-wrapper{
-   
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     border: 1px $frame_color2 solid;
-    width: 400px;
+    width: 100%;
     padding: 8px;
     // border-radius: 5px;
     .promo__aggregation-title{
-        margin-left: 23%;
+        margin-bottom: 10px;
+        // margin-left: 23%;
         font-weight: 700;
+        margin-bottom: 10px;
+        text-align: center;
+
     }
     .promo__aggregation{
         display: grid;
@@ -54,8 +54,12 @@
 #promo_PreviewIframe{
     grid-column: span 2;
     margin-top: 10%;
-    width: 1000px;
-    height: 360px;;
+    width: calc(100vw - 350px);
+    height: 460px;
+}
+#promo_scenario, #promo_method{
+    height: 30px;
+    width: 100%;
 }
 
 

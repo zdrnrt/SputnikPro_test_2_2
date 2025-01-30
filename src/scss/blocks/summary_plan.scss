@@ -1,19 +1,22 @@
 .summary_plan_contaier {
     display: grid;
-    grid-template-columns: repeat(2, 400px);
+    grid-template-columns: repeat(2, 30vw);
     column-gap: 50px;
     padding-top: 20px;
     .summary_plan_aggregate{
         display: grid;
-        grid-template-columns: repeat(2, 150px);
+        
+        grid-template-columns: repeat(2, 1fr);
         grid-template-rows: repeat(5, 30px);
         align-items: center;
+        // max-width: 400px;
         gap: 5px;
+        row-gap: 5%;
         border: 1px $frame_color2 solid;
         padding: 8px;
         .summary_plan__aggregation-title{
             grid-column: span 2;
-            margin-left: 23%;
+            text-align: center;
             font-weight: 700;
         }
     }
@@ -21,22 +24,23 @@
 
 .summary_plan_calculation{
     display: grid;
-    grid-template-columns: repeat(2, 230px);
+    grid-template-columns: 50% 50%;
     grid-template-rows: repeat(4, auto);
     gap: 10px;
     align-items: center;
 }
 
 #summary_plan_time, #summary_plan_groupSCU, #summary_plan_geography, #summary_plan_scu, #summary_plan_method, #summary_plan_scenario{
-    width: 200px;
-    height: 25px;
+    width: 100%;
+    height: 30px;
     margin-top: 2%;
 }
 
 #summary_plan__cannibalization, #summary_plan__regAssort, #summary_plan__promo, #summary_plan__newsProducts {
     margin-left: 2%;
-    width: 15px;
-    height: 15px;
+    width: 20px;
+    height: 20px;
+    margin-top: 5px;
 }
 
 #summary_plan__calculateForecastButton, #summary_plan_exportButton, #summary_plan_importButton, #summaryPlan__optimizButton{
@@ -72,9 +76,19 @@
 }
 
 #summaryPlan_PreviewIframe{
+    margin-top: 50px;
     grid-column: span 2;
-    margin-top: 10%;
-    width: 1000px;
-    height: 360px;
+    width: calc(100vw - 350px);
+    height: 460px;
 
+}
+.labelSummary{
+    display: flex; /* Используем flexbox для выравнивания */
+    align-items: center; /* Выравнивание по центру по вертикали */
+    padding: 10px; /* Добавляем отступы сверху и снизу */
+    cursor: pointer; /* Указатель при наведении */
+}
+
+#summary_plan__newsProducts, #summary_plan__cannibalization, #summary_plan__promo, #summary_plan__regAssort{
+    margin-left: 25px; /* Отступ между текстом и чекбоксом */
 }
