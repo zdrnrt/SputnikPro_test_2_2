@@ -483,6 +483,7 @@ $(document).ready(function() {
         // document.getElementById('regular_assort__calculateForecastButton').addEventListener('click', loadAndFilterData);
     
         window.loadAndFilterData = function() {
+          
           window.saveGlobalParametersRegular = function() {
               let currentData = JSON.parse(localStorage.getItem('globalParameters'));
               if (!currentData) {
@@ -494,7 +495,22 @@ $(document).ready(function() {
               localStorage.setItem('globalParameters', JSON.stringify(currentData));
           }
           window.saveGlobalParametersRegular();
-  
+
+            // Получаем параметры из localStorage
+    const parameters = JSON.parse(localStorage.getItem('globalParameters'));
+    const iframe = document.getElementById('tb_regular_assort_results');
+
+    // Проверяем наличие ключей и выводим соответствующие сообщения
+    if (!parameters || !parameters['очистка от выбросов']) {
+        iframe.contentDocument.body.innerHTML = '<p>Выберите глобальные параметры</p>';
+        return; // Прекращаем выполнение функции
+    }
+
+    if (!parameters['сезонность']) {
+        iframe.contentDocument.body.innerHTML = '<p>Выберите метод расчета сезонности</p>';
+        return; // Прекращаем выполнение функции
+    }
+
           window.filterData = function(data) {
               const parameters = JSON.parse(localStorage.getItem('globalParameters'));
               return data.filter(row => {
@@ -511,6 +527,8 @@ $(document).ready(function() {
               const iframe = document.getElementById('tb_regular_assort_results');
               const iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
               iframeDocument.body.innerHTML = '';
+
+             
 
               // Добавление стилей
     const style = document.createElement('style');
