@@ -5,27 +5,30 @@
     <div class="parameters_aggregation">
       <label for="parameters_aggregation-time">Агрегат по времени</label>
       <select id="parameters_aggregation-time">
-        <option value="globalParamTimeWeek">Неделя</option>
+        <option value="globalParamTimeNot">Не установлено</option>
         <option value="globalParamTimeDay">День</option>
+        <option value="globalParamTimeWeek" selected >Неделя</option>
         <option value="globalParamTimeQuarter">Квартал</option>
         <option value="globalParamTimeMonth">Месяц</option>
+        
       </select>
 
       <label for="parameters_aggregation-geo">Агрегат по географии</label>
       <select id="parameters_aggregation-geo">
-        <option value="globalParamGeoChain">Сеть</option>
         <option value="globalParamGeoNot">Не установлено</option>
+        <option value="globalParamGeoChain" selected>Сеть</option>
         <option value="globalParamGeoCountry">Страна</option>
         <option value="globalParamGeoRegion">Регион</option>
         <option value="globalParamGeoCity">Город</option>
         <option value="globalParamGeoStore">Магазин</option>
+       
       </select>
 
       <label for="parameters_aggregation-scu">Агрегат по позиции</label>
       <select id="parameters_aggregation-scu">
-        <option value="globalParamTypeProduct">Категория</option>
         <option value="globalParamSkuNot">Не установлено</option>
-        <option value="globalParamSku">SKU</option>
+        <option value="globalParamTypeProduct">Категория</option>
+        <option value="globalParamSku" selected>SKU</option>
       </select>
     </div>
   </section>
@@ -39,7 +42,7 @@
 
       <label for="parameters_oos-method">Метод очистки</label>
       <select id="parameters_oos-method">
-        <option value="globalParamOosNot">Выкл</option>
+        <option value="globalParamOosNot" selected>Не установлено</option>
         <option value="globalParamOosAverageBalance">По среднему остатку</option>
         <option value="globalParamOosAmountBalance">По сумме остатка</option>
         <option value="globalParamOosShareStore">По доле ТТ</option>
@@ -57,7 +60,7 @@
 
       <label for="parameters_promo-method">Метод очистки</label>
       <select id="parameters_promo-method">
-        <option value="globalParamPromoNot">Выкл</option>
+        <option value="globalParamPromoNot" selected>Не установлено</option>
         <option value="globalParamPromoMethodEmptyValue">Пустое значение</option>
         <!-- <option value="globalParamPromoMethodDevisionCoeff">
           деление на коэффициенты
@@ -73,7 +76,7 @@
     <div class = "parameters_spikes--wrap">
     <label for="parameters_spikes-method">Метод очистки</label>
     <select id="parameters_spikes-method">
-      <option value="globalParamSpikesMethodNot">Выкл</option>
+      <option value="globalParamSpikesMethodNot" selected>Не установлено</option>
       <option value="globalParamSpikesMethodInterquartile">Интерквартиль</option>
       <option value="globalParamSpikesMethodStandardDeviation">Стандартное отклонение</option>
     </select>
@@ -89,7 +92,7 @@
 
       <label for="parameters_oos-method">Метод очистки</label>
       <select id="parameters_sales_recovery-method">
-        <option value="globalParamSpikesMethodNot">Выкл</option>
+        <option value="globalParamSpikesMethodNot" selected>Не установлено</option>
         <option value="option2">Как тренд</option>
         <option value="globalParamSpikesMethodStandardDeviation">Как среднее</option>
         

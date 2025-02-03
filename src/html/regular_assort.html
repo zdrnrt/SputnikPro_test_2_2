@@ -7,17 +7,18 @@
             <div class="regular_assort__aggregation"> 
             <label for="regular_assort__aggregation-time">Агрегат по времени</label>
             <select id="regular_assort__aggregation-time">
-                <option value="option2">Неделя</option>
                 <option value="not_selected">Не установлено</option>
                 <option value="option1">День</option>
-                <option value="option3">Квартал</option>
+                <option value="option2" selected>Неделя</option>
                 <option value="option4">Месяц</option>
+                <option value="option3">Квартал</option>
+                
             </select>
     
             <label for="regular_assort__aggregation-geo">Агрегат по географии</label>
             <select id="regular_assort__aggregation-geo">
-                <option value="chain">Сеть</option>
                 <option value="not_selected">Не установлено</option>
+                <option value="chain" selected>Сеть</option>
                 <option value="option2">Страна</option>
                 <option value="option3">Регион</option>
                 <option value="option4">Город</option>
@@ -35,9 +36,11 @@
     
             <label for="regular_assort__aggregation-scu">Агрегат по позиции</label>
             <select id="regular_assort__aggregation-scu">
-                <option value="option2">Категория</option>
                 <option value="not_selected">Не установлено</option>
-                <option value="option2">SKU</option>
+                <option value="option2">Категория</option>
+                <option value="option2" selected>SKU</option>
+                
+                
             </select>
         </div>
         </section>
@@ -53,7 +56,7 @@
             <option value="ra_holt_winters">Хольта - Винтерса</option>
             <option value="ra_exponential_smoothing">Экспоненциальное сглаживание</option>
             <option value="ra_probabilistic_model">Вероятностная модель</option>
-            <option value="ra_not_selected">не выбрано</option>
+            <option value="ra_not_selected">Не установлено</option>
         </select>
 
         <!-- <label for="regular_assort_period">Период</label>

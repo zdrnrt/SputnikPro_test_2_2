@@ -2,11 +2,11 @@ let modalData = {};
 
 function saveModalData() {
     modalData.intervalNum = document.getElementById('planner_intervalPeriodicity').value;
-    modalData.dayOfWeekRepeat = document.getElementById('planner_dayOfWeekRepeat').value;
+    modalData.dayOfWeekRepeat = document.getElementById('planner_dayOfWeekRepeat').options[document.getElementById('planner_dayOfWeekRepeat').selectedIndex].text;
     modalData.selectedTime = document.getElementById('planner_selectedTime').value;
     modalData.selectedStartDate = document.getElementById('planner_selectedStartDate').value;
-    modalData.dayOfWeekMonthRepeat = document.getElementById('planner_dayNumber').value;
-    modalData.dayOfWeekMonthRepeatAttribute = document.getElementById('dayAndWeekMonth').value;
+    modalData.dayOfWeekMonthRepeat = document.getElementById('planner_dayNumber').options[document.getElementById('planner_dayNumber').selectedIndex].text;
+    modalData.dayOfWeekMonthRepeatAttribute = document.getElementById('dayAndWeekMonth').options[document.getElementById('dayAndWeekMonth').selectedIndex].text;
 
     const endingOptions = document.querySelectorAll('input[name="options"]:checked');
     let endingInfo = '';
@@ -18,7 +18,7 @@ function saveModalData() {
             endingInfo = `Спустя ${times} раз`;
         } else if (option.value === 'date') {
             const endDate = document.getElementById('dateInput').value;
-            endingInfo = `Дата:${endDate}`;
+            endingInfo = `${endDate}`;
         }
     });
     
@@ -26,70 +26,13 @@ function saveModalData() {
     closeModal('planner_weeklyModal');
 }
 
-// function planner_addData() {
-//     const scenarioName = document.getElementById('planner__scenarioName').value;
-//     const block = document.getElementById('planner__block').value;
-//     const scenarioCustom = document.getElementById('planner__scenarioCustom').value;
-
-//     const resultHTML = 
-//        ` <style>
-//         table {
-//             width: 100%;
-//             border-collapse: collapse;
-//             margin-top: 20px;
-//             font-family: Arial, sans-serif;
-//             font-size:10px;
-//         }
-//         th, td {
-//             padding: 10px;
-//             text-align: left;
-//             border-bottom: 1px solid #ddd;
-//         }
-//         th {
-//             background-color: #f2f2f2;
-//         }
-//         tr:hover {
-//             background-color: #f5f5f5;
-//         }
-//     </style>
-//     <h5>Выбранные значения:</h5>
-//     <table>
-//         <tr>
-//             <th>Наименование</th>
-//             <th>Блок</th>
-//             <th>Сценарий</th>
-//             <th>Интервал повторений</th>
-//             <th>Дни повторения</th>
-//             <th>Время запуска</th>
-//             <th>Дата начала</th>
-//             <th>Дата окончания</th>
-//         </tr>
-//         <tr>
-//             <td>${scenarioName}</td>
-//             <td>${block}</td>
-//             <td>${scenarioCustom}</td>
-//             <td>${modalData.intervalNum}  дней</td>
-//             <td>${modalData.dayOfWeekRepeat}</td>
-//             <td>${modalData.selectedTime}</td>
-//             <td>${modalData.selectedStartDate}</td>
-//             <td>${modalData.endingInfo}</td>
-//         </tr>
-//     </table>`
-//     ;
-
-//     const iframe = document.getElementById('planner_Iframe');
-//     const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
-//     iframeDoc.open();
-//     iframeDoc.write(resultHTML);
-//     iframeDoc.close();
-// }
-
-
 function planner_addData() {
     const scenarioName = document.getElementById('planner__scenarioName').value;
-    const block = document.getElementById('planner__block').value;
-    const scenarioCustom = document.getElementById('planner__scenarioCustom').value;
+    const block = document.getElementById('planner__block').options[document.getElementById('planner__block').selectedIndex].text;
+    const scenarioCustom = document.getElementById('planner__scenarioCustom').options[document.getElementById('planner__scenarioCustom').selectedIndex].text;
     const planner_intervalRepetition__header = document.getElementById('planner_intervalRepetition__header').value;
+   
+    const planner_intervalRepetition__headerText = document.getElementById('planner_intervalRepetition__header').options[document.getElementById('planner_intervalRepetition__header').selectedIndex].text;
 
     let repetitionValueMonth = modalData.dayOfWeekRepeat;
     let repetitionValueMonthAttribute = modalData.dayOfWeekMonthRepeatAttribute
@@ -104,7 +47,7 @@ function planner_addData() {
             <td>${scenarioName}</td>
             <td>${block}</td>
             <td>${scenarioCustom}</td>
-            <td>${planner_intervalRepetition__header}</td>
+            <td>${planner_intervalRepetition__headerText}</td>
             <td>${modalData.intervalNum}</td>
             <td>${repetitionValueMonth}</td>
             <td>${modalData.selectedTime}</td>
@@ -126,9 +69,9 @@ function planner_addData() {
                 table {
                     width: 100%;
                     border-collapse: collapse;
-                    margin-top: 20px;
+                  
                     font-family: Arial, sans-serif;
-                    font-size:10px;
+                    font-size:14px;
                 }
                 th, td {
                     padding: 10px;

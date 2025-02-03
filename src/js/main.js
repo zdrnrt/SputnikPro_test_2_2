@@ -483,7 +483,7 @@ $(document).ready(function() {
         // document.getElementById('regular_assort__calculateForecastButton').addEventListener('click', loadAndFilterData);
     
         window.loadAndFilterData = function() {
-          
+
           window.saveGlobalParametersRegular = function() {
               let currentData = JSON.parse(localStorage.getItem('globalParameters'));
               if (!currentData) {

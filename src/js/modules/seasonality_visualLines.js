@@ -29,12 +29,12 @@ export default window.loadDataSeasonality = function() {
 
     let filePath = '';
     if (selectedOption === 'fluctuation_average' && 
-        seasonality_selectedTime === 'week' && 
+        seasonality_selectedTime === 'seasonality_timeWeek' && 
         seasonality_selectedGeo === 'seasonality_geographyСhain' && 
         seasonality_selectedGroupSCU === 'groupe1') {
         filePath = './images/demo_file/seasonalityAvg.xlsx';
     } else if (selectedOption === 'fluctuation_trend' && 
-               seasonality_selectedTime === 'week' && 
+               seasonality_selectedTime === 'seasonality_timeWeek' && 
                seasonality_selectedGeo === 'seasonality_geographyСhain' && 
                (seasonality_selectedGroupSCU === 'groupe1')) {
         filePath = './images/demo_file/seasonalityTrend.xlsx';

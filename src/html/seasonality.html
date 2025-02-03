@@ -3,28 +3,28 @@
         <p class = "seasonality__aggregation-title">Агрегация данных</p>
     <label for="seasonality_time">Агрегат по времени</label>
     <select id="seasonality_time">
-        <option value="week">Неделя</option>
-        <option value="not_selected">не выбрано</option>
-        <option value="option2">День</option>
-        <option value="option2">Месяц</option>
-        <option value="option2">Квартал</option>
+        <option value="not_selected">Не установлено</option>
+        <option value="seasonality_timeDay" >День</option>
+        <option value="seasonality_timeWeek" selected >Неделя</option>
+        <option value="seasonality_timeMonth">Месяц</option>
+        <option value="seasonality_timeQuarter">Квартал</option>
     </select>
 
     <label for="seasonality_geography">Агрегат по географии</label>
     <select id="seasonality_geography">
-        <option value="seasonality_geographyСhain">Сеть</option>
+        <option value="not_selected">Не установлено</option>
+        <option value="seasonality_geographyСhain" selected>Сеть</option>
         <option value="option1">Страна</option>
-        <option value="not_selected">не выбрано</option>
         <!-- <option value="all">Все</option> -->
         <option value="option2">Регион</option>
-        <option value="option2">Город</option>
-        <option value="option2">Магазин</option>
+        <option value="option3">Город</option>
+        <option value="option4">Магазин</option>
     </select>
 
     <label for="seasonality_groupSCU">Агрегат по позиции</label>
     <select id="seasonality_groupSCU">
-        <option value="groupe1">Категория</option>
-        <option value="not_selected">Не выбрано</option>
+        <option value="not_selected">Не установлено</option>
+        <option value="groupe1" selected>Категория</option>
         <option value="option2">SKU</option>
     </select>
 </section>
@@ -32,8 +32,8 @@
 <section class = "seasonality_calculation">
     <label for="seasonality_method">Метод расчета сезонности</label>
     <select id="seasonality_method">
+        <option value="not_selected">Не установлено</option>
         <option value="fluctuation_average">Колебания от средней</option>
-        <option value="not_selected">Выкл</option>
         <option value="fluctuation_trend">Колебания от тренда</option>
     </select>
 

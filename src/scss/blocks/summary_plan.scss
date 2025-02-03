@@ -4,8 +4,8 @@
     column-gap: 50px;
     padding-top: 20px;
     .summary_plan_aggregate{
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         display: grid;
-        
         grid-template-columns: repeat(2, 1fr);
         grid-template-rows: repeat(5, 30px);
         align-items: center;
@@ -26,7 +26,7 @@
     display: grid;
     grid-template-columns: 50% 50%;
     grid-template-rows: repeat(4, auto);
-    gap: 10px;
+    gap: 5px;
     align-items: center;
 }
 
@@ -83,10 +83,11 @@
 
 }
 .labelSummary{
-    display: flex; /* Используем flexbox для выравнивания */
-    align-items: center; /* Выравнивание по центру по вертикали */
-    padding: 10px; /* Добавляем отступы сверху и снизу */
-    cursor: pointer; /* Указатель при наведении */
+    display: flex;
+    align-items: center; 
+    padding: 10px; 
+    cursor: pointer;
+    justify-content: space-between;
 }
 
 #summary_plan__newsProducts, #summary_plan__cannibalization, #summary_plan__promo, #summary_plan__regAssort{

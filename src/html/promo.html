@@ -6,18 +6,18 @@
         <div class="promo__aggregation"> 
         <label for="promo__aggregation-time">Агрегат по времени</label>
         <select id="promo__aggregation-time">
-            <option value="option1">Не установлено</option>
+            <option value="option6">Не установлено</option>
             <option value="option1">День</option>
-            <option value="option2">Неделя</option>
-            <option value="option3">Квартал</option>
+            <option value="option2" selected>Неделя</option>
             <option value="option4">Месяц</option>
+            <option value="option3">Квартал</option>
         </select>
 
         <label for="promo__aggregation-geo">Агрегат по географии</label>
         <select id="promo__aggregation-geo">
             <option value="option1">Не установлено</option>
-            <option value="option2">Сеть</option>
-            <option value="option2">Страна</option>
+            <option value="option2" selected >Сеть</option>
+            <option value="option6">Страна</option>
             <option value="option3">Регион</option>
             <option value="option4">Город</option>
             <option value="option5">Магазин</option>
@@ -35,8 +35,11 @@
         <label for="promo__aggregation-scu">Агрегат по позиции</label>
         <select id="promo__aggregation-scu">
             <option value="option1">Не установлено</option>
-            <option value="option2">Тип продукции</option>
-            <option value="option2">SKU</option>
+            <option value="option2">Категория</option>
+            <option value="option3" selected>SKU</option>
+            
+            
+            
         </select>
     </div>
     </section>
@@ -46,6 +49,7 @@
         <p></p>
     <label for="promo_method">Выбор коэффициентов</label>
     <select id="promo_method">
+        <option value="promo_moving__NotSelect">Не установлено</option>
         <option value="promo_moving__сalculated">Рассчитанные</option>
         <option value="promo_weighted__custom">Пользовательские</option>
     </select>

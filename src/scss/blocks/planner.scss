@@ -19,9 +19,9 @@
 
 #planner_Iframe{
     grid-column: span 2;
-    margin-top: 50px;
-    width: 120%;
-    height: 100%;
+    margin-top: 10%;
+    width: calc(100vw - 350px);
+    height: 300px;
 }
 
 #planner_settingRepeat{
