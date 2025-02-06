@@ -7,8 +7,10 @@ export default window. saveSelectedGlobalParameters = function() {
         }, 5000);
     }
     window.check_mark()
-    // Создаем объект для хранения значений
+
     const parameters = {};
+
+    const parametersBefore = {};
 
     // Получаем значения из селектов
     const timeAggregation = document.getElementById("parameters_aggregation-time");
@@ -26,18 +28,20 @@ export default window. saveSelectedGlobalParameters = function() {
     parameters['очистка от выбросов'] = spikesMethod.options[spikesMethod.selectedIndex].text;
     parameters['восстановление'] = salesRecoveryMethod.options[salesRecoveryMethod.selectedIndex].text;
 
-    // Получаем значения чекбоксов
-    // parameters.oosChecked = document.getElementById("parameters_oos-chek").checked;
-    // parameters.promoChecked = document.getElementById("parameters_promo-chek").checked;
-    // parameters.seasonChecked = document.getElementById("parameters_season-chek").checked;
-    // parameters.spikesChecked = document.getElementById("parameters_spikes-chek").checked;
-    // parameters.salesRecoveryChecked = document.getElementById("parameters_sales_recovery-chek").checked;
+         // Сохраняем id и value выбранных селектов в объект в формате { id: value }
+    parametersBefore[timeAggregation.id] = timeAggregation.value;
+    parametersBefore[skuAggregation.id] = skuAggregation.value;
+    parametersBefore[oosMethod.id] = oosMethod.value;
+    parametersBefore[promoMethod.id] = promoMethod.value;
+    parametersBefore[spikesMethod.id] = spikesMethod.value;
+    parametersBefore[salesRecoveryMethod.id] = salesRecoveryMethod.value;
 
     // Сохраняем объект в localStorage как строку JSON
     localStorage.setItem('globalParameters', JSON.stringify(parameters));
     localStorage.setItem('globalParametersNewProducts', JSON.stringify(parameters));
     localStorage.setItem('globalParametersPromo', JSON.stringify(parameters));
     localStorage.setItem('globalParametersSummaryPlan', JSON.stringify(parameters));
+    localStorage.setItem('globalParametersBefore', JSON.stringify(parametersBefore));
 
     // Выводим сообщение о сохранении
     console.log('Параметры сохранены в двух словарях:', parameters);

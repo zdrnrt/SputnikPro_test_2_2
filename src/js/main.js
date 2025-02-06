@@ -321,11 +321,25 @@ window.showContent_parameters = function() {
         })
         .then(data => {
             mainContent.innerHTML = data;
+            loadSelectedGlobalParametersBefore();
+
         })
         .catch(error => {
             console.error('Ошибка при загрузке файла:', error);
             mainContent.innerHTML = 'Ошибка при загрузке';
         });
+      
+        function loadSelectedGlobalParametersBefore() {
+          const parametersBefore = JSON.parse(localStorage.getItem('globalParametersBefore'));
+          if (parametersBefore) {
+              for (const id in parametersBefore) {
+                  const selectElement = document.getElementById(id);
+                  if (selectElement) {
+                      selectElement.value = parametersBefore[id];
+                  }
+              }
+          }
+      }
 };
 
 
