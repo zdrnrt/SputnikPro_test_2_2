@@ -1,4 +1,11 @@
 
+import 'jquery';
+import 'bootstrap/dist/js/bootstrap.min.js'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Popover } from 'bootstrap';
+
+import '/style.scss'
+import './blocks/aside.js'
 
 import check_mark from "./modules/check_mark.js";
 import showContent_listing from "./modules/listing.js";
@@ -32,314 +39,70 @@ import saveSelectedGlobalParameters from "./modules/parametersGlobalChecked.js";
 import saveSelectedGlobalParametersSeasonality from "./modules/seasonalityGlobalChecked.js";
 import saveSelectedGlobalParametersRegular from "./modules/regularGlobalChecked.js";
 
-// новый сайд бар
 
+//@import url("https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css");
 
-var floatSubMenuTimeout, targetFloatMenu, handleSlimScroll = function() {
-    "use strict";
-    $.when($("[data-scrollbar=true]").each(function() {
-      generateSlimScroll($(this))
-    })).done(function() {
-      $('[data-scrollbar="true"]').mouseover()
-    })
-  }, /*развернуть/свернуть*/
-
-handleSidebarMenu = function() { /*открыть и закрыть и только одно подменю активно*/
-    "use strict";
-    let t = $(".sidebar").attr("data-disable-slide-animation") ? 0 : 250;
-    $(".sidebar .nav > .has-sub > a").click(function() {
-      let a = $(this).next(".sub-menu"),
-      e = $(".sidebar .nav > li.has-sub > .sub-menu").not(a);
-      0 === $(".page-sidebar-minified").length && ($(e).closest("li").addClass("closing"), $(e).slideUp(t, function() {
-        $(e).closest("li").addClass("closed").removeClass("expand closing")
-      }), $(a).is(":visible") ? $(a).closest("li").addClass("closing").removeClass("expand") : $(a).closest("li").addClass("expanding").removeClass("closed"), $(a).slideToggle(t, function() {
-        let e = $(this).closest("li");
-        $(a).is(":visible") ? ($(e).addClass("expand"), $(e).removeClass("closed")) : ($(e).addClass("closed"), $(e).removeClass("expand")), $(e).removeClass("expanding closing")
-      }))
-    }), $(".sidebar .nav > .has-sub .sub-menu li.has-sub > a").click(function() {
-      if (0 === $(".page-sidebar-minified").length) {
-        let a = $(this).next(".sub-menu");
-        $(a).is(":visible") ? $(a).closest("li").addClass("closing").removeClass("expand") : $(a).closest("li").addClass("expanding").removeClass("closed"), $(a).slideToggle(t, function() {
-          let e = $(this).closest("li");
-          $(a).is(":visible") ? ($(e).addClass("expand"), $(e).removeClass("closed")) : ($(e).addClass("closed"), $(e).removeClass("expand")), $(e).removeClass("expanding closing")
-        })
-      }
-    })
-  },
-
-// функция для мобильного фида /скрытие sidebar
-// handleMobileSidebarToggle = function() {
-//     let n = !1;
-//     $(".sidebar").bind("click touchstart", function(e) {
-//       0 !== $(e.target).closest(".sidebar").length ? n = !0 : (n = !1, e.stopPropagation())
-//     }), $(document).bind("click touchstart", function(e) {
-//       0 === $(e.target).closest(".sidebar").length && (n = !1), 0 !== $(e.target).closest("#float-sub-menu").length && (n = !0), e.isPropagationStopped() || !0 === n || ($("#page-container").hasClass("page-sidebar-toggled") && (n = !0, $("#page-container").removeClass("page-sidebar-toggled")), $(window).width() <= 767 && $("#page-container").hasClass("page-right-sidebar-toggled") && (n = !0, $("#page-container").removeClass("page-right-sidebar-toggled")))
-//     }), $("[data-click=right-sidebar-toggled]").click(function(e) {
-//       e.stopPropagation();
-//       let a = "#page-container",
-//       t = "page-right-sidebar-collapsed";
-//       t = $(window).width() < 979 ? "page-right-sidebar-toggled" : t, $(a).hasClass(t) ? $(a).removeClass(t) : !0 !== n ? $(a).addClass(t) : n = !1, $(window).width() < 480 && $("#page-container").removeClass("page-sidebar-toggled"), $(window).trigger("resize")
-//     }), $("[data-click=sidebar-toggled]").click(function(e) {
-//       e.stopPropagation();
-//       let a = "page-sidebar-toggled",
-//       t = "#page-container";
-//       $(t).hasClass(a) ? $(t).removeClass(a) : !0 !== n ? $(t).addClass(a) : n = !1, $(window).width() < 480 && $("#page-container").removeClass("page-right-sidebar-toggled")
-//     })
-//   },
-
-// handleSidebarMinify = function() {
-//     $(document).on("click", "[data-click=sidebar-minify]", function(e) {
-//       e.preventDefault();
-//       let a = "page-sidebar-minified",
-//       t = "#page-container";
-//       $(t).hasClass(a) ? $(t).removeClass(a) : ($(t).addClass(a), /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) && ($('#sidebar [data-scrollbar="true"]').css("margin-top", "50"), $('#sidebar [data-scrollbar="true"]').css("overflow-x", "scroll"))), $(window).trigger("resize")
-//     })
-//   },
-
-
-// отвечает за загрузку данных из локального хранилища браузера и восстановление состояния элементов на странице на основе этих данных
-handleLocalStorage = function() {
-    "use strict";
-    try {
-      if ("undefined" != typeof Storage && "undefined" != typeof localStorage) {
-        let e = window.location.href;
-        e = (e = e.split("?"))[0];
-        let a = localStorage.getItem(e);
-        if (a) {
-          a = JSON.parse(a);
-          let t = 0;
-          $.when($('.panel:not([data-sortable="false"])').parent('[class*="col-"]').each(function() {
-            let e = a[t],
-            o = $(this);
-            e && $.each(e, function(e, a) {
-              let t = $('[data-sortable-id="' + a.id + '"]').not('[data-init="true"]');
-              if (0 !== $(t).length) {
-                let n = $(t).clone();
-                $(t).remove(), $(o).append(n), $('[data-sortable-id="' + a.id + '"]').attr("data-init", "true")
-              }
-            }), t++
-          })).done(function() {
-            window.dispatchEvent(new CustomEvent("localstorage-position-loaded"))
-          })
-        }
-      } else alert("Your browser is not supported with the local storage")
-    } catch (e) {
-      console.log(e)
-    }
-  },
-
-handleClearSidebarSelection = function() {
-    $(".sidebar .nav > li, .sidebar .nav .sub-menu").removeClass("expand").removeAttr("style")
-  },
-
-handlePageScrollClass = function() {
-    $(window).on("scroll", function() {
-      handleCheckScrollClass()
-    }), handleCheckScrollClass()
-  },
-
-handleMouseoverFloatSubMenu = function(e) {
-    clearTimeout(floatSubMenuTimeout)
-  },
-
-handleMouseoutFloatSubMenu = function(e) {
-    floatSubMenuTimeout = setTimeout(function() {
-      $("#float-sub-menu").remove()
-    }, 150)
-  },
-
-handleSidebarMinifyFloatMenu = function() {
-    $(document).on("click", "#float-sub-menu li.has-sub > a", function(e) {
-      let a = $(this).next(".sub-menu"),
-      t = $(a).closest("li"),
-      r = !1,
-      d = !1;
-      $(a).is(":visible") ? ($(t).addClass("closing"), r = !0) : ($(t).addClass("expanding"), d = !0), $(a).slideToggle({
-        duration: 250,
-        progress: function() {
-          let e = $("#float-sub-menu"),
-          a = $(e).height(),
-          t = $(e).offset(),
-          n = $(e).attr("data-offset-top"),
-          o = $(e).attr("data-menu-offset-top"),
-          i = t.top - $(window).scrollTop(),
-          s = $(window).height();
-          if (r && n < i && (i = n < i ? n : i, $("#float-sub-menu").css({
-            top: i + "px",
-            bottom: "auto"
-          }), $("#float-sub-menu-arrow").css({
-            top: "20px",
-            bottom: "auto"
-          }), $("#float-sub-menu-line").css({
-            top: "20px",
-            bottom: "auto"
-          })), d && s - i < a) {
-            let l = s - o - 22;
-            $("#float-sub-menu").css({
-              top: "auto",
-              bottom: 0
-            }), $("#float-sub-menu-arrow").css({
-              top: "auto",
-              bottom: l + "px"
-            }), $("#float-sub-menu-line").css({
-              top: "20px",
-              bottom: l + "px"
-            })
-          }
-        },
-        complete: function() {
-          $(a).is(":visible") ? $(t).addClass("expand") : $(t).addClass("closed"), $(t).removeClass("closing expanding")
-        }
-      })
-    }), $(".sidebar .nav > li.has-sub > a").hover(function() {
-      if ($("#page-container").hasClass("page-sidebar-minified")) {
-        clearTimeout(floatSubMenuTimeout);
-        let e = $(this).closest("li").find(".sub-menu").first();
-        if (targetFloatMenu == this && 0 !== $("#float-sub-menu").length) return;
-        targetFloatMenu = this;
-        let a = $(e).html();
-        if (a) {
-          let t = $("#sidebar").offset(),
-          n = $("#page-container").hasClass("page-with-right-sidebar") ? $(window).width() - t.left : t.left + 60,
-          o = $(e).height(),
-          i = $(this).offset().top - $(window).scrollTop(),
-          s = $("#page-container").hasClass("page-with-right-sidebar") ? "auto" : n,
-          l = $("#page-container").hasClass("page-with-right-sidebar") ? n : "auto",
-          r = $(window).height();
-          if (0 === $("#float-sub-menu").length ? (a = '<div class="float-sub-menu-container" id="float-sub-menu" data-offset-top="' + i + '" data-menu-offset-top="' + i + '" onmouseover="handleMouseoverFloatSubMenu(this)" onmouseout="handleMouseoutFloatSubMenu(this)">\t<div class="float-sub-menu-arrow" id="float-sub-menu-arrow"></div>\t<div class="float-sub-menu-line" id="float-sub-menu-line"></div>\t<ul class="float-sub-menu">' + a + "</ul></div>", $("#page-container").append(a)) : ($("#float-sub-menu").attr("data-offset-top", i), $("#float-sub-menu").attr("data-menu-offset-top", i), $(".float-sub-menu").html(a)), o < r - i) $("#float-sub-menu").css({
-            top: i,
-            left: s,
-            bottom: "auto",
-            right: l
-          }), $("#float-sub-menu-arrow").css({
-            top: "20px",
-            bottom: "auto"
-          }), $("#float-sub-menu-line").css({
-            top: "20px",
-            bottom: "auto"
-          });
-          else {
-            $("#float-sub-menu").css({
-              bottom: 0,
-              top: "auto",
-              left: s,
-              right: l
-            });
-            let d = r - i - 21;
-            $("#float-sub-menu-arrow").css({
-              top: "auto",
-              bottom: d + "px"
-            }), $("#float-sub-menu-line").css({
-              top: "20px",
-              bottom: d + "px"
-            })
-          }
-        } else $("#float-sub-menu").remove(), targetFloatMenu = ""
-      }
-    }, function() {
-      $("#page-container").hasClass("page-sidebar-minified") && (floatSubMenuTimeout = setTimeout(function() {
-        $("#float-sub-menu").remove(), targetFloatMenu = ""
-      }, 250))
-    })
-  },
-
-  CLEAR_OPTION = "",
-  handleSetPageOption = function(e) {
-    e.pageContentFullHeight && $("#page-container").addClass("page-content-full-height"), e.pageSidebarLight && $("#page-container").addClass("page-with-light-sidebar"), e.pageSidebarRight && $("#page-container").addClass("page-with-right-sidebar"), e.pageSidebarWide && $("#page-container").addClass("page-with-wide-sidebar"), e.pageSidebarMinified && $("#page-container").addClass("page-sidebar-minified"), e.pageSidebarTransparent && $("#sidebar").addClass("sidebar-transparent"), e.pageContentFullWidth && $("#content").addClass("content-full-width"), e.pageContentInverseMode && $("#content").addClass("content-inverse-mode"), e.pageBoxedLayout && $("body").addClass("boxed-layout"), e.clearOptionOnLeave && (CLEAR_OPTION = e)
-  },
-  handleClearPageOption = function(e) {
-    e.pageContentFullHeight && $("#page-container").removeClass("page-content-full-height"), e.pageSidebarLight && $("#page-container").removeClass("page-with-light-sidebar"), e.pageSidebarRight && $("#page-container").removeClass("page-with-right-sidebar"), e.pageSidebarWide && $("#page-container").removeClass("page-with-wide-sidebar"), e.pageSidebarMinified && $("#page-container").removeClass("page-sidebar-minified"), e.pageSidebarTransparent && $("#sidebar").removeClass("sidebar-transparent"), e.pageContentFullWidth && $("#content").removeClass("content-full-width"), e.pageContentInverseMode && $("#content").removeClass("content-inverse-mode"), e.pageBoxedLayout && $("body").removeClass("boxed-layout")
-  },
-  
-  App = function() {
-    "use strict";
-    var a; // Объявление переменной a
-    
-    return {
-      init: function(e) {
-        e && (a = e);
-        this.initLocalStorage();
-        this.initSidebar();
-        // this.initTopMenu();
-        this.initComponent();
-        this.initThemePanel();
-        this.initPageLoad();
-        $(window).trigger("load");
-        a && a.ajaxMode && this.initAjax();
-      },
-      initSidebar: function() {
-        handleSidebarMenu();
-        handleMobileSidebarToggle();
-        handleSidebarMinify();
-        handleSidebarMinifyFloatMenu();
-        // handleToggleNavProfile();
-        // handleToggleNavbarSearch();
-        // (!a || (a && !a.disableSidebarScrollMemory)) && handleSidebarScrollMemory();
-      },
-      initSidebarSelection: function() {
-        handleClearSidebarSelection();
-      },
-      initComponent: function() {
-        (!a || (a && !a.disableDraggablePanel)) && handleSlimScroll();
-        handleUnlimitedTabsRender();
-        handlePanelAction();
-        handleScrollToTopButton();
-        handleAfterPageLoadAddClass();
-        handlePageScrollClass();
-        $(window).width() > 767 && handleTooltipPopoverActivation(); // Исправлено
-      },
-      initLocalStorage: function() {
-        (!a || (a && !a.disableLocalStorage)) && handleLocalStorage();
-      },
-      initAjax: function() {
-        handleAjaxMode(a);
-        $.ajaxSetup({
-          cache: true
-        });
-      },
-      scrollTop: function() {
-        $("html, body").animate({
-          scrollTop: $("body").offset().top
-        }, 0);
-      }
-    };
-  }();
-  
-
-// новый сайд бар
 
 // мое
 // Функция для отображения параметров
-window.showContent_parameters = function() {
-    const mainContent = document.getElementById('mainContent');
-    fetch('./src/html/parameters.html')
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Модуль не отвечает');
-            }
-            return response.text();
-        })
-        .then(data => {
-            mainContent.innerHTML = data;
-            loadSelectedGlobalParametersBefore();
+window.showContent_parameters = function () {
+  const mainContent = document.getElementById('mainContent');
+  fetch('./src/html/parameters.html')
+      .then(response => {
+          if (!response.ok) {
+              throw new Error('Модуль не отвечает');
+          }
+          return response.text();
+      })
+      .then(data => {
+          // Вставляем загруженный HTML в mainContent
+          mainContent.innerHTML = data;
 
-        })
-        .catch(error => {
-            console.error('Ошибка при загрузке файла:', error);
-            mainContent.innerHTML = 'Ошибка при загрузке';
-        });
-      
-        function loadSelectedGlobalParametersBefore() {
-          const parametersBefore = JSON.parse(localStorage.getItem('globalParametersBefore'));
-          if (parametersBefore) {
-              for (const id in parametersBefore) {
-                  const selectElement = document.getElementById(id);
-                  if (selectElement) {
-                      selectElement.value = parametersBefore[id];
-                  }
+          // Загружаем сохранённые параметры
+          loadSelectedGlobalParametersBefore();
+
+          // Инициализируем Popover для динамически загруженных элементов
+          initializePopovers();
+
+          // Инициализируем иконки (если необходимо)
+          initializeIcons();
+      })
+      .catch(error => {
+          console.error('Ошибка при загрузке файла:', error);
+          mainContent.innerHTML = 'Ошибка при загрузке';
+      });
+
+  // Функция для загрузки сохранённых параметров
+  function loadSelectedGlobalParametersBefore() {
+      const parametersBefore = JSON.parse(localStorage.getItem('globalParametersBefore'));
+      if (parametersBefore) {
+          for (const id in parametersBefore) {
+              const selectElement = document.getElementById(id);
+              if (selectElement) {
+                  selectElement.value = parametersBefore[id];
               }
           }
       }
+  }
+
+  // Функция для инициализации Popover
+  function initializePopovers() {
+      const popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'));
+      popoverTriggerList.forEach(function (popoverTriggerEl) {
+          new bootstrap.Popover(popoverTriggerEl);
+      });
+  }
+
+  // Функция для инициализации иконок
+  function initializeIcons() {
+      const iconElements = [].slice.call(document.querySelectorAll('svg use'));
+      iconElements.forEach(function (iconEl) {
+          const href = iconEl.getAttribute('xlink:href');
+          if (href && !document.querySelector(href)) {
+              console.warn(`Иконка ${href} не найдена в DOM`);
+          }
+      });
+  }
 };
 
 
@@ -470,10 +233,10 @@ window.updateUserImage = function() {
 }
 /*вставка юзера*/
 
-$(document).ready(function() {
-    App.init();
-    Highlight.init();
-  });
+// $(document).ready(function() {
+//     App.init();
+//     Highlight.init();
+//   });
   
 
   document.addEventListener('DOMContentLoaded', function() {
@@ -1163,3 +926,29 @@ iframeDocument.body.appendChild(table);
                 console.error('Ошибка загрузки файла:', error);
             });
     };
+
+
+    //поповер
+document.addEventListener('DOMContentLoaded', function () {
+    const popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'));
+    popoverTriggerList.forEach(function (popoverTriggerEl) {
+        new Popover(popoverTriggerEl);
+    });
+});
+
+
+
+window.openModal = function () {
+    document.getElementById('modalOptRegAss').style.display = 'block';
+}
+
+window.closeModal=function() {
+    document.getElementById('modalOptRegAss').style.display = 'none';
+}
+
+window.onclick = function(event) {
+    const modal = document.getElementById('modalOptRegAss');
+    if (event.target === modal) {
+        closeModal();
+    }
+}

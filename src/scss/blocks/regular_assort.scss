@@ -1,79 +1,143 @@
-.regular_assort_container{
-    display: grid;
-    grid-template-columns: repeat(2, 30vw);
-    column-gap: 4%;
-    // padding-left: 40px; 
-    padding-top: 20px;
-    .regular_assort__forecast-wrapper{
-        margin-top: 5%;
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: repeat(5, auto);
-        row-gap: 10%;
-        .regular_assort_calculate{
-            grid-column: span 2;
-            #regular_assort_scenario{
-                // margin-left: 7%;
-                // width: 50%;
-                height: 30px;
-            }
-        }
-        #regular_assort__calculateForecastButton, #regular_assort__optimizeButton, #regular_assort__exportButton{
-            width: 80%;
-            height: 40px;
-            &:hover{
-                background-color: $hover-button;
-            }
-        }
-       
-    }
+
+/* Основные стили для контейнера */
+.regular_assort_container {
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid #ccc; /* Бордер только у контейнера */
+    //padding: 20px;
+    border-radius: 8px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.regular_assort__aggregation-wrapper{
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    border: 1px $frame_color2 solid;
+/* Стили для карточек */
+.card-regular_assort {
+    flex: 1;
+    margin: 0 10px;
+    background-color: #fff;
+    border: none; /* Убираем бордер у карточек */
+    border-radius: 8px;
+    box-shadow: none;
+}
+
+/* Стили для заголовков блоков */
+.block_title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+/* Стили для выпадающих списков и текстовых полей */
+.form-select, .form-control {
     width: 100%;
     padding: 8px;
-    // border-radius: 5px;
-    .regular_assort__aggregation-title{
-       
-        margin-bottom: 15px;
-        text-align: center;
-        font-weight: 700;
-    }
-    .regular_assort__aggregation{
-        display: grid;
-        grid-template-columns: repeat(2, auto); /* 2 столбца */
-        grid-template-rows: repeat(4, auto);
-        gap: 12px;
-       
-    }
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
 }
-  
-// .regular_assort__preview{
-//     display: flex;
-//     flex-direction: column;
-//     margin-top: 20px;
-//     .regular_assort__results{
-//         display: flex;
-//         flex-direction: column;
-//         #regular_assort_resultsButton{
-//             width: 200px;
+#regular_assort_method{
+    height: 32px;
+}
+#regular_assort_script{
+    width: 80%;
+    height: 35px;
+}
+
+#regular_assort_script::placeholder {
+    color: #C4C5D7; /* Цвет текста плейсхолдера */
+    opacity: 1; /* Убираем прозрачность (по умолчанию может быть меньше 1) */
+    font-size: 12px;
+}
+
+/* Для браузеров, которые используют префиксы */
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: #C4C5D7;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+    color: #C4C5D7;
+}
+.regular_assort_buttons {
+    padding-top: 7%;
+}
+
+.modalOptimizRA{
+    display: flex;
+    justify-content: space-between;
+}
+.first,.tw {
+    width: 1000px;
+    border: 1px red solid;
+}
+.modal-dialog{
+    width: 1000px;
+}
+
+
+
+
+// .regular_assort_container{
+//     display: grid;
+//     grid-template-columns: repeat(2, 35vw);
+//     column-gap: 2%;
+//     border: 1px $cl-grey solid;
+//     border-radius: 8px;
+//     .regular_assort__forecast-wrapper{
+//         margin-top: 5%;
+//         display: grid;
+//         grid-template-columns: repeat(2, 1fr);
+//         grid-template-rows: repeat(5, auto);
+//         row-gap: 10%;
+//         .regular_assort_calculate{
+//             grid-column: span 2;
+//             #regular_assort_scenario{
+//                 // margin-left: 7%;
+//                 // width: 50%;
+//                 height: 30px;
+//             }
+//         }
+//         #regular_assort__calculateForecastButton, #regular_assort__optimizeButton, #regular_assort__exportButton{
+//             width: 80%;
 //             height: 40px;
-//             margin: 10px;
-//             background-color: $button_preview_color;
-//             margin-left: 70%;
 //             &:hover{
 //                 background-color: $hover-button;
 //             }
 //         }
-        #tb_regular_assort_results{
-            grid-column: span 2;
-            margin-top: 10%;
-            width: calc(100vw - 350px);
-            height: 460px;
-        }
+       
+//     }
+// }
+// .regular_assort__aggregation-wrapper{
+//     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+//     border: 1px $frame_color2 solid;
+//     width: 100%;
+//     padding: 8px;
+//     .regular_assort__aggregation-title{
+       
+//         margin-bottom: 15px;
+//         text-align: center;
+//         font-weight: 700;
+//     }
+//     .regular_assort__aggregation{
+//         display: grid;
+//         grid-template-columns: repeat(2, auto);
+//         grid-template-rows: repeat(4, auto);
+//         gap: 12px;
+       
+//     }
+// }
+//     #tb_regular_assort_results{
+//         grid-column: span 2;
+//         margin-top: 10%;
+//         width: calc(100vw - 350px);
+//         height: 460px;
+//     }
 
-        #regular_assort_method, #regular_assort__aggregation-time, #regular_assort__aggregation-geo, #regular_assort__aggregation-scu{
-            height: 30px;
-        }
+//     #regular_assort_method, #regular_assort__aggregation-time, #regular_assort__aggregation-geo, #regular_assort__aggregation-scu{
+//         height: 30px;
+//     }
+
+//     .reg_ass{
+//         border: 1px red solid;
+//     }

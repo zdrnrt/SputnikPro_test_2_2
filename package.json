@@ -16,7 +16,11 @@
     "vite": "^5.4.10"
   },
   "dependencies": {
+    "@popperjs/core": "^2.11.8",
     "bootstrap": "^5.3.3",
+    "bootstrap-icons": "^1.11.3",
+    "jquery": "^3.7.1",
+    "plotly.js-dist": "^3.0.1",
     "xlsx": "^0.18.5"
   }
 }

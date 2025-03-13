@@ -1,116 +1,167 @@
+<!-- новая версия -->
+<div class="page__content page-content data-page">
+    <header class="page-content__header">
+        <p>Регулярный ассортимент</p>
+    </header>
 
     <div class="regular_assort_container">
-
-        <section class="regular_assort__aggregation-wrapper">
-            <p class = "regular_assort__aggregation-title">Агрегация выходных данных</p>
-    
-            <div class="regular_assort__aggregation"> 
-            <label for="regular_assort__aggregation-time">Агрегат по времени</label>
-            <select id="regular_assort__aggregation-time">
-                <option value="not_selected">Не установлено</option>
-                <option value="option1">День</option>
-                <option value="option2" selected>Неделя</option>
-                <option value="option4">Месяц</option>
-                <option value="option3">Квартал</option>
-                
-            </select>
-    
-            <label for="regular_assort__aggregation-geo">Агрегат по географии</label>
-            <select id="regular_assort__aggregation-geo">
-                <option value="not_selected">Не установлено</option>
-                <option value="chain" selected>Сеть</option>
-                <option value="option2">Страна</option>
-                <option value="option3">Регион</option>
-                <option value="option4">Город</option>
-                <option value="option5">Магазин</option>
-            </select>
-    
-            <!-- <label for="regular_assort__aggregation-group">Агрегат по группам</label>
-            <select id="regular_assort__aggregation-group">
-                <option value="not_selected">не установлено</option>
-                <option value="option2">группа1</option>
-                <option value="option3">группа2</option>
-                <option value="option4">группа3</option>
-                <option value="option5">группа4</option>
-            </select> -->
-    
-            <label for="regular_assort__aggregation-scu">Агрегат по позиции</label>
-            <select id="regular_assort__aggregation-scu">
-                <option value="not_selected">Не установлено</option>
-                <option value="option2">Категория</option>
-                <option value="option2" selected>SKU</option>
-                
-                
-            </select>
+        <div class=".card-regular_assort reg_ass" style="width: 100%; border: 1px solid transparent;">
+            <div class="card-body">
+                <h5 class="card-title block_title">Агрегация выходных данных</h5>
+                    <div class="regular_assort__aggregation">
+                        <label for="regular_assort__aggregation-time">Агрегат по времени</label>
+                        <select id="regular_assort__aggregation-time" class="form-select">
+                            <option value="not_selected">Не установлено</option>
+                            <option value="option1">День</option>
+                            <option value="option2" selected>Неделя</option>
+                            <option value="option4">Месяц</option>
+                            <option value="option3">Квартал</option>
+                        </select>
+                        <label for="regular_assort__aggregation-geo">Агрегат по географии</label>
+                        <select id="regular_assort__aggregation-geo" class="form-select">
+                            <option value="not_selected">Не установлено</option>
+                            <option value="chain" selected>Сеть</option>
+                            <option value="option2">Страна</option>
+                            <option value="option3">Регион</option>
+                            <option value="option4">Город</option>
+                            <option value="option5">Магазин</option>
+                        </select>
+                        <label for="regular_assort__aggregation-scu">Агрегат по позиции</label>
+                        <select id="regular_assort__aggregation-scu" class="form-select">
+                            <option value="not_selected">Не установлено</option>
+                            <option value="option2">Категория</option>
+                            <option value="option2" selected>SKU</option>
+                        </select>
+                    </div>
+            </div>
         </div>
-        </section>
-
-        <section class="regular_assort__forecast-wrapper">
-        <label for="regular_assort_method">Метод прогнозирования</label>
-        <select id="regular_assort_method">
-            <option value="ra_moving_average">Скользящая средняя</option>
-            <option value="ra_weighted_average">Средневзвешенная</option>
-            <option value="ra_linear_regression">Линейная регрессия</option>
-            <option value="ra_multiple_regression">Множественная регрессия</option>
-            <option value="ra_polynomial_regression">Полиномиальная регрессия</option>
-            <option value="ra_holt_winters">Хольта - Винтерса</option>
-            <option value="ra_exponential_smoothing">Экспоненциальное сглаживание</option>
-            <option value="ra_probabilistic_model">Вероятностная модель</option>
-            <option value="ra_not_selected" selected>Не установлено</option>
-        </select>
-
-        <!-- <label for="regular_assort_period">Период</label>
-        <select id="regular_assort_period">
-            <option value="not_selected">не выбрано</option>
-            <option value="option1">1</option>
-            <option value="option2">2</option>
-            <option value="option3">3</option>
-            <option value="option4">4</option>
-            <option value="option5">5</option>
-            <option value="option6">6</option>
-            <option value="option7">7</option>
-            <option value="option8">8</option>
-        </select> -->
-<!--
-        <div class="regular_assort_calculate"> -->
-        <button onclick="loadAndFilterData()" id="regular_assort__calculateForecastButton">Рассчитать прогноз</button>
-        <select id="regular_assort_scenario">
-            <option value="option0">Сохранить текущие настройки</option>
-            <option value="option1">Сценарий 1</option>
-            <option value="option2">Сценарий 2</option>
-            <option value="option3">Сценарий 3</option>
-        </select>
-        <!-- </div> -->
-
-        <button onclick="tbRegAssortOptimizationButton()" id="regular_assort__optimizeButton">Оптимизировать</button>
-        <button id="regular_assort__exportButton">Экспорт</button>
-    </section>
-    <iframe  id="tb_regular_assort_results"></iframe>
-    </div>
-
-    
-    <!-- <section class="regular_assort__preview">
-        <div class="regular_assort__results">
-            <button onclick="tbRegAssortButton()"  id="regular_assort_resultsButton">Preview</button>
-            <iframe  id="tb_regular_assort_results" src=""></iframe>
+        <div class=".card-regular_assort" style="width: 100%;">
+            <div class="card-body">
+                <h5 class="card-title block_title">Метод прогнозирования и сценарий расчета</h5>
+                    <div class="regular_assort__aggregation2">
+                        <label for="input-group-input-group-lg">Метод прогнозирования</label>
+                        <div class="input-group input-group-lg" id="input-group-input-group-lg">
+                            <input id ="regular_assort_method" type="text" class="form-control" placeholder="" aria-describedby="button-addon1">
+                            <button class="btn btn-outline-primary1" type="button" id="button-addon1 buttonRegularAssortMethod">Настроить</button>
+                        </div>
+                        <label for="regular_assort_script">Сценарий расчета</label>
+                            <input id ="regular_assort_script" type="text" class="form-control" placeholder="Еще не создано ни одного сценария" aria-describedby="button-addon1">
+                        <div class="regular_assort_buttons">
+                            <button type="button" class="btn btn-outline-primary" style="width: 31%;">Сохранить сценарий</button>
+                            <button type="button" class="btn btn-outline-secondary" style="width: 31%;" onclick="openModal()">Оптимизировать</button>
+                            <button type="button" class="btn btn-success" style="width: 31%;" onclick="loadAndFilterData()" id="regular_assort__calculateForecastButton">Рассчитать прогноз</button>
+                        </div>
+                    </div>
+            </div>
         </div>
-    </section> -->
-
-<!-- <div class="regular_assort__chart">
-    <button onclick="tb_regular_assort__chart()"  id="regular_assort_chartButton">Chart</button>
-    <iframe  id="tb_regular_assort_chart" src="" width="80%" height="200"></iframe>
-    
-</div> -->
-<div id="modal">
-    <div id="modalContent">
-        <h5 class="modal_title">Выберите параметры оптимизации:</h5>
-        <label><input type="checkbox" name="option1"> Метод прогнозирования</label><br>
-        <label><input type="checkbox" name="option2"> Очистка от OOS</label><br>
-        <label><input type="checkbox" name="option3"> Очистка от промо</label><br>
-        <label><input type="checkbox" name="option4"> Очистка от сезонности</label><br>
-        <label><input type="checkbox" name="option5"> Очистка от всплесков</label><br>
-        <label><input type="checkbox" name="option6"> Восстановление</label><br>
-        <button onclick="ra_saveButton()" id="ra_saveButton">Сохранить</button>
-        <button onclick="ra_closeModalButton()" id="ra_closeModalButton">Закрыть</button>
     </div>
 </div>
+
+<div id="modalOptRegAss" class="modalOptRegAss">
+    <div class="modal-content">
+        <div class="modal-header">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Оптимизация</h2>
+        </div>
+        <div class="modal-body">
+            <div class="left-section">
+                <h3>Методы подготовки</h3>
+                <label><input type="checkbox"> Методы подготовки</label>
+                <h4>Коэффициенты колебания</h4>
+                <label><input type="checkbox"> Коэффициенты колебания</label>
+                <ul>
+                    <li><label><input type="checkbox"> Агрегация по времени</label></li>
+                    <li><label><input type="checkbox"> Агрегация по географии</label></li>
+                    <li><label><input type="checkbox"> Агрегация по позиции</label></li>
+                    <li><label><input type="checkbox"> Метод расчета базы колебаний</label></li>
+                    <li><label><input type="checkbox"> Предварительное сглаживание</label></li>
+                </ul>
+            </div>
+            <div class="right-section">
+                <h3>Методы прогноза</h3>
+                <label><input type="checkbox"> Методы прогноза</label>
+                <ul>
+                    <li><label><input type="checkbox"> Скользящая средняя</label></li>
+                    <li><label><input type="checkbox"> Средневзвешенная</label></li>
+                    <li><label><input type="checkbox"> Экспоненциальное сглаживание</label></li>
+                    <li><label><input type="checkbox"> Хольта-Винтерса</label></li>
+                    <li><label><input type="checkbox"> Линейная регрессия (линейный тренд)</label></li>
+                    <li><label><input type="checkbox"> Множественная регрессия</label></li>
+                    <li><label><input type="checkbox"> Полиномиальная регрессия</label></li>
+                </ul>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <h3>Настройки оптимизации</h3>
+            <label><input type="checkbox"> Настройки оптимизации</label>
+            <h4>Меры оптимизации</h4>
+            <label><input type="checkbox"> Меры оптимизации</label>
+            <ul>
+                <li><label><input type="checkbox"> Мера 1</label> <select><option>Опция 1</option><option>Опция 2</option></select></li>
+                <li><label><input type="checkbox"> Мера 2</label> <select><option>Опция 1</option><option>Опция 2</option></select></li>
+                <li><label><input type="checkbox"> Мера 3</label> <select><option>Опция 1</option><option>Опция 2</option></select></li>
+            </ul>
+            <button class="save-button">Сохранить</button>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- старая версия -->
+<!-- <div class="regular_assort_container">
+    <section class="regular_assort__aggregation-wrapper">
+        <p class = "regular_assort__aggregation-title">Агрегация выходных данных</p>
+    <div class="regular_assort__aggregation"> 
+        <label for="regular_assort__aggregation-time">Агрегат по времени</label>
+        <select id="regular_assort__aggregation-time">
+            <option value="not_selected">Не установлено</option>
+            <option value="option1">День</option>
+            <option value="option2" selected>Неделя</option>
+            <option value="option4">Месяц</option>
+            <option value="option3">Квартал</option>
+        </select>
+        <label for="regular_assort__aggregation-geo">Агрегат по географии</label>
+        <select id="regular_assort__aggregation-geo">
+            <option value="not_selected">Не установлено</option>
+            <option value="chain" selected>Сеть</option>
+            <option value="option2">Страна</option>
+            <option value="option3">Регион</option>
+            <option value="option4">Город</option>
+            <option value="option5">Магазин</option>
+        </select>
+        <label for="regular_assort__aggregation-scu">Агрегат по позиции</label>
+        <select id="regular_assort__aggregation-scu">
+            <option value="not_selected">Не установлено</option>
+            <option value="option2">Категория</option>
+            <option value="option2" selected>SKU</option>
+        </select>
+    </div>
+    </section>
+    <section class="regular_assort__forecast-wrapper">
+    <label for="regular_assort_method">Метод прогнозирования</label>
+    <select id="regular_assort_method">
+        <option value="ra_moving_average">Скользящая средняя</option>
+        <option value="ra_weighted_average">Средневзвешенная</option>
+        <option value="ra_linear_regression">Линейная регрессия</option>
+        <option value="ra_multiple_regression">Множественная регрессия</option>
+        <option value="ra_polynomial_regression">Полиномиальная регрессия</option>
+        <option value="ra_holt_winters">Хольта - Винтерса</option>
+        <option value="ra_exponential_smoothing">Экспоненциальное сглаживание</option>
+        <option value="ra_probabilistic_model">Вероятностная модель</option>
+        <option value="ra_not_selected" selected>Не установлено</option>
+    </select>
+    <button onclick="loadAndFilterData()" id="regular_assort__calculateForecastButton">Рассчитать прогноз</button>
+    <select id="regular_assort_scenario">
+        <option value="option0">Сохранить текущие настройки</option>
+        <option value="option1">Сценарий 1</option>
+        <option value="option2">Сценарий 2</option>
+        <option value="option3">Сценарий 3</option>
+    </select>
+    <button onclick="tbRegAssortOptimizationButton()" id="regular_assort__optimizeButton">Оптимизировать</button>
+    <button id="regular_assort__exportButton">Экспорт</button>
+</section>
+<iframe  id="tb_regular_assort_results"></iframe>
+</div>
+
+ -->

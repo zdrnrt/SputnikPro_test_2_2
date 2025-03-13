@@ -1,0 +1,91 @@
+.modalOptRegAss {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 1000px;
+    border-radius: 10px;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+}
+
+.modal-header .close {
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.modal-header .close:hover {
+    color: #000;
+}
+
+.modal-body {
+    display: flex;
+    padding: 20px 0;
+}
+
+.left-section, .right-section {
+    flex: 1;
+    padding: 0 10px;
+}
+
+.left-section ul, .right-section ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.left-section li, .right-section li {
+    margin: 10px 0;
+}
+
+.modal-footer {
+    border-top: 1px solid #ddd;
+    padding-top: 10px;
+}
+
+.modal-footer ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.modal-footer li {
+    margin: 10px 0;
+}
+
+.save-button {
+    display: block;
+    margin: 20px auto 0;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.save-button:hover {
+    background-color: #45a049;
+}
+
+
+
+
+

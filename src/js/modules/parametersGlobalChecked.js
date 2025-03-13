@@ -9,7 +9,6 @@ export default window. saveSelectedGlobalParameters = function() {
     window.check_mark()
 
     const parameters = {};
-
     const parametersBefore = {};
 
     // Получаем значения из селектов
@@ -20,10 +19,23 @@ export default window. saveSelectedGlobalParameters = function() {
     const spikesMethod = document.getElementById("parameters_spikes-method");
     const salesRecoveryMethod = document.getElementById("parameters_sales_recovery-method");
 
+    // Находим все радио-кнопки с именем 'flexRadioDefaultOOS'
+const radioButtons = document.querySelectorAll('input[name="flexRadioDefaultOOS"]');
+// Находим выбранную радио-кнопку
+const selectedRadio = Array.from(radioButtons).find(radio => radio.checked);
+// Получаем текст выбранной радио-кнопки
+const selectedTextOOS = selectedRadio
+  ? document.querySelector(`label[for="${selectedRadio.id}"]`).textContent.trim()
+  : null;
+  const selectedValueOOS = selectedRadio.value;
+
     // Сохраняем текстовые значения в объект
     parameters['агрегат по времени'] = timeAggregation.options[timeAggregation.selectedIndex].text;
     parameters['агрегат по позиции'] = skuAggregation.options[skuAggregation.selectedIndex].text;
-    parameters['очистка oos'] = oosMethod.options[oosMethod.selectedIndex].text;
+    //parameters['очистка oos'] = oosMethod.options[oosMethod.selectedIndex].text;
+
+    parameters['очистка oos'] = selectedTextOOS;
+
     parameters['очистка от промо']  = promoMethod.options[promoMethod.selectedIndex].text;
     parameters['очистка от выбросов'] = spikesMethod.options[spikesMethod.selectedIndex].text;
     parameters['восстановление'] = salesRecoveryMethod.options[salesRecoveryMethod.selectedIndex].text;
@@ -31,7 +43,10 @@ export default window. saveSelectedGlobalParameters = function() {
          // Сохраняем id и value выбранных селектов в объект в формате { id: value }
     parametersBefore[timeAggregation.id] = timeAggregation.value;
     parametersBefore[skuAggregation.id] = skuAggregation.value;
-    parametersBefore[oosMethod.id] = oosMethod.value;
+    //parametersBefore[oosMethod.id] = oosMethod.value;
+
+    parametersBefore[oosMethod.id] = selectedValueOOS;
+
     parametersBefore[promoMethod.id] = promoMethod.value;
     parametersBefore[spikesMethod.id] = spikesMethod.value;
     parametersBefore[salesRecoveryMethod.id] = salesRecoveryMethod.value;
@@ -46,4 +61,3 @@ export default window. saveSelectedGlobalParameters = function() {
     // Выводим сообщение о сохранении
     console.log('Параметры сохранены в двух словарях:', parameters);
 }
-

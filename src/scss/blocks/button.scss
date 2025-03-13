@@ -1,0 +1,50 @@
+:root{
+  --bs-btn-padding-x: 1.2rem;
+  --bs-btn-padding-y: 0.6rem;
+  --bs-btn-line-height: 1.6;
+  --bs-btn-active-bg: $cl-purple-light;
+  --bs-btn-active-border-color: $cl-purple-light;
+}
+.btn{
+  --bs-btn-font-size: 3rem;
+  border-radius: 8px;
+  height: 32px;
+  //padding: 0.5rem 1rem;
+
+  &:hover{
+    background-color: $cl-purple;
+    border-color: $cl-purple;
+  }
+  &:active{
+    background-color: $cl-purple-light!important;
+    border-color: $cl-purple-light!important;
+    color: $cl-additon!important;
+  }
+}
+
+.btn-primary{
+  background-color: rgba($cl-purple, 0.9);
+  border-color: rgba($cl-purple, 0.9);
+  border-radius: 8px;
+  padding: 0.8rem 5rem;
+}
+.btn-outline-primary{
+  border-color: $cl-purple-light;
+  color: $cl-main;
+}
+.btn-outline-secondary{
+  border-color: $cl-purple;
+  color: $cl-main;
+
+}
+.btn-outline-primary1{
+  background-color: rgba($cl-purple, 0.9);
+  border-color: rgba($cl-purple, 0.9);
+  color: white;
+}
+
+.btn-success{
+  background-color: rgba($cl-purple, 0.9);
+  border-color: $cl-purple-light;
+  color: white;
+}
