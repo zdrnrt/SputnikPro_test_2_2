@@ -28,11 +28,11 @@
   border-radius: 8px;
   padding: 0.8rem 5rem;
 }
-.btn-outline-primary{
+.btn-outline-primary .outline-primary-project{
   border-color: $cl-purple-light;
   color: $cl-main;
 }
-.btn-outline-secondary{
+.btn-outline-secondary .outline-secondary-project{
   border-color: $cl-purple;
   color: $cl-main;
 
@@ -43,8 +43,17 @@
   color: white;
 }
 
-.btn-success{
+// .btn-success{
+//   background-color: rgba($cl-purple, 0.9);
+//   border-color: $cl-purple-light;
+//   color: white;
+// }
+
+.success-project{
   background-color: rgba($cl-purple, 0.9);
-  border-color: $cl-purple-light;
-  color: white;
+  border-color: rgba($cl-purple, 0.9);
+  border-radius: 8px;
+  padding: 0.8rem 5rem;
+  align-items: center;
+  padding: 1% 2%;
 }

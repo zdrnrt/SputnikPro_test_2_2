@@ -26,9 +26,6 @@ h1,h2,h3,h4,h5,h6,p {
     margin: 0; 
 }
 
-// a{
-//     text-decoration: none;
-// }
 
 #check-mark_button{ /*галочка для всех кнопок*/
     display: none;
@@ -46,23 +43,7 @@ h1,h2,h3,h4,h5,h6,p {
     margin: 5px;
  }
 
-//  button{
-//     transition: background-color 0.3s, transform 0.1s;
-//     &:hover{
-//         background-color:$hover-button;
-//         transform: scale(1.05);
-//     }
-//     &:focus {
-//         outline: none;
-//         background-color: $focus-button;
-//     }
-//     &:active{
-//         // background-color: red;
-//         transform: scale(0.95);
-//         // box-shadow: 0 0 5px  rgb(167, 67, 167);
-//     }
-// }
- // базовый сброс настроек
+//сброс
  * {
     margin: 0;
     padding: 0;
@@ -83,11 +64,6 @@ ul, ol,li {
     padding: 0;
     margin: 0;
 }
-
-// a {
-//     text-decoration: none;
-//     color: inherit;
-// }
 
 table {
     min-width: 100%;
