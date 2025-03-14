@@ -63,11 +63,43 @@
             <span class="close" onclick="closeModal()">&times;</span>
             <h2>Оптимизация</h2>
         </div>
+
         <div class="modal-body">
             <div class="left-section">
-                <h3>Методы подготовки</h3>
+                <h3>Методы</h3>
                 <label><input type="checkbox"> Методы подготовки</label>
-                <h4>Коэффициенты колебания</h4>
+                <label><input type="checkbox"> Очистка от OOS</label>
+                <label><input type="checkbox"> По среднему остатку</label>
+                <div class="input-group input-group-sm mb-3">
+                    <span class="input-group-text" id="inputGroup-sizing-sm" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="right" data-bs-content="Среднее в день за период(неделя, месяц, квартал).
+Если средний остаток в расчитываемый период меньшее чем установленное значение">Минимальное значение</span>
+                    <input type="text" class="form-control" aria-describedby="inputGroup-sizing-sm" value="2%">
+                </div>
+                <label><input type="checkbox"> По сумме остатка</label>
+                <div class="input-group input-group-sm mb-3">
+                    <span class="input-group-text" id="inputGroup-sizing-sm" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="right" data-bs-content="Сумма за период(неделя, месяц, квартал).
+Если сумма остатка в расчитываемый период меньшее чем установленное значение">Минимальное значение</span>
+                    <input type="text" class="form-control" aria-describedby="inputGroup-sizing-sm" value="2%">
+                </div>
+                <label><input type="checkbox"> По доле ТТ</label>
+                <div class="input-group input-group-sm mb-3">
+                    <span class="input-group-text" id="inputGroup-sizing-sm" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="right" data-bs-content="Доля ТТ где остаток SKU >0 по дням.
+Среднее значение доли за период(неделя, месяц, квартал)
+Если среднее значение доли за период меньше чем установленное значение">Доля ТТ с остатком</span>
+                    <input type="text" class="form-control" aria-describedby="inputGroup-sizing-sm" value="2%">
+                </div>
+
+                <label><input type="checkbox">По кол-ву дней с остатком</label>
+                <div class="input-group input-group-sm mb-3">
+                    <span class="input-group-text" id="inputGroup-sizing-sm" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="right" data-bs-content="Доля ТТ где остаток SKU >0 по дням.
+Среднее значение доли за период(неделя, месяц, квартал)
+Если среднее значение доли за период меньше чем установленное значение">Доля дней с остатком</span>
+                    <input type="text" class="form-control" aria-describedby="inputGroup-sizing-sm" value="2%">
+                </div>
+
+                <label><input type="checkbox"> Очистка от Промо</label>
+                <label><input type="checkbox"> Исключение промо продаж</label>
+                <label><input type="checkbox"> Очистка от сезонности</label>
                 <label><input type="checkbox"> Коэффициенты колебания</label>
                 <ul>
                     <li><label><input type="checkbox"> Агрегация по времени</label></li>
@@ -76,7 +108,22 @@
                     <li><label><input type="checkbox"> Метод расчета базы колебаний</label></li>
                     <li><label><input type="checkbox"> Предварительное сглаживание</label></li>
                 </ul>
-            </div>
+                <label><input type="checkbox"> Очистка от выбросов</label>
+                <label><input type="checkbox"> Стандартное отклонение</label>
+                <span class="input-group-text" id="inputGroup-sizing-sm" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="right" data-bs-content="Доля ТТ где остаток SKU >0 по дням.
+                    Среднее значение доли за период(неделя, месяц, квартал)
+                    Если среднее значение доли за период меньше чем установленное значение">Период</span>
+                <input type="text" class="form-control" aria-describedby="inputGroup-sizing-sm" value="2%">
+                <span class="input-group-text" id="inputGroup-sizing-sm" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="right" data-bs-content="Доля ТТ где остаток SKU >0 по дням.
+                    Среднее значение доли за период(неделя, месяц, квартал)
+                    Если среднее значение доли за период меньше чем установленное значение">σ НГ</span>
+                <input type="text" class="form-control" aria-describedby="inputGroup-sizing-sm" value="2%">
+                <span class="input-group-text" id="inputGroup-sizing-sm" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="right" data-bs-content="Доля ТТ где остаток SKU >0 по дням.
+                    Среднее значение доли за период(неделя, месяц, квартал)
+                    Если среднее значение доли за период меньше чем установленное значение">σ ВГ</span>
+                    <input type="text" class="form-control" aria-describedby="inputGroup-sizing-sm" value="2%">
+
+        </div>
             <div class="right-section">
                 <h3>Методы прогноза</h3>
                 <label><input type="checkbox"> Методы прогноза</label>
@@ -91,6 +138,7 @@
                 </ul>
             </div>
         </div>
+        
         <div class="modal-footer">
             <h3>Настройки оптимизации</h3>
             <label><input type="checkbox"> Настройки оптимизации</label>
