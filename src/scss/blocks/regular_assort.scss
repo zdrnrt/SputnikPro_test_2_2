@@ -63,81 +63,14 @@
     padding-top: 7%;
 }
 
-.modalOptimizRA{
-    display: flex;
-    justify-content: space-between;
-}
-.first,.tw {
-    width: 1000px;
-    border: 1px red solid;
-}
-.modal-dialog{
-    width: 1000px;
-}
-
-
-
-
-// .regular_assort_container{
-//     display: grid;
-//     grid-template-columns: repeat(2, 35vw);
-//     column-gap: 2%;
-//     border: 1px $cl-grey solid;
-//     border-radius: 8px;
-//     .regular_assort__forecast-wrapper{
-//         margin-top: 5%;
-//         display: grid;
-//         grid-template-columns: repeat(2, 1fr);
-//         grid-template-rows: repeat(5, auto);
-//         row-gap: 10%;
-//         .regular_assort_calculate{
-//             grid-column: span 2;
-//             #regular_assort_scenario{
-//                 // margin-left: 7%;
-//                 // width: 50%;
-//                 height: 30px;
-//             }
-//         }
-//         #regular_assort__calculateForecastButton, #regular_assort__optimizeButton, #regular_assort__exportButton{
-//             width: 80%;
-//             height: 40px;
-//             &:hover{
-//                 background-color: $hover-button;
-//             }
-//         }
-       
-//     }
+// .modalOptimizRA{
+//     display: flex;
+//     justify-content: space-between;
 // }
-// .regular_assort__aggregation-wrapper{
-//     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-//     border: 1px $frame_color2 solid;
-//     width: 100%;
-//     padding: 8px;
-//     .regular_assort__aggregation-title{
-       
-//         margin-bottom: 15px;
-//         text-align: center;
-//         font-weight: 700;
-//     }
-//     .regular_assort__aggregation{
-//         display: grid;
-//         grid-template-columns: repeat(2, auto);
-//         grid-template-rows: repeat(4, auto);
-//         gap: 12px;
-       
-//     }
+// .first,.tw {
+//     width: 1000px;
+//     border: 1px red solid;
 // }
-//     #tb_regular_assort_results{
-//         grid-column: span 2;
-//         margin-top: 10%;
-//         width: calc(100vw - 350px);
-//         height: 460px;
-//     }
-
-//     #regular_assort_method, #regular_assort__aggregation-time, #regular_assort__aggregation-geo, #regular_assort__aggregation-scu{
-//         height: 30px;
-//     }
-
-//     .reg_ass{
-//         border: 1px red solid;
-//     }
+// .modal-dialog{
+//     width: 1000px;
+// }

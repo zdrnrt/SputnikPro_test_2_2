@@ -38,73 +38,14 @@ import planner_formRepeatSelect from "./modules/planner_formRepeatSelect.js";
 import saveSelectedGlobalParameters from "./modules/parametersGlobalChecked.js";
 import saveSelectedGlobalParametersSeasonality from "./modules/seasonalityGlobalChecked.js";
 import saveSelectedGlobalParametersRegular from "./modules/regularGlobalChecked.js";
-
+import './modules/parametersOpen'
+import './modules/seasonalityOpen'
+import './modules/regularOpen'
 
 //@import url("https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css");
 
 
 // мое
-// Функция для отображения параметров
-window.showContent_parameters = function () {
-  const mainContent = document.getElementById('mainContent');
-  fetch('./src/html/parameters.html')
-      .then(response => {
-          if (!response.ok) {
-              throw new Error('Модуль не отвечает');
-          }
-          return response.text();
-      })
-      .then(data => {
-          // Вставляем загруженный HTML в mainContent
-          mainContent.innerHTML = data;
-
-          // Загружаем сохранённые параметры
-          loadSelectedGlobalParametersBefore();
-
-          // Инициализируем Popover для динамически загруженных элементов
-          initializePopovers();
-
-          // Инициализируем иконки (если необходимо)
-          initializeIcons();
-      })
-      .catch(error => {
-          console.error('Ошибка при загрузке файла:', error);
-          mainContent.innerHTML = 'Ошибка при загрузке';
-      });
-
-  // Функция для загрузки сохранённых параметров
-  function loadSelectedGlobalParametersBefore() {
-      const parametersBefore = JSON.parse(localStorage.getItem('globalParametersBefore'));
-      if (parametersBefore) {
-          for (const id in parametersBefore) {
-              const selectElement = document.getElementById(id);
-              if (selectElement) {
-                  selectElement.value = parametersBefore[id];
-              }
-          }
-      }
-  }
-
-  // Функция для инициализации Popover
-  function initializePopovers() {
-      const popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'));
-      popoverTriggerList.forEach(function (popoverTriggerEl) {
-          new bootstrap.Popover(popoverTriggerEl);
-      });
-  }
-
-  // Функция для инициализации иконок
-  function initializeIcons() {
-      const iconElements = [].slice.call(document.querySelectorAll('svg use'));
-      iconElements.forEach(function (iconEl) {
-          const href = iconEl.getAttribute('xlink:href');
-          if (href && !document.querySelector(href)) {
-              console.warn(`Иконка ${href} не найдена в DOM`);
-          }
-      });
-  }
-};
-
 
 // функция для доп.сведения - акции
 window.showContent_action = function() {
@@ -126,46 +67,7 @@ window.showContent_action = function() {
         });
 }
 
-
-// функция для Прогнозирование - сезонность
-window.showContent_seasonality = function() {
-  // Используем fetch для загрузки HTML-кода из action.html
-  fetch('./src/html/seasonality.html')
-      .then(response => {
-          // Проверяем, успешно ли выполнен запрос
-          if (!response.ok) {
-              throw new Error('Network response was not ok ' + response.statusText);
-          }
-          return response.text(); // Преобразуем ответ в текст
-      })
-      .then(html => {
-          // Вставляем загруженный HTML в контейнер maincontent
-          document.getElementById('mainContent').innerHTML = html;
-      })
-      .catch(error => {
-          console.error('There has been a problem with your fetch operation:', error);
-      });
-}
-
 // функция для Прогнозирование - регулярный ассортимент
-window.showContent_regular_assort = function() {
-  fetch('./src/html/regular_assort.html')
-      .then(response => {
-          // Проверяем, успешно ли выполнен запрос
-          if (!response.ok) {
-              throw new Error('Network response was not ok ' + response.statusText);
-          }
-          return response.text(); // Преобразуем ответ в текст
-      })
-      .then(html => {
-          // Вставляем загруженный HTML в контейнер maincontent
-          document.getElementById('mainContent').innerHTML = html;
-      })
-      .catch(error => {
-          console.error('There has been a problem with your fetch operation:', error);
-      });
-}
-
 // функция для Прогнозирование - промо
 window.showContent_promo = function() {
   fetch('./src/html/promo.html')
@@ -259,94 +161,91 @@ window.updateUserImage = function() {
 //REG ASSORT***************************************************************************************************************************************************
         // document.getElementById('regular_assort__calculateForecastButton').addEventListener('click', loadAndFilterData);
     
-        window.loadAndFilterData = function() {
+window.loadAndFilterData = function() {
 
-          window.saveGlobalParametersRegular = function() {
-              let currentData = JSON.parse(localStorage.getItem('globalParameters'));
-              if (!currentData) {
-                  currentData = {};
-              }
-              const regularAssortMethodForecast = document.getElementById('regular_assort_method');
-              const regular_method = regularAssortMethodForecast.options[regularAssortMethodForecast.selectedIndex].text;
-              currentData['методы прогноза'] = regular_method;
-              localStorage.setItem('globalParameters', JSON.stringify(currentData));
-          }
-          window.saveGlobalParametersRegular();
+window.saveGlobalParametersRegular = function() {
+    let currentData = JSON.parse(localStorage.getItem('globalParameters'));
+    if (!currentData) {
+        currentData = {};
+    }
+    const regularAssortMethodForecast = document.getElementById('regular_assort_method');
+    const regular_method = regularAssortMethodForecast.options[regularAssortMethodForecast.selectedIndex].text;
+    currentData['методы прогноза'] = regular_method;
+    localStorage.setItem('globalParameters', JSON.stringify(currentData));
+}
+window.saveGlobalParametersRegular();
 
-            // Получаем параметры из localStorage
+// Получаем параметры из localStorage
+const parameters = JSON.parse(localStorage.getItem('globalParameters'));
+const iframe = document.getElementById('tb_regular_assort_results');
+// Проверяем наличие ключей и выводим соответствующие сообщения
+if (!parameters || !parameters['очистка от выбросов']) {
+iframe.contentDocument.body.innerHTML = '<p>Выберите глобальные параметры</p>';
+return; // Прекращаем выполнение функции
+}
+if (!parameters['сезонность']) {
+iframe.contentDocument.body.innerHTML = '<p>Выберите метод расчета сезонности</p>';
+return; // Прекращаем выполнение функции
+}
+window.filterData = function(data) {
     const parameters = JSON.parse(localStorage.getItem('globalParameters'));
-    const iframe = document.getElementById('tb_regular_assort_results');
-
-    // Проверяем наличие ключей и выводим соответствующие сообщения
-    if (!parameters || !parameters['очистка от выбросов']) {
-        iframe.contentDocument.body.innerHTML = '<p>Выберите глобальные параметры</p>';
-        return; // Прекращаем выполнение функции
-    }
-
-    if (!parameters['сезонность']) {
-        iframe.contentDocument.body.innerHTML = '<p>Выберите метод расчета сезонности</p>';
-        return; // Прекращаем выполнение функции
-    }
-
-          window.filterData = function(data) {
-              const parameters = JSON.parse(localStorage.getItem('globalParameters'));
-              return data.filter(row => {
-                  return Object.keys(parameters).every(key => {
-                      if (row[key] !== undefined) {
-                        return row[key].toString().toLowerCase() === parameters[key].toString().toLowerCase();   // Приведение к нижнему регистру для независимости от регистра
-                      }
-                      return true;
-                  });
-              });
-          };
+    return data.filter(row => {
+        return Object.keys(parameters).every(key => {
+            if (row[key] !== undefined) {
+            return row[key].toString().toLowerCase() === parameters[key].toString().toLowerCase();   // Приведение к нижнему регистру для независимости от регистра
+            }
+            return true;
+        });
+    });
+};
   
-          window.displayTable = function(data) {
-              const iframe = document.getElementById('tb_regular_assort_results');
-              const iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
-              iframeDocument.body.innerHTML = '';
+window.displayTable = function(data) {
+    const iframe = document.getElementById('tb_regular_assort_results');
+    const iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
+    iframeDocument.body.innerHTML = '';
 
              
 
-              // Добавление стилей
-    const style = document.createElement('style');
-    style.textContent = 
-    `table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 0px;
-      font-size: 12px;
-      font-size: 16px;
-      font-family: 'Arial', sans-serif; 
-  }
-  th, td {
-      border: 1px solid #ddd;
-      padding: 10px;
-      text-align: left;
-      width: auto;
-  }
-  th {
-      background-color:rgb(36, 76, 223);
-      color: white; 
-      font-family: 'Arial', sans-serif;
-  }
-  tr:nth-child(even) {
-      background-color: #f2f2f2;
-  }
-  tr:hover {
-      background-color: #ddd;
-  }
-       td:first-child {
-    font-weight: bold;
-    font-family: 'Arial', sans-serif;`
+// Добавление стилей
+const style = document.createElement('style');
+style.textContent = 
+`table {
+width: 100%;
+border-collapse: collapse;
+margin-top: 0px;
+font-size: 12px;
+font-size: 16px;
+font-family: 'Arial', sans-serif; 
+}
+th, td {
+border: 1px solid #ddd;
+padding: 10px;
+text-align: left;
+width: auto;
+}
+th {
+background-color:rgb(36, 76, 223);
+color: white; 
+font-family: 'Arial', sans-serif;
+}
+tr:nth-child(even) {
+background-color: #f2f2f2;
+}
+tr:hover {
+background-color: #ddd;
+}
+td:first-child {
+font-weight: bold;
+font-family: 'Arial', sans-serif;`
 ;
-    iframeDocument.head.appendChild(style);
-              const table = iframeDocument.createElement('table');
-              table.innerHTML = ''; // Очистка предыдущего содержимого
-              if (data.length === 0) {
-                  table.innerHTML = '<tr><td colspan="100%">Нет данных для отображения</td></tr>';
-                  iframeDocument.body.appendChild(table);
-                  return;
-              }
+iframeDocument.head.appendChild(style);
+        const table = iframeDocument.createElement('table');
+        table.innerHTML = ''; // Очистка предыдущего содержимого
+        if (data.length === 0) {
+            table.innerHTML = '<tr><td colspan="100%">Нет данных для отображения</td></tr>';
+            iframeDocument.body.appendChild(table);
+            return;
+        }
 
               // Определяем желаемый порядок
     const desiredOrder = [
@@ -404,32 +303,32 @@ data.forEach(row => {
 iframeDocument.body.appendChild(table);
 };
 
-          // const url = './public/images/users/regAssort2.xlsx';// ссылки для локального компа
-          // fetch('./public/images/users/regAssort2.xlsx')// ссылки для локального компа
-          const url = '   https://raw.githubusercontent.com/Kujavia/SputnikPro_test_2_2/master/public/images/demo_file/regAssort3.xlsx';
-          fetch('   https://raw.githubusercontent.com/Kujavia/SputnikPro_test_2_2/master/public/images/demo_file/regAssort3.xlsx')
-          // fetch('./public/images/demo_file/regAssort3.xlsx')// ссылки для локального компа
-              .then(response => {
-                  if (!response.ok) {
-                      throw new Error('Сеть не отвечает');
-                  }
-                  return response.arrayBuffer();
-              })
-              .then(data => {
-                  const workbook = XLSX.read(data, { type: 'array' });
-                  const firstSheetName = workbook.SheetNames[0];
-                  const worksheet = workbook.Sheets[firstSheetName];
-                  const jsonData = XLSX.utils.sheet_to_json(worksheet);
-  
-                  // console.log(jsonData); // Проверка загруженных данных
-  
-                  const filteredData = window.filterData(jsonData);
-                  window.displayTable(filteredData);
-              })
-              .catch(error => {
-                  console.error('Ошибка загрузки файла:', error);
-              });
-      };
+// const url = './public/images/users/regAssort2.xlsx';// ссылки для локального компа
+// fetch('./public/images/users/regAssort2.xlsx')// ссылки для локального компа
+const url = '   https://raw.githubusercontent.com/Kujavia/SputnikPro_test_2_2/master/public/images/demo_file/regAssort3.xlsx';
+fetch('   https://raw.githubusercontent.com/Kujavia/SputnikPro_test_2_2/master/public/images/demo_file/regAssort3.xlsx')
+// fetch('./public/images/demo_file/regAssort3.xlsx')// ссылки для локального компа
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Сеть не отвечает');
+        }
+        return response.arrayBuffer();
+    })
+    .then(data => {
+        const workbook = XLSX.read(data, { type: 'array' });
+        const firstSheetName = workbook.SheetNames[0];
+        const worksheet = workbook.Sheets[firstSheetName];
+        const jsonData = XLSX.utils.sheet_to_json(worksheet);
+
+        // console.log(jsonData); // Проверка загруженных данных
+
+        const filteredData = window.filterData(jsonData);
+        window.displayTable(filteredData);
+    })
+    .catch(error => {
+        console.error('Ошибка загрузки файла:', error);
+    });
+};
   
 //NEWS PRODUCTS global**********************************************************************************~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
        // document.getElementById('regular_assort__calculateForecastButton').addEventListener('click', loadAndFilterData);
@@ -798,6 +697,8 @@ iframeDocument.body.appendChild(table);
             });
         };
 
+
+
         window.displayTableSummaryPlan = function(data) {
             const iframe = document.getElementById('summaryPlan_PreviewIframe');
             const iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
@@ -934,21 +835,11 @@ document.addEventListener('DOMContentLoaded', function () {
     popoverTriggerList.forEach(function (popoverTriggerEl) {
         new Popover(popoverTriggerEl);
     });
+    const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
 });
 
 
-
-window.openModal = function () {
-    document.getElementById('modalOptRegAss').style.display = 'block';
-}
-
-window.closeModal=function() {
-    document.getElementById('modalOptRegAss').style.display = 'none';
-}
-
-window.onclick = function(event) {
-    const modal = document.getElementById('modalOptRegAss');
-    if (event.target === modal) {
-        closeModal();
-    }
-}
+///////
+const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))

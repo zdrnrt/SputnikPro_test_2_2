@@ -28,6 +28,13 @@
   border-radius: 8px;
   padding: 0.8rem 5rem;
 }
+.btn-primary-pr{
+  background-color: rgba($cl-purple, 0.9);
+  border-color: rgba($cl-purple, 0.9);
+  border-radius: 8px;
+  padding: 0.8rem 5rem;
+}
+
 .btn-outline-primary .outline-primary-project{
   border-color: $cl-purple-light;
   color: $cl-main;
