@@ -1,0 +1,86 @@
+
+@import "./vars.scss";
+@import "./templates.scss";
+@import "./fonts.scss";
+
+
+@import "./blocks/action.scss";
+@import "./blocks/header.scss";
+@import "./blocks/parametrs.scss";
+@import "./blocks/seasonality.scss";
+@import "./blocks/regular_assort.scss";
+@import "./blocks/promo.scss";
+@import "./blocks/new_products.scss";
+@import "./blocks/summary_plan.scss";
+@import "./blocks/promo_ratio.scss";
+@import "./blocks/planner.scss";
+@import "./blocks/modal.scss";
+@import "./blocks/modal_bootstrap.scss";
+@import "./blocks/modal_optRegAss.scss";
+@import "./blocks/modal_methodsRegAss.scss";
+@import "./blocks/plannerModal.scss";
+@import "./blocks/aside.scss";
+@import "./blocks/button.scss";
+@import "./blocks/content.scss";
+
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.1/css/all.min.css");
+
+:root {
+  --bs-card-spacer-x: 20px;
+  --bs-card-spacer-y: 20px;
+  --bs-card-title-spacer-y: 15px;
+  --font-family-sans-serif:'Inter', sans-serif;
+}
+.custom-checkbox .form-check-input {
+  border-color: #474BAB; /* Фиолетовая рамка */
+  background-color: white;
+}
+
+.custom-checkbox .form-check-input:checked {
+  background-color: #474BAB; /* Фиолетовый цвет при выборе */
+  border-color: #474BAB;
+}
+.custom-checkbox input[type="checkbox"] {
+  width: 15px;
+  height: 15px;
+}
+
+
+body {
+    width: 99vw;
+    height: 100vh;
+//   margin-top: 20px;
+background: white;
+  font-family: $main-font;
+  color:  #2C2D31;
+  line-height: 20px;
+//   -webkit-font-smoothing: antialiased;
+//   -moz-osx-font-smoothing: grayscale;
+}
+
+.container{
+  height: 100vh;
+  padding-left: 0px;
+  padding: 0px;
+  margin: 0px;
+  margin-left: 0px;
+}
+
+.first_nav {
+  margin-left: 50px;
+  width: 200px;
+  background-color: #333;
+  color: white;
+  float: left;
+  height: 770px;
+  padding: 20px;
+  border-radius: 20px;
+  margin-top: 10px;
+}
+
+.aside-menu__btn{
+    border: none;
+}
+.btn{
+  font-size: 1.2rem;
+}

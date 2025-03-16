@@ -1,10 +1,9 @@
-
 import 'jquery';
 import 'bootstrap/dist/js/bootstrap.min.js'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import '../scss/style.scss'
 import { Popover } from 'bootstrap';
 
-import '/style.scss'
 import './blocks/aside.js'
 
 import check_mark from "./modules/check_mark.js";
