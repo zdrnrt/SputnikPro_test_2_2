@@ -98,6 +98,10 @@
     outline-color: $cl-purple;
 }
 
+html, body, * {
+    font-family: "Inter", sans-serif !important;
+  }
+
 h1, h2, h3, h4, h5, h6,p {
     margin: 0;
 }
@@ -149,7 +153,6 @@ body {
     width: 99vw;
     height: 100vh;
     background: white;
-    font-family: 'Inter', sans-serif;
     font-size: 1.2rem;
     color:  #2C2D31;
     line-height: 20px;
