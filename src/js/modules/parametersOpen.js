@@ -1,3 +1,7 @@
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+import Popover from 'bootstrap/js/dist/popover';
+
 window.showContent_parameters = function () {
     const mainContent = document.getElementById('mainContent');
     fetch('./src/html/parameters.html')
@@ -26,7 +30,7 @@ window.showContent_parameters = function () {
         });
   
     // Функция для загрузки сохранённых параметров
-    function loadSelectedGlobalParametersBefore() {
+  window.loadSelectedGlobalParametersBefore =   function() {
         const parametersBefore = JSON.parse(localStorage.getItem('globalParametersBefore'));
         if (parametersBefore) {
             for (const id in parametersBefore) {
@@ -39,15 +43,15 @@ window.showContent_parameters = function () {
     }
   
     // Функция для инициализации Popover
-    function initializePopovers() {
-        const popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'));
-        popoverTriggerList.forEach(function (popoverTriggerEl) {
-            new bootstrap.Popover(popoverTriggerEl);
+    window.initializePopovers = function() {
+        const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]');
+        popoverTriggerList.forEach(popoverTriggerEl => {
+            new Popover(popoverTriggerEl); // Используем импортированный Popover
         });
-    }
+    };
   
     // Функция для инициализации иконок
-    function initializeIcons() {
+    window.initializeIcons= function() {
         const iconElements = [].slice.call(document.querySelectorAll('svg use'));
         iconElements.forEach(function (iconEl) {
             const href = iconEl.getAttribute('xlink:href');

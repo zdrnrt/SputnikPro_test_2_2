@@ -1,3 +1,5 @@
+
+
 window.showContent_regular_assort = function() {
     fetch('./src/html/regular_assort.html')
         .then(response => {
