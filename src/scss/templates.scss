@@ -132,25 +132,35 @@ button{
     background-color: transparent;
     cursor: pointer;
 }
-
-
  // базовый сброс настроекКОНЕЦ
+
  
 :root{
     font-size: 10px;
     line-height: 1.2;
+    --bs-card-spacer-x: 20px;
+    --bs-card-spacer-y: 20px;
+    --bs-card-title-spacer-y: 15px;
+    --font-family-sans-serif:'Inter', sans-serif;
+    --bs-body-font-family:'Inter', sans-serif;
 }
+
 body {
-    font-family: $main-font;
+    width: 99vw;
+    height: 100vh;
+    background: white;
+    font-family: 'Inter', sans-serif;
     font-size: 1.2rem;
+    color:  #2C2D31;
+    line-height: 20px;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
 
+
 .page{
     height: 100vh;
 }
-
 
 
 .danger{
@@ -159,3 +169,47 @@ body {
 .border-r{
     border-radius: $border-radius;
 }
+
+  .custom-checkbox .form-check-input {
+    border-color: #474BAB; /* Фиолетовая рамка */
+    background-color: white;
+  }
+  
+  .custom-checkbox .form-check-input:checked {
+    background-color: #474BAB; /* Фиолетовый цвет при выборе */
+    border-color: #474BAB;
+  }
+  .custom-checkbox input[type="checkbox"] {
+    width: 15px;
+    height: 15px;
+  }
+  
+  
+
+  
+  .container{
+    height: 100vh;
+    padding-left: 0px;
+    padding: 0px;
+    margin: 0px;
+    margin-left: 0px;
+  }
+  
+  .first_nav {
+    margin-left: 50px;
+    width: 200px;
+    background-color: #333;
+    color: white;
+    float: left;
+    height: 770px;
+    padding: 20px;
+    border-radius: 20px;
+    margin-top: 10px;
+  }
+  
+  .aside-menu__btn{
+      border: none;
+  }
+  .btn{
+    font-size: 1.2rem;
+  }

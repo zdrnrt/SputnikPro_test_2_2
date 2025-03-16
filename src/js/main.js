@@ -1,8 +1,8 @@
 import 'jquery';
 import 'bootstrap/dist/js/bootstrap.min.js'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import '../scss/style.scss'
 import { Popover } from 'bootstrap';
+import '../scss/style.scss'
 
 import './blocks/aside.js'
 
@@ -826,19 +826,3 @@ iframeDocument.body.appendChild(table);
                 console.error('Ошибка загрузки файла:', error);
             });
     };
-
-
-    //поповер
-document.addEventListener('DOMContentLoaded', function () {
-    const popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'));
-    popoverTriggerList.forEach(function (popoverTriggerEl) {
-        new Popover(popoverTriggerEl);
-    });
-    const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
-const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
-});
-
-
-///////
-const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
-const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
