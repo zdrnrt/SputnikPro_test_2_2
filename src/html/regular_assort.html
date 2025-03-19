@@ -7,7 +7,7 @@
   <div class="regular_assort_container">
     <div class=".card-regular_assort reg_ass" style="width: 100%">
       <div class="card-body">
-        <h5 class="card-title block_title">Агрегация выходных данных</h5>
+        <h5 class="card-title block_title mb-6">Агрегация выходных данных</h5>
         <div class="regular_assort__aggregation">
           <label for="regular_assort__aggregation-time"
             >Агрегат по времени</label
@@ -130,6 +130,15 @@
                     </div>
 
                     <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefaultSpikes" id="modalMethod5" value="method5">
+                        <label class="form-check-label" for="modalMethod5">Линейная регрессия</label>
+                        <div class="input-group input-group-sm mb-1">
+                            <span class="input-group-text">Период</span>
+                            <input type="text" class="form-control" value="6">
+                        </div>
+                    </div>
+
+                    <div class="form-check">
                         <input class="form-check-input" type="radio" name="flexRadioDefaultSpikes" id="modalMethod2" value="method2">
                         <label class="form-check-label" for="modalMethod2">Средневзвешенная</label>
                         <div class="input-group input-group-sm mb-1">
@@ -141,7 +150,6 @@
                             <input type="text" class="form-control" value="0.7">
                         </div>
                     </div>
-
                     <div class="form-check">
                         <input class="form-check-input" type="radio" name="flexRadioDefaultSpikes" id="modalMethod3" value="method3">
                         <label class="form-check-label" for="modalMethod3">Экспоненциальное сглаживание</label>
@@ -160,42 +168,99 @@
                         <label class="form-check-label" for="modalMethod4">Хольта-Винтерса</label>
                         <div class="input-group input-group-sm mb-1">
                             <span class="input-group-text">Период</span>
-                            <input type="text" class="form-control" value="3">
+                            <input type="text" class="form-control" value="12">
                         </div>
                         <div class="input-group input-group-sm mb-1">
                             <span class="input-group-text">α</span>
-                            <input type="text" class="form-control" value="2">
+                            <input type="text" class="form-control" value="0,8">
+                        </div>
+                        <div class="input-group input-group-sm mb-1">
+                            <span class="input-group-text">β</span>
+                            <input type="text" class="form-control" value="0,5">
+                        </div>
+                        <div class="input-group input-group-sm mb-1">
+                            <span class="input-group-text">γ</span>
+                            <input type="text" class="form-control" value="0,7">
+                        </div>
+                        <div class="input-group input-group-sm mb-1">
+                            <span class="input-group-text">m</span>
+                            <input type="text" class="form-control" value="12">
+                        </div>
+                        <div class="input-group input-group-sm mb-1">
+                            <label for="type_seasonality">Тип сезонности</label>
+                            <select class="form-select ml-3" name="type_seasonality" id="type_seasonality">
+                                <option value="">Аддитивная</option>
+                                <option value="">Мультипликативная</option>
+                            </select>
                         </div>
                     </div>
 
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="flexRadioDefaultSpikes" id="modalMethod5" value="method5">
-                        <label class="form-check-label" for="modalMethod5">Линейная регрессия</label>
-                        <div class="input-group input-group-sm mb-1">
-                            <span class="input-group-text">Период</span>
-                            <input type="text" class="form-control" value="3">
-                        </div>
-                    </div>
+
+     
+
+                    
+                
+
 
                     <div class="form-check">
                         <input class="form-check-input" type="radio" name="flexRadioDefaultSpikes" id="modalMethod6" value="method6">
                         <label class="form-check-label" for="modalMethod6">Множественная регрессия</label>
                         <div class="input-group input-group-sm mb-1">
                             <span class="input-group-text">Период</span>
-                            <input type="text" class="form-control" value="3">
+                            <input type="text" class="form-control" value="12">
                         </div>
-                        <div class="input-group input-group-sm mb-1">
-                            <span class="input-group-text">σ НГ</span>
-                            <input type="text" class="form-control" value="2">
-                        </div>
+                        <div class="form-check custom-checkbox ml-1" id="methods-cleaning">
+                            <input
+                                class="form-check-input"
+                                type="checkbox"
+                                id="oos-cleaning"
+                            />
+                            <label class="form-check-label" for="oos-cleaning"
+                                >Выбор переменных</label
+                            >
+                            </div>
+                            <div class="form-check custom-checkbox ml-3" id="methods-cleaning">
+                            <input
+                                class="form-check-input"
+                                type="checkbox"
+                                id="oos-cleaning"
+                            />
+                            <label class="form-check-label" for="oos-cleaning"
+                                >Цена</label
+                            >
+                            </div>
+                            <div class="form-check custom-checkbox ml-3" id="methods-cleaning">
+                                <input
+                                class="form-check-input"
+                                type="checkbox"
+                                id="oos-cleaning"
+                                />
+                                <label class="form-check-label" for="oos-cleaning"
+                                >Промо признак</label
+                                >
+                            </div>
+                            <div class="form-check custom-checkbox ml-3" id="methods-cleaning">
+                            <input
+                                class="form-check-input"
+                                type="checkbox"
+                                id="oos-cleaning"
+                            />
+                            <label class="form-check-label" for="oos-cleaning"
+                                >Температура</label
+                            >
+                            </div>
                     </div>
+
+            
+
+          
 
                     <div class="form-check">
                         <input class="form-check-input" type="radio" name="flexRadioDefaultSpikes" id="modalMethod7" value="method7">
                         <label class="form-check-label" for="modalMethod7">Полиномиальная регрессия</label>
                         <div class="input-group input-group-sm mb-1">
                             <span class="input-group-text">Период</span>
-                            <input type="text" class="form-control" value="3">
+                            <input type="text" class="form-control" value="12">
                         </div>
                         <div class="input-group input-group-sm mb-1">
                             <span class="input-group-text">Степень полинома</span>
@@ -208,11 +273,15 @@
                         <label class="form-check-label" for="modalMethod8">Вероятностный прогноз</label>
                         <div class="input-group input-group-sm mb-1">
                             <span class="input-group-text">Период</span>
-                            <input type="text" class="form-control" value="3">
+                            <input type="text" class="form-control" value="12">
                         </div>
                         <div class="input-group input-group-sm mb-1">
                             <span class="input-group-text">Ширина ядра KDE</span>
-                            <input type="text" class="form-control" value="2">
+                            <input type="text" class="form-control" value="0,3">
+                        </div>
+                        <div class="input-group input-group-sm mb-1">
+                            <span class="input-group-text">Доверительный интервал</span>
+                            <input type="text" class="form-control" value="98%">
                         </div>
                     </div>
                 </div>
