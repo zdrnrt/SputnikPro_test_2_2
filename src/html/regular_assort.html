@@ -4,108 +4,103 @@
     <p>Регулярный ассортимент</p>
   </header>
 
-  <div class="regular_assort_container">
-    <div class=".card-regular_assort reg_ass" style="width: 100%">
-      <div class="card-body">
-        <h5 class="card-title block_title mb-6">Агрегация выходных данных</h5>
-        <div class="regular_assort__aggregation">
-          <label for="regular_assort__aggregation-time"
-            >Агрегат по времени</label
-          >
-          <select id="regular_assort__aggregation-time" class="form-select">
-            <option value="not_selected">Не установлено</option>
-            <option value="option1">День</option>
-            <option value="option2" selected>Неделя</option>
-            <option value="option4">Месяц</option>
-            <option value="option3">Квартал</option>
-          </select>
-          <label for="regular_assort__aggregation-geo"
-            >Агрегат по географии</label
-          >
-          <select id="regular_assort__aggregation-geo" class="form-select">
-            <option value="not_selected">Не установлено</option>
-            <option value="chain" selected>Сеть</option>
-            <option value="option2">Страна</option>
-            <option value="option3">Регион</option>
-            <option value="option4">Город</option>
-            <option value="option5">Магазин</option>
-          </select>
-          <label for="regular_assort__aggregation-scu"
-            >Агрегат по позиции</label
-          >
-          <select id="regular_assort__aggregation-scu" class="form-select">
-            <option value="not_selected">Не установлено</option>
-            <option value="option2">Категория</option>
-            <option value="option2" selected>SKU</option>
-          </select>
+
+  <div class="row border border-1 rounded-4 mx-1 shadow-sm"> 
+    <!-- Левый блок: Агрегация выходных данных -->
+    <div class="col-md-6 p-0">
+      <!-- <div class="card"> -->
+        <div class="card-body">
+          <h5 class="card-title block_title mb-3">Агрегация выходных данных</h5>
+          <div class="mb-3">
+            <label for="regular_assort__aggregation-time" class="form-label">Агрегат по времени</label>
+            <select id="regular_assort__aggregation-time" class="form-select">
+              <option value="not_selected">Не установлено</option>
+              <option value="option1">День</option>
+              <option value="option2" selected>Неделя</option>
+              <option value="option4">Месяц</option>
+              <option value="option3">Квартал</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="regular_assort__aggregation-geo" class="form-label">Агрегат по географии</label>
+            <select id="regular_assort__aggregation-geo" class="form-select">
+              <option value="not_selected">Не установлено</option>
+              <option value="chain" selected>Сеть</option>
+              <option value="option2">Страна</option>
+              <option value="option3">Регион</option>
+              <option value="option4">Город</option>
+              <option value="option5">Магазин</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="regular_assort__aggregation-scu" class="form-label">Агрегат по позиции</label>
+            <select id="regular_assort__aggregation-scu" class="form-select">
+              <option value="not_selected">Не установлено</option>
+              <option value="option2">Категория</option>
+              <option value="option2" selected>SKU</option>
+            </select>
+          </div>
+
+          <div class="row">
+            <div class="col">
+              <div class="input-group mb-3">
+                <span class="input-group-text">Период прогноза</span>
+                <input
+                  type="text"
+                  class="form-control"
+                  value="4"
+                  aria-label="Сумма в рублях (с точкой и двумя десятичными знаками)"
+                />
+                <span class="input-group-text">нед</span>
+              </div>
+            </div>
+            <div class="col">
+              <div class="input-group mb-3">
+                <span class="input-group-text">Лаг прогноза</span>
+                <input
+                  type="text"
+                  class="form-control"
+                  value="1"
+                  aria-label="Сумма в рублях (с точкой и двумя десятичными знаками)"
+                />
+                <span class="input-group-text">нед</span>
+              </div>
+            </div>
+          </div>
+
+
         </div>
-      </div>
+      <!-- </div> -->
     </div>
-    <div class=".card-regular_assort" style="width: 100%">
-      <div class="card-body">
-        <h5 class="card-title block_title">
-          Метод прогнозирования и сценарий расчета
-        </h5>
-        <div class="regular_assort__aggregation2">
-          <label for="input-group-input-group-lg">Метод прогнозирования</label>
-          <div
-            class="input-group input-group-lg"
-            id="input-group-input-group-lg"
-          >
-            <input
-              id="regular_assort_method"
-              type="text"
-              class="form-control"
-              placeholder=""
-              aria-describedby="button-addon1"
-            />
-            <button
-              class="btn btn-outline-primary"
-              type="button"
-              id="button-addon1 buttonRegularAssortMethod"
-              onclick="openModal_MethodForecastRA()"
-            >
-              Настроить
-            </button>
+    
+    <!-- Правый блок: Метод прогнозирования и сценарий расчета -->
+    <div class="col-md-6 d-flex flex-column p-0">
+      <!-- <div class="card"> -->
+        <div class="card-body flex-fill">
+          <h5 class="card-title block_title mb-3">Метод прогнозирования и сценарий расчета</h5>
+          <div class="mb-3">
+            <label for="regular_assort_method" class="form-label">Метод прогнозирования</label>
+            <div class="input-group">
+              <input id="regular_assort_method" type="text" class="form-control" placeholder="" aria-describedby="button-addon1" />
+              <button class="btn btn-outline-primary" type="button" id="button-addon1" onclick="openModal_MethodForecastRA()">Настроить</button>
+            </div>
           </div>
-          <label for="regular_assort_script">Сценарий расчета</label>
-          <input
-            id="regular_assort_script"
-            type="text"
-            class="form-control"
-            placeholder="Еще не создано ни одного сценария"
-            aria-describedby="button-addon1"
-          />
-          <div class="regular_assort_buttons">
-            <button
-              type="button"
-              class="btn btn-outline-primary outline-primary-project"
-              style="width: 31%"
-            >
-              Сохранить сценарий
-            </button>
-            <button
-              type="button"
-              class="btn btn-outline-secondary outline-secondary-project"
-              style="width: 31%"
-              onclick="openModalOptRA()"
-            >
-              Оптимизировать
-            </button>
-            <button
-              type="button"
-              class="btn btn-primary success-project"
-              style="width: 31%"
-              onclick="loadAndFilterData()"
-              id="regular_assort__calculateForecastButton"
-            >
-              Рассчитать прогноз
-            </button>
+          <div class="mb-3">
+            <label for="regular_assort_script" class="form-label">Сценарий расчета</label>
+            <input id="regular_assort_script" type="text" class="form-control" placeholder="Еще не создано ни одного сценария" />
+          </div>
+          <div></div>
+          <div class="d-flex justify-content-between mt-5">
+            <button type="button" class="btn btn-outline-primary" style="width: 31%">Сохранить сценарий</button>
+            <button type="button" class="btn btn-outline-secondary" style="width: 31%" onclick="openModalOptRA()">Оптимизировать</button>
+            <button type="button" class="btn btn-primary" style="width: 31%" onclick="loadAndFilterData()" id="regular_assort__calculateForecastButton">Рассчитать прогноз</button>
           </div>
         </div>
-      </div>
+      <!-- </div> -->
     </div>
   </div>
+ 
+  
 </div>
 
 

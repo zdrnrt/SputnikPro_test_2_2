@@ -1,107 +1,234 @@
-<div class="promo_container">
+<div class="page__content page-content data-page">
+  <header class="page-content__header">
+    <p>Промо</p>
+  </header>
 
-    <section class="promo__aggregation-wrapper">
-        <p class = "promo__aggregation-title">Агрегация выходных данных</p>
-
-        <div class="promo__aggregation"> 
-        <label for="promo__aggregation-time">Агрегат по времени</label>
-        <select id="promo__aggregation-time">
-            <option value="option6">Не установлено</option>
+  <div class="row border border-1 rounded-4 mx-1 shadow-sm">
+    <!-- Левый блок: Агрегация выходных данных -->
+    <div class="col-md-6 p-0">
+      <!-- <div class="card"> -->
+      <div class="card-body">
+        <h5 class="card-title block_title mb-3">Агрегация выходных данных</h5>
+        <div class="mb-3">
+          <label for="regular_assort__aggregation-time" class="form-label"
+            >Агрегат по времени</label
+          >
+          <select id="regular_assort__aggregation-time" class="form-select">
+            <option value="not_selected">Не установлено</option>
             <option value="option1">День</option>
             <option value="option2" selected>Неделя</option>
             <option value="option4">Месяц</option>
             <option value="option3">Квартал</option>
-        </select>
-
-        <label for="promo__aggregation-geo">Агрегат по географии</label>
-        <select id="promo__aggregation-geo">
-            <option value="option1">Не установлено</option>
-            <option value="option2" selected >Сеть</option>
-            <option value="option6">Страна</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label for="regular_assort__aggregation-geo" class="form-label"
+            >Агрегат по географии</label
+          >
+          <select id="regular_assort__aggregation-geo" class="form-select">
+            <option value="not_selected">Не установлено</option>
+            <option value="chain" selected>Сеть</option>
+            <option value="option2">Страна</option>
             <option value="option3">Регион</option>
             <option value="option4">Город</option>
             <option value="option5">Магазин</option>
-        </select>
-
-        <!-- <label for="promo__aggregation-group">Агрегат по группам</label>
-        <select id="promo__aggregation-group">
-            <option value="option1">не установлено</option>
-            <option value="option2">группа1</option>
-            <option value="option3">группа2</option>
-            <option value="option4">группа3</option>
-            <option value="option5">группа4</option>
-        </select> -->
-
-        <label for="promo__aggregation-scu">Агрегат по позиции</label>
-        <select id="promo__aggregation-scu">
-            <option value="option1">Не установлено</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label for="regular_assort__aggregation-scu" class="form-label"
+            >Агрегат по позиции</label
+          >
+          <select id="regular_assort__aggregation-scu" class="form-select">
+            <option value="not_selected">Не установлено</option>
             <option value="option2">Категория</option>
-            <option value="option3" selected>SKU</option>
-            
-            
-            
-        </select>
+            <option value="option2" selected>SKU</option>
+          </select>
+        </div>
+        <div class="row">
+          <div class="col-6">
+            <div class="input-group mb-3">
+              <span class="input-group-text">Период прогноза</span>
+              <input
+                type="text"
+                class="form-control"
+                value="4"
+                aria-label="Сумма в рублях (с точкой и двумя десятичными знаками)"
+              />
+              <span class="input-group-text">нед</span>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="input-group mb-3">
+              <span class="input-group-text">Лаг прогноза</span>
+              <input
+                type="text"
+                class="form-control"
+                value="1"
+                aria-label="Сумма в рублях (с точкой и двумя десятичными знаками)"
+              />
+              <span class="input-group-text">нед</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- </div> -->
     </div>
-    </section>
 
-    <section class="promo__forecast-wrapper">
-        <p></p>
-        <p></p>
+    <!-- Правый блок: Метод прогнозирования и сценарий расчета -->
+    <div class="col-md-6 d-flex flex-column p-0">
+      <!-- <div class="card"> -->
+      <div class="card-body flex-fill">
+        <h5 class="card-title block_title mb-3">Настройки</h5>
+        <!-- <div class="mb-3">
+          <label for="regular_assort_method" class="form-label"
+            >Метод прогнозирования</label
+          >
+          <div class="input-group">
+            <input
+              id="regular_assort_method"
+              type="text"
+              class="form-control"
+              placeholder=""
+              aria-describedby="button-addon1"
+            />
+            <button
+              class="btn btn-outline-primary"
+              type="button"
+              id="button-addon1"
+              onclick="openModal_MethodForecastRA()"
+            >
+              Настроить
+            </button>
+          </div>
+        </div> -->
+        <div class="mb-3">
+          <label for="seasonality_scenario">Выбрать коэффициенты</label>
+          <select
+            id="seasonality_scenario"
+            placeholder="Выберите из списка"
+            class="form-select form-select-sm fs-5"
+          >
+            <option value="" disabled selected>Выберите из списка</option>
+            <!-- <option value="1">Кэф без ограничений#1</option> -->
+            <option value="2">Рассчитанные</option>
+            <option value="2">Пользовательские</option>
+          </select>
+          <label for="seasonality_scenario">Сценарий расчета</label>
+          <select
+            id="seasonality_scenario"
+            placeholder="Выберите из списка"
+            class="form-select form-select-sm fs-5"
+          >
+            <option value="" disabled selected>Выберите из списка</option>
+            <!-- <option value="1">Кэф без ограничений#1</option> -->
+            <option value="2">Рассчитанные</option>
+            <option value="2">Пользовательские</option>
+          </select>
+          <div class="d-flex justify-content-between mt-5">
+            <button
+              type="button"
+              class="btn btn-outline-primary"
+              style="width: 31%"
+            >
+              Сохранить сценарий
+            </button>
+            <button
+              type="button"
+              class="btn btn-outline-secondary"
+              style="width: 31%"
+              onclick="promo_OptimizationButton()"
+            >
+              Оптимизировать
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary"
+              style="width: 31%"
+              onclick=""
+              id="regular_assort__calculateForecastButton"
+            >
+              Рассчитать прогноз
+            </button>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <div class="promo_container">
+  <section class="promo__aggregation-wrapper">
+    <p class="promo__aggregation-title">Агрегация выходных данных</p>
+
+    <div class="promo__aggregation">
+      <label for="promo__aggregation-time">Агрегат по времени</label>
+      <select id="promo__aggregation-time">
+        <option value="option6">Не установлено</option>
+        <option value="option1">День</option>
+        <option value="option2" selected>Неделя</option>
+        <option value="option4">Месяц</option>
+        <option value="option3">Квартал</option>
+      </select>
+      <label for="promo__aggregation-geo">Агрегат по географии</label>
+      <select id="promo__aggregation-geo">
+        <option value="option1">Не установлено</option>
+        <option value="option2" selected>Сеть</option>
+        <option value="option6">Страна</option>
+        <option value="option3">Регион</option>
+        <option value="option4">Город</option>
+        <option value="option5">Магазин</option>
+      </select>
+      <label for="promo__aggregation-scu">Агрегат по позиции</label>
+      <select id="promo__aggregation-scu">
+        <option value="option1">Не установлено</option>
+        <option value="option2">Категория</option>
+        <option value="option3" selected>SKU</option>
+      </select>
+    </div>
+  </section>
+
+  <section class="promo__forecast-wrapper">
+    <p></p>
+    <p></p>
     <label for="promo_method">Выбор коэффициентов</label>
     <select id="promo_method">
-        <option value="promo_moving__NotSelect">Не установлено</option>
-        <option value="promo_moving__сalculated">Рассчитанные</option>
-        <option value="promo_weighted__custom">Пользовательские</option>
+      <option value="promo_moving__NotSelect">Не установлено</option>
+      <option value="promo_moving__сalculated">Рассчитанные</option>
+      <option value="promo_weighted__custom">Пользовательские</option>
     </select>
 
-    <!-- <label for="promo_period">Период</label>
-    <select id="promo_period">
-        <option value="option1">1</option>
-        <option value="option2">2</option>
-        <option value="option3">3</option>
-        <option value="option4">4</option>
-        <option value="option5">5</option>
-        <option value="option6">6</option>
-        <option value="option7">7</option>
-        <option value="option8">8</option>
-    </select> -->
-<!-- 
-    <div class="promo_calculate"> -->
-    <button onclick="loadAndFilterDataPromo()"  id="promo__calculateForecastButton">Рассчитать прогноз</button>
+    <button
+      onclick="loadAndFilterDataPromo()"
+      id="promo__calculateForecastButton"
+    >
+      Рассчитать прогноз
+    </button>
     <select id="promo_scenario">
-        <option value="option0">Сохранить текущие настройки</option>
-        <option value="option1">Сценарий 1</option>
-        <option value="option2">Сценарий 2</option>
-        <option value="option3">Сценарий 3</option>
+      <option value="option0">Сохранить текущие настройки</option>
+      <option value="option1">Сценарий 1</option>
+      <option value="option2">Сценарий 2</option>
+      <option value="option3">Сценарий 3</option>
     </select>
-    <!-- </div> -->
 
-    <button onclick="promo_OptimizationButton()" id="promo__optimizeButton">Оптимизировать</button>
+    <button onclick="promo_OptimizationButton()" id="promo__optimizeButton">
+      Оптимизировать
+    </button>
     <button id="promo__exportButton">Экспорт</button>
-</section>
-<iframe  id="promo_PreviewIframe" src=""></iframe>
+  </section>
+  <iframe id="promo_PreviewIframe" src=""></iframe>
 </div>
 
-<!-- <section class="promo__preview">
-    <div class="promo__results">
-        <button onclick="promo_PreviewButton()"  id="promo_resultsButton">Preview</button>
-        <iframe  id="promo_PreviewIframe" src=""></iframe>
-    </div>
-</section> -->
-
-<!-- <div class="regular_assort__chart">
-<button onclick="tb_regular_assort__chart()"  id="regular_assort_chartButton">Chart</button>
-<iframe  id="tb_regular_assort_chart" src="" width="80%" height="200"></iframe>
-
-</div> -->
 <div id="promo_modal">
-<div id="promo_modalContent">
+  <div id="promo_modalContent">
     <h5 class="promo_modal-title">Выберите параметры оптимизации:</h5>
-    <label><input type="checkbox" name="option1"> Выбор коэффициента</label><br>
-    <button onclick="promo_saveModalButton()" id="promo_modalSaveButton">Сохранить</button>
-    <button onclick="promo_closeModalButton()" id="promo_ModalCloseButton">Закрыть</button>
-</div>
-</div>
-
-
-
+    <label><input type="checkbox" name="option1" /> Выбор коэффициента</label
+    ><br />
+    <button onclick="promo_saveModalButton()" id="promo_modalSaveButton">
+      Сохранить
+    </button>
+    <button onclick="promo_closeModalButton()" id="promo_ModalCloseButton">
+      Закрыть
+    </button>
+  </div>
+</div> -->

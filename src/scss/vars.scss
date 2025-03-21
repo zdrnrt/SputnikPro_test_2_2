@@ -13,6 +13,11 @@ $cl-table-border: #E7E9EC;
 $page-content-header-color:#2C2D31;
 $nav-item-active: #EAEAF0;
 $frame_color2: #EAEAF0;
+$cl-grey-middle: #EAEAF0;
+$cl-purple-bright: #3337a2;
+$cl-btn-hover: #CACCF7;
+$cl-black: #2C2D31;
+$cl-white: #fff;
 
 $icon-link-gap:               .375rem;
 $icon-link-underline-offset:  .25em;
@@ -24,7 +29,7 @@ $border-radius-table: 0.4rem;
 $transition-time: 0.2s;
 
 :root{
-  --bs-border-radius: 0.8rem;
+  --bs-border-radius: 8px;
   --bs-border-color: #EAEAF0;
 }
 
