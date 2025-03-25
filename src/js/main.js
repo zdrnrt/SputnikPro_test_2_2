@@ -3,7 +3,6 @@ import 'bootstrap/dist/js/bootstrap.min.js'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Popover } from 'bootstrap';
 import '../scss/style.scss'
-
 import './blocks/aside.js'
 
 import check_mark from "./modules/check_mark.js";
@@ -37,63 +36,14 @@ import planner_formRepeatSelect from "./modules/planner_formRepeatSelect.js";
 import saveSelectedGlobalParameters from "./modules/parametersGlobalChecked.js";
 import saveSelectedGlobalParametersSeasonality from "./modules/seasonalityGlobalChecked.js";
 import saveSelectedGlobalParametersRegular from "./modules/regularGlobalChecked.js";
+
 import './modules/parametersOpen'
 import './modules/seasonalityOpen'
 import './modules/regularOpen'
+import './modules/promoOpen'
+import './modules/actionOpen'
 
 //@import url("https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css");
-
-
-// мое
-
-// функция для доп.сведения - акции
-window.showContent_action = function() {
-    // Используем fetch для загрузки HTML-кода из action.html
-    fetch('./src/html/action.html')
-        .then(response => {
-            // Проверяем, успешно ли выполнен запрос
-            if (!response.ok) {
-                throw new Error('Network response was not ok ' + response.statusText);
-            }
-            return response.text(); // Преобразуем ответ в текст
-        })
-        .then(html => {
-            // Вставляем загруженный HTML в контейнер maincontent
-            document.getElementById('mainContent').innerHTML = html;
-        })
-        .catch(error => {
-            console.error('There has been a problem with your fetch operation:', error);
-        });
-}
-
-// функция для Прогнозирование - регулярный ассортимент
-// функция для Прогнозирование - промо
-window.showContent_promo = function() {
-  fetch('./src/html/promo.html')
-      .then(response => {
-          // Проверяем, успешно ли выполнен запрос
-          if (!response.ok) {
-              throw new Error('Network response was not ok ' + response.statusText);
-          }
-          return response.text(); // Преобразуем ответ в текст
-      })
-      .then(html => {
-          // Вставляем загруженный HTML в контейнер maincontent
-          document.getElementById('mainContent').innerHTML = html;
-      })
-      .catch(error => {
-          console.error('There has been a problem with your fetch operation:', error);
-      });
-}
-
-
-/*вставка картинки*/
-// window.tb_seasonality = function(){
-//   const imageUrl = 'https://avatars.dzeninfra.ru/get-zen_doc/3445317/pub_615a8e1687bd902369c1e59c_615a99021c6451628b2b5664/scale_1200';
-//   document.getElementById('tb_seasonality').src = imageUrl;
-// }
-/*вставка картинки*/
-
 
 import imageZE from '/images/users/ZilevichElizaveta.jpg';
 import imageTO from '/images/users/TkachevOleg.jpg';
@@ -134,11 +84,6 @@ window.updateUserImage = function() {
 }
 /*вставка юзера*/
 
-// $(document).ready(function() {
-//     App.init();
-//     Highlight.init();
-//   });
-  
 
   document.addEventListener('DOMContentLoaded', function() {
     const menuItems = document.querySelectorAll('.visible');
@@ -826,3 +771,4 @@ iframeDocument.body.appendChild(table);
                 console.error('Ошибка загрузки файла:', error);
             });
     };
+

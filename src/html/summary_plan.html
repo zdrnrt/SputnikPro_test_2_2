@@ -1,4 +1,191 @@
-<div class="summary_plan_contaier">
+<div class="page__content page-content data-page">
+  <header class="page-content__header">
+    <p>Итого план</p>
+  </header>
+
+  <div class="row border border-1 rounded-4 mx-1 shadow-sm">
+    <!-- Левый блок: Агрегация выходных данных -->
+    <div class="col-md-6 p-0">
+      <!-- <div class="card"> -->
+      <div class="card-body">
+        <h5 class="card-title block_title mb-3">Агрегация выходных данных</h5>
+        <div class="mb-3">
+          <label for="regular_assort__aggregation-time" class="form-label"
+            >Агрегат по времени</label
+          >
+          <select
+            id="regular_assort__aggregation-time"
+            class="form-select form-select-sm fs-5"
+          >
+            <option value="not_selected">Не установлено</option>
+            <option value="option1">День</option>
+            <option value="option2" selected>Неделя</option>
+            <option value="option4">Месяц</option>
+            <option value="option3">Квартал</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label for="regular_assort__aggregation-geo" class="form-label"
+            >Агрегат по географии</label
+          >
+          <select
+            id="regular_assort__aggregation-geo"
+            class="form-select form-select-sm fs-5"
+          >
+            <option value="not_selected">Не установлено</option>
+            <option value="chain" selected>Сеть</option>
+            <option value="option2">Страна</option>
+            <option value="option3">Регион</option>
+            <option value="option4">Город</option>
+            <option value="option5">Магазин</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label for="regular_assort__aggregation-scu" class="form-label"
+            >Агрегат по позиции</label
+          >
+          <select
+            id="regular_assort__aggregation-scu"
+            class="form-select form-select-sm fs-5"
+          >
+            <option value="not_selected">Не установлено</option>
+            <option value="option2">Категория</option>
+            <option value="option2" selected>SKU</option>
+          </select>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <div class="input-group mb-3">
+              <span class="input-group-text">Период прогноза</span>
+              <input
+                type="text"
+                class="form-control"
+                value="4"
+                aria-label="Сумма в рублях (с точкой и двумя десятичными знаками)"
+              />
+              <span class="input-group-text">нед</span>
+            </div>
+          </div>
+          <div class="col">
+            <div class="input-group mb-3">
+              <span class="input-group-text">Лаг прогноза</span>
+              <input
+                type="text"
+                class="form-control"
+                value="1"
+                aria-label="Сумма в рублях (с точкой и двумя десятичными знаками)"
+              />
+              <span class="input-group-text">нед</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- </div> -->
+    </div>
+
+    <!-- Правый блок: Метод прогнозирования и сценарий расчета -->
+    <div class="col-md-6 d-flex flex-column p-0">
+      <!-- <div class="card"> -->
+      <div class="card-body flex-fill">
+        <h5 class="card-title block_title mb-3">Настройки</h5>
+        <div class="mb-3">
+          <div class="form-check form-switch seasonality_pre-smoothing">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              role="switch"
+              id="flexSwitchCheckChecked"
+              checked
+            />
+            <label class="form-check-label" for="flexSwitchCheckChecked"
+              >Регулярный ассортимент</label
+            >
+          </div>
+
+          <div class="form-check form-switch seasonality_pre-smoothing">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              role="switch"
+              id="flexSwitchCheckChecked"
+              checked
+            />
+            <label class="form-check-label" for="flexSwitchCheckChecked"
+              >Промо</label
+            >
+          </div>
+
+          <div class="form-check form-switch seasonality_pre-smoothing">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              role="switch"
+              id="flexSwitchCheckChecked"
+              checked
+            />
+            <label class="form-check-label" for="flexSwitchCheckChecked"
+              >Новинки</label
+            >
+          </div>
+
+          <div class="form-check form-switch seasonality_pre-smoothing">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              role="switch"
+              id="flexSwitchCheckChecked"
+              checked
+            />
+            <label class="form-check-label" for="flexSwitchCheckChecked"
+              >Учёт каннибализации</label
+            >
+          </div>
+        </div>
+        <label for="seasonality_scenario">Сценарий расчета</label>
+        <select
+          id="seasonality_scenario"
+          placeholder="Выберите из списка"
+          class="form-select form-select-sm fs-5"
+        >
+          <option value="" disabled selected>Выберите из списка</option>
+          <option value="2">Сценарий 1</option>
+          <option value="2">Сценарий 2</option>
+        </select>
+        <div></div>
+        <div class="d-flex justify-content-between mt-5">
+          <button
+            type="button"
+            class="btn btn-outline-primary"
+            style="width: 31%"
+          >
+            Сохранить сценарий
+          </button>
+          <button
+            type="button"
+            class="btn btn-outline-secondary"
+            style="width: 31%"
+            onclick="openModalOptRA()"
+          >
+            Оптимизировать
+          </button>
+          <button
+            type="button"
+            class="btn btn-primary"
+            style="width: 31%"
+            onclick="loadAndFilterData()"
+            id="regular_assort__calculateForecastButton"
+          >
+            Рассчитать прогноз
+          </button>
+        </div>
+      </div>
+      <!-- </div> -->
+    </div>
+  </div>
+</div>
+
+<!-- <div class="summary_plan_contaier">
     
     <section class="summary_plan_aggregate">
         <p class = "summary_plan__aggregation-title">Агрегация выходных данных</p>
@@ -15,31 +202,19 @@
     <select id="summary_plan_geography">
         <option value="not_selected">Не установлено</option>
         <option value="option5" selected>Сеть</option>
-        <!-- <option value="option2">Все</option> -->
         <option value="option1">Страна</option>
         <option value="option2">Регион</option>
         <option value="option3">Город</option>
         <option value="option4">Магазин</option>
     </select>
 
-    <!-- <label for="summary_plan_groupSCU">По группе SKU</label>
-    <select id="summary_plan_groupSCU">
-        <option value="not_selected">не установлено</option>
-        <option value="option2">Группа1</option>
-        <option value="option1">Группа2</option>
-        <option value="option2">Группа3</option>
-        <option value="option2">Группа4</option>
-        <option value="option2">Группа5</option>
-    </select> -->
 
     <label for="summary_plan_scu">Агрегат по SKU</label>
     <select id="summary_plan_scu">
         <option value="not_selected">Не установлено</option>
         <option value="option2">Категория</option>
         <option value="option3" selected>SKU</option>
-        
-        
-        
+
     </select>
 </section>
 
@@ -53,15 +228,6 @@
 
     <label class = "labelSummary" for="summary_plan__newsProducts">Новинки
     <input type="checkbox" id="summary_plan__newsProducts"></label>
-
-    <!-- <label for="summary_plan_method">Итого прогноз</label>
-    <select id="summary_plan_method">
-        <option value="not_selected">не установлено</option>
-        <option value="summary_plan__regular_assortment">регулярный ассортимент</option>
-        <option value="summary_plan__promo">промо</option>
-        <option value="summary_plan__new_product">новинки</option>
-    </select> -->
-    
 
     <label class = "labelSummary" for="summary_plan_cannibalization">Учёт каннибализации
     <input type="checkbox" id="summary_plan__cannibalization"></label>
@@ -77,14 +243,10 @@
     <button onclick="summaryPlan_OptimizationButton()" id="summaryPlan__optimizButton">Оптимизировать</button>
     
     <button  id="summary_plan_exportButton">Экспорт данных</button>
-    <!-- <button  id="summary_plan_importButton">Импорт данных</button> -->
+
 </section>
 <iframe  id="summaryPlan_PreviewIframe" src=""></iframe>
-
-    <!-- <button onclick="summaryPlan_PreviewButton()" id="summary_plan_previewButton">Preview</button> -->
 </div>
-
-
 
 <div id="summaryPlan_modal">
     <div id="summaryPlan_modalContent">
@@ -94,4 +256,4 @@
         <button onclick="summaryPlan_closeModalButton()" id="summaryPlan_closeModalButton">Закрыть</button>
     </div>
     </div>
-    
+     -->

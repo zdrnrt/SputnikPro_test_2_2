@@ -13,7 +13,7 @@
           <h5 class="card-title block_title mb-3">Агрегация выходных данных</h5>
           <div class="mb-3">
             <label for="regular_assort__aggregation-time" class="form-label">Агрегат по времени</label>
-            <select id="regular_assort__aggregation-time" class="form-select">
+            <select id="regular_assort__aggregation-time" class="form-select form-select-sm fs-5">
               <option value="not_selected">Не установлено</option>
               <option value="option1">День</option>
               <option value="option2" selected>Неделя</option>
@@ -23,7 +23,7 @@
           </div>
           <div class="mb-3">
             <label for="regular_assort__aggregation-geo" class="form-label">Агрегат по географии</label>
-            <select id="regular_assort__aggregation-geo" class="form-select">
+            <select id="regular_assort__aggregation-geo" class="form-select form-select-sm fs-5">
               <option value="not_selected">Не установлено</option>
               <option value="chain" selected>Сеть</option>
               <option value="option2">Страна</option>
@@ -34,7 +34,7 @@
           </div>
           <div class="mb-3">
             <label for="regular_assort__aggregation-scu" class="form-label">Агрегат по позиции</label>
-            <select id="regular_assort__aggregation-scu" class="form-select">
+            <select id="regular_assort__aggregation-scu" class="form-select form-select-sm fs-5">
               <option value="not_selected">Не установлено</option>
               <option value="option2">Категория</option>
               <option value="option2" selected>SKU</option>
@@ -86,8 +86,16 @@
             </div>
           </div>
           <div class="mb-3">
-            <label for="regular_assort_script" class="form-label">Сценарий расчета</label>
-            <input id="regular_assort_script" type="text" class="form-control" placeholder="Еще не создано ни одного сценария" />
+            <label for="seasonality_scenario">Сценарий расчета</label>
+            <select
+              id="seasonality_scenario"
+              placeholder="Выберите из списка"
+              class="form-select form-select-sm fs-5"
+            >
+              <option value="" disabled selected>Выберите из списка</option>
+              <option value="2">Сценарий 1</option>
+              <option value="2">Сценарий 2</option>
+            </select>
           </div>
           <div></div>
           <div class="d-flex justify-content-between mt-5">

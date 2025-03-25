@@ -1,4 +1,152 @@
-<div class="new_product_container">
+<div class="page__content page-content data-page">
+  <header class="page-content__header">
+    <p>Новинки</p>
+  </header>
+
+  <div class="row border border-1 rounded-4 mx-1 shadow-sm">
+    <!-- Левый блок: Агрегация выходных данных -->
+    <div class="col-md-6 p-0">
+      <!-- <div class="card"> -->
+      <div class="card-body">
+        <h5 class="card-title block_title mb-3">Агрегация выходных данных</h5>
+
+        <div class="mb-1">
+          <label for="news_product__aggregation-geo" class="form-label"
+            >Агрегат по географии</label
+          >
+          <select
+            id="news_product__aggregation-geo"
+            class="form-select form-select-sm fs-5"
+          >
+            <option value="not_selected">Не установлено</option>
+            <option value="chain" selected>Сеть</option>
+            <option value="option2">Страна</option>
+            <option value="option3">Регион</option>
+            <option value="option4">Город</option>
+            <option value="option5">Магазин</option>
+          </select>
+        </div>
+        <div class="mb-1">
+          <label for="news_product__aggregation-scu" class="form-label"
+            >Агрегат по позиции</label
+          >
+          <select
+            id="news_product__aggregation-scu"
+            class="form-select form-select-sm fs-5"
+          >
+            <option value="not_selected">Не установлено</option>
+            <option value="option2">Категория</option>
+            <option value="option2" selected>SKU</option>
+          </select>
+        </div>
+
+        <div class="mb-1">
+          <label for="news_product__aggregation-time" class="form-label"
+            >Дополнительные показатели</label
+          >
+          <select
+            id="news_product__aggregation-time"
+            class="form-select form-select-sm fs-5"
+          >
+            <option value="not_selected">Не установлено</option>
+            <option value="option1">ABC</option>
+            <option value="option2" selected>XYZ</option>
+            <option value="option4">Ценовой сегмент</option>
+            <option value="option3">Механика акции</option>
+          </select>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <div class="input-group mb-3">
+              <span class="input-group-text">Период прогноза</span>
+              <input
+                type="text"
+                class="form-control"
+                value="4"
+                aria-label="Сумма в рублях (с точкой и двумя десятичными знаками)"
+              />
+              <span class="input-group-text">нед</span>
+            </div>
+          </div>
+          <div class="col">
+            <div class="input-group mb-3">
+              <span class="input-group-text">Лаг прогноза</span>
+              <input
+                type="text"
+                class="form-control"
+                value="1"
+                aria-label="Сумма в рублях (с точкой и двумя десятичными знаками)"
+              />
+              <span class="input-group-text">нед</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- </div> -->
+    </div>
+
+    <!-- Правый блок: Метод прогнозирования и сценарий расчета -->
+    <div class="col-md-6 d-flex flex-column p-0">
+      <!-- <div class="card"> -->
+      <div class="card-body flex-fill">
+        <h5 class="card-title block_title mb-3">Настройки</h5>
+        <div class="mb-3">
+          <div class="mb-3">
+            <!-- <label for="seasonality_scenario">Выбрать коэффициенты</label>
+            <select
+              id="seasonality_scenario"
+              placeholder="Выберите из списка"
+              class="form-select form-select-sm fs-5"
+            >
+              <option value="" disabled selected>Выберите из списка</option>
+              <option value="2">Рассчитанные</option>
+              <option value="2">Пользовательские</option>
+            </select> -->
+            <label for="seasonality_scenario">Сценарий расчета</label>
+            <select
+              id="seasonality_scenario"
+              placeholder="Выберите из списка"
+              class="form-select form-select-sm fs-5"
+            >
+              <option value="" disabled selected>Выберите из списка</option>
+              <option value="2">Сценарий 1</option>
+              <option value="2">Сценарий 2</option>
+            </select>
+            <div class="d-flex justify-content-between mt-5">
+              <button
+                type="button"
+                class="btn btn-outline-primary"
+                style="width: 31%"
+              >
+                Сохранить сценарий
+              </button>
+              <button
+                type="button"
+                class="btn btn-outline-secondary"
+                style="width: 31%"
+                onclick="promo_OptimizationButton()"
+              >
+                Оптимизировать
+              </button>
+              <button
+                type="button"
+                class="btn btn-primary"
+                style="width: 31%"
+                onclick=""
+                id="regular_assort__calculateForecastButton"
+              >
+                Рассчитать прогноз
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="mb-3"></div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- <div class="new_product_container">
 
     <section class="new_product__aggregation-wrapper">
         <p class = "new_product__aggregation-title"> Настройки расчёта</p>
@@ -37,15 +185,7 @@
     <section class="new_product__forecast-wrapper">
         <p></p>
         <p></p>
-     
-    <!-- <label for="new_product_method">Выбор коэффициентов</label>
-    <select id="new_product_method">
-        <option value="new_product_not_selected">не выбрано</option>
-        <option value="new_product_moving__сalculated">Рассчитанные</option>
-        <option value="new_product_weighted__custom">Пользовательские</option>
-    </select>  -->
-
-    <!-- <div class="new_product_calculate"> -->
+    
     <button onclick="loadAndFilterDataNewProducts()" id="new_product__calculateForecastButton">Рассчитать прогноз</button>
     <select id="new_product_scenario">
         <option value="option0">Сохранить текущие настройки</option>
@@ -53,8 +193,6 @@
         <option value="option2">Сценарий 2</option>
         <option value="option3">Сценарий 3</option>
     </select>
-    <!-- </div> -->
-
     <button onclick="newProductOptimizationButton()" id="new_product__optimizeButton">Оптимизировать</button>
     <button id="new_product__exportButton">Экспорт</button>
 </div>
@@ -62,16 +200,11 @@
 
 <section class="new_product__preview">
     <div class="new_product__results">
-        <!-- <button onclick="newProduct_PreviewButton()"  id="new_product_resultsButton">Preview</button> -->
+       
         <iframe  id="new_product_PreviewIframe" src=""></iframe>
     </div>
 </section>
 
-<!-- <div class="regular_assort__chart">
-<button onclick="tb_regular_assort__chart()"  id="regular_assort_chartButton">Chart</button>
-<iframe  id="tb_regular_assort_chart" src="" width="80%" height="200"></iframe>
-
-</div> -->
 <div id="new_product__modal">
 <div id="new_product__modalContent">
     <h5 class="new_product__modal-title">Выберите параметры оптимизации:</h5>
@@ -79,4 +212,4 @@
     <button onclick="newProductSaveModalButton()" id="newProductSaveModalButton">Сохранить</button>
     <button onclick="newProductCloseModalButton()" id="newProductCloseModalButton">Закрыть</button>
 </div>
-</div>
+</div> -->

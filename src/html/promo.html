@@ -9,11 +9,14 @@
       <!-- <div class="card"> -->
       <div class="card-body">
         <h5 class="card-title block_title mb-3">Агрегация выходных данных</h5>
-        <div class="mb-3">
+        <div class="mb-1">
           <label for="regular_assort__aggregation-time" class="form-label"
             >Агрегат по времени</label
           >
-          <select id="regular_assort__aggregation-time" class="form-select">
+          <select
+            id="regular_assort__aggregation-time"
+            class="form-select form-select-sm fs-5"
+          >
             <option value="not_selected">Не установлено</option>
             <option value="option1">День</option>
             <option value="option2" selected>Неделя</option>
@@ -21,11 +24,14 @@
             <option value="option3">Квартал</option>
           </select>
         </div>
-        <div class="mb-3">
+        <div class="mb-1">
           <label for="regular_assort__aggregation-geo" class="form-label"
             >Агрегат по географии</label
           >
-          <select id="regular_assort__aggregation-geo" class="form-select">
+          <select
+            id="regular_assort__aggregation-geo"
+            class="form-select form-select-sm fs-5"
+          >
             <option value="not_selected">Не установлено</option>
             <option value="chain" selected>Сеть</option>
             <option value="option2">Страна</option>
@@ -34,11 +40,14 @@
             <option value="option5">Магазин</option>
           </select>
         </div>
-        <div class="mb-3">
+        <div class="mb-1">
           <label for="regular_assort__aggregation-scu" class="form-label"
             >Агрегат по позиции</label
           >
-          <select id="regular_assort__aggregation-scu" class="form-select">
+          <select
+            id="regular_assort__aggregation-scu"
+            class="form-select form-select-sm fs-5"
+          >
             <option value="not_selected">Не установлено</option>
             <option value="option2">Категория</option>
             <option value="option2" selected>SKU</option>
@@ -46,7 +55,7 @@
         </div>
         <div class="row">
           <div class="col-6">
-            <div class="input-group mb-3">
+            <div class="input-group mb-1">
               <span class="input-group-text">Период прогноза</span>
               <input
                 type="text"
@@ -120,9 +129,8 @@
             class="form-select form-select-sm fs-5"
           >
             <option value="" disabled selected>Выберите из списка</option>
-            <!-- <option value="1">Кэф без ограничений#1</option> -->
-            <option value="2">Рассчитанные</option>
-            <option value="2">Пользовательские</option>
+            <option value="2">Сценарий 1</option>
+            <option value="2">Сценарий 2</option>
           </select>
           <div class="d-flex justify-content-between mt-5">
             <button

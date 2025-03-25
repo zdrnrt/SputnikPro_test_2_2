@@ -64,27 +64,32 @@ function planner_addData() {
     
     if (!table) {
         // Если таблицы нет, создаём её
-        const resultHTML = 
-            `<style>
-                table {
-                    width: 100%;
-                    border-collapse: collapse;
-                  
-                    font-family: Arial, sans-serif;
-                    font-size:14px;
-                }
-                th, td {
-                    padding: 10px;
-                    text-align: left;
-                    border-bottom: 1px solid #ddd;
-                }
-                th {
-                    background-color: #f2f2f2;
-                }
-                tr:hover {
-                    background-color: #f5f5f5;
-                }
-            </style>
+        const resultHTML = `
+        <style>
+            .table-container {
+                border-radius: 8px;
+                overflow: hidden;
+                border: 1px solid #ddd; /* Добавляем границу для видимости скругления */
+            }
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                font-family: Inter, sans-serif;
+                font-size: 12px;
+            }
+            th, td {
+                padding: 12px;
+                text-align: left;
+                border-bottom: 1px solid #ddd;
+            }
+            th {
+                background-color: #F1F2FF;
+            }
+            tr:hover {
+                background-color: #2C2D31;
+            }
+        </style>
+        <div class="table-container">
             <table>
                 <tr>
                     <th>Наименование</th>
@@ -98,8 +103,9 @@ function planner_addData() {
                     <th>Окончание</th>
                 </tr>
                 ${newRowHTML}
-            </table>`
-        ;
+            </table>
+        </div>
+        `;
         iframeDoc.open();
         iframeDoc.write(resultHTML);
         iframeDoc.close();
