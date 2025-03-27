@@ -5,43 +5,35 @@ import { Popover } from 'bootstrap';
 import '../scss/style.scss'
 import './blocks/aside.js'
 
-import check_mark from "./modules/check_mark.js";
-import showContent_listing from "./modules/listing.js";
-import showContent_newProducts from "./modules/new_products.js";
-import showContent_showContent_locks from "./modules/locks.js";
-import showContent_outputAssort from "./modules/output_assort.js";
-import showContent_tender from "./modules/tender.js";
-import showContent_priceChange from "./modules/price_change.js";
-import showContent_promoRatio from "./modules/promo_ratio.js";
-import showContent_planner from "./modules/planner.js";
-// import tb_regular_assort__chart from "./modules/regular_assortChart.js";
-import howContent_summaryPlan from "./modules/summary_plan.js";
-import tbRegAssortButton from "./modules/regular_assortTable_copy.js";
-// import tbSeasonalityPreview from "./modules/seasonality_previewTable.js";
-import loadDataSeasonality from "./modules/seasonality_visualLines.js";
-import tbPromoRatioPerviewButton from "./modules/promoRatio_previewButton.js";
-import {tbRegAssortOptimizationButton} from "./modules/regular_assortOptimizationForm.js";
-import { ra_closeModalButton, ra_saveButton} from "./modules/regular_assortOptimizationForm.js";
-import {promo_OptimizationButton} from "./modules/promo_OptimizationForm.js";
-import {promo_closeModalButton, promo_saveModalButton} from "./modules/promo_OptimizationForm.js";
-// import promo_PreviewButton from "./modules/promo_PreviewTable.js";
-import {newProductOptimizationButton, newProductCloseModalButton, newProductSaveModalButton } from "./modules/newProduct_OptimizationForm.js";
-import newProduct_PreviewButton from "./modules/newProduct_PreviewTable.js";
-import {summaryPlan_OptimizationButton, summaryPlan_closeModalButton, summaryPlan_saveModalButton} from "./modules/summaryPlan_OptimizationForm.js";
-import summaryPlan_PreviewButton from "./modules/summaryPlan_PreviewTable.js";
-import {saveSettings, planner_selectScenarioRepeat, closeModal, closeAllModals } from "./modules/planner_formRepeat.js";
-// import planner_saveButton from "./modules/planner_iframeSavedParam.js";
-import {saveModalData, planner_addData} from "./modules/planner_saveModalRepetition.js";
-import planner_formRepeatSelect from "./modules/planner_formRepeatSelect.js";
-import saveSelectedGlobalParameters from "./modules/parametersGlobalChecked.js";
-import saveSelectedGlobalParametersSeasonality from "./modules/seasonalityGlobalChecked.js";
-import saveSelectedGlobalParametersRegular from "./modules/regularGlobalChecked.js";
-
+import './modules/check_mark'
+import './modules/summaryPlan_OptimizationForm'
+import './modules/newProduct_OptimizationForm'
 import './modules/parametersOpen'
 import './modules/seasonalityOpen'
 import './modules/regularOpen'
 import './modules/promoOpen'
+import './modules/check_mark'
 import './modules/actionOpen'
+import './modules/new_products'
+import './modules/output_assort'
+import './modules/promo_ratio'
+import './modules/planner'
+import './modules/regular_assortTable_copy'
+import './modules/seasonality_visualLines'
+import './modules/summary_plan'
+import './modules/promoRatio_previewButton'
+import './modules/regular_assortOptimizationForm'
+import './modules/promo_OptimizationForm'
+import './modules/newProduct_PreviewTable'
+import './modules/summaryPlan_PreviewTable'
+import './modules/planner_formRepeat'
+import './modules/planner_saveModalRepetition'
+import './modules/planner_formRepeatSelect'
+import './modules/parametersGlobalChecked'
+import './modules/seasonalityGlobalChecked'
+import './modules/regularGlobalChecked'
+
+
 
 //@import url("https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css");
 
@@ -50,60 +42,32 @@ import imageTO from '/images/users/TkachevOleg.jpg';
 import imageTG from '/images/users/TolokGalina.jpg';
 import imageNP from '/images/users/question.jpg';
 import imageU1 from '/images/users/user1.png';
-
-/*вставка юзера ПЕРЕНЕСЬТИ*/
-window.updateUserImage = function() {
-  const userSelect = document.getElementById('header_top_user');
-  const userImageDiv = document.getElementById('userImage');
-  const images = {
-      option1: imageNP, //  для нового пользователя
-      option2: imageZE , // Зилевич Елизаветы
-      option3: imageU1, 
-      option4: imageTO , 
-      option5: imageU1, // Путь к изображению Шварёва Данила
-      option6: imageTG,
-      option7: imageU1 // Путь к изображению Толок Галина
-
-  };
-
-  const selectedValue = userSelect.value;
-
-  // Очищаем предыдущий контент
-  userImageDiv.innerHTML = '';
-
-  if (selectedValue && images[selectedValue]) {
-      const img = document.createElement('img');
-      img.src = images[selectedValue];
-      img.alt = selectedValue;
-      img.style.width = '50px';
-      img.style.borderRadius = '50px';
-      userImageDiv.appendChild(img);
-  }
-
-  
-}
 /*вставка юзера*/
 
-
-  document.addEventListener('DOMContentLoaded', function() {
-    const menuItems = document.querySelectorAll('.visible');
-  
-    menuItems.forEach(item => {
-        item.addEventListener('click', function() {
-            // Удаляем класс 'active' у всех пунктов
-            menuItems.forEach(i => i.classList.remove('actived'));
-            // Добавляем класс 'active' к текущему пункту
-            this.classList.add('actived');
-        });
+function initBootstrapTooltips() {
+    // Находим все неинициализированные tooltips
+    document.querySelectorAll('[data-bs-toggle="tooltip"]:not(.bs-tooltip-initialized)').forEach(el => {
+      new bootstrap.Tooltip(el);
+      el.classList.add('bs-tooltip-initialized'); // Помечаем как инициализированный
     });
+  }
   
+  // Инициализация при загрузке
+  document.addEventListener('DOMContentLoaded', initBootstrapTooltips);
   
+  // Для динамического контента можно использовать MutationObserver
+  const observer = new MutationObserver(function(mutations) {
+    initBootstrapTooltips();
+  });
+  
+  observer.observe(document.body, {
+    childList: true,
+    subtree: true
   });
 
 
-
 //REG ASSORT***************************************************************************************************************************************************
-        // document.getElementById('regular_assort__calculateForecastButton').addEventListener('click', loadAndFilterData);
+     
     
 window.loadAndFilterData = function() {
 
@@ -275,7 +239,7 @@ fetch('   https://raw.githubusercontent.com/Kujavia/SputnikPro_test_2_2/master/p
 };
   
 //NEWS PRODUCTS global**********************************************************************************~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-       // document.getElementById('regular_assort__calculateForecastButton').addEventListener('click', loadAndFilterData);
+      
     
        window.loadAndFilterDataNewProducts = function() {
         window.saveGlobalParametersRegularNewProducts = function() {

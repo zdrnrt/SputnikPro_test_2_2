@@ -1,6 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import Popover from 'bootstrap/js/dist/popover';
+import Tooltip from 'bootstrap/js/dist/tooltip'; // Добавляем импорт Tooltip
 
 window.showContent_parameters = function () {
     const mainContent = document.getElementById('mainContent');
@@ -12,53 +13,62 @@ window.showContent_parameters = function () {
             return response.text();
         })
         .then(data => {
-            // Вставляем загруженный HTML в mainContent
             mainContent.innerHTML = data;
-  
-            // Загружаем сохранённые параметры
             loadSelectedGlobalParametersBefore();
-  
-            // Инициализируем Popover для динамически загруженных элементов
+            
+            // Инициализируем и Popover и Tooltip
             initializePopovers();
-  
-            // Инициализируем иконки (если необходимо)
+            initializeTooltips(); // Добавляем вызов инициализации Tooltip
+            
             initializeIcons();
         })
         .catch(error => {
             console.error('Ошибка при загрузке файла:', error);
             mainContent.innerHTML = 'Ошибка при загрузке';
         });
-  
-    // Функция для загрузки сохранённых параметров
-  window.loadSelectedGlobalParametersBefore =   function() {
-        const parametersBefore = JSON.parse(localStorage.getItem('globalParametersBefore'));
-        if (parametersBefore) {
-            for (const id in parametersBefore) {
-                const selectElement = document.getElementById(id);
-                if (selectElement) {
-                    selectElement.value = parametersBefore[id];
-                }
+}
+
+// Функция для загрузки сохранённых параметров
+window.loadSelectedGlobalParametersBefore = function() {
+    const parametersBefore = JSON.parse(localStorage.getItem('globalParametersBefore'));
+    if (parametersBefore) {
+        for (const id in parametersBefore) {
+            const selectElement = document.getElementById(id);
+            if (selectElement) {
+                selectElement.value = parametersBefore[id];
             }
         }
     }
-  
-    // Функция для инициализации Popover
-    window.initializePopovers = function() {
-        const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]');
-        popoverTriggerList.forEach(popoverTriggerEl => {
-            new Popover(popoverTriggerEl); // Используем импортированный Popover
+}
+
+// Функция для инициализации Popover (оставляем как есть)
+window.initializePopovers = function() {
+    const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]');
+    popoverTriggerList.forEach(popoverTriggerEl => {
+        new Popover(popoverTriggerEl);
+    });
+};
+
+// Новая функция для инициализации Tooltip
+window.initializeTooltips = function() {
+    const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+    tooltipTriggerList.forEach(tooltipTriggerEl => {
+        new Tooltip(tooltipTriggerEl, {
+            // Дополнительные опции (необязательно)
+            trigger: 'hover focus', // Показывать при наведении и фокусе
+            placement: 'top',     // Позиция по умолчанию
+            delay: {show: 100, hide: 100} // Задержки
         });
-    };
-  
-    // Функция для инициализации иконок
-    window.initializeIcons= function() {
-        const iconElements = [].slice.call(document.querySelectorAll('svg use'));
-        iconElements.forEach(function (iconEl) {
-            const href = iconEl.getAttribute('xlink:href');
-            if (href && !document.querySelector(href)) {
-                console.warn(`Иконка ${href} не найдена в DOM`);
-            }
-        });
-    }
-  };
-  
+    });
+};
+
+// Функция для инициализации иконок (оставляем без изменений)
+window.initializeIcons = function() {
+    const iconElements = [].slice.call(document.querySelectorAll('svg use'));
+    iconElements.forEach(function (iconEl) {
+        const href = iconEl.getAttribute('xlink:href');
+        if (href && !document.querySelector(href)) {
+            console.warn(`Иконка ${href} не найдена в DOM`);
+        }
+    });
+};

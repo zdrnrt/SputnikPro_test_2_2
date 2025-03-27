@@ -114,12 +114,11 @@
           <label
             class="form-check-label"
             for="flexRadioDefaultPromo2"
-            data-bs-container="body"
-            data-bs-toggle="popover"
-            data-bs-placement="right"
-            data-bs-content="Всплывающее окно вверх"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            data-bs-custom-class="custom-tooltip"
           >
-            Пустое значение
+            Исключение промо продаж
           </label>
         </div>
         <div class="form-check border-top">
@@ -149,10 +148,10 @@
             <span
               class="input-group-text"
               id="inputGroup-sizing-sm"
-              data-bs-container="body"
-              data-bs-toggle="popover"
-              data-bs-placement="right"
-              data-bs-content="100-2=98% z коэффициент для стандартного отклонения"
+              data-bs-toggle="tooltip"
+              data-bs-placement="top"
+              data-bs-custom-class="custom-tooltip"
+              data-bs-title="100-2=98% z коэффициент для стандартного отклонения"
               >Порог промо</span
             >
             <input
@@ -266,10 +265,10 @@
             <span
               class="input-group-text"
               id="inputGroup-sizing-sm"
-              data-bs-container="body"
-              data-bs-toggle="popover"
-              data-bs-placement="right"
-              data-bs-content="Период(неделя, месяц, квартал) по которому ведется расчет"
+              data-bs-toggle="tooltip"
+              data-bs-placement="top"
+              data-bs-custom-class="custom-tooltip"
+              data-bs-title="Период(неделя, месяц, квартал) по которому ведется расчет"
               >Период</span
             >
             <input
@@ -284,10 +283,10 @@
             <span
               class="input-group-text"
               id="inputGroup-sizing-sm"
-              data-bs-container="body"
-              data-bs-toggle="popover"
-              data-bs-placement="right"
-              data-bs-content="Нижняя и верхняя граница в стандартных отклонениях от средней.
+              data-bs-toggle="tooltip"
+              data-bs-placement="top"
+              data-bs-custom-class="custom-tooltip"
+              data-bs-title="Нижняя и верхняя граница в стандартных отклонениях от средней.
 Чем больше значение - тем больше свободы продаж"
               >σ НГ</span
             >
@@ -325,10 +324,10 @@
             <span
               class="input-group-text"
               id="inputGroup-sizing-sm"
-              data-bs-container="body"
-              data-bs-toggle="popover"
-              data-bs-placement="right"
-              data-bs-content="Период(неделя, месяц, квартал) по которому ведется расчет"
+              data-bs-toggle="tooltip"
+              data-bs-placement="top"
+              data-bs-custom-class="custom-tooltip"
+              data-bs-title="Период(неделя, месяц, квартал) по которому ведется расчет"
               >Период</span
             >
             <input
@@ -343,10 +342,10 @@
             <span
               class="input-group-text"
               id="inputGroup-sizing-sm"
-              data-bs-container="body"
-              data-bs-toggle="popover"
-              data-bs-placement="right"
-              data-bs-content="Нижняя и верхняя граница в интерквартиле от первого квартиля и третьего.
+              data-bs-toggle="tooltip"
+              data-bs-placement="top"
+              data-bs-custom-class="custom-tooltip"
+              data-bs-title="Нижняя и верхняя граница в интерквартиле от первого квартиля и третьего.
 Чем больше значение - тем больше свободы продаж"
               >IQR НГ</span
             >
@@ -418,10 +417,10 @@
             <span
               class="input-group-text"
               id="inputGroup-sizing-sm"
-              data-bs-container="body"
-              data-bs-toggle="popover"
-              data-bs-placement="right"
-              data-bs-content="Среднее в день за период(неделя, месяц, квартал).
+              data-bs-toggle="tooltip"
+              data-bs-placement="top"
+              data-bs-custom-class="custom-tooltip"
+              data-bs-title="Среднее в день за период(неделя, месяц, квартал).
           Если средний остаток в расчитываемый период меньше, чем установленное значение"
               >Минимальное значение</span
             >
@@ -447,12 +446,11 @@
           </label>
           <div class="input-group input-group-sm mb-3">
             <span
-              class="input-group-text"
+              class="input-group-text custom-tooltip"
               id="inputGroup-sizing-sm"
-              data-bs-container="body"
-              data-bs-toggle="popover"
-              data-bs-placement="right"
-              data-bs-content="Сумма за период(неделя, месяц, квартал).
+              data-bs-toggle="tooltip"
+              data-bs-placement="top"
+              data-bs-title="Сумма за период(неделя, месяц, квартал).
           Если сумма остатка в расчитываемый период меньшее чем установленное значение"
               >Минимальное значение</span
             >
@@ -480,10 +478,10 @@
             <span
               class="input-group-text"
               id="inputGroup-sizing-sm"
-              data-bs-container="body"
-              data-bs-toggle="popover"
-              data-bs-placement="right"
-              data-bs-content="Доля ТТ где остаток SKU >0 по дням.
+              data-bs-toggle="tooltip"
+              data-bs-placement="top"
+              data-bs-custom-class="custom-tooltip"
+              data-bs-title="Доля ТТ где остаток SKU >0 по дням.
 Среднее значение доли за период(неделя, месяц, квартал)
 Если среднее значение доли за период меньше чем установленное значение"
               >Доля ТТ с остатком</span
@@ -512,10 +510,10 @@
             <span
               class="input-group-text"
               id="inputGroup-sizing-sm"
-              data-bs-container="body"
-              data-bs-toggle="popover"
-              data-bs-placement="right"
-              data-bs-content="Доля дней где остаток >0 за период(неделя, месяц,квартал).
+              data-bs-toggle="tooltip"
+              data-bs-placement="top"
+              data-bs-custom-class="custom-tooltip"
+              data-bs-title="Доля дней где остаток >0 за период(неделя, месяц,квартал).
 Если расчитанная доля за период меньше чем установленное значение"
               >Доля дней с остатком</span
             >
@@ -576,10 +574,10 @@
             <span
               class="input-group-text"
               id="inputGroup-sizing-sm"
-              data-bs-container="body"
-              data-bs-toggle="popover"
-              data-bs-placement="right"
-              data-bs-content="Период(неделя, месяц, квартал) по которому ведется расчет"
+              data-bs-toggle="tooltip"
+              data-bs-placement="top"
+              data-bs-custom-class="custom-tooltip"
+              data-bs-title="Период(неделя, месяц, квартал) по которому ведется расчет"
               >Период</span
             >
             <input
