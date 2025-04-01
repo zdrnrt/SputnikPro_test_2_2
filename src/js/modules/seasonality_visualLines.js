@@ -1,3 +1,6 @@
+import * as XLSX from 'xlsx';  // ES6-импорт
+import Plotly from 'plotly.js-dist-min';
+
 export default window.loadDataSeasonality = function() {
     window. saveSelectedGlobalParametersSeasonality = function() {
         let currentData = JSON.parse(localStorage.getItem('globalParameters'));
@@ -64,7 +67,7 @@ export default window.loadDataSeasonality = function() {
                     }
                     // Создаем массив для каждого типа продукции, если его еще нет
                     if (!datasets[productType]) {
-                        datasets[productType] = {
+                        datasets[productType] = { 
                             x: [], 
                             y: [], 
                             type: 'scatter', // Тип графика

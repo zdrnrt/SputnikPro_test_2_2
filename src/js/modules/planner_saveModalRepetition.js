@@ -21,7 +21,7 @@ function saveModalData() {
             endingInfo = `${endDate}`;
         }
     });
-    
+
     modalData.endingInfo = endingInfo;
     closeModal('planner_weeklyModal');
 }
@@ -31,18 +31,18 @@ function planner_addData() {
     const block = document.getElementById('planner__block').options[document.getElementById('planner__block').selectedIndex].text;
     const scenarioCustom = document.getElementById('planner__scenarioCustom').options[document.getElementById('planner__scenarioCustom').selectedIndex].text;
     const planner_intervalRepetition__header = document.getElementById('planner_intervalRepetition__header').value;
-   
+
     const planner_intervalRepetition__headerText = document.getElementById('planner_intervalRepetition__header').options[document.getElementById('planner_intervalRepetition__header').selectedIndex].text;
 
     let repetitionValueMonth = modalData.dayOfWeekRepeat;
     let repetitionValueMonthAttribute = modalData.dayOfWeekMonthRepeatAttribute
     if (planner_intervalRepetition__header === 'monthly') {
-        repetitionValueMonth = `${modalData.dayOfWeekMonthRepeat} ${modalData.dayOfWeekMonthRepeatAttribute}`; 
+        repetitionValueMonth = `${modalData.dayOfWeekMonthRepeat} ${modalData.dayOfWeekMonthRepeatAttribute}`;
         console.log(modalData.dayOfWeekMonthRepeat)
     }
 
 
-    const newRowHTML = 
+    const newRowHTML =
         `<tr>
             <td>${scenarioName}</td>
             <td>${block}</td>
@@ -54,14 +54,14 @@ function planner_addData() {
             <td>${modalData.selectedStartDate}</td>
             <td>${modalData.endingInfo}</td>
         </tr>`
-    ;
+        ;
 
     const iframe = document.getElementById('planner_Iframe');
     const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
 
     // Проверяем, существует ли таблица
     let table = iframeDoc.querySelector('table');
-    
+
     if (!table) {
         // Если таблицы нет, создаём её
         const resultHTML = `
@@ -71,7 +71,7 @@ function planner_addData() {
                 overflow: hidden;
                 border: 1px solid #ddd; /* Добавляем границу для видимости скругления */
             }
-            table {
+            table { 
                 width: 100%;
                 border-collapse: collapse;
                 font-family: Inter, sans-serif;
@@ -118,7 +118,7 @@ function planner_addData() {
 
 
 
-export { saveModalData, planner_addData};
+export { saveModalData, planner_addData };
 
 window.saveModalData = saveModalData;
 window.planner_addData = planner_addData;

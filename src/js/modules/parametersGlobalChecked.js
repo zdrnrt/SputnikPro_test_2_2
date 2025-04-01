@@ -1,8 +1,8 @@
-export default window. saveSelectedGlobalParameters = function() {
-    window.check_mark = function() {
+export default window.saveSelectedGlobalParameters = function () {
+    window.check_mark = function () {
         const statusElement = document.getElementById('check-mark_button');
         statusElement.style.display = 'inline';
-        setTimeout(function() {
+        setTimeout(function () {
             statusElement.style.display = 'none';
         }, 5000);
     }
@@ -15,38 +15,42 @@ export default window. saveSelectedGlobalParameters = function() {
     const timeAggregation = document.getElementById("parameters_aggregation-time");
     const skuAggregation = document.getElementById("parameters_aggregation-scu");
     const oosMethod = document.getElementById("parameters_oos-method");
-    const promoMethod = document.getElementById("parameters_promo-method");
-    const spikesMethod = document.getElementById("parameters_spikes-method");
-    const salesRecoveryMethod = document.getElementById("parameters_sales_recovery-method");
+    const promoMethod = document.querySelector('input[name="flexRadioDefaultPromo"]:checked');
+    const spikesMethod = document.querySelector('input[name="flexRadioDefaultSpikes"]:checked');
+    const selectedTextOOS = document.querySelector('input[name="flexRadioDefaultOOS"]:checked');
+    const salesRecoveryMethod = document.querySelector('input[name="flexRadioDefaultRecovery"]:checked');
 
     // Находим все радио-кнопки с именем 'flexRadioDefaultOOS'
-const radioButtons = document.querySelectorAll('input[name="flexRadioDefaultOOS"]');
-// Находим выбранную радио-кнопку
-const selectedRadio = Array.from(radioButtons).find(radio => radio.checked);
-// Получаем текст выбранной радио-кнопки
-const selectedTextOOS = selectedRadio
-  ? document.querySelector(`label[for="${selectedRadio.id}"]`).textContent.trim()
-  : null;
-  const selectedValueOOS = selectedRadio.value;
+    const radioButtons = document.querySelectorAll('input[name="flexRadioDefaultOOS"]');
+    // Находим выбранную радио-кнопку
+    ////const selectedRadio = Array.from(radioButtons).find(radio => radio.checked);
+    // Получаем текст выбранной радио-кнопки
+    //const selectedValueOOS = selectedRadio.value;
+
+    const labelpromoMethod = document.querySelector(`label[for="${promoMethod.id}"]`);
+    const labelspikesMethod = document.querySelector(`label[for="${spikesMethod.id}"]`);
+    const labelselectedTextOOS = document.querySelector(`label[for="${selectedTextOOS.id}"]`);
+    const labelsalesRecoveryMethod = document.querySelector(`label[for="${salesRecoveryMethod.id}"]`);
 
     // Сохраняем текстовые значения в объект
+
+    parameters['очистка от промо'] = labelpromoMethod.textContent.trim();
+    parameters['очистка от выбросов'] = labelspikesMethod.textContent.trim();
+    parameters['очистка oos'] = labelselectedTextOOS.textContent.trim();
+    parameters['восстановление'] = labelsalesRecoveryMethod.textContent.trim();
+
     parameters['агрегат по времени'] = timeAggregation.options[timeAggregation.selectedIndex].text;
     parameters['агрегат по позиции'] = skuAggregation.options[skuAggregation.selectedIndex].text;
     //parameters['очистка oos'] = oosMethod.options[oosMethod.selectedIndex].text;
 
-    parameters['очистка oos'] = selectedTextOOS;
 
-    parameters['очистка от промо']  = promoMethod.options[promoMethod.selectedIndex].text;
-    parameters['очистка от выбросов'] = spikesMethod.options[spikesMethod.selectedIndex].text;
-    parameters['восстановление'] = salesRecoveryMethod.options[salesRecoveryMethod.selectedIndex].text;
 
-         // Сохраняем id и value выбранных селектов в объект в формате { id: value }
+
+    // Сохраняем id и value выбранных селектов в объект в формате { id: value }
     parametersBefore[timeAggregation.id] = timeAggregation.value;
     parametersBefore[skuAggregation.id] = skuAggregation.value;
     //parametersBefore[oosMethod.id] = oosMethod.value;
-
-    parametersBefore[oosMethod.id] = selectedValueOOS;
-
+    parametersBefore[oosMethod.id] = selectedTextOOS;
     parametersBefore[promoMethod.id] = promoMethod.value;
     parametersBefore[spikesMethod.id] = spikesMethod.value;
     parametersBefore[salesRecoveryMethod.id] = salesRecoveryMethod.value;
