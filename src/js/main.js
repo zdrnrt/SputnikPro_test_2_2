@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', initBootstrapTooltips);
 // });
 
 
-//REG ASSORT***************************************************************************************************************************************************
+//REG ASSORT********
 
 
 window.loadAndFilterData = function () {
@@ -244,7 +244,7 @@ window.loadAndFilterData = function () {
         });
 };
 
-//NEWS PRODUCTS global**********************************************************************************~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//NEWS PRODUCTS global*********
 
 
 window.loadAndFilterDataNewProducts = function () {
@@ -290,34 +290,36 @@ window.loadAndFilterDataNewProducts = function () {
         // Добавление стилей
         const style = document.createElement('style');
         style.textContent =
-            `table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 0px;
-    font-size: 12px;
-    font-size: 16px;
-    font-family: 'Arial', sans-serif; 
-}
-th, td {
-    border: 1px solid #ddd;
-    padding: 10px;
-    text-align: left;
-    width: auto;
-}
-th {
-    background-color:rgb(36, 76, 223);
-    color: white; 
-    font-family: 'Arial', sans-serif;
-}
-tr:nth-child(even) {
-    background-color: #f2f2f2;
-}
-tr:hover {
-    background-color: #ddd;
-}
-     td:first-child {
-  font-weight: bold;
-  font-family: 'Arial', sans-serif;`
+            `
+        table {
+               width: 100%;
+        border-collapse: collapse;
+        font-family: Inter, sans-serif;
+        font-size: 14px;
+        background-color: white;
+        border-radius: 8px; /* Закругляем углы */
+        overflow: hidden; /* Скрываем острые углы у ячеек */
+        border-style: hidden; /* Скрываем внешнюю границу таблицы (опционально) */
+        box-shadow: 0 0 0 1px #E0E0E0; /* Восстанавливаем видимость границы (опционально) */
+        }
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border: 1px solid #E0E0E0;
+        }
+        th {
+            background-color: #F1F2FF;
+            color: #333;
+            font-weight: 600;
+            border-bottom: 2px solid #D0D0D0;
+        }
+        tr {
+            background-color: white;
+        }
+        tr:hover {
+            background-color: #F8F8F8;
+        }
+    `
             ;
         iframeDocument.head.appendChild(style);
         const table = iframeDocument.createElement('table');
@@ -386,7 +388,7 @@ tr:hover {
 
     // const url = './public/images/users/regAssort2.xlsx';// ссылки для локального компа
     // fetch('./public/images/users/regAssort2.xlsx')// ссылки для локального компа
-    const url = '   https://raw.githubusercontent.com/Kujavia/SputnikPro_test_2_2/master/public/images/demo_file/newProducts1.xlsx';
+    //const url = '   https://raw.githubusercontent.com/Kujavia/SputnikPro_test_2_2/master/public/images/demo_file/newProducts1.xlsx';
     fetch('   https://raw.githubusercontent.com/Kujavia/SputnikPro_test_2_2/master/public/images/demo_file/newProducts1.xlsx')
         // fetch('./public/images/demo_file/newProducts1.xlsx')// ссылки для локального компа
         .then(response => {
@@ -411,8 +413,7 @@ tr:hover {
         });
 };
 
-
-//PROMO global-------------+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+//PROMO global*********
 window.loadAndFilterDataPromo = function () {
     window.saveGlobalParametersPromo = function () {
         let currentData = JSON.parse(localStorage.getItem('globalParametersPromo'));
@@ -449,34 +450,36 @@ window.loadAndFilterDataPromo = function () {
         // Добавление стилей
         const style = document.createElement('style');
         style.textContent =
-            `table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 0px;
-    font-size: 12px;
-    font-size: 16px;
-    font-family: 'Arial', sans-serif; 
-}
-th, td {
-    border: 1px solid #ddd;
-    padding: 10px;
-    text-align: left;
-    width: auto;
-}
-th {
-    background-color:rgb(36, 76, 223);
-    color: white; 
-    font-family: 'Arial', sans-serif;
-}
-tr:nth-child(even) {
-    background-color: #f2f2f2;
-}
-tr:hover {
-    background-color: #ddd;
-}
-     td:first-child {
-  font-weight: bold;
-  font-family: 'Arial', sans-serif;`
+            `
+        table {
+               width: 100%;
+        border-collapse: collapse;
+        font-family: Inter, sans-serif;
+        font-size: 14px;
+        background-color: white;
+        border-radius: 8px; /* Закругляем углы */
+        overflow: hidden; /* Скрываем острые углы у ячеек */
+        border-style: hidden; /* Скрываем внешнюю границу таблицы (опционально) */
+        box-shadow: 0 0 0 1px #E0E0E0; /* Восстанавливаем видимость границы (опционально) */
+        }
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border: 1px solid #E0E0E0;
+        }
+        th {
+            background-color: #F1F2FF;
+            color: #333;
+            font-weight: 600;
+            border-bottom: 2px solid #D0D0D0;
+        }
+        tr {
+            background-color: white;
+        }
+        tr:hover {
+            background-color: #F8F8F8;
+        }
+    `
             ;
         iframeDocument.head.appendChild(style);
         const table = iframeDocument.createElement('table');
@@ -545,7 +548,7 @@ tr:hover {
 
     // const url = './public/images/users/regAssort2.xlsx';// ссылки для локального компа
     // fetch('./public/images/users/regAssort2.xlsx')// ссылки для локального компа
-    const url = '   https://raw.githubusercontent.com/Kujavia/SputnikPro_test_2_2/master/public/images/demo_file/promo.xlsx';
+    //const url = '   https://raw.githubusercontent.com/Kujavia/SputnikPro_test_2_2/master/public/images/demo_file/promo.xlsx';
     fetch('   https://raw.githubusercontent.com/Kujavia/SputnikPro_test_2_2/master/public/images/demo_file/promo.xlsx')
         // fetch('./public/images/demo_file/promo.xlsx')// ссылки для локального компа
         .then(response => {
@@ -570,8 +573,8 @@ tr:hover {
         });
 };
 
-//summaryPlanGlobalMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
-// document.getElementById('regular_assort__calculateForecastButton').addEventListener('click', loadAndFilterData);
+//summaryPlanGlobalMMMMMMM
+
 
 window.loadAndFilterDataSummaryPlan = function () {
     window.saveGlobalParametersSummaryPlan = function () {
@@ -621,34 +624,36 @@ window.loadAndFilterDataSummaryPlan = function () {
         // Добавление стилей
         const style = document.createElement('style');
         style.textContent =
-            `table {
-          width: 100%;
-          border-collapse: collapse;
-          margin-top: 0px;
-          font-size: 12px;
-          font-size: 16px;
-          font-family: 'Arial', sans-serif; 
-      }
-      th, td {
-          border: 1px solid #ddd;
-          padding: 10px;
-          text-align: left;
-          width: auto;
-      }
-      th {
-          background-color:rgb(36, 76, 223);
-          color: white; 
-          font-family: 'Arial', sans-serif;
-      }
-      tr:nth-child(even) {
-          background-color: #f2f2f2;
-      }
-      tr:hover {
-          background-color: #ddd;
-      }
-           td:first-child {
-        font-weight: bold;
-        font-family: 'Arial', sans-serif;`
+            `
+        table {
+               width: 100%;
+        border-collapse: collapse;
+        font-family: Inter, sans-serif;
+        font-size: 14px;
+        background-color: white;
+        border-radius: 8px; /* Закругляем углы */
+        overflow: hidden; /* Скрываем острые углы у ячеек */
+        border-style: hidden; /* Скрываем внешнюю границу таблицы (опционально) */
+        box-shadow: 0 0 0 1px #E0E0E0; /* Восстанавливаем видимость границы (опционально) */
+        }
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border: 1px solid #E0E0E0;
+        }
+        th {
+            background-color: #F1F2FF;
+            color: #333;
+            font-weight: 600;
+            border-bottom: 2px solid #D0D0D0;
+        }
+        tr {
+            background-color: white;
+        }
+        tr:hover {
+            background-color: #F8F8F8;
+        }
+    `
             ;
         iframeDocument.head.appendChild(style);
         const table = iframeDocument.createElement('table');
@@ -717,7 +722,7 @@ window.loadAndFilterDataSummaryPlan = function () {
 
     // const url = './public/images/users/regAssort2.xlsx';// ссылки для локального компа
     // fetch('./public/images/users/regAssort2.xlsx')// ссылки для локального компа
-    const url = '   https://raw.githubusercontent.com/Kujavia/SputnikPro_test_2_2/master/public/images/demo_file/summaryPlan.xlsx';
+    //const url = '   https://raw.githubusercontent.com/Kujavia/SputnikPro_test_2_2/master/public/images/demo_file/summaryPlan.xlsx';
     fetch('   https://raw.githubusercontent.com/Kujavia/SputnikPro_test_2_2/master/public/images/demo_file/summaryPlan.xlsx')
         // fetch('./public/images/demo_file/summaryPlan.xlsx')// ссылки для локального компа
         .then(response => {

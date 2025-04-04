@@ -95,10 +95,10 @@
               class="form-check-input"
               type="checkbox"
               role="switch"
-              id="flexSwitchCheckChecked"
+              id="summary_plan__regAssort"
               checked
             />
-            <label class="form-check-label" for="flexSwitchCheckChecked"
+            <label class="form-check-label" for="summary_plan__regAssort"
               >Регулярный ассортимент</label
             >
           </div>
@@ -108,10 +108,10 @@
               class="form-check-input"
               type="checkbox"
               role="switch"
-              id="flexSwitchCheckChecked"
+              id="summary_plan__promo"
               checked
             />
-            <label class="form-check-label" for="flexSwitchCheckChecked"
+            <label class="form-check-label" for="summary_plan__promo"
               >Промо</label
             >
           </div>
@@ -121,10 +121,10 @@
               class="form-check-input"
               type="checkbox"
               role="switch"
-              id="flexSwitchCheckChecked"
+              id="summary_plan__newsProducts"
               checked
             />
-            <label class="form-check-label" for="flexSwitchCheckChecked"
+            <label class="form-check-label" for="summary_plan__newsProducts"
               >Новинки</label
             >
           </div>
@@ -134,10 +134,10 @@
               class="form-check-input"
               type="checkbox"
               role="switch"
-              id="flexSwitchCheckChecked"
+              id="summary_plan__cannibalization"
               checked
             />
-            <label class="form-check-label" for="flexSwitchCheckChecked"
+            <label class="form-check-label" for="summary_plan__cannibalization"
               >Учёт каннибализации</label
             >
           </div>
@@ -165,7 +165,7 @@
             type="button"
             class="btn btn-outline-secondary"
             style="width: 31%"
-            onclick="openModalOptRA()"
+            onclick="summaryPlan_OptimizationButton()" id="summaryPlan__optimizButton"
           >
             Оптимизировать
           </button>
@@ -173,8 +173,7 @@
             type="button"
             class="btn btn-primary"
             style="width: 31%"
-            onclick="loadAndFilterData()"
-            id="regular_assort__calculateForecastButton"
+           onclick="loadAndFilterDataSummaryPlan()" id="summary_plan__calculateForecastButton"
           >
             Рассчитать прогноз
           </button>
@@ -182,6 +181,26 @@
       </div>
       <!-- </div> -->
     </div>
+  </div>
+  <div class="row border border-1 rounded-4 mx-1 shadow-sm mt-4 p-3">
+    <!-- Заголовок -->
+    <div class="d-flex justify-content-between align-items-start w-100">
+      <p class="fw-bold mb-0 fs-5">Аналитические показатели</p>
+      <button
+        class="btn p-0 text-primary"
+        style="color: #474bab !important; border: none; background: none"
+      >
+        Скачать прогноз
+      </button>
+    </div>
+
+    <!-- iframe -->
+    <iframe
+      id="summaryPlan_PreviewIframe"
+      src=""
+      class="mt-3 w-100"
+      style="height: 400px; border: none"
+    ></iframe>
   </div>
 </div>
 

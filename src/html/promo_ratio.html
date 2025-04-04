@@ -149,13 +149,13 @@
           >Метод агрегации коэффициентов</label
         >
         <select
-          id="seasonality_scenario"
+          id="promoRatio_method"
           placeholder="Выберите из списка"
           class="form-select form-select-sm fs-5"
         >
-          <option value="" selected>Не выбрано</option>
-          <option value="1">Средняя</option>
-          <option value="2">Медиана</option>
+          <option value="" >Не выбрано</option>
+          <option value="promoRatio_method_average" selected>Средняя</option>
+          <option value="promoRatio_method_mediana">Медиана</option>
         </select>
 
         <div class="form-check form-switch seasonality_pre-smoothing">
@@ -194,8 +194,7 @@
             type="button"
             class="btn btn-primary"
             style="width: 43%"
-            onclick="loadDataSeasonality()"
-            id="seasonality__calculateForecastButton"
+            onclick="tbPromoRatioPerviewButton()" id="promoRatio__calculateForecastButton"
           >
             Рассчитать коэффициенты
           </button>
