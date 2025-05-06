@@ -209,3 +209,9 @@ body {
       border: none;
   }
 
+.text-primary{
+  color: $cl-purple!important;
+}
+a:focus, a:hover{
+  color: $cl-purple!important;
+}

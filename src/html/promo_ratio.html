@@ -153,9 +153,9 @@
           placeholder="Выберите из списка"
           class="form-select form-select-sm fs-5"
         >
-          <option value="" >Не выбрано</option>
-          <option value="promoRatio_method_average" selected>Средняя</option>
-          <option value="promoRatio_method_mediana">Медиана</option>
+          <!-- <option value="" >Не выбрано</option> -->
+          <option value="average" selected>Средняя</option>
+          <option value="mediana">Медиана</option>
         </select>
 
         <div class="form-check form-switch seasonality_pre-smoothing">
@@ -191,10 +191,11 @@
             Сохранить коэффициенты
           </button>
           <button
+            id="promoRatio_calculation"
             type="button"
             class="btn btn-primary"
             style="width: 43%"
-            onclick="tbPromoRatioPerviewButton()" id="promoRatio__calculateForecastButton"
+            _onclick="tbPromoRatioPerviewButton()" id="promoRatio__calculateForecastButton"
           >
             Рассчитать коэффициенты
           </button>
@@ -203,6 +204,10 @@
       </div>
     </div>
   </div>
+  <div id="download-container" class="d-none pt-2 pb-2 text-end">
+    <a id="download" href="#" class="text-primary" style="font-size: 14px;">Скачать таблицу</a>
+  </div>
+  <div id="chart" style="height: 400px;"></div>
 
   <!-- <div class="promoRatio_contaier">
 <section class="promoRatio_aggregate">
