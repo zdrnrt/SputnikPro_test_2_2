@@ -20,21 +20,20 @@ export default window.showContent_promoRatio = function() {
 
 function promoRatioInit(){
     document.getElementById('promoRatio_calculation').addEventListener('click', promoRatioChart)
+    document.getElementById('promoRatio_method').addEventListener('change', promoRatioUpdateDownload);
+    promoRatioUpdateDownload();
 }
 
+const dataPath = {
+    average: './data/promoRatio/promoCoefficientsAvg.xlsx',
+    mediana: './data/promoRatio/promoCoefficientsMedian.xlsx'
+}
 
 function promoRatioChart(){
-    const dataPath = {
-        average: './data/promoRatio/promoCoefficientsAvg.xlsx',
-        mediana: './data/promoRatio/promoCoefficientsMedian.xlsx'
-    }
     const value = document.getElementById('promoRatio_method').value;
     const path = dataPath[value]
 
-    document.getElementById('download-container').classList.remove('d-none');
     document.getElementById('download').href = path;
-    
-    console.log('promoRatioChart')
 
     fetch(path)
         .then(response => response.arrayBuffer())
@@ -45,7 +44,6 @@ function promoRatioChart(){
             const jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1 });
             const labels = [];
             const datasets = {};
-            console.log('json', jsonData)
             // Пропускаем заголовок и обрабатываем данные
             for (let i = 1; i < jsonData.length; i++) {
                 const row = jsonData[i];
@@ -97,6 +95,11 @@ function promoRatioChart(){
             console.error('Ошибка при загрузке файла:', error);
         });
 
+}
+
+function promoRatioUpdateDownload(){
+    const value = document.getElementById('promoRatio_method').value;
+    document.getElementById('download').href = dataPath[document.getElementById('promoRatio_method').value];
 }
 
 //   // Находим главный чекбокс и все подчиненные чекбоксы по data-атрибуту

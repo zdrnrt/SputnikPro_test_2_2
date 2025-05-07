@@ -90,6 +90,7 @@ window.loadAndFilterData = function () {
     // Получаем параметры из localStorage
     const parameters = JSON.parse(localStorage.getItem('globalParameters'));
     const iframe = document.getElementById('tb_regular_assort_results');
+    iframe.contentDocument.body.style.fontFamily = '"Inter", sans-serif';
     // Проверяем наличие ключей и выводим соответствующие сообщения
     if (!parameters || !parameters['очистка от выбросов']) {
         iframe.contentDocument.body.innerHTML = '<p>Выберите глобальные параметры</p>';
