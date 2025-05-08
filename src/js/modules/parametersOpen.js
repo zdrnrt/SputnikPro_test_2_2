@@ -14,18 +14,28 @@ window.showContent_parameters = function () {
         })
         .then(data => {
             mainContent.innerHTML = data;
-            loadSelectedGlobalParametersBefore();
-            
-            // Инициализируем и Popover и Tooltip
-            initializePopovers();
-            initializeTooltips(); // Добавляем вызов инициализации Tooltip
-            
-            initializeIcons();
+            parametersInit()
         })
         .catch(error => {
             console.error('Ошибка при загрузке файла:', error);
             mainContent.innerHTML = 'Ошибка при загрузке';
         });
+}
+
+function parametersInit() {
+    loadSelectedGlobalParametersBefore();
+            
+    // Инициализируем и Popover и Tooltip
+    initializePopovers();
+    initializeTooltips(); // Добавляем вызов инициализации Tooltip
+    
+    initializeIcons();
+
+    document.getElementById('linkToSeasonality').addEventListener('click', () => {
+        document.getElementById('seasonalityNavItem').classList.remove('collapsed')
+        document.getElementById('seasonalityNav').closest('.aside-nav__item--collapse').classList.add('show');
+        document.getElementById('seasonalityNav').click();
+    })
 }
 
 // Функция для загрузки сохранённых параметров

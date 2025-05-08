@@ -6,6 +6,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Popover } from 'bootstrap';
 import '../scss/style.scss'
 import './blocks/aside.js'
+import './tools.js'
 
 import './modules/check_mark'
 import './modules/summaryPlan_OptimizationForm'
