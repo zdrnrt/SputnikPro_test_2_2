@@ -118,7 +118,11 @@ ul, ol,li {
 
 a {
     text-decoration: none;
-    color: inherit;
+    color: rgba($cl-purple, 0.9);
+}
+a:focus, a:hover{
+  color: $cl-purple!important;
+  text-decoration: underline;
 }
 
 table {
@@ -210,12 +214,5 @@ body {
   }
 
 .text-primary{
-  color: $cl-purple!important;
-}
-a{
-  text-decoration: underline;
-  color: rgba($cl-purple, 0.9);
-}
-a:focus, a:hover{
   color: $cl-purple!important;
 }

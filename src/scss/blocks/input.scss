@@ -4,10 +4,22 @@
     border-color: $cl-purple;
   }
   &:focus{
-    
+    border-color: $cl-purple;
+    box-shadow: 0 0 0 .2rem $cl-purple-light;
   }
 }
-
+.form-control{
+  &:focus{
+    border-color: $cl-purple;
+    box-shadow: 0 0 0 .2rem $cl-purple-light;
+  }
+}
+.form-select{
+  &:focus{
+    border-color: $cl-purple;
+    box-shadow: 0 0 0 .2rem $cl-purple-light;
+  }
+}
 
 .form-switch{
   .form-check-input {

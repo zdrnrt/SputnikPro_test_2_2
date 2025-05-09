@@ -81,8 +81,9 @@
     }
   }
 
-  &:focus-visible {
-    box-shadow: none;
+  &:focus-visible,
+  &:focus{
+    box-shadow: 0 0 0 .2rem $cl-purple-light;
   }
 }
 
@@ -114,8 +115,9 @@
   --bs-btn-disabled-bg: #{$cl-grey-middle};
   --bs-btn-disabled-border-color: #{$cl-grey-middle};
 
+  &:focus,
   &:active {
-    box-shadow: none;
+    box-shadow: 0 0 0 .2rem $cl-purple-light;
   }
 }
 
@@ -134,8 +136,9 @@
   --bs-btn-disabled-bg: #{$cl-grey-middle};
   --bs-btn-disabled-border-color: #{$cl-grey-middle};
 
+  &:focus,
   &:active {
-    box-shadow: none;
+    box-shadow: 0 0 0 .2rem $cl-purple-light;
   }
 }
 
@@ -186,8 +189,9 @@ button{
     }
   }
 
+  &:focus,
   &:focus-visible {
-    box-shadow: none;
+    box-shadow: 0 0 0 .2rem $cl-purple-light;
   }
 }
 
@@ -218,9 +222,9 @@ button{
   --bs-btn-disabled-color: #{$cl-grey};
   --bs-btn-disabled-bg: #{$cl-grey-middle};
   --bs-btn-disabled-border-color: #{$cl-grey-middle};
-
+  &:focus,
   &:active {
-    box-shadow: none;
+    box-shadow: 0 0 0 .2rem $cl-purple-light;
   }
 }
 
@@ -239,8 +243,10 @@ button{
   --bs-btn-disabled-bg: #{$cl-grey-middle};
   --bs-btn-disabled-border-color: #{$cl-grey-middle};
 
-  &:active {
-    box-shadow: none;
+  &:focus-visible,
+  &:active,
+  &:focus{
+    box-shadow: 0 0 0 .2rem $cl-purple-light;
   }
 }
 
