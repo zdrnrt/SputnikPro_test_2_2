@@ -3,7 +3,6 @@ import * as XLSX from 'xlsx';  // ES6-импорт
 import 'jquery';
 import 'bootstrap/dist/js/bootstrap.min.js'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Popover } from 'bootstrap';
 import '../scss/style.scss'
 import './blocks/aside.js'
 import './tools.js'
@@ -71,6 +70,7 @@ document.addEventListener('DOMContentLoaded', initBootstrapTooltips);
 
 //REG ASSORT********
 
+showContent_regular_assort();
 
 window.loadAndFilterData = function () {
 
@@ -93,7 +93,7 @@ window.loadAndFilterData = function () {
     const iframe = document.getElementById('tb_regular_assort_results');
     iframe.contentDocument.body.style.fontFamily = '"Inter", sans-serif';
     // Проверяем наличие ключей и выводим соответствующие сообщения
-    if (!parameters || !parameters['очистка от выбросов']) {
+    if (!parameters || !parameters['методы прогноза']) {
         iframe.contentDocument.body.innerHTML = '<p>Выберите глобальные параметры</p>';
         return; // Прекращаем выполнение функции
     }
@@ -223,7 +223,7 @@ window.loadAndFilterData = function () {
     // const url = './public/images/users/regAssort2.xlsx';// ссылки для локального компа
     //fetch('./public/images/users/regAssort2.xlsx') // ссылки для локального компа
     //const url = '   https://raw.githubusercontent.com/Kujavia/SputnikPro_test_2_2/master/public/images/demo_file/regAssort3.xlsx';
-    fetch('   https://raw.githubusercontent.com/Kujavia/SputnikPro_test_2_2/master/public/images/demo_file/regAssort3.xlsx')
+    fetch('./images/demo_file/regAssort3.xlsx')
         //fetch('./public/images/demo_file/regAssort3.xlsx')// ссылки для локального компа
         .then(response => {
             if (!response.ok) {
@@ -237,7 +237,7 @@ window.loadAndFilterData = function () {
             const worksheet = workbook.Sheets[firstSheetName];
             const jsonData = XLSX.utils.sheet_to_json(worksheet);
 
-            // console.log(jsonData); // Проверка загруженных данных
+            console.log(jsonData); // Проверка загруженных данных
 
             const filteredData = window.filterData(jsonData);
             window.displayTable(filteredData);
