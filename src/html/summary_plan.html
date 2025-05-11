@@ -90,6 +90,7 @@
       <div class="card-body flex-fill">
         <h5 class="card-title block_title mb-3">Настройки</h5>
         <div class="mb-3">
+          <div class="mb-2 fw-bold">Сборка</div>
           <div class="form-check form-switch seasonality_pre-smoothing">
             <input
               class="form-check-input"
@@ -128,7 +129,7 @@
               >Новинки</label
             >
           </div>
-
+          <div class="mb-2 fw-bold">Учёт</div>
           <div class="form-check form-switch seasonality_pre-smoothing">
             <input
               class="form-check-input"
@@ -152,7 +153,54 @@
           <option value="2">Сценарий 1</option>
           <option value="2">Сценарий 2</option>
         </select>
-        <div></div>
+        <!--  -->
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="flexRadioDefaultSpikes" id="promoRatioMarkup"
+                value="method7" />
+              <label class="form-check-label" for="promoRatioMarkup">Загруженная разметка</label>
+            </div>
+
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="flexRadioDefaultSpikes" id="promoRatioMarkup"
+                value="method8" />
+              <label class="form-check-label" for="modalMethod8">Авторазметка</label>
+              <div class="input-group input-group-sm mb-1">
+                <span class="input-group-text">Порог промо</span>
+                <input type="text" class="form-control" value="2%" />
+              </div>
+            </div>
+
+            <!-- <h5 class="card-title block_title mb-3">Настройка расчёта</h5> -->
+
+            <div class="input-group input-group-sm mb-1">
+              <span class="input-group-text">Верхняя граница</span>
+              <input type="text" class="form-control" value="2" />
+            </div>
+            <div class="input-group input-group-sm mb-1">
+              <span class="input-group-text">Нижняя граница</span>
+              <input type="text" class="form-control" value="1" />
+            </div>
+
+            <label class="mt-2" for="seasonality_scenario">Метод агрегации коэффициентов</label>
+            <select id="promoRatio_method" placeholder="Выберите из списка" class="form-select form-select-sm fs-5">
+              <!-- <option value="" >Не выбрано</option> -->
+              <option value="average" selected>Средняя</option>
+              <option value="mediana">Медиана</option>
+            </select>
+
+            <div class="form-check form-switch seasonality_pre-smoothing">
+              <input class="form-check-input" type="checkbox" role="switch" id="smothingPromoRatio" checked />
+              <label class="form-check-label" for="smothingPromoRatio">Cглаживание</label>
+            </div>
+
+            <label for="seasonality_scenario">Выбрать коэффициенты</label>
+            <select id="seasonality_scenario" placeholder="Выберите из списка" class="form-select form-select-sm fs-5">
+              <option value="" disabled selected>Выберите из списка</option>
+              <option value="1">Кэф без ограничений#1</option>
+              <option value="2">Кэф по авторазметке#2</option>
+              <option value="2">Пользовательские</option>
+            </select>
+            <!--  -->
         <div class="d-flex justify-content-between mt-5">
           <button
             type="button"
@@ -186,11 +234,11 @@
     <!-- Заголовок -->
     <div class="d-flex justify-content-between align-items-start w-100">
       <p class="fw-bold mb-0 fs-5">Аналитические показатели</p>
-      <!-- <a
-        href="#"
+      <a
+        href="./images/demo_file/summaryPlan.xlsx"
       >
         Скачать прогноз
-      </a> -->
+      </a>
     </div>
 
     <!-- iframe -->

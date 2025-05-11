@@ -80,9 +80,11 @@
             placeholder="Выберите из списка"
             class="form-select form-select-sm fs-5"
           >
-            <option value="" disabled selected>Выберите из списка</option>
-            <option value="1">Коэффициенты по тренду#1</option>
-            <option value="2">По средней#2</option>
+            <option value="globalParamGeoNot" selected>По средней#2</option>
+            <option value="globalParamGeoChain">Коэффициенты по тренду#1</option>
+            <!-- <option value="" disabled selected>Выберите из списка</option> -->
+            <!-- <option value="1">Коэффициенты по тренду#1</option> -->
+            <!-- <option value="2">По средней#2</option> -->
           </select>
           <div class="seasonality_buttons">
             <button
@@ -108,11 +110,11 @@
   </div>
   <div class="row border border-1 rounded-4 mx-1 shadow-sm mt-4 p-3">
     <!-- Заголовок -->
-    <div class="d-flex justify-content-end align-items-start w-100">
-      <!-- <p class="fw-bold mb-0 fs-5">Коэффициенты</p> -->
+    <div class="d-flex justify-content-between align-items-start w-100">
+      <p class="fw-bold mb-0 fs-5">Аналитические показатели</p>
       <a
         id="download"
-        href="#"
+        href="./images/demo_file/seasonalityAvg.xlsx"
       >
         Скачать прогноз
       </a>

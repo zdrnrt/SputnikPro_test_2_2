@@ -114,12 +114,9 @@ window.loadAndFilterData = function () {
     };
 
     window.displayTable = function (data) {
-        console.log(data)
         const iframe = document.getElementById('tb_regular_assort_results');
         const iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
         iframeDocument.body.innerHTML = '';
-
-
 
         // Добавление стилей
         const style = document.createElement('style');
@@ -726,7 +723,8 @@ window.loadAndFilterDataSummaryPlan = function () {
     // const url = './public/images/users/regAssort2.xlsx';// ссылки для локального компа
     // fetch('./public/images/users/regAssort2.xlsx')// ссылки для локального компа
     //const url = '   https://raw.githubusercontent.com/Kujavia/SputnikPro_test_2_2/master/public/images/demo_file/summaryPlan.xlsx';
-    fetch('   https://raw.githubusercontent.com/Kujavia/SputnikPro_test_2_2/master/public/images/demo_file/summaryPlan.xlsx')
+    // fetch('https://raw.githubusercontent.com/Kujavia/SputnikPro_test_2_2/master/public/images/demo_file/summaryPlan.xlsx')
+    fetch('./images/demo_file/summaryPlan.xlsx')
         // fetch('./public/images/demo_file/summaryPlan.xlsx')// ссылки для локального компа
         .then(response => {
             if (!response.ok) {

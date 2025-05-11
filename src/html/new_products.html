@@ -8,16 +8,11 @@
     <div class="col-md-6 p-0">
       <!-- <div class="card"> -->
       <div class="card-body">
-        <h5 class="card-title block_title mb-3">Агрегация выходных данных</h5>
+        <h5 class="card-title block_title mb-3">Настройки расчета новинок</h5>
 
         <div class="mb-1">
-          <label for="new_product__aggregation-geo" class="form-label"
-            >Агрегат по географии</label
-          >
-          <select
-            id="new_product__aggregation-geo"
-            class="form-select form-select-sm fs-5"
-          >
+          <label for="new_product__aggregation-geo" class="form-label">Агрегат по географии</label>
+          <select id="new_product__aggregation-geo" class="form-select form-select-sm fs-5">
             <option value="not_selected">Не установлено</option>
             <option value="chain" selected>Сеть</option>
             <option value="option2">Страна</option>
@@ -27,33 +22,23 @@
           </select>
         </div>
         <div class="mb-1">
-          <label for="new_product__aggregation-group" class="form-label"
-            >Агрегат по позиции</label
-          >
-          <select
-            id="new_product__aggregation-group"
-            class="form-select form-select-sm fs-5"
-          >
-          <option value="newProductParamGroupNot" selected >Не установлено</option>
-          <option value="newProductParamTypeProduct">Категория</option>
-          <option value="newProductParamSku">SKU</option>
+          <label for="new_product__aggregation-group" class="form-label">Агрегат по позиции</label>
+          <select id="new_product__aggregation-group" class="form-select form-select-sm fs-5">
+            <option value="newProductParamGroupNot" selected>Не установлено</option>
+            <option value="newProductParamTypeProduct">Категория</option>
+            <option value="newProductParamSku">SKU</option>
           </select>
         </div>
 
         <div class="mb-1">
-          <label for="new_product__aggregation-parameter" class="form-label"
-            >Дополнительные показатели</label
-          >
-          <select
-            id="new_product__aggregation-parameter"
-            class="form-select form-select-sm fs-5"
-          >
-          <option value="newProductAddParamNot" selected>Не установлено</option>
-          <option value="newProductAddParamAbc">ABC</option>
-          <option value="newProductAddParamXyz">XYZ</option>
-          <option value="newProductAddParamPrice">Ценовой сегмент</option>
-          <option value="newProductAddParamMechanicAction">Механика акции</option>
-          <option value="newProductAddParamBrand">Бренд</option>
+          <label for="new_product__aggregation-parameter" class="form-label">Дополнительные показатели</label>
+          <select id="new_product__aggregation-parameter" class="form-select form-select-sm fs-5">
+            <option value="newProductAddParamNot" selected>Не установлено</option>
+            <option value="newProductAddParamAbc">ABC</option>
+            <option value="newProductAddParamXyz">XYZ</option>
+            <option value="newProductAddParamPrice">Ценовой сегмент</option>
+            <option value="newProductAddParamMechanicAction">Механика акции</option>
+            <option value="newProductAddParamBrand">Бренд</option>
           </select>
         </div>
 
@@ -61,24 +46,16 @@
           <div class="col">
             <div class="input-group mb-3">
               <span class="input-group-text">Период прогноза</span>
-              <input
-                type="text"
-                class="form-control"
-                value="4"
-                aria-label="Сумма в рублях (с точкой и двумя десятичными знаками)"
-              />
+              <input type="text" class="form-control" value="4"
+                aria-label="Сумма в рублях (с точкой и двумя десятичными знаками)" />
               <span class="input-group-text">нед</span>
             </div>
           </div>
           <div class="col">
             <div class="input-group mb-3">
               <span class="input-group-text">Лаг прогноза</span>
-              <input
-                type="text"
-                class="form-control"
-                value="1"
-                aria-label="Сумма в рублях (с точкой и двумя десятичными знаками)"
-              />
+              <input type="text" class="form-control" value="1"
+                aria-label="Сумма в рублях (с точкой и двумя десятичными знаками)" />
               <span class="input-group-text">нед</span>
             </div>
           </div>
@@ -91,7 +68,7 @@
     <div class="col-md-6 d-flex flex-column p-0">
       <!-- <div class="card"> -->
       <div class="card-body flex-fill">
-        <h5 class="card-title block_title mb-3">Настройки</h5>
+        <!-- <h5 class="card-title block_title mb-3">Настройки</h5> -->
         <div class="mb-3">
           <div class="mb-3">
             <!-- <label for="seasonality_scenario">Выбрать коэффициенты</label>
@@ -105,37 +82,68 @@
               <option value="2">Пользовательские</option>
             </select> -->
             <label for="seasonality_scenario">Сценарий расчета</label>
-            <select
-              id="seasonality_scenario"
-              placeholder="Выберите из списка"
-              class="form-select form-select-sm fs-5"
-            >
+            <select id="seasonality_scenario" placeholder="Выберите из списка" class="form-select form-select-sm fs-5">
               <option value="" disabled selected>Выберите из списка</option>
               <option value="2">Сценарий 1</option>
               <option value="2">Сценарий 2</option>
             </select>
+            <!--  -->
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="flexRadioDefaultSpikes" id="promoRatioMarkup"
+                value="method7" />
+              <label class="form-check-label" for="promoRatioMarkup">Загруженная разметка</label>
+            </div>
+
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="flexRadioDefaultSpikes" id="promoRatioMarkup"
+                value="method8" />
+              <label class="form-check-label" for="modalMethod8">Авторазметка</label>
+              <div class="input-group input-group-sm mb-1">
+                <span class="input-group-text">Порог промо</span>
+                <input type="text" class="form-control" value="2%" />
+              </div>
+            </div>
+
+            <!-- <h5 class="card-title block_title mb-3">Настройка расчёта</h5> -->
+
+            <div class="input-group input-group-sm mb-1">
+              <span class="input-group-text">Верхняя граница</span>
+              <input type="text" class="form-control" value="2" />
+            </div>
+            <div class="input-group input-group-sm mb-1">
+              <span class="input-group-text">Нижняя граница</span>
+              <input type="text" class="form-control" value="1" />
+            </div>
+
+            <label class="mt-2" for="seasonality_scenario">Метод агрегации коэффициентов</label>
+            <select id="promoRatio_method" placeholder="Выберите из списка" class="form-select form-select-sm fs-5">
+              <!-- <option value="" >Не выбрано</option> -->
+              <option value="average" selected>Средняя</option>
+              <option value="mediana">Медиана</option>
+            </select>
+
+            <div class="form-check form-switch seasonality_pre-smoothing">
+              <input class="form-check-input" type="checkbox" role="switch" id="smothingPromoRatio" checked />
+              <label class="form-check-label" for="smothingPromoRatio">Cглаживание</label>
+            </div>
+
+            <label for="seasonality_scenario">Выбрать коэффициенты</label>
+            <select id="seasonality_scenario" placeholder="Выберите из списка" class="form-select form-select-sm fs-5">
+              <option value="" disabled selected>Выберите из списка</option>
+              <option value="1">Кэф без ограничений#1</option>
+              <option value="2">Кэф по авторазметке#2</option>
+              <option value="2">Пользовательские</option>
+            </select>
+            <!--  -->
             <div class="d-flex justify-content-between mt-5">
-              <button
-                type="button"
-                class="btn btn-outline-primary"
-                style="width: 31%"
-              >
+              <button type="button" class="btn btn-outline-primary" style="width: 31%">
                 Сохранить сценарий
               </button>
-              <button
-                type="button"
-                class="btn btn-outline-secondary"
-                style="width: 31%"
-                onclick="promo_OptimizationButton()"
-              >
-                Оптимизировать
+              <button type="button" class="btn btn-outline-secondary" disabled>
+                Оптимизировать (в разработке)
               </button>
-              <button
-                type="button"
-                class="btn btn-primary"
-                style="width: 31%"
-                onclick="loadAndFilterDataNewProducts()" id="new_product__calculateForecastButton"
-              >
+              <button type="button" class="btn btn-primary" style="width: 31%" onclick="loadAndFilterDataNewProducts()"
+                id="new_product__calculateForecastButton">
                 Рассчитать прогноз
               </button>
             </div>
@@ -144,26 +152,19 @@
         <div class="mb-3"></div>
       </div>
     </div>
- 
+
   </div>
   <div class="row border border-1 rounded-4 mx-1 shadow-sm mt-4 p-3">
     <!-- Заголовок -->
     <div class="d-flex justify-content-between align-items-start w-100">
       <p class="fw-bold mb-0 fs-5">Аналитические показатели</p>
-      <a
-        href="./data/newProducts/newProducts_forecast.xlsx"
-      >
+      <a href="./data/newProducts/newProducts_forecast.xlsx">
         Скачать прогноз
       </a>
     </div>
 
     <!-- iframe -->
-    <iframe
-      id="new_product_PreviewIframe"
-      src=""
-      class="mt-3 w-100"
-      style="height: 400px; border: none"
-    ></iframe>
+    <iframe id="new_product_PreviewIframe" src="" class="mt-3 w-100" style="height: 400px; border: none"></iframe>
   </div>
 
 </div>
