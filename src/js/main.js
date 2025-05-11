@@ -114,6 +114,7 @@ window.loadAndFilterData = function () {
     };
 
     window.displayTable = function (data) {
+        console.log(data)
         const iframe = document.getElementById('tb_regular_assort_results');
         const iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
         iframeDocument.body.innerHTML = '';

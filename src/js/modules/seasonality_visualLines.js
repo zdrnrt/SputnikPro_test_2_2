@@ -2,7 +2,7 @@ import * as XLSX from 'xlsx';  // ES6-импорт
 import Plotly from 'plotly.js-dist-min';
 
 export default window.loadDataSeasonality = function() {
-    window. saveSelectedGlobalParametersSeasonality = function() {
+    window.saveSelectedGlobalParametersSeasonality = function() {
         let currentData = JSON.parse(localStorage.getItem('globalParameters'));
         if (!currentData) {
             currentData = {}; // Если нет, создаем новый объект
@@ -13,7 +13,7 @@ export default window.loadDataSeasonality = function() {
         currentData['сезонность'] = seasonality_method;
         localStorage.setItem('globalParameters', JSON.stringify(currentData));
         }
-        window. saveSelectedGlobalParametersSeasonality()
+    window.saveSelectedGlobalParametersSeasonality()
 
 
     const selectedOption = document.getElementById('seasonality_method').value;
