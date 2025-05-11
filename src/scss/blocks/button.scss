@@ -257,3 +257,8 @@ button{
   --bs-btn-active-color: #{$cl-purple-bright};
   text-decoration: none;
 }
+.btn-primary.disabled, .btn-primary:disabled{
+  background-color: $cl-grey;
+  border-color: $cl-grey;
+  color: $cl-black;
+}

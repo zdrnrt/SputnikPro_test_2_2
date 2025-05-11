@@ -34,6 +34,7 @@ import './modules/planner_formRepeatSelect'
 import './modules/parametersGlobalChecked'
 import './modules/seasonalityGlobalChecked'
 import './modules/regularGlobalChecked'
+import './modules/scenarios_save.js'
 
 
 
