@@ -43,9 +43,6 @@ export default window.saveSelectedGlobalParameters = function () {
     parameters['агрегат по позиции'] = skuAggregation.options[skuAggregation.selectedIndex].text;
     //parameters['очистка oos'] = oosMethod.options[oosMethod.selectedIndex].text;
 
-
-
-
     // Сохраняем id и value выбранных селектов в объект в формате { id: value }
     parametersBefore[timeAggregation.id] = timeAggregation.value;
     parametersBefore[skuAggregation.id] = skuAggregation.value;
