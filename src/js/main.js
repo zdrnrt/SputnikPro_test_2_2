@@ -71,8 +71,6 @@ document.addEventListener('DOMContentLoaded', initBootstrapTooltips);
 
 //REG ASSORT********
 
-showContent_regular_assort();
-
 window.loadAndFilterData = function () {
 
     window.saveGlobalParametersRegular = function () {
