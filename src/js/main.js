@@ -249,7 +249,6 @@ window.loadAndFilterData = function () {
 
 //NEWS PRODUCTS global*********
 
-showContent_newProducts();
 window.loadAndFilterDataNewProducts = function () {
     window.saveGlobalParametersRegularNewProducts = function () {
         let currentData = JSON.parse(localStorage.getItem('globalParametersNewProducts'));
