@@ -80,7 +80,7 @@ window.loadAndFilterData = function () {
         }
         const regularAssortMethodForecast = document.getElementById('regular_assort_method');
         const regular_method = regularAssortMethodForecast.value;
-        console.log('Выбранный метод прогноза:', regular_method);
+        // console.log('Выбранный метод прогноза:', regular_method);
 
         currentData['методы прогноза'] = regular_method;
         localStorage.setItem('globalParameters', JSON.stringify(currentData));
@@ -96,7 +96,7 @@ window.loadAndFilterData = function () {
         iframe.contentDocument.body.innerHTML = '<p>Выберите глобальные параметры</p>';
         return; // Прекращаем выполнение функции
     }
-    if (!parameters['сезонность']) {
+    if (!parameters['глобальная сезонность']) {
         iframe.contentDocument.body.innerHTML = '<p>Выберите метод расчета сезонности</p>';
         return; // Прекращаем выполнение функции
     }
@@ -113,44 +113,43 @@ window.loadAndFilterData = function () {
     };
 
     window.displayTable = function (data) {
+        console.log(data)
         const iframe = document.getElementById('tb_regular_assort_results');
         const iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
         iframeDocument.body.innerHTML = '';
 
         // Добавление стилей
         const style = document.createElement('style');
-        style.textContent =
-            `
-    table {
-           width: 100%;
-    border-collapse: collapse;
-    font-family: Inter, sans-serif;
-    font-size: 14px;
-    background-color: white;
-    border-radius: 8px; /* Закругляем углы */
-    overflow: hidden; /* Скрываем острые углы у ячеек */
-    border-style: hidden; /* Скрываем внешнюю границу таблицы (опционально) */
-    box-shadow: 0 0 0 1px #E0E0E0; /* Восстанавливаем видимость границы (опционально) */
-    }
-    th, td {
-        padding: 12px 15px;
-        text-align: left;
-        border: 1px solid #E0E0E0;
-    }
-    th {
-        background-color: #F1F2FF;
-        color: #333;
-        font-weight: 600;
-        border-bottom: 2px solid #D0D0D0;
-    }
-    tr {
-        background-color: white;
-    }
-    tr:hover {
-        background-color: #F8F8F8;
-    }
-`
-            ;
+        style.textContent =`
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                font-family: Inter, sans-serif;
+                font-size: 14px;
+                background-color: white;
+                border-radius: 8px; /* Закругляем углы */
+                overflow: hidden; /* Скрываем острые углы у ячеек */
+                border-style: hidden; /* Скрываем внешнюю границу таблицы (опционально) */
+                box-shadow: 0 0 0 1px #E0E0E0; /* Восстанавливаем видимость границы (опционально) */
+            }
+            th, td {
+                padding: 12px 15px;
+                text-align: left;
+                border: 1px solid #E0E0E0;
+            }
+            th {
+                background-color: #F1F2FF;
+                color: #333;
+                font-weight: 600;
+                border-bottom: 2px solid #D0D0D0;
+            }
+            tr {
+                background-color: white;
+            }
+            tr:hover {
+                background-color: #F8F8F8;
+            }
+        `;
         iframeDocument.head.appendChild(style);
         const table = iframeDocument.createElement('table');
         table.innerHTML = ''; // Очистка предыдущего содержимого
@@ -184,8 +183,12 @@ window.loadAndFilterData = function () {
 
         // Создание заголовков, начиная с 7-го столбца
         const headers = Object.keys(data[0]);
+        const startIndex = 6;
+        let periodValue = Number(document.getElementById('period').value)
+        const period = startIndex + 13 + periodValue > headers.length ? headers.length : startIndex + 13 + periodValue;
         const headerRow = document.createElement('tr');
-        for (let i = 6; i < headers.length; i++) { // Начинаем с 7-го столбца (индекс 6)
+        // for (let i = 6; i < headers.length; i++) { // Начинаем с 7-го столбца (индекс 6)
+        for (let i = startIndex; i < period; i++) { // Начинаем с 7-го столбца (индекс 6)
             const th = document.createElement('th');
             th.textContent = headers[i];
             headerRow.appendChild(th);
@@ -196,7 +199,8 @@ window.loadAndFilterData = function () {
         // Заполнение таблицы данными, начиная с 7-го столбца
         data.forEach(row => {
             const tr = document.createElement('tr');
-            for (let i = 6; i < headers.length; i++) { // Начинаем с 7-го столбца (индекс 6)
+            // for (let i = 6; i < headers.length; i++) { // Начинаем с 7-го столбца (индекс 6)
+            for (let i = startIndex; i < period; i++) { // Начинаем с 7-го столбца (индекс 6)
                 const td = document.createElement('td');
                 let cellValue = row[headers[i]];
 
@@ -219,8 +223,8 @@ window.loadAndFilterData = function () {
     // const url = './public/images/users/regAssort2.xlsx';// ссылки для локального компа
     //fetch('./public/images/users/regAssort2.xlsx') // ссылки для локального компа
     //const url = '   https://raw.githubusercontent.com/Kujavia/SputnikPro_test_2_2/master/public/images/demo_file/regAssort3.xlsx';
-    fetch('./images/demo_file/regAssort3.xlsx')
-        //fetch('./public/images/demo_file/regAssort3.xlsx')// ссылки для локального компа
+    // fetch('./images/demo_file/regAssort3.xlsx')
+    fetch('./data/regularAssort/regAssort4.xlsx')// ссылки для локального компа
         .then(response => {
             if (!response.ok) {
                 throw new Error('Сеть не отвечает');
@@ -233,7 +237,7 @@ window.loadAndFilterData = function () {
             const worksheet = workbook.Sheets[firstSheetName];
             const jsonData = XLSX.utils.sheet_to_json(worksheet);
 
-            console.log(jsonData); // Проверка загруженных данных
+            // console.log(jsonData); // Проверка загруженных данных
 
             const filteredData = window.filterData(jsonData);
             window.displayTable(filteredData);
@@ -245,7 +249,7 @@ window.loadAndFilterData = function () {
 
 //NEWS PRODUCTS global*********
 
-
+showContent_newProducts();
 window.loadAndFilterDataNewProducts = function () {
     window.saveGlobalParametersRegularNewProducts = function () {
         let currentData = JSON.parse(localStorage.getItem('globalParametersNewProducts'));
@@ -254,17 +258,25 @@ window.loadAndFilterDataNewProducts = function () {
         }
         const newProductAggregationGeo = document.getElementById('new_product__aggregation-geo'); //забираю
         const newProductAggregationGroup = document.getElementById('new_product__aggregation-group'); //забираю
-        const newProductAggregationAddParameter = document.getElementById('new_product__aggregation-parameter'); //забираю
+        // const newProductAggregationAddParameter = document.getElementById('new_product__aggregation-parameter'); //забираю
 
+        const additionalList = document.getElementById('additional').querySelectorAll('input:checked:not(#additional-metrics)');
 
         const AggregationGeo = newProductAggregationGeo.options[newProductAggregationGeo.selectedIndex].text;//присваиваю
         const AggregationGroup = newProductAggregationGroup.options[newProductAggregationGroup.selectedIndex].text;//присваиваю
-        const AggregationAddParameter = newProductAggregationAddParameter.options[newProductAggregationAddParameter.selectedIndex].text;//присваиваю
+        // const AggregationAddParameter = newProductAggregationAddParameter.options[newProductAggregationAddParameter.selectedIndex].text;//присваиваю
 
 
         currentData['агрегат по географии'] = AggregationGeo; // добавляю в словарь
         currentData['агрегат по позиции'] = AggregationGroup; // добавляю в словарь
-        currentData['дополнительные показатели'] = AggregationAddParameter; // добавляю в словарь
+        // currentData['дополнительные показатели'] = AggregationAddParameter; // добавляю в словарь
+        delete currentData['дополнительные показатели']; // удаляем предыдущее значение
+        if (additionalList.length){
+            currentData['дополнительные показатели'] = Array.from(additionalList).map( (el) => {
+                return document.querySelector(`label[for="${el.id}"]`).textContent
+            })
+        }
+
         localStorage.setItem('globalParametersNewProducts', JSON.stringify(currentData));
     }
     window.saveGlobalParametersRegularNewProducts();
@@ -288,38 +300,35 @@ window.loadAndFilterDataNewProducts = function () {
 
         // Добавление стилей
         const style = document.createElement('style');
-        style.textContent =
-            `
-        table {
-               width: 100%;
-        border-collapse: collapse;
-        font-family: Inter, sans-serif;
-        font-size: 14px;
-        background-color: white;
-        border-radius: 8px; /* Закругляем углы */
-        overflow: hidden; /* Скрываем острые углы у ячеек */
-        border-style: hidden; /* Скрываем внешнюю границу таблицы (опционально) */
-        box-shadow: 0 0 0 1px #E0E0E0; /* Восстанавливаем видимость границы (опционально) */
-        }
-        th, td {
-            padding: 12px 15px;
-            text-align: left;
-            border: 1px solid #E0E0E0;
-        }
-        th {
-            background-color: #F1F2FF;
-            color: #333;
-            font-weight: 600;
-            border-bottom: 2px solid #D0D0D0;
-        }
-        tr {
-            background-color: white;
-        }
-        tr:hover {
-            background-color: #F8F8F8;
-        }
-    `
-            ;
+        style.textContent =`
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                font-family: Inter, sans-serif;
+                font-size: 14px;
+                background-color: white;
+                border-radius: 8px; /* Закругляем углы */
+                overflow: hidden; /* Скрываем острые углы у ячеек */
+                border-style: hidden; /* Скрываем внешнюю границу таблицы (опционально) */
+                box-shadow: 0 0 0 1px #E0E0E0; /* Восстанавливаем видимость границы (опционально) */
+            }
+            th, td {
+                padding: 12px 15px;
+                text-align: left;
+                border: 1px solid #E0E0E0;
+            }
+            th {
+                background-color: #F1F2FF;
+                color: #333;
+                font-weight: 600;
+                border-bottom: 2px solid #D0D0D0;
+            }
+            tr {
+                background-color: white;
+            }
+            tr:hover {
+                background-color: #F8F8F8;
+            }`;
         iframeDocument.head.appendChild(style);
         const table = iframeDocument.createElement('table');
         table.innerHTML = ''; // Очистка предыдущего содержимого
@@ -353,8 +362,11 @@ window.loadAndFilterDataNewProducts = function () {
 
         // Создание заголовков, начиная с 4-го столбца
         const headers = Object.keys(data[0]);
+        const startIndex = 3;
+        let periodValue = Number(document.getElementById('period').value)
+        const period = startIndex + 13 + periodValue > headers.length ? headers.length : startIndex + 13 + periodValue;
         const headerRow = document.createElement('tr');
-        for (let i = 3; i < headers.length; i++) { // Начинаем с 4-го столбца (индекс 3)
+        for (let i = startIndex; i < period; i++) { // Начинаем с 4-го столбца (индекс 3)
             const th = document.createElement('th');
             th.textContent = headers[i];
             headerRow.appendChild(th);
@@ -365,7 +377,7 @@ window.loadAndFilterDataNewProducts = function () {
         // Заполнение таблицы данными, начиная с 7-го столбца
         data.forEach(row => {
             const tr = document.createElement('tr');
-            for (let i = 3; i < headers.length; i++) { // Начинаем с 4-го столбца (индекс 3)
+            for (let i = startIndex; i < period; i++) { // Начинаем с 4-го столбца (индекс 3)
                 const td = document.createElement('td');
                 let cellValue = row[headers[i]];
 
@@ -388,8 +400,10 @@ window.loadAndFilterDataNewProducts = function () {
     // const url = './public/images/users/regAssort2.xlsx';// ссылки для локального компа
     // fetch('./public/images/users/regAssort2.xlsx')// ссылки для локального компа
     //const url = '   https://raw.githubusercontent.com/Kujavia/SputnikPro_test_2_2/master/public/images/demo_file/newProducts1.xlsx';
-    fetch('   https://raw.githubusercontent.com/Kujavia/SputnikPro_test_2_2/master/public/images/demo_file/newProducts1.xlsx')
-        // fetch('./public/images/demo_file/newProducts1.xlsx')// ссылки для локального компа
+    // fetch('   https://raw.githubusercontent.com/Kujavia/SputnikPro_test_2_2/master/public/images/demo_file/newProducts1.xlsx')
+    // fetch('./images/demo_file/newProducts1.xlsx')
+    // fetch('./public/images/demo_file/newProducts1.xlsx')// ссылки для локального компа
+    fetch('./data/newProducts/newProducts1.xlsx')
         .then(response => {
             if (!response.ok) {
                 throw new Error('Сеть не отвечает');
@@ -688,7 +702,10 @@ window.loadAndFilterDataSummaryPlan = function () {
         // Создание заголовков, начиная с 4-го столбца
         const headers = Object.keys(data[0]);
         const headerRow = document.createElement('tr');
-        for (let i = 4; i < headers.length; i++) { // Начинаем с 4-го столбца (индекс 3)
+        const startIndex = 4;
+        let periodValue = Number(document.getElementById('period').value)
+        const period = startIndex + 13 + periodValue > headers.length ? headers.length : startIndex + 13 + periodValue;
+        for (let i = startIndex; i < period; i++) { // Начинаем с 4-го столбца (индекс 3)
             const th = document.createElement('th');
             th.textContent = headers[i];
             headerRow.appendChild(th);
@@ -699,7 +716,7 @@ window.loadAndFilterDataSummaryPlan = function () {
         // Заполнение таблицы данными, начиная с 7-го столбца
         data.forEach(row => {
             const tr = document.createElement('tr');
-            for (let i = 4; i < headers.length; i++) { // Начинаем с 4-го столбца (индекс 3)
+            for (let i = startIndex; i < period; i++) { // Начинаем с 4-го столбца (индекс 3)
                 const td = document.createElement('td');
                 let cellValue = row[headers[i]];
 
@@ -722,8 +739,9 @@ window.loadAndFilterDataSummaryPlan = function () {
     // const url = './public/images/users/regAssort2.xlsx';// ссылки для локального компа
     // fetch('./public/images/users/regAssort2.xlsx')// ссылки для локального компа
     //const url = '   https://raw.githubusercontent.com/Kujavia/SputnikPro_test_2_2/master/public/images/demo_file/summaryPlan.xlsx';
-    // fetch('https://raw.githubusercontent.com/Kujavia/SputnikPro_test_2_2/master/public/images/demo_file/summaryPlan.xlsx')
-    fetch('./images/demo_file/summaryPlan.xlsx')
+    fetch('./data/summaryPlan/summaryPlan.xlsx')
+        // fetch('https://raw.githubusercontent.com/Kujavia/SputnikPro_test_2_2/master/public/images/demo_file/summaryPlan.xlsx')
+        // fetch('./images/demo_file/summaryPlan.xlsx')
         // fetch('./public/images/demo_file/summaryPlan.xlsx')// ссылки для локального компа
         .then(response => {
             if (!response.ok) {

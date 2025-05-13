@@ -12,6 +12,8 @@ export default window.saveSelectedGlobalParameters = function () {
     const parametersBefore = {};
 
     // Получаем значения из селектов
+    
+    const flexCheckDefaultSeason = document.getElementById('flexCheckDefaultSeason');
     const timeAggregation = document.getElementById("parameters_aggregation-time");
     const skuAggregation = document.getElementById("parameters_aggregation-scu");
     const oosMethod = document.getElementById("parameters_oos-method");
@@ -21,7 +23,7 @@ export default window.saveSelectedGlobalParameters = function () {
     const salesRecoveryMethod = document.querySelector('input[name="flexRadioDefaultRecovery"]:checked');
 
     // Находим все радио-кнопки с именем 'flexRadioDefaultOOS'
-    const radioButtons = document.querySelectorAll('input[name="flexRadioDefaultOOS"]');
+    // const radioButtons = document.querySelectorAll('input[name="flexRadioDefaultOOS"]');
     // Находим выбранную радио-кнопку
     ////const selectedRadio = Array.from(radioButtons).find(radio => radio.checked);
     // Получаем текст выбранной радио-кнопки
@@ -33,6 +35,10 @@ export default window.saveSelectedGlobalParameters = function () {
     const labelsalesRecoveryMethod = document.querySelector(`label[for="${salesRecoveryMethod.id}"]`);
 
     // Сохраняем текстовые значения в объект
+
+    if (flexCheckDefaultSeason.checked) {
+        parameters['глобальная сезонность'] = document.getElementById('parameters_seasonCoeff').value
+    }
 
     parameters['очистка от промо'] = labelpromoMethod.textContent.trim();
     parameters['очистка от выбросов'] = labelspikesMethod.textContent.trim();
