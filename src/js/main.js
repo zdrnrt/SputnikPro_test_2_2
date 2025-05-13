@@ -425,6 +425,8 @@ window.loadAndFilterDataNewProducts = function () {
         });
 };
 
+showContent_promo();
+
 //PROMO global*********
 window.loadAndFilterDataPromo = function () {
     window.saveGlobalParametersPromo = function () {
@@ -436,7 +438,8 @@ window.loadAndFilterDataPromo = function () {
 
         const promoCoefficient = promoСoefficients.options[promoСoefficients.selectedIndex].text;//присваиваю
 
-        currentData['выбор коэффициентов'] = promoCoefficient; // добавляю в словарь
+        // currentData['выбор коэффициентов'] = promoCoefficient; // добавляю в словарь
+        currentData['Выбрать коэффициенты'] = promoCoefficient; // добавляю в словарь
 
         localStorage.setItem('globalParametersPromo', JSON.stringify(currentData));
     }
@@ -461,38 +464,35 @@ window.loadAndFilterDataPromo = function () {
 
         // Добавление стилей
         const style = document.createElement('style');
-        style.textContent =
-            `
-        table {
-               width: 100%;
-        border-collapse: collapse;
-        font-family: Inter, sans-serif;
-        font-size: 14px;
-        background-color: white;
-        border-radius: 8px; /* Закругляем углы */
-        overflow: hidden; /* Скрываем острые углы у ячеек */
-        border-style: hidden; /* Скрываем внешнюю границу таблицы (опционально) */
-        box-shadow: 0 0 0 1px #E0E0E0; /* Восстанавливаем видимость границы (опционально) */
-        }
-        th, td {
-            padding: 12px 15px;
-            text-align: left;
-            border: 1px solid #E0E0E0;
-        }
-        th {
-            background-color: #F1F2FF;
-            color: #333;
-            font-weight: 600;
-            border-bottom: 2px solid #D0D0D0;
-        }
-        tr {
-            background-color: white;
-        }
-        tr:hover {
-            background-color: #F8F8F8;
-        }
-    `
-            ;
+        style.textContent =`
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                font-family: Inter, sans-serif;
+                font-size: 14px;
+                background-color: white;
+                border-radius: 8px; /* Закругляем углы */
+                overflow: hidden; /* Скрываем острые углы у ячеек */
+                border-style: hidden; /* Скрываем внешнюю границу таблицы (опционально) */
+                box-shadow: 0 0 0 1px #E0E0E0; /* Восстанавливаем видимость границы (опционально) */
+            }
+            th, td {
+                padding: 12px 15px;
+                text-align: left;
+                border: 1px solid #E0E0E0;
+            }
+            th {
+                background-color: #F1F2FF;
+                color: #333;
+                font-weight: 600;
+                border-bottom: 2px solid #D0D0D0;
+            }
+            tr {
+                background-color: white;
+            }
+            tr:hover {
+                background-color: #F8F8F8;
+        }`;
         iframeDocument.head.appendChild(style);
         const table = iframeDocument.createElement('table');
         table.innerHTML = ''; // Очистка предыдущего содержимого
@@ -526,8 +526,11 @@ window.loadAndFilterDataPromo = function () {
 
         // Создание заголовков, начиная с 4-го столбца
         const headers = Object.keys(data[0]);
+        const startIndex = 1;
+        let periodValue = Number(document.getElementById('period').value)
+        const period = startIndex + 13 + periodValue > headers.length ? headers.length : startIndex + 13 + periodValue;
         const headerRow = document.createElement('tr');
-        for (let i = 2; i < headers.length; i++) { // Начинаем с 4-го столбца (индекс 3)
+        for (let i = startIndex; i < period; i++) { // Начинаем с 4-го столбца (индекс 3)
             const th = document.createElement('th');
             th.textContent = headers[i];
             headerRow.appendChild(th);
@@ -538,7 +541,7 @@ window.loadAndFilterDataPromo = function () {
         // Заполнение таблицы данными, начиная с 7-го столбца
         data.forEach(row => {
             const tr = document.createElement('tr');
-            for (let i = 2; i < headers.length; i++) { // Начинаем с 4-го столбца (индекс 3)
+            for (let i = startIndex; i < period; i++) { // Начинаем с 4-го столбца (индекс 3)
                 const td = document.createElement('td');
                 let cellValue = row[headers[i]];
 
@@ -561,7 +564,8 @@ window.loadAndFilterDataPromo = function () {
     // const url = './public/images/users/regAssort2.xlsx';// ссылки для локального компа
     // fetch('./public/images/users/regAssort2.xlsx')// ссылки для локального компа
     //const url = '   https://raw.githubusercontent.com/Kujavia/SputnikPro_test_2_2/master/public/images/demo_file/promo.xlsx';
-    fetch('   https://raw.githubusercontent.com/Kujavia/SputnikPro_test_2_2/master/public/images/demo_file/promo.xlsx')
+    fetch('./data/promo/promo2.xlsx')
+        // fetch('https://raw.githubusercontent.com/Kujavia/SputnikPro_test_2_2/master/public/images/demo_file/promo.xlsx')
         // fetch('./public/images/demo_file/promo.xlsx')// ссылки для локального компа
         .then(response => {
             if (!response.ok) {
