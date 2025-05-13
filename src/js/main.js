@@ -425,8 +425,6 @@ window.loadAndFilterDataNewProducts = function () {
         });
 };
 
-showContent_promo();
-
 //PROMO global*********
 window.loadAndFilterDataPromo = function () {
     window.saveGlobalParametersPromo = function () {
