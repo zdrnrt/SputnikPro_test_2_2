@@ -3,7 +3,7 @@ import Plotly from 'plotly.js-dist-min';
 
 export default window.loadDataSeasonality = function() {
     window.saveSelectedGlobalParametersSeasonality = function() {
-        let currentData = JSON.parse(localStorage.getItem('globalParameters'));
+        let currentData = JSON.parse(localStorage.getItem('globalParametersSeasonality'));
         if (!currentData) {
             currentData = {}; // Если нет, создаем новый объект
         }
@@ -11,7 +11,7 @@ export default window.loadDataSeasonality = function() {
         // const seasonality_method = document.getElementById('seasonality_method').value;
         const seasonality_method = seasonalityMethodElement.options[seasonalityMethodElement.selectedIndex].text;
         currentData['сезонность'] = seasonality_method;
-        localStorage.setItem('globalParameters', JSON.stringify(currentData));
+        localStorage.setItem('globalParametersSeasonality', JSON.stringify(currentData));
         }
     window.saveSelectedGlobalParametersSeasonality()
 

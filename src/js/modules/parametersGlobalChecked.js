@@ -37,7 +37,7 @@ export default window.saveSelectedGlobalParameters = function () {
     // Сохраняем текстовые значения в объект
 
     if (flexCheckDefaultSeason.checked) {
-        parameters['глобальная сезонность'] = document.getElementById('parameters_seasonCoeff').value
+        parameters['сезонность'] = document.getElementById('parameters_seasonCoeff').value
     }
 
     parameters['очистка от промо'] = labelpromoMethod.textContent.trim();

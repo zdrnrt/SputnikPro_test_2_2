@@ -96,7 +96,7 @@ window.loadAndFilterData = function () {
         iframe.contentDocument.body.innerHTML = '<p>Выберите глобальные параметры</p>';
         return; // Прекращаем выполнение функции
     }
-    if (!parameters['глобальная сезонность']) {
+    if (!parameters['сезонность']) {
         iframe.contentDocument.body.innerHTML = '<p>Выберите метод расчета сезонности</p>';
         return; // Прекращаем выполнение функции
     }
