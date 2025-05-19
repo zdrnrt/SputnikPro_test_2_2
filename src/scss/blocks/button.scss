@@ -31,6 +31,7 @@ button{
 .btn-primary {
   --bs-btn-bg: #{rgba($cl-purple, 0.9)};
   --bs-btn-border-color: #{rgba($cl-purple, 0.9)};
+  --bs-btn-hover-color: #{$cl-white};
   --bs-btn-hover-bg: #{$cl-purple};
   --bs-btn-hover-border-color: #{$cl-purple};
   --bs-btn-active-color: #{$cl-white};
