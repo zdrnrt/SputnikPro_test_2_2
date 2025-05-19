@@ -15,7 +15,7 @@
           >
           <select
             id="regular_assort__aggregation-time"
-            class="form-select form-select-sm fs-5"
+            class="form-select"
           >
             <option value="not_selected">Не установлено</option>
             <option value="option1">День</option>
@@ -30,7 +30,7 @@
           >
           <select
             id="regular_assort__aggregation-geo"
-            class="form-select form-select-sm fs-5"
+            class="form-select"
           >
             <option value="not_selected">Не установлено</option>
             <option value="chain" selected>Сеть</option>
@@ -46,7 +46,7 @@
           >
           <select
             id="regular_assort__aggregation-scu"
-            class="form-select form-select-sm fs-5"
+            class="form-select"
           >
             <option value="not_selected">Не установлено</option>
             <option value="option2">Категория</option>
@@ -144,25 +144,27 @@
             >
           </div>
         </div>
-        <label for="seasonality_scenario">Сценарий расчета</label>
+        <label for="seasonality_scenario" class="form-label">Сценарий расчета</label>
         <select
           id="seasonality_scenario"
           placeholder="Выберите из списка"
-          class="form-select form-select-sm fs-5"
+          class="form-select"
         >
           <option value="" disabled selected>Выберите из списка</option>
           <option value="2">Сценарий 1</option>
           <option value="2">Сценарий 2</option>
         </select>
-        <div class="d-flex justify-content-between mt-5">
+        <div class="row mt-5">
+          <div class="col-4">
           <button
             type="button"
-            class="btn btn-outline-primary"
-            style="width: 31%"
+            class="btn btn-outline-primary w-100"
+            _style="width: 31%"
             onclick="scenariosSaveOpen();"
           >
             Сохранить сценарий
           </button>
+          </div>
           <!-- <button
             type="button"
             class="btn btn-outline-secondary"
@@ -171,14 +173,16 @@
           >
             Оптимизировать
           </button> -->
+          <div class="col-4">
           <button
             type="button"
-            class="btn btn-primary"
-            style="width: 31%"
+            class="btn btn-primary w-100"
+            _style="width: 31%"
            onclick="loadAndFilterDataSummaryPlan()" id="summary_plan__calculateForecastButton"
           >
             Рассчитать прогноз
           </button>
+          </div>
         </div>
       </div>
       <!-- </div> -->

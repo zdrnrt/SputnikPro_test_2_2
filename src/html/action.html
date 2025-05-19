@@ -9,7 +9,7 @@
       <!-- <div class="card"> -->
       <div class="card-body">
         <h5 class="card-title block_title mb-3">Агрегация выходных данных</h5>
-        <div class="mb-1">
+        <div class="mb-3">
           <label for="regular_assort__aggregation-time" class="form-label"
             >Позиция</label
           >
@@ -22,11 +22,11 @@
             <option value="option3">SKU3</option>
           </select>
         </div>
-        <div class="mb-1">
+        <div class="mb-3">
           <label for="dateAction" class="form-label">Дата создания</label>
           <input type="date" class="form-control" id="dateAction" />
         </div>
-        <div class="mb-1">
+        <div class="mb-3">
           <label for="regular_assort__aggregation-scu" class="form-label"
             >Территория</label
           >
@@ -40,7 +40,7 @@
             <option value="option2">Регион3</option>
           </select>
         </div>
-        <div class="mb-1">
+        <div class="mb-3">
           <label for="regular_assort__aggregation-scu" class="form-label"
             >Механика акции</label
           >
@@ -54,7 +54,7 @@
             <option value="option2">Подарок</option>
           </select>
         </div>
-        <div class="mb-1">
+        <div class="mb-3">
           <label for="regular_assort__aggregation-scu" class="form-label"
             >% скидки</label
           >
@@ -126,23 +126,32 @@
               </button>
             </div>
           </div> -->
-        <div class="mb-3">
-          <label for="dateActionStart" class="form-label"
+        <div class="">
+          <div class="mb-3">
+
+            <label for="dateActionStart" class="form-label"
             >Дата начала акции</label
-          >
-          <input type="date" class="form-control" id="dateActionStart" />
-          <label for="dateActionFinish" class="form-label"
+            >
+            <input type="date" class="form-control" id="dateActionStart" />
+          </div>
+            <div class="mb-3">
+
+            <label for="dateActionFinish" class="form-label"
             >Дата окончания акции</label
-          >
-          <input type="date" class="form-control" id="dateActionFinish" />
-          <label for="exampleFormControlTextarea1" class="form-label"
-            >Дополнительные сведения</label
+            >
+            <input type="date" class="form-control" id="dateActionFinish" />
+          </div>
+          <div class="mb-3">
+            <label for="exampleFormControlTextarea1" class="form-label" >Дополнительные сведения</label
           >
           <textarea
             class="form-control"
             id="exampleFormControlTextarea1"
             rows="3"
           ></textarea>
+          </div>
+          <div class="mb-3">
+
           <label for="exampleFormControlTextarea1" class="form-label"
             >Комментарий ответственного</label
           >
@@ -151,32 +160,36 @@
             id="exampleFormControlTextarea1"
             rows="3"
           ></textarea>
-          <div class="d-flex justify-content-between mt-5">
-            <button
-              type="button"
-              class="btn btn-outline-primary"
-              style="width: 31%"
-              onclick="scenariosSaveOpen();"
-            >
-              Сохранить изменения
-            </button>
-            <button
-              type="button"
-              class="btn btn-outline-secondary"
-              style="width: 31%"
-              onclick=""
-            >
-              Скачать шаблон
-            </button>
-            <button
-              type="button"
-              class="btn btn-primary"
-              style="width: 31%"
-              onclick=""
-              id="regular_assort__calculateForecastButton"
-            >
-              Рассчитать прогноз
-            </button>
+          </div>
+          <div class="row mt-5">
+            <div class="col-4">
+              <button
+                type="button"
+                class="btn btn-outline-primary w-100"
+                onclick="scenariosSaveOpen();"
+              >
+                Сохранить изменения
+              </button>
+            </div>
+            <div class="col-4">
+              <button
+                type="button"
+                class="btn btn-outline-secondary w-100"
+                onclick=""
+              >
+                Скачать шаблон
+              </button>
+            </div>
+            <div class="col-4">
+              <button
+                type="button"
+                class="btn btn-primary w-100"
+                onclick=""
+                id="regular_assort__calculateForecastButton"
+              >
+                Рассчитать прогноз
+              </button>
+            </div>
           </div>
           <label class="mt-5" for="action_selectFile">
             Загрузить данные, используя .xslx
@@ -188,7 +201,6 @@
             />
           </label>
         </div>
-        <div></div>
       </div>
     </div>
   </div>

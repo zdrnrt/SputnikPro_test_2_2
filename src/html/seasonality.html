@@ -12,35 +12,41 @@
       <div class="card-body">
         <h5 class="card-title block_title">Агрегация данных</h5>
         <div class="regular_assort__aggregation mt-3">
-          <label for="seasonality_time">Агрегат по времени</label>
-          <select id="seasonality_time" class="form-select form-select-sm fs-5">
-            <option value="not_selected">Не установлено</option>
-            <option value="seasonality_timeDay">День</option>
-            <option value="seasonality_timeWeek" selected>Неделя</option>
-            <option value="seasonality_timeMonth">Месяц</option>
-            <option value="seasonality_timeQuarter">Квартал</option>
-          </select>
-          <label for="seasonality_geography">Агрегат по географии</label>
-          <select
-            id="seasonality_geography"
-            class="form-select form-select-sm fs-5"
-          >
-            <option value="not_selected">Не установлено</option>
-            <option value="seasonality_geographyСhain" selected>Сеть</option>
-            <option value="option1">Страна</option>
-            <option value="option2">Регион</option>
-            <option value="option3">Город</option>
-            <option value="option4">Магазин</option>
-          </select>
-          <label for="seasonality_groupSCU">Агрегат по позиции</label>
-          <select
-            id="seasonality_groupSCU"
-            class="form-select form-select-sm fs-5"
-          >
-            <option value="not_selected">Не установлено</option>
-            <option value="groupe1" selected>Категория</option>
-            <option value="option2">SKU</option>
-          </select>
+          <div class="mb-3">
+            <label for="seasonality_time">Агрегат по времени</label>
+            <select id="seasonality_time" class="form-select">
+              <option value="not_selected">Не установлено</option>
+              <option value="seasonality_timeDay">День</option>
+              <option value="seasonality_timeWeek" selected>Неделя</option>
+              <option value="seasonality_timeMonth">Месяц</option>
+              <option value="seasonality_timeQuarter">Квартал</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="seasonality_geography">Агрегат по географии</label>
+            <select
+              id="seasonality_geography"
+              class="form-select"
+            >
+              <option value="not_selected">Не установлено</option>
+              <option value="seasonality_geographyСhain" selected>Сеть</option>
+              <option value="option1">Страна</option>
+              <option value="option2">Регион</option>
+              <option value="option3">Город</option>
+              <option value="option4">Магазин</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="seasonality_groupSCU">Агрегат по позиции</label>
+            <select
+              id="seasonality_groupSCU"
+              class="form-select"
+            >
+              <option value="not_selected">Не установлено</option>
+              <option value="groupe1" selected>Категория</option>
+              <option value="option2">SKU</option>
+            </select>
+          </div>
         </div>
       </div>
     </div>
@@ -48,15 +54,17 @@
       <div class="card-body">
         <h5 class="card-title block_title">Настройки сезонности</h5>
         <div class="regular_assort__aggregation2 mt-3">
-          <label for="seasonality_method">Метод расчёта базы колебаний</label>
-          <select
-            id="seasonality_method"
-            class="form-select form-select-sm fs-5"
-          >
-            <option value="not_selected">Не установлено</option>
-            <option value="fluctuation_average" selected>Колебания от средней</option>
-            <option value="fluctuation_trend">Колебания от тренда</option>
-          </select>
+          <div class="mb-3">
+            <label for="seasonality_method">Метод расчёта базы колебаний</label>
+            <select
+              id="seasonality_method"
+              class="form-select"
+            >
+              <option value="not_selected">Не установлено</option>
+              <option value="fluctuation_average" selected>Колебания от средней</option>
+              <option value="fluctuation_trend">Колебания от тренда</option>
+            </select>
+          </div>
           <div>
             <div class="form-check form-switch seasonality_pre-smoothing">
               <input
@@ -71,21 +79,22 @@
               >
             </div>
           </div>
-
-          <label class="mt-3" for="seasonality_scenario"
-            >Выбрать коэффициенты</label
-          >
-          <select
-            id="seasonality_scenario"
-            placeholder="Выберите из списка"
-            class="form-select form-select-sm fs-5"
-          >
-            <option value="globalParamGeoNot" selected>По средней#2</option>
-            <option value="globalParamGeoChain">Коэффициенты по тренду#1</option>
-            <!-- <option value="" disabled selected>Выберите из списка</option> -->
-            <!-- <option value="1">Коэффициенты по тренду#1</option> -->
-            <!-- <option value="2">По средней#2</option> -->
-          </select>
+          <div class="mb-3">
+            <label class="mt-3" for="seasonality_scenario"
+              >Выбрать коэффициенты</label
+            >
+            <select
+              id="seasonality_scenario"
+              placeholder="Выберите из списка"
+              class="form-select"
+            >
+              <option value="globalParamGeoNot" selected>По средней#2</option>
+              <option value="globalParamGeoChain">Коэффициенты по тренду#1</option>
+              <!-- <option value="" disabled selected>Выберите из списка</option> -->
+              <!-- <option value="1">Коэффициенты по тренду#1</option> -->
+              <!-- <option value="2">По средней#2</option> -->
+            </select>
+          </div>
           <div class="seasonality_buttons">
             <button
               type="button"
