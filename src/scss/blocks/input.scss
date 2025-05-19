@@ -8,13 +8,8 @@
     box-shadow: 0 0 0 .2rem $cl-purple-light;
   }
 }
-.form-control{
-  &:focus{
-    border-color: $cl-purple;
-    box-shadow: 0 0 0 .2rem $cl-purple-light;
-  }
-}
-.form-select{
+
+.form-control, .form-select{
   &:focus{
     border-color: $cl-purple;
     box-shadow: 0 0 0 .2rem $cl-purple-light;

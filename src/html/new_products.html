@@ -10,9 +10,9 @@
       <div class="card-body">
         <h5 class="card-title block_title mb-3">Настройки расчета новинок</h5>
 
-        <div class="mb-1">
+        <div class="mb-3">
           <label for="new_product__aggregation-geo" class="form-label">Агрегат по географии</label>
-          <select id="new_product__aggregation-geo" class="form-select form-select-sm fs-5">
+          <select id="new_product__aggregation-geo" class="form-select">
             <option value="not_selected">Не установлено</option>
             <option value="chain" selected>Сеть</option>
             <option value="option2">Страна</option>
@@ -21,15 +21,15 @@
             <option value="option5">Магазин</option>
           </select>
         </div>
-        <div class="mb-1">
+        <div class="mb-3">
           <label for="new_product__aggregation-group" class="form-label">Агрегат по позиции</label>
-          <select id="new_product__aggregation-group" class="form-select form-select-sm fs-5">
+          <select id="new_product__aggregation-group" class="form-select">
             <option value="newProductParamGroupNot" selected>Не установлено</option>
             <option value="newProductParamTypeProduct">Категория</option>
             <option value="newProductParamSku">SKU</option>
           </select>
         </div>
-        <div id="additional" class="mb-1">
+        <div id="additional" class="mb-3">
           <div class="form-check custom-checkbox ml-1" id="methods-cleaning">
             <input
               class="form-check-input main-checkbox"
@@ -93,7 +93,7 @@
         </div>
         <!-- <div class="mb-1">
           <label for="new_product__aggregation-parameter" class="form-label">Дополнительные показатели</label>
-          <select id="new_product__aggregation-parameter" class="form-select form-select-sm fs-5">
+          <select id="new_product__aggregation-parameter" class="form-select">
             <option value="newProductAddParamNot" selected>Не установлено</option>
             <option value="newProductAddParamAbc">ABC</option>
             <option value="newProductAddParamXyz">XYZ</option>
@@ -136,30 +136,40 @@
             <select
               id="seasonality_scenario"
               placeholder="Выберите из списка"
-              class="form-select form-select-sm fs-5"
+              class="form-select"
             >
               <option value="" disabled selected>Выберите из списка</option>
               <option value="2">Рассчитанные</option>
               <option value="2">Пользовательские</option>
             </select> -->
-            <label for="seasonality_scenario">Сценарий расчета</label>
-            <select id="seasonality_scenario" placeholder="Выберите из списка" class="form-select form-select-sm fs-5">
+            <label for="seasonality_scenario" class="form-label">Сценарий расчета</label>
+            <select id="seasonality_scenario" placeholder="Выберите из списка" class="form-select">
               <option value="" disabled selected>Выберите из списка</option>
               <option value="2">Сценарий 1</option>
               <option value="2">Сценарий 2</option>
             </select>
             
-            <div class="d-flex justify-content-between mt-5">
-              <button type="button" class="btn btn-outline-primary" style="width: 31%" onclick="scenariosSaveOpen();" >
-                Сохранить сценарий
-              </button>
-              <button type="button" class="btn btn-outline-secondary" disabled>
-                Оптимизировать (в разработке)
-              </button>
-              <button type="button" class="btn btn-primary" style="width: 31%" onclick="loadAndFilterDataNewProducts()"
-                id="new_product__calculateForecastButton">
-                Рассчитать прогноз
-              </button>
+            <div class="row mt-5">
+              <div class="col-4">
+                <button type="button" class="btn btn-outline-primary w-100" _style="width: 31%" onclick="scenariosSaveOpen();" >
+                  Сохранить сценарий
+                </button>
+              </div>
+              <div class="col-4">
+                <button type="button" class="btn btn-outline-secondary w-100" disabled
+                  data-bs-toggle="tooltip"
+                  data-bs-placement="top"
+                  data-bs-custom-class="custom-tooltip"
+                  data-bs-title="В разработке"
+                >
+                  Оптимизировать
+                </button>
+              </div>
+              <div class="col-4">
+                <button type="button" class="btn btn-primary w-100" _style="width: 31%" onclick="loadAndFilterDataNewProducts()" id="new_product__calculateForecastButton">
+                  Рассчитать прогноз
+                </button>
+              </div>
             </div>
           </div>
         </div>

@@ -9,14 +9,9 @@
       <!-- <div class="card"> -->
       <div class="card-body">
         <h5 class="card-title block_title mb-3">Агрегация выходных данных</h5>
-        <div class="mb-1">
-          <label for="regular_assort__aggregation-time" class="form-label"
-            >Агрегат по времени</label
-          >
-          <select
-            id="regular_assort__aggregation-time"
-            class="form-select form-select-sm fs-5"
-          >
+        <div class="mb-3">
+          <label for="regular_assort__aggregation-time" class="form-label">Агрегат по времени</label>
+          <select id="regular_assort__aggregation-time" class="form-select">
             <option value="not_selected">Не установлено</option>
             <option value="option1">День</option>
             <option value="option2" selected>Неделя</option>
@@ -24,14 +19,9 @@
             <option value="option3">Квартал</option>
           </select>
         </div>
-        <div class="mb-1">
-          <label for="regular_assort__aggregation-geo" class="form-label"
-            >Агрегат по географии</label
-          >
-          <select
-            id="regular_assort__aggregation-geo"
-            class="form-select form-select-sm fs-5"
-          >
+        <div class="mb-3">
+          <label for="regular_assort__aggregation-geo" class="form-label">Агрегат по географии</label>
+          <select id="regular_assort__aggregation-geo" class="form-select">
             <option value="not_selected">Не установлено</option>
             <option value="chain" selected>Сеть</option>
             <option value="option2">Страна</option>
@@ -40,14 +30,9 @@
             <option value="option5">Магазин</option>
           </select>
         </div>
-        <div class="mb-1">
-          <label for="regular_assort__aggregation-scu" class="form-label"
-            >Агрегат по позиции</label
-          >
-          <select
-            id="regular_assort__aggregation-scu"
-            class="form-select form-select-sm fs-5"
-          >
+        <div class="mb-3">
+          <label for="regular_assort__aggregation-scu" class="form-label">Агрегат по позиции</label>
+          <select id="regular_assort__aggregation-scu" class="form-select">
             <option value="not_selected">Не установлено</option>
             <option value="option2">Категория</option>
             <option value="option2" selected>SKU</option>
@@ -57,25 +42,16 @@
           <div class="col-6">
             <div class="input-group mb-1">
               <span class="input-group-text">Период прогноза</span>
-              <input
-                id="period"
-                type="text"
-                class="form-control"
-                value="4"
-                aria-label="Сумма в рублях (с точкой и двумя десятичными знаками)"
-              />
+              <input id="period" type="text" class="form-control" value="4"
+                aria-label="Сумма в рублях (с точкой и двумя десятичными знаками)" />
               <span class="input-group-text">нед</span>
             </div>
           </div>
           <div class="col-6">
             <div class="input-group mb-3">
               <span class="input-group-text">Лаг прогноза</span>
-              <input
-                type="text"
-                class="form-control"
-                value="1"
-                aria-label="Сумма в рублях (с точкой и двумя десятичными знаками)"
-              />
+              <input type="text" class="form-control" value="1"
+                aria-label="Сумма в рублях (с точкой и двумя десятичными знаками)" />
               <span class="input-group-text">нед</span>
             </div>
           </div>
@@ -113,11 +89,7 @@
         </div> -->
         <div class="mb-3">
           <label for="promo_method">Выбрать коэффициенты</label>
-          <select
-            id="promo_method"
-            placeholder="Выберите из списка"
-            class="form-select form-select-sm fs-5"
-          >
+          <select id="promo_method" placeholder="Выберите из списка" class="form-select">
             <!-- <option value="" disabled selected>Выберите из списка</option> -->
             <!-- <option value="1">Кэф без ограничений#1</option> -->
 
@@ -129,66 +101,43 @@
             <option value="2">Кэф по авторазметке#2</option>
             <option value="2">Пользовательские</option>
           </select>
+        </div>
+        <div class="mb-5">
           <label for="seasonality_scenario">Сценарий расчета</label>
-          <select
-            id="seasonality_scenario"
-            placeholder="Выберите из списка"
-            class="form-select form-select-sm fs-5"
-          >
+          <select id="seasonality_scenario" placeholder="Выберите из списка" class="form-select">
             <option value="" disabled selected>Выберите из списка</option>
             <option value="2">Сценарий 1</option>
             <option value="2">Сценарий 2</option>
           </select>
-          <div class="d-flex justify-content-between mt-5">
-            <button
-              type="button"
-              class="btn btn-outline-primary"
-              style="width: 31%"
-              onclick="scenariosSaveOpen();"
-            >
-              Сохранить сценарий
-            </button>
-            <button
-              type="button"
-              class="btn btn-outline-secondary"
-              style="width: 31%"
-              onclick="promo_OptimizationButton()" id="promo__optimizeButton"
-            >
-              Оптимизировать
-            </button>
-            <button
-              type="button"
-              class="btn btn-primary"
-              style="width: 31%"
-              onclick="loadAndFilterDataPromo()"
-      id="promo__calculateForecastButton"
-            >
-              Рассчитать прогноз
-            </button>
-          </div>
         </div>
-       
+        <div class="d-flex justify-content-between">
+          <button type="button" class="btn btn-outline-primary" style="width: 31%" onclick="scenariosSaveOpen();">
+            Сохранить сценарий
+          </button>
+          <button type="button" class="btn btn-outline-secondary" style="width: 31%"
+            onclick="promo_OptimizationButton()" id="promo__optimizeButton">
+            Оптимизировать
+          </button>
+          <button type="button" class="btn btn-primary" style="width: 31%" onclick="loadAndFilterDataPromo()"
+            id="promo__calculateForecastButton">
+            Рассчитать прогноз
+          </button>
+        </div>
       </div>
+
     </div>
   </div>
   <div class="row border border-1 rounded-4 mx-1 shadow-sm mt-4 p-3">
     <!-- Заголовок -->
     <div class="d-flex justify-content-between align-items-start w-100">
       <p class="fw-bold mb-0 fs-5">Аналитические показатели</p>
-      <a
-        href="./data/promo/promo_forecast.xlsx"
-      >
+      <a href="./data/promo/promo_forecast.xlsx">
         Скачать
       </a>
     </div>
 
     <!-- iframe -->
-    <iframe
-      id="promo_PreviewIframe"
-      src=""
-      class="mt-3 w-100"
-      style="height: 400px; border: none"
-    ></iframe>
+    <iframe id="promo_PreviewIframe" src="" class="mt-3 w-100" style="height: 400px; border: none"></iframe>
   </div>
 </div>
 
@@ -257,13 +206,11 @@
 <div id="promo_modal">
   <div id="promo_modalContent">
     <h5 class="promo_modal-title">Выберите параметры оптимизации:</h5>
-    <label><input type="checkbox" name="option1" /> Выбор коэффициента</label
-    ><br />
+    <label><input type="checkbox" name="option1" /> Выбор коэффициента</label><br />
     <button onclick="promo_saveModalButton()" id="promo_modalSaveButton">
       Сохранить
     </button>
-    <button type="button"
-    class="btn btn-primary" onclick="promo_closeModalButton()" id="promo_ModalCloseButton">
+    <button type="button" class="btn btn-primary" onclick="promo_closeModalButton()" id="promo_ModalCloseButton">
       Закрыть
     </button>
   </div>

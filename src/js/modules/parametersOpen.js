@@ -1,5 +1,5 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+// import 'bootstrap/dist/css/bootstrap.min.css';
+// import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import Popover from 'bootstrap/js/dist/popover';
 import Tooltip from 'bootstrap/js/dist/tooltip'; // Добавляем импорт Tooltip
 

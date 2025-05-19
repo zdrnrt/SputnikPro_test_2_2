@@ -28,19 +28,7 @@ $border-radius: 0.8rem;
 $border-radius-table: 0.4rem;
 $transition-time: 0.2s;
 
-:root{
-  --bs-border-radius: 8px;
-  --bs-border-color: #EAEAF0;
-}
-
-//здесь переменные
-//$main-font: 'Open Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
-//$main-font: 'Roboto', sans-serif;
-// $main-font:  'Montserrat', sans-serif;
-// $main-font: 'PT Root UI', sans-serif;
-// $main-font: 'Poppins', sans-serif;
-//$secondary-font: "Sen", sans-serif;
-
+// 
 $primary-color: #00008B;
 $accent-color: #FF8C00;
 $second-color:#333;
@@ -58,14 +46,10 @@ $headerTable-color:rgba(35, 65, 187, 0.495);
 
 $transition-time: 0.2s;
 
-:root {
-  --bd-violet-bg: #6f42c1; /* Пример значения */
-  --bs-white: #fff;
-}
 .custom-tooltip {
-  --bs-tooltip-bg: var(--bd-violet-bg);
-  --bs-tooltip-color: var(--bs-white);
-  $tooltip-color:blue;
+  --bs-tooltip-bg: #{$cl-purple};
+  --bs-tooltip-color: #{$cl-white};
+  --bs-tooltip-font-size: 1rem;
 }
 
 :root{

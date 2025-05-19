@@ -39,38 +39,44 @@
       <div class="card-body" id="parameters_promo-method">
         <h5 class="card-title block_title">Агрегация данных</h5>
         <div class="parameters_aggregation mt-3">
-          <label for="parameters_aggregation-time">Агрегат по времени</label>
-          <select
-            id="parameters_aggregation-time"
-            class="form-select form-select-sm fs-5"
-          >
-            <option value="globalParamTimeNot" disabled>Не установлено</option>
-            <option value="globalParamTimeDay" disabled>День</option>
-            <option value="globalParamTimeWeek" selected>Неделя</option>
-            <option value="globalParamTimeQuarter" disabled>Квартал</option>
-            <option value="globalParamTimeMonth" disabled>Месяц</option>
-          </select>
+          <div class="mb-3">
+            <label for="parameters_aggregation-time">Агрегат по времени</label>
+            <select
+              id="parameters_aggregation-time"
+              class="form-select"
+            >
+              <option value="globalParamTimeNot" disabled>Не установлено</option>
+              <option value="globalParamTimeDay" disabled>День</option>
+              <option value="globalParamTimeWeek" selected>Неделя</option>
+              <option value="globalParamTimeQuarter" disabled>Квартал</option>
+              <option value="globalParamTimeMonth" disabled>Месяц</option>
+            </select>
+          </div>
+          <div class="mb-3">
           <label for="parameters_aggregation-geo">Агрегат по географии</label>
-          <select
-            id="parameters_aggregation-geo"
-            class="form-select form-select-sm fs-5"
-          >
-            <option value="globalParamGeoNot">Не установлено</option>
-            <option value="globalParamGeoChain" selected>Сеть</option>
-            <option value="globalParamGeoCountry" disabled>Страна</option>
-            <option value="globalParamGeoRegion" disabled>Регион</option>
-            <option value="globalParamGeoCity" disabled>Город</option>
-            <option value="globalParamGeoStore" disabled>Магазин</option>
-          </select>
-          <label for="parameters_aggregation-scu">Агрегат по позиции</label>
-          <select
-            id="parameters_aggregation-scu"
-            class="form-select form-select-sm fs-5"
-          >
-            <option value="globalParamSkuNot" disabled>Не установлено</option>
-            <option value="globalParamTypeProduct" disabled>Категория</option>
-            <option value="globalParamSku" selected>SKU</option>
-          </select>
+            <select
+              id="parameters_aggregation-geo"
+              class="form-select"
+            >
+              <option value="globalParamGeoNot">Не установлено</option>
+              <option value="globalParamGeoChain" selected>Сеть</option>
+              <option value="globalParamGeoCountry" disabled>Страна</option>
+              <option value="globalParamGeoRegion" disabled>Регион</option>
+              <option value="globalParamGeoCity" disabled>Город</option>
+              <option value="globalParamGeoStore" disabled>Магазин</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="parameters_aggregation-scu">Агрегат по позиции</label>
+            <select
+              id="parameters_aggregation-scu"
+              class="form-select"
+            >
+              <option value="globalParamSkuNot" disabled>Не установлено</option>
+              <option value="globalParamTypeProduct" disabled>Категория</option>
+              <option value="globalParamSku" selected>SKU</option>
+            </select>
+          </div>
         </div>
       </div>
     </div>
@@ -182,7 +188,7 @@
           </label>
           <select
             id="parameters_seasonCoeff"
-            class="form-select form-select-sm fs-6"
+            class="form-select"
           >
             <!-- <option value="Не установлено" selected>Не установлено</option> -->
             <!-- <option value="Колебания от средней">Колебания от средней</option> -->
@@ -272,8 +278,7 @@
               data-bs-toggle="tooltip"
               data-bs-placement="top"
               data-bs-custom-class="custom-tooltip"
-              data-bs-title="Нижняя и верхняя граница в стандартных отклонениях от средней.
-Чем больше значение - тем больше свободы продаж"
+              data-bs-title="Нижняя и верхняя граница в стандартных отклонениях от средней. Чем больше значение - тем больше свободы продаж"
               >σ НГ</span
             >
             <input
@@ -331,8 +336,7 @@
               data-bs-toggle="tooltip"
               data-bs-placement="top"
               data-bs-custom-class="custom-tooltip"
-              data-bs-title="Нижняя и верхняя граница в интерквартиле от первого квартиля и третьего.
-Чем больше значение - тем больше свободы продаж"
+              data-bs-title="Нижняя и верхняя граница в интерквартиле от первого квартиля и третьего. Чем больше значение - тем больше свободы продаж"
               >IQR НГ</span
             >
             <input
@@ -406,8 +410,7 @@
               data-bs-toggle="tooltip"
               data-bs-placement="top"
               data-bs-custom-class="custom-tooltip"
-              data-bs-title="Среднее в день за период(неделя, месяц, квартал).
-          Если средний остаток в расчитываемый период меньше, чем установленное значение"
+              data-bs-title="Среднее в день за период(неделя, месяц, квартал). Если средний остаток в расчитываемый период меньше, чем установленное значение"
               >Минимальное значение</span
             >
             <input
@@ -436,8 +439,8 @@
               id="inputGroup-sizing-sm"
               data-bs-toggle="tooltip"
               data-bs-placement="top"
-              data-bs-title="Сумма за период(неделя, месяц, квартал).
-          Если сумма остатка в расчитываемый период меньшее чем установленное значение"
+              data-bs-custom-class="custom-tooltip"
+              data-bs-title="Сумма за период(неделя, месяц, квартал). Если сумма остатка в расчитываемый период меньшее чем установленное значение"
               >Минимальное значение</span
             >
             <input
@@ -467,9 +470,7 @@
               data-bs-toggle="tooltip"
               data-bs-placement="top"
               data-bs-custom-class="custom-tooltip"
-              data-bs-title="Доля ТТ где остаток SKU >0 по дням.
-Среднее значение доли за период(неделя, месяц, квартал)
-Если среднее значение доли за период меньше чем установленное значение"
+              data-bs-title="Доля ТТ где остаток SKU >0 по дням. Среднее значение доли за период(неделя, месяц, квартал) Если среднее значение доли за период меньше чем установленное значение"
               >Доля ТТ с остатком</span
             >
             <input
@@ -499,8 +500,7 @@
               data-bs-toggle="tooltip"
               data-bs-placement="top"
               data-bs-custom-class="custom-tooltip"
-              data-bs-title="Доля дней где остаток >0 за период(неделя, месяц,квартал).
-Если расчитанная доля за период меньше чем установленное значение"
+              data-bs-title="Доля дней где остаток >0 за период(неделя, месяц,квартал). Если расчитанная доля за период меньше чем установленное значение"
               >Доля дней с остатком</span
             >
             <input
@@ -581,8 +581,7 @@
               id="inputGroup-sizing-sm"
               data-bs-toggle="tooltip"
               data-bs-custom-class="custom-tooltip"
-              data-bs-title="Смещение периода на количество значений (может быть как и + так и -).
-У краев данных происходит дополнительное смещение что бы покрыть весь заданный период"
+              data-bs-title="Смещение периода на количество значений (может быть как и + так и -). У краев данных происходит дополнительное смещение что бы покрыть весь заданный период"
               >Сдвиг</span
             >
             <input

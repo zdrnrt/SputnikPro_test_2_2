@@ -3,6 +3,7 @@ import * as XLSX from 'xlsx';  // ES6-импорт
 import 'jquery';
 import 'bootstrap/dist/js/bootstrap.min.js'
 import 'bootstrap/dist/css/bootstrap.min.css';
+// import '../scss/bootstrap.css'
 import '../scss/style.scss'
 import './blocks/aside.js'
 import './tools.js'
@@ -47,7 +48,7 @@ import imageNP from '/images/users/question.jpg';
 import imageU1 from '/images/users/user1.png';
 /*вставка юзера*/
 
-function initBootstrapTooltips() {
+export function initBootstrapTooltips() {
     // Находим все неинициализированные tooltips
     document.querySelectorAll('[data-bs-toggle="tooltip"]:not(.bs-tooltip-initialized)').forEach(el => {
         new bootstrap.Tooltip(el);
