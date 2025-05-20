@@ -20,7 +20,16 @@ button{
   --bs-btn-disabled-bg: #{$cl-grey};
   --bs-btn-disabled-border-color: #{$cl-grey};
   --bs-btn-disabled-opacity: 0.7;
-  
+  .spinner-border{
+    display: none;
+    visibility: hidden;
+  }
+  &--loading{
+    .spinner-border{
+      display: inline-block;
+      visibility: visible;
+    }
+  }
   &:focus-visible,
   &:active,
   &:focus{

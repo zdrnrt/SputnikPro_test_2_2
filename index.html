@@ -41,46 +41,54 @@
             </ul>
           </div>
         </header>
-        <nav id="nav" class="aside__nav aside-nav">
+        <nav id="nav" class="aside__nav aside-nav overflow-auto">
           <button class="aside-nav__item nav-item d-flex justify-content-start align-items-center"
             onclick="tabChange(this); showContent_parameters();">
             <img src="./public/images/icons/table.svg" alt="Данные" class="nav-item__icon" />
-            <div class="nav-item__title">Глобальные параметры</div>
+            <span class="nav-item__title">Глобальные параметры</span>
           </button>
           <button id="seasonalityNavItem"
             class="aside-nav__item nav-item d-flex justify-content-start align-items-center collapsed"
             data-bs-toggle="collapse" data-bs-target="#map-nav-collapse" aria-expanded="true"
             aria-controls="nav-collapse">
             <img src="./public/images/icons/settings.svg" alt="Данные" class="nav-item__icon" />
-            <div class="nav-item__title">Прогнозирование</div>
+            <span class="nav-item__title">Прогнозирование</span>
             <img src="./public/images/icons/angle.svg" alt="Данные" class="nav-item__angle" />
           </button>
           <div id="map-nav-collapse" class="collapse aside-nav__item aside-nav__item--collapse" data-bs-parent="nav">
             <button id="seasonalityNav" class="aside-nav__item nav-item d-flex justify-content-start align-items-center"
               onclick="tabChange(this); showContent_seasonality();">
-              <div class="nav-item__title">Сезонность</div>
+              <span class="nav-item__title">Сезонность</span>
             </button>
             <button class="aside-nav__item nav-item d-flex justify-content-start align-items-center"
               onclick="tabChange(this); showContent_regular_assort();">
-              <div class="nav-item__title">Регулярный ассортимент</div>
+              <span class="nav-item__title">Регулярный ассортимент</span>
             </button>
             <button class="aside-nav__item nav-item d-flex justify-content-start align-items-center"
               onclick="tabChange(this); showContent_promoRatio();">
-              <div class="nav-item__title">Промо-коэффициенты</div>
+              <span class="nav-item__title">Промо-коэффициенты</span>
             </button>
             <button class="aside-nav__item nav-item d-flex justify-content-start align-items-center"
               onclick="tabChange(this); showContent_promo();">
-              <div class="nav-item__title">Промо</div>
+              <span class="nav-item__title">Промо</span>
             </button>
             <button class="aside-nav__item nav-item d-flex justify-content-start align-items-center"
               onclick="tabChange(this); showContent_newProducts();">
-              <div class="nav-item__title">Новинки</div>
+              <span class="nav-item__title">Новинки</span>
+            </button>
+            <button class="aside-nav__item nav-item d-flex justify-content-start align-items-center"
+              onclick="tabChange(this); scenariosSettingOpen();">
+              <span class="nav-item__title">Сценарии: Настройка</span>
+            </button>
+            <button class="aside-nav__item nav-item d-flex justify-content-start align-items-center"
+              onclick="tabChange(this); scenariosAnalysisOpen();">
+              <span class="nav-item__title">Сценарии: Анализ</span>
             </button>
           </div>
           <button class="aside-nav__item nav-item d-flex justify-content-start align-items-center"
             onclick="tabChange(this); showContent_summaryPlan();" data-bs-toggle="collapse" data-bs-parent="nav">
             <img src="./public/images/icons/chart.svg" alt="Данные" class="nav-item__icon" />
-            <div class="nav-item__title">Итого план</div>
+            <span class="nav-item__title">Итого план</span>
           </button>
           <!-- <button
               class="aside-nav__item nav-item d-flex justify-content-start align-items-center"
@@ -98,7 +106,7 @@
           <button class="aside-nav__item nav-item d-flex justify-content-start align-items-center"
             onclick="tabChange(this); showContent_planner();" data-bs-toggle="collapse" data-bs-parent="nav">
             <img src="./public/images/icons/calendar.svg" alt="Цели" class="nav-item__icon" />
-            <div class="nav-item__title">Планировщик</div>
+            <span class="nav-item__title">Планировщик</span>
           </button>
 
           <!-- <button
@@ -127,21 +135,21 @@
             data-bs-toggle="collapse" data-bs-target="#tasks-nav-collapse" aria-expanded="true"
             aria-controls="nav-collapse">
             <img src="./public/images/icons/params.svg" alt="Постановщик" class="nav-item__icon" />
-            <div class="nav-item__title">Доп.сведения</div>
+            <span class="nav-item__title">Доп.сведения</span>
             <img src="./public/images/icons/angle.svg" alt="Данные" class="nav-item__angle" />
           </button>
           <div id="tasks-nav-collapse" class="collapse aside-nav__item aside-nav__item--collapse" data-bs-parent="nav">
             <button class="aside-nav__item nav-item d-flex justify-content-start align-items-center"
               onclick="tabChange(this); showContent_action()">
-              <div class="nav-item__title">Акции</div>
+              <span class="nav-item__title">Акции</span>
             </button>
             <button class="aside-nav__item nav-item d-flex justify-content-start align-items-center"
               onclick="tabChange(this);">
-              <div class="nav-item__title">Блокировки</div>
+              <span class="nav-item__title">Блокировки</span>
             </button>
             <button class="aside-nav__item nav-item d-flex justify-content-start align-items-center"
               onclick="tabChange(this);">
-              <div class="nav-item__title">Листинги</div>
+              <span class="nav-item__title">Листинги</span>
             </button>
           </div>
           <!-- <button class="aside-nav__item nav-item d-flex justify-content-start align-items-center" onclick="tabChange(this);">
