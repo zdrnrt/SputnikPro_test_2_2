@@ -21,8 +21,6 @@ export default defineConfig({
 				listing: resolve(__dirname, "src/html/listing.html"),
 				price_change: resolve(__dirname, "src/html/price_change.html"),
 				tender: resolve(__dirname, "src/html/tender.html"),
-				scenariosAnalysis: resolve(__dirname, "src/html/scenariosAnalysis.html"),
-				scenariosSetting: resolve(__dirname, "src/html/scenariosSetting.html"),
 			}
 		}
 	}

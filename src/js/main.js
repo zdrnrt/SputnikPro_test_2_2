@@ -36,8 +36,6 @@ import './modules/parametersGlobalChecked'
 import './modules/seasonalityGlobalChecked'
 import './modules/regularGlobalChecked'
 import './modules/scenarios_save.js'
-import './modules/scenariosAnalysis.js'
-import './modules/scenariosSetting.js'
 
 
 //@import url("https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css");
